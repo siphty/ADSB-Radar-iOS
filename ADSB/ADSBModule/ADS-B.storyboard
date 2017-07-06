@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="is2-qm-zg4">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Gotham-Bold.otf">
+            <string>Gotham-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Aero Chart View Controller-->
+        <scene sceneID="JsK-Pk-Chg">
+            <objects>
+                <viewController id="is2-qm-zg4" customClass="ADSBAeroChartViewController" customModule="ADSB_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iPt-zn-O8w"/>
+                        <viewControllerLayoutGuide type="bottom" id="9yt-tC-Uoy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="COT-41-4XG">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-sK-5WW" customClass="ADSBMapView" customModule="ADSB_Radar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUr-BA-fK9">
+                                <rect key="frame" x="615" y="52" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="InN-sM-Du7"/>
+                                    <constraint firstAttribute="width" constant="44" id="Xqb-82-uTw"/>
+                                </constraints>
+                                <state key="normal" image="map-marker-with-a-person-shape"/>
+                                <connections>
+                                    <action selector="remoteButtonTouchUpInside:" destination="is2-qm-zg4" eventType="touchUpInside" id="85G-vB-hgm"/>
+                                </connections>
+                            </button>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cnQ-1J-0bJ">
+                                <rect key="frame" x="87" y="8" width="494" height="31"/>
+                                <connections>
+                                    <action selector="radarRangeSliderTouchDown:" destination="is2-qm-zg4" eventType="touchDown" id="cw9-j1-DUT"/>
+                                    <action selector="radarRangeSliderTouchUp:" destination="is2-qm-zg4" eventType="touchUpOutside" id="RUE-gv-hmb"/>
+                                    <action selector="radarRangeSliderTouchUp:" destination="is2-qm-zg4" eventType="touchUpInside" id="zMo-vt-hmJ"/>
+                                    <action selector="radarRangeSliderValueChanged:" destination="is2-qm-zg4" eventType="valueChanged" id="6Z9-zG-bSF"/>
+                                </connections>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-Ur-GXh">
+                                <rect key="frame" x="610" y="324" width="51" height="31"/>
+                                <connections>
+                                    <action selector="displayOnGroundSwitchValueChanged:" destination="is2-qm-zg4" eventType="valueChanged" id="t1Q-Ob-zqb"/>
+                                </connections>
+                            </switch>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- KM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTI-wg-iSX">
+                                <rect key="frame" x="20" y="46" width="521" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="521" id="63C-4A-ovw"/>
+                                    <constraint firstAttribute="height" constant="95" id="NLq-Pv-brn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="120"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden aircrafts on the ground" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-KJ-Qlg">
+                                <rect key="frame" x="233" y="325" width="369" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="369" id="mvR-JW-kN8"/>
+                                    <constraint firstAttribute="height" constant="28" id="vgG-tK-Fwj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="12"/>
+                                <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cnQ-1J-0bJ" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="8" id="0Ab-sS-ZDj"/>
+                            <constraint firstItem="RTI-wg-iSX" firstAttribute="centerX" secondItem="COT-41-4XG" secondAttribute="centerX" constant="-53" id="3y0-wc-EB9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cnQ-1J-0bJ" secondAttribute="trailing" constant="68" id="5SM-PI-ab6"/>
+                            <constraint firstItem="nUr-BA-fK9" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="52" id="CKM-9y-XgT"/>
+                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="centerY" secondItem="HSg-KJ-Qlg" secondAttribute="centerY" id="Don-L8-EcC"/>
+                            <constraint firstItem="cnQ-1J-0bJ" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="69" id="FlK-C0-T6r"/>
+                            <constraint firstItem="ghr-sK-5WW" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="-20" id="U55-Az-jHE"/>
+                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" id="Z96-qN-djh"/>
+                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="leading" secondItem="HSg-KJ-Qlg" secondAttribute="trailing" constant="8" id="m3Y-pf-ex0"/>
+                            <constraint firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" constant="8" id="pa5-9k-iSc"/>
+                            <constraint firstAttribute="bottom" secondItem="1Cx-Ur-GXh" secondAttribute="bottom" constant="20" symbolic="YES" id="q5Z-Yu-64j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ghr-sK-5WW" secondAttribute="trailing" constant="-20" id="sxE-46-1rV"/>
+                            <constraint firstItem="RTI-wg-iSX" firstAttribute="top" secondItem="cnQ-1J-0bJ" secondAttribute="bottom" constant="8" id="vg6-hi-spq"/>
+                            <constraint firstItem="ghr-sK-5WW" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" id="w6K-iU-mF0"/>
+                            <constraint firstItem="9yt-tC-Uoy" firstAttribute="top" secondItem="ghr-sK-5WW" secondAttribute="bottom" id="yvn-mM-5yW"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="hideOnGroundACSwitch" destination="1Cx-Ur-GXh" id="kgL-Pg-Zd1"/>
+                        <outlet property="mapView" destination="ghr-sK-5WW" id="VIt-YX-VFm"/>
+                        <outlet property="rangeRadiusLabel" destination="RTI-wg-iSX" id="yVw-s5-1IY"/>
+                        <outlet property="switchDesciptionLabel" destination="HSg-KJ-Qlg" id="3px-6L-Nke"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1J-Cv-2Rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-96.7016491754123" y="1293.5999999999999"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="map-marker-with-a-person-shape" width="256" height="256"/>
+    </resources>
+</document>
