@@ -69,7 +69,7 @@ class ADSBMapView: MKMapView {
     
     override func didMoveToSuperview() {
         print("is Full Scree \(isFullScreen)")
-        print("screen size \(superview?.frame)")
+        print("screen size \(String(describing: superview?.frame))")
     }
     
     

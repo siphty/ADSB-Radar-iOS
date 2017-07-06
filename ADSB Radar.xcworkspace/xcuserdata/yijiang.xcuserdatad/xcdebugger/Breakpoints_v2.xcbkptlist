@@ -100,6 +100,38 @@
                   </ActionContent>
                </BreakpointActionProxy>
             </Actions>
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ADSB_Radar.ADSBAeroChartViewController.aircraftListHasBeenUpdated () -&gt; ()"
+                  moduleName = "ADSB Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yijiang/ARVR/ADSB%20Radar/ADSB%20Radar%20iOS/ADSB/ADSBModule/ADSBAeroChartViewController.swift"
+                  timestampString = "521048515.503258"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "428"
+                  endingLineNumber = "428"
+                  offsetFromSymbolStart = "4052">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ADSB_Radar.ADSBAeroChartViewController.(aircraftListHasBeenUpdated () -&gt; ()).(implicit closure #1)"
+                  moduleName = "ADSB Radar"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yijiang/ARVR/ADSB%20Radar/ADSB%20Radar%20iOS/ADSB/ADSBModule/ADSBAeroChartViewController.swift"
+                  timestampString = "521048515.506567"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "428"
+                  endingLineNumber = "428"
+                  offsetFromSymbolStart = "8">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
