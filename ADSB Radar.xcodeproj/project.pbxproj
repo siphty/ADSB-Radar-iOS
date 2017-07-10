@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A26C90B61F13245500FF9514 /* ARAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90AA1F13245500FF9514 /* ARAnnotation.swift */; };
+		A26C90B71F13245500FF9514 /* ARAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90AB1F13245500FF9514 /* ARAnnotationView.swift */; };
+		A26C90B81F13245500FF9514 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90AC1F13245500FF9514 /* ARConfiguration.swift */; };
+		A26C90B91F13245500FF9514 /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90AD1F13245500FF9514 /* ARTrackingManager.swift */; };
+		A26C90BA1F13245500FF9514 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90AE1F13245500FF9514 /* ARViewController.swift */; };
+		A26C90BB1F13245500FF9514 /* DebugMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26C90B01F13245500FF9514 /* DebugMapViewController.swift */; };
+		A26C90BC1F13245500FF9514 /* DebugMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B21F13245500FF9514 /* DebugMapViewController.xib */; };
+		A26C90BD1F13245500FF9514 /* hdar_close.png in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B31F13245500FF9514 /* hdar_close.png */; };
+		A26C90BE1F13245500FF9514 /* hdar_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B41F13245500FF9514 /* hdar_close@2x.png */; };
+		A26C90BF1F13245600FF9514 /* hdar_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B51F13245500FF9514 /* hdar_close@3x.png */; };
 		A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
 		A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA51F0B6A4E00A2C280 /* ViewController.swift */; };
 		A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2703CA71F0B6A4E00A2C280 /* Main.storyboard */; };
@@ -96,6 +106,16 @@
 		3DA6EECE855CCC0A77EF118A /* Pods-ADSB Radar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.release.xcconfig"; sourceTree = "<group>"; };
 		53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_Radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
+		A26C90AA1F13245500FF9514 /* ARAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotation.swift; sourceTree = "<group>"; };
+		A26C90AB1F13245500FF9514 /* ARAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARAnnotationView.swift; sourceTree = "<group>"; };
+		A26C90AC1F13245500FF9514 /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
+		A26C90AD1F13245500FF9514 /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
+		A26C90AE1F13245500FF9514 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		A26C90B01F13245500FF9514 /* DebugMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugMapViewController.swift; sourceTree = "<group>"; };
+		A26C90B21F13245500FF9514 /* DebugMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugMapViewController.xib; sourceTree = "<group>"; };
+		A26C90B31F13245500FF9514 /* hdar_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdar_close.png; sourceTree = "<group>"; };
+		A26C90B41F13245500FF9514 /* hdar_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hdar_close@2x.png"; sourceTree = "<group>"; };
+		A26C90B51F13245500FF9514 /* hdar_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hdar_close@3x.png"; sourceTree = "<group>"; };
 		A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ADSB Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2703CA51F0B6A4E00A2C280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +218,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A26C90A71F13242600FF9514 /* ARModule */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90A81F13245500FF9514 /* HDAugmentedReality */,
+			);
+			name = ARModule;
+			sourceTree = "<group>";
+		};
+		A26C90A81F13245500FF9514 /* HDAugmentedReality */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90A91F13245500FF9514 /* Classes */,
+				A26C90B11F13245500FF9514 /* Resources */,
+			);
+			path = HDAugmentedReality;
+			sourceTree = "<group>";
+		};
+		A26C90A91F13245500FF9514 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90AA1F13245500FF9514 /* ARAnnotation.swift */,
+				A26C90AB1F13245500FF9514 /* ARAnnotationView.swift */,
+				A26C90AC1F13245500FF9514 /* ARConfiguration.swift */,
+				A26C90AD1F13245500FF9514 /* ARTrackingManager.swift */,
+				A26C90AE1F13245500FF9514 /* ARViewController.swift */,
+				A26C90AF1F13245500FF9514 /* Debug */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A26C90AF1F13245500FF9514 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90B01F13245500FF9514 /* DebugMapViewController.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		A26C90B11F13245500FF9514 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90B21F13245500FF9514 /* DebugMapViewController.xib */,
+				A26C90B31F13245500FF9514 /* hdar_close.png */,
+				A26C90B41F13245500FF9514 /* hdar_close@2x.png */,
+				A26C90B51F13245500FF9514 /* hdar_close@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A2703C971F0B6A4E00A2C280 = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +302,7 @@
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
 				A2703CAA1F0B6A4E00A2C280 /* ADSB.xcdatamodeld */,
 				A2703D0F1F0BB7F700A2C280 /* ADSBModule */,
+				A26C90A71F13242600FF9514 /* ARModule */,
 			);
 			path = ADSB;
 			sourceTree = "<group>";
@@ -579,12 +649,15 @@
 			files = (
 				A2703D891F0D239E00A2C280 /* Gotham-LightItalic.otf in Resources */,
 				A2703D8B1F0D239E00A2C280 /* Gotham-MediumItalic.otf in Resources */,
+				A26C90BE1F13245500FF9514 /* hdar_close@2x.png in Resources */,
 				A2703D831F0D239E00A2C280 /* Gotham-BlackItalic.otf in Resources */,
 				A2703D991F0D239E00A2C280 /* GothamRnd-Medium.otf in Resources */,
 				A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */,
+				A26C90BC1F13245500FF9514 /* DebugMapViewController.xib in Resources */,
 				A2703D981F0D239E00A2C280 /* GothamRnd-MedIta.otf in Resources */,
 				A2703D861F0D239E00A2C280 /* Gotham-Book.otf in Resources */,
 				A2703D8F1F0D239E00A2C280 /* Gotham-UltraItalic.otf in Resources */,
+				A26C90BD1F13245500FF9514 /* hdar_close.png in Resources */,
 				A2703D821F0D239E00A2C280 /* Gotham-Black.otf in Resources */,
 				A2703D8D1F0D239E00A2C280 /* Gotham-ThinItalic.otf in Resources */,
 				A2703D8C1F0D239E00A2C280 /* Gotham-Thin.otf in Resources */,
@@ -602,6 +675,7 @@
 				A2703D8A1F0D239E00A2C280 /* Gotham-Medium.otf in Resources */,
 				A2703D8E1F0D239E00A2C280 /* Gotham-Ultra.otf in Resources */,
 				A2703D961F0D239E00A2C280 /* GothamRnd-Light.otf in Resources */,
+				A26C90BF1F13245600FF9514 /* hdar_close@3x.png in Resources */,
 				A2703D871F0D239E00A2C280 /* Gotham-BookItalic.otf in Resources */,
 				A2703D941F0D239E00A2C280 /* GothamRnd-Book.otf in Resources */,
 				A2703D851F0D239E00A2C280 /* Gotham-BoldItalic.otf in Resources */,
@@ -680,7 +754,9 @@
 			files = (
 				A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */,
 				A2703CAC1F0B6A4E00A2C280 /* ADSB.xcdatamodeld in Sources */,
+				A26C90BB1F13245500FF9514 /* DebugMapViewController.swift in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
+				A26C90BA1F13245500FF9514 /* ARViewController.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
 				A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */,
@@ -689,13 +765,16 @@
 				A2703D2B1F0BB7F700A2C280 /* ADSBXResponse.swift in Sources */,
 				A2703D321F0BB7F700A2C280 /* ADSBCalloutView.swift in Sources */,
 				A2703D251F0BB7F700A2C280 /* ADSBAircraft.swift in Sources */,
+				A26C90B91F13245500FF9514 /* ARTrackingManager.swift in Sources */,
 				A2703D4F1F0BBA1600A2C280 /* CATextLayer+Frame.swift in Sources */,
 				A2703D331F0BB7F700A2C280 /* ADSBMapView.swift in Sources */,
+				A26C90B71F13245500FF9514 /* ARAnnotationView.swift in Sources */,
 				A2703D501F0BBA1600A2C280 /* CGFloat+Extensions.swift in Sources */,
 				A2703D561F0BBA1600A2C280 /* String+UserLogin.swift in Sources */,
 				A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */,
 				A2703D531F0BBA1600A2C280 /* Date+Utility.swift in Sources */,
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
+				A26C90B81F13245500FF9514 /* ARConfiguration.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
@@ -705,6 +784,7 @@
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
+				A26C90B61F13245500FF9514 /* ARAnnotation.swift in Sources */,
 				A2703D521F0BBA1600A2C280 /* CLLocation+Operator.swift in Sources */,
 				A2703D5A1F0BBA1600A2C280 /* UIImage+Mask.swift in Sources */,
 				A2703D541F0BBA1600A2C280 /* Geometric.swift in Sources */,
