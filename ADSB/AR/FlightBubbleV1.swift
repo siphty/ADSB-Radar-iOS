@@ -13,6 +13,7 @@ import UIKit
 class FlightBubbleV1:UIView {
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var altitude: UILabel!
+    @IBOutlet weak var speed: UILabel!
 
     @IBOutlet weak var flightImage: UIImageView!
     @IBOutlet weak var flightName: UILabel!

@@ -164,12 +164,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ADSB/AR/ARGeoCoordinate.swift"
-            timestampString = "521379934.261217"
+            timestampString = "521385469.53995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "degreesToRadians(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ADSB/AR/AnnotationView.swift"
+            timestampString = "521389566.018557"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "loadUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,6 +13,13 @@ import UIKit
 /// bindUi method is called when distance/azimuth is set in ARViewController.
 open class ARAnnotationView: UIView
 {
+    @IBOutlet weak var distance: UILabel!
+    @IBOutlet weak var altitude: UILabel!
+    @IBOutlet weak var speed: UILabel!
+    
+    @IBOutlet weak var flightImage: UIImageView!
+    @IBOutlet weak var flightName: UILabel!
+    
     open weak var annotation: ADSBAnnotation?
     fileprivate var initialized: Bool = false
     
@@ -59,5 +66,15 @@ open class ARAnnotationView: UIView
     open func bindUi()
     {
         
+    }
+    
+    
+    /*
+     * returning bubble view for AR
+     */
+    func createARAnnotationView() -> ARAnnotationView {
+        let views = Bundle.main.loadNibNamed("FlightBubbleV1", owner: nil, options: nil)
+        let arAnnotationView = views?[0] as! ARAnnotationView
+        return arAnnotationView
     }
 }

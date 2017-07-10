@@ -535,7 +535,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         if annotationView.annotation == nil { return 0 }
         let annotation = annotationView.annotation!
-        
         let annotationViewHeight: CGFloat = annotationView.bounds.size.height
         var yPos: CGFloat = (self.view.bounds.size.height * 0.65) - (annotationViewHeight * CGFloat(annotation.verticalLevel))
         yPos -= CGFloat( powf(Float(annotation.verticalLevel), 2) * 4)
@@ -1169,6 +1168,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         /// Enables/Disables close button.
         public var closeButtonEnabled = true
     }
+    
+   
 }
 
 
