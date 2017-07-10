@@ -260,8 +260,9 @@ NSComparisonResult LocationSortClosestFirst(ARGeoCoordinate *s1, ARGeoCoordinate
     } else {
         NSAssert(NO, @"ARModule: Could not find a root view controller.");
     }
-    
-    [baseViewController presentViewController:cameraController animated:NO completion:nil];
+     [[UIApplication sharedApplication].keyWindow addSubview: cameraController.view];
+    [rootViewController.view sendSubviewToBack:cameraController.view];
+//    [baseViewController presentViewController:cameraController animated:NO completion:nil];
 //    [rootViewController presentViewController:cameraController animated:NO completion:nil];
 //    rootViewController presentViewController:<#(nonnull UIViewController *)#> animated:<#(BOOL)#> completion:<#^(void)completion#>
     if (debugMode) {

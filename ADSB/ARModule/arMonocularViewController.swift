@@ -31,6 +31,7 @@ class arMonocularViewController: UIViewController, ARViewDelegate {
     
     var userLocation: CLLocation?
     
+    fileprivate var closeButton: UIButton?
     fileprivate var compassImage: UIImageView!
 
     override func viewDidLoad() {
@@ -83,6 +84,7 @@ class arMonocularViewController: UIViewController, ARViewDelegate {
         arKitEngine = ARKitEngine.init(config: config)
         arKitEngine?.addCoordinates(points)
         self.addCompassView()
+        self.addCloseButton()
         //
         arKitEngine?.startListening()
     }
@@ -98,6 +100,31 @@ class arMonocularViewController: UIViewController, ARViewDelegate {
         
         self.arKitEngine?.addExtraView(view)
         
+    }
+    
+    
+    //CLOSE button on AR flight view
+    func addCloseButton()
+    {
+        self.closeButton?.removeFromSuperview()
+        
+        // Close button - make it customizable
+        let closeButton: UIButton = UIButton(type: UIButtonType.custom)
+        closeButton.setImage(#imageLiteral(resourceName: "RadarButtonIcon"), for: UIControlState());
+        closeButton.frame = CGRect(x: self.view.bounds.size.width - 45, y: 5,width: 40,height: 40)
+        closeButton.addTarget(self, action: #selector(closeAR), for: UIControlEvents.touchUpInside)
+        closeButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleBottomMargin]
+        self.closeButton = closeButton
+        self.arKitEngine?.addExtraView(closeButton)
+    }
+    
+    internal func closeButtonTap()
+    {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func closeAR() {
+        arKitEngine?.hide()
     }
     
     
@@ -233,11 +260,6 @@ extension arMonocularViewController {
     internal func rotateCompass(newHeading: Double)
     {
         compassImage.transform = CGAffineTransform(rotationAngle: newHeading.toRadians())
-    }
-    
-    
-    func closeAR() {
-        arKitEngine?.hide()
     }
     
     /*
