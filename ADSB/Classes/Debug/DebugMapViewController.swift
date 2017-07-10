@@ -13,7 +13,7 @@ import MapKit
 open class DebugMapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate
 {
     @IBOutlet weak var mapView: MKMapView!
-    fileprivate var annotations: [ARAnnotation]?
+    fileprivate var annotations: [ADSBAnnotation]?
     fileprivate var locationManager = CLLocationManager()
     fileprivate var heading: Double = 0
     fileprivate var interactionInProgress = false
@@ -53,7 +53,7 @@ open class DebugMapViewController: UIViewController, MKMapViewDelegate, CLLocati
     }
 
     
-    open func addAnnotations(_ annotations: [ARAnnotation])
+    open func addAnnotations(_ annotations: [ADSBAnnotation])
     {
         self.annotations = annotations
         
@@ -63,7 +63,7 @@ open class DebugMapViewController: UIViewController, MKMapViewDelegate, CLLocati
         }
     }
     
-    fileprivate func addAnnotationsOnMap(_ annotations: [ARAnnotation])
+    fileprivate func addAnnotationsOnMap(_ annotations: [ADSBAnnotation])
     {
         var mapAnnotations: [MKPointAnnotation] = []
         for annotation in annotations

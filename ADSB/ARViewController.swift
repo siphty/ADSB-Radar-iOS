@@ -93,7 +93,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      Smoothing factor for heading in range 0-1. It affects horizontal movement of annotaion views. The lower the value the bigger the smoothing.
      Value of 1 means no smoothing, should be greater than 0.
      */
-    open var headingSmoothingFactor: Double = 0.1
+    open var headingSmoothingFactor: Double = 1
     
     /**
      Called every 5 seconds after location tracking is started but failed to deliver location. It is also called when tracking has just started with timeElapsed = 0.
@@ -119,8 +119,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     fileprivate var reloadInProgress = false
     fileprivate var reloadToken: Int = 0
     fileprivate var reloadLock = NSRecursiveLock()
-    fileprivate var annotations: [ARAnnotation] = []
-    fileprivate var activeAnnotations: [ARAnnotation] = []
+    fileprivate var annotations: [ADSBAnnotation] = []
+    fileprivate var activeAnnotations: [ADSBAnnotation] = []
     fileprivate var closeButton: UIButton?
     fileprivate var currentHeading: Double = 0
     fileprivate var lastLocation: CLLocation?
@@ -307,9 +307,9 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      *
      *       - parameter annotations: Annotations
      */
-    open func setAnnotations(_ annotations: [ARAnnotation])
+    open func setAnnotations(_ annotations: [ADSBAnnotation])
     {
-        var validAnnotations: [ARAnnotation] = []
+        var validAnnotations: [ADSBAnnotation] = []
         // Don't use annotations without valid location
         for annotation in annotations
         {
@@ -322,7 +322,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.reloadAnnotations()
     }
     
-    open func getAnnotations() -> [ARAnnotation]
+    open func getAnnotations() -> [ADSBAnnotation]
     {
         return self.annotations
     }
@@ -427,7 +427,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             let sortedArray: NSMutableArray = NSMutableArray(array: self.annotations)
             let sortDesc = NSSortDescriptor(key: "distanceFromUser", ascending: true)
             sortedArray.sort(using: [sortDesc])
-            self.annotations = sortedArray as [AnyObject] as! [ARAnnotation]
+            self.annotations = sortedArray as [AnyObject] as! [ADSBAnnotation]
         }
     }
     
@@ -557,7 +557,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         // Putting each annotation in its dictionary(each level has its own dictionary)
         for i in stride(from: 0, to: self.activeAnnotations.count, by: 1)
         {
-            let annotation = self.activeAnnotations[i] as ARAnnotation
+            let annotation = self.activeAnnotations[i] as ADSBAnnotation
             if annotation.verticalLevel <= self.maxVerticalLevel
             {
                 let array = dictionary[annotation.verticalLevel] as? NSMutableArray
@@ -582,12 +582,12 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             
             for i in stride(from: 0, to: annotationsForCurrentLevel.count, by: 1)
             {
-                let annotation1 = annotationsForCurrentLevel[i] as! ARAnnotation
+                let annotation1 = annotationsForCurrentLevel[i] as! ADSBAnnotation
                 if annotation1.verticalLevel != level { continue }  // Can happen if it was moved to next level by previous annotation, it will be handled in next loop
                 
                 for j in stride(from: (i+1), to: annotationsForCurrentLevel.count, by: 1)
                 {
-                    let annotation2 = annotationsForCurrentLevel[j] as! ARAnnotation
+                    let annotation2 = annotationsForCurrentLevel[j] as! ADSBAnnotation
                     if annotation1 == annotation2 || annotation2.verticalLevel != level
                     {
                         continue
@@ -742,11 +742,11 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
     /// Determines which annotations are active and which are inactive. If some of the input parameters is nil, then it won't filter by that parameter.
-    fileprivate func filteredAnnotations(_ maxVerticalLevel: Int?, maxVisibleAnnotations: Int?, maxDistance: Double?) -> [ARAnnotation]
+    fileprivate func filteredAnnotations(_ maxVerticalLevel: Int?, maxVisibleAnnotations: Int?, maxDistance: Double?) -> [ADSBAnnotation]
     {
         let nsAnnotations: NSMutableArray = NSMutableArray(array: self.annotations)
         
-        var filteredAnnotations: [ARAnnotation] = []
+        var filteredAnnotations: [ADSBAnnotation] = []
         var count = 0
         
         let checkMaxVisibleAnnotations = maxVisibleAnnotations != nil
@@ -755,7 +755,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         
         for nsAnnotation in nsAnnotations
         {
-            let annotation = nsAnnotation as! ARAnnotation
+            let annotation = nsAnnotation as! ADSBAnnotation
             
             // filter by maxVisibleAnnotations
             if(checkMaxVisibleAnnotations && count >= maxVisibleAnnotations!)
@@ -1074,20 +1074,12 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         self.closeButton?.removeFromSuperview()
         
-        if self.closeButtonImage == nil
-        {
-            let bundle = Bundle(for: ARViewController.self)
-            let path = bundle.path(forResource: "hdar_close", ofType: "png")
-            if let path = path
-            {
-                self.closeButtonImage = UIImage(contentsOfFile: path)
-            }
-        }
+        self.closeButtonImage = #imageLiteral(resourceName: "RadarButtonIcon")
         
         // Close button - make it customizable
         let closeButton: UIButton = UIButton(type: UIButtonType.custom)
         closeButton.setImage(closeButtonImage, for: UIControlState());
-        closeButton.frame = CGRect(x: self.view.bounds.size.width - 45, y: 5,width: 40,height: 40)
+        closeButton.frame = CGRect(x: self.view.bounds.size.width - 49, y: 9,width: 44,height: 44)
         closeButton.addTarget(self, action: #selector(ARViewController.closeButtonTap), for: UIControlEvents.touchUpInside)
         closeButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleBottomMargin]
         self.view.addSubview(closeButton)
@@ -1111,36 +1103,36 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     /// Opening DebugMapViewController
     internal func debugButtonTap()
     {
-        let bundle = Bundle(for: DebugMapViewController.self)
-        let mapViewController = DebugMapViewController(nibName: "DebugMapViewController", bundle: bundle)
-        self.present(mapViewController, animated: true, completion: nil)
-        mapViewController.addAnnotations(self.annotations)
+//        let bundle = Bundle(for: DebugMapViewController.self)
+//        let mapViewController = DebugMapViewController(nibName: "DebugMapViewController", bundle: bundle)
+//        self.present(mapViewController, animated: true, completion: nil)
+//        mapViewController.addAnnotations(self.annotations)
     }
     
     func addDebugUi()
     {
-        self.debugLabel?.removeFromSuperview()
-        self.debugMapButton?.removeFromSuperview()
-        
-        let debugLabel = UILabel()
-        debugLabel.backgroundColor = UIColor.white
-        debugLabel.textColor = UIColor.black
-        debugLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        debugLabel.frame = CGRect(x: 5, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width - 10, height: 45)
-        debugLabel.numberOfLines = 0
-        debugLabel.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin]
-        debugLabel.textAlignment = NSTextAlignment.left
-        view.addSubview(debugLabel)
-        self.debugLabel = debugLabel
-        
-        let debugMapButton: UIButton = UIButton(type: UIButtonType.custom)
-        debugMapButton.frame = CGRect(x: 5,y: 5,width: 40,height: 40);
-        debugMapButton.addTarget(self, action: #selector(ARViewController.debugButtonTap), for: UIControlEvents.touchUpInside)
-        debugMapButton.setTitle("map", for: UIControlState())
-        debugMapButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        debugMapButton.setTitleColor(UIColor.black, for: UIControlState())
-        self.view.addSubview(debugMapButton)
-        self.debugMapButton = debugMapButton
+//        self.debugLabel?.removeFromSuperview()
+//        self.debugMapButton?.removeFromSuperview()
+//        
+//        let debugLabel = UILabel()
+//        debugLabel.backgroundColor = UIColor.white
+//        debugLabel.textColor = UIColor.black
+//        debugLabel.font = UIFont.boldSystemFont(ofSize: 10)
+//        debugLabel.frame = CGRect(x: 5, y: self.view.bounds.size.height - 50, width: self.view.bounds.size.width - 10, height: 45)
+//        debugLabel.numberOfLines = 0
+//        debugLabel.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin]
+//        debugLabel.textAlignment = NSTextAlignment.left
+//        view.addSubview(debugLabel)
+//        self.debugLabel = debugLabel
+//        
+//        let debugMapButton: UIButton = UIButton(type: UIButtonType.custom)
+//        debugMapButton.frame = CGRect(x: 5,y: 5,width: 40,height: 40);
+//        debugMapButton.addTarget(self, action: #selector(ARViewController.debugButtonTap), for: UIControlEvents.touchUpInside)
+//        debugMapButton.setTitle("map", for: UIControlState())
+//        debugMapButton.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+//        debugMapButton.setTitleColor(UIColor.black, for: UIControlState())
+//        self.view.addSubview(debugMapButton)
+//        self.debugMapButton = debugMapButton
     }
     
     //==========================================================================================================================================================
@@ -1173,7 +1165,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     public struct UiOptions
     {
         /// Enables/Disables debug UI, like heading label, map button, some views when updating/reloading.
-        public var debugEnabled = true
+        public var debugEnabled = false
         /// Enables/Disables close button.
         public var closeButtonEnabled = true
     }

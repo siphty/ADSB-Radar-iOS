@@ -11,6 +11,7 @@ import MapKit
 
 class ADSBAeroChartViewController: UIViewController {
     
+    var arViewController: ARViewController!
     let locationManager = CLLocationManager()
     let notificationCenter = NotificationCenter.default
     
@@ -84,6 +85,8 @@ class ADSBAeroChartViewController: UIViewController {
         
     }
     
+    
+    fileprivate var aircraftAnnotations = [ADSBAnnotation]()
     
     
     override func viewDidLoad() {
@@ -342,7 +345,7 @@ extension ADSBAeroChartViewController{
         mapView.setRegion(region, animated: true)
     }
     
-    func UpdateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
+    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
         
         for exsitingAnnotation in mapView.annotations{
             guard let annotation = exsitingAnnotation as? ADSBAnnotation else {
@@ -380,6 +383,7 @@ extension ADSBAeroChartViewController{
         annotation.coordinate = location.coordinate
         annotation.location = location
         annotation.aircraft = aircraft
+//        aircraftAnnotations.append(annotation) // For AR View
         return annotation
     }
     
@@ -434,7 +438,7 @@ extension ADSBAeroChartViewController{
             let altitude = CLLocationDistance(aircraft.presAltitude ?? 0)
             let speed = CLLocationSpeed(aircraft.groundSpeed ?? 0)
             let heading = CLLocationDirection(aircraft.trackHeading ?? 0)
-            UpdateAnnotation(annotationId,
+            updateAnnotation(annotationId,
                              withLocation: CLLocation(coordinate: coordination,
                                                         altitude: altitude,
                                                         horizontalAccuracy: CLLocationAccuracy(10),
@@ -446,7 +450,8 @@ extension ADSBAeroChartViewController{
             
         }
         cleareExpiredAnnotation()
-        
+        updateARViewAnnotations()
+//        aircraftAnnotations.append(annotation) // For AR View
     }
     
     //Remove all annotation
@@ -482,6 +487,64 @@ extension ADSBAeroChartViewController{
 }
 
 
+//AR View related func
+extension ADSBAeroChartViewController {
+    
+    @IBAction func arViewButtonTouchUpInside(_ sender: Any) {
+        guard mapView.annotations.count != 0 else { return }
+        var annotationArray = [ADSBAnnotation]()
+        for annotation in mapView.annotations {
+            if annotation is ADSBAnnotation {
+                annotationArray.append(annotation as! ADSBAnnotation)
+            }
+        }
+        arViewController = ARViewController()
+        arViewController.dataSource = self
+        arViewController.maxDistance = 0
+        arViewController.maxVisibleAnnotations = 30
+        arViewController.maxVerticalLevel = 5
+        arViewController.headingSmoothingFactor = 0.95 //0.05
+        
+        arViewController.trackingManager.userDistanceFilter = 25
+        arViewController.trackingManager.reloadDistanceFilter = 75
+        arViewController.setAnnotations(annotationArray)
+        arViewController.uiOptions.debugEnabled = false
+        arViewController.uiOptions.closeButtonEnabled = true
+        
+        self.present(arViewController, animated: true, completion: nil)
+        
+    }
+    
+    func updateARViewAnnotations(){
+        
+    }
+    
+}
+
+
+extension ADSBAeroChartViewController: ARDataSource {
+    func ar(_ arViewController: ARViewController, viewForAnnotation: ADSBAnnotation) -> ARAnnotationView {
+        let annotationView = AnnotationView()
+        annotationView.annotation = viewForAnnotation
+        annotationView.delegate = self
+        annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
+        
+        return annotationView
+    }
+    
+    
+}
+
+
+
+extension ADSBAeroChartViewController: AnnotationViewDelegate {
+    func didTouch(annotationView: AnnotationView) {
+        if let annotation = annotationView.annotation {
+            print("Annotation is beed touched: \(String(describing: annotation.aircraft?.icaoId))")
+            
+        }
+    }
+}
 
 
 

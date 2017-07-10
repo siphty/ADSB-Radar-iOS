@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="is2-qm-zg4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="is2-qm-zg4">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUr-BA-fK9">
-                                <rect key="frame" x="615" y="52" width="44" height="44"/>
+                                <rect key="frame" x="612" y="56" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="InN-sM-Du7"/>
                                     <constraint firstAttribute="width" constant="44" id="Xqb-82-uTw"/>
@@ -76,20 +76,33 @@
                                 <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOY-Ho-n6c">
+                                <rect key="frame" x="612" y="272" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="cDn-pM-66c"/>
+                                    <constraint firstAttribute="width" constant="44" id="yhP-xG-IF0"/>
+                                </constraints>
+                                <state key="normal" image="looking"/>
+                                <connections>
+                                    <action selector="arViewButtonTouchUpInside:" destination="is2-qm-zg4" eventType="touchUpInside" id="DFw-NW-fH4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cnQ-1J-0bJ" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="8" id="0Ab-sS-ZDj"/>
                             <constraint firstItem="RTI-wg-iSX" firstAttribute="centerX" secondItem="COT-41-4XG" secondAttribute="centerX" constant="-53" id="3y0-wc-EB9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cnQ-1J-0bJ" secondAttribute="trailing" constant="68" id="5SM-PI-ab6"/>
-                            <constraint firstItem="nUr-BA-fK9" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="52" id="CKM-9y-XgT"/>
+                            <constraint firstItem="nUr-BA-fK9" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="56" id="CKM-9y-XgT"/>
                             <constraint firstItem="1Cx-Ur-GXh" firstAttribute="centerY" secondItem="HSg-KJ-Qlg" secondAttribute="centerY" id="Don-L8-EcC"/>
                             <constraint firstItem="cnQ-1J-0bJ" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="69" id="FlK-C0-T6r"/>
                             <constraint firstItem="ghr-sK-5WW" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="-20" id="U55-Az-jHE"/>
-                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" id="Z96-qN-djh"/>
+                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" constant="3" id="Z96-qN-djh"/>
+                            <constraint firstItem="HOY-Ho-n6c" firstAttribute="centerX" secondItem="1Cx-Ur-GXh" secondAttribute="centerX" id="ZwD-8h-Aav"/>
                             <constraint firstItem="1Cx-Ur-GXh" firstAttribute="leading" secondItem="HSg-KJ-Qlg" secondAttribute="trailing" constant="8" id="m3Y-pf-ex0"/>
-                            <constraint firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" constant="8" id="pa5-9k-iSc"/>
+                            <constraint firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" constant="11" id="pa5-9k-iSc"/>
                             <constraint firstAttribute="bottom" secondItem="1Cx-Ur-GXh" secondAttribute="bottom" constant="20" symbolic="YES" id="q5Z-Yu-64j"/>
+                            <constraint firstItem="1Cx-Ur-GXh" firstAttribute="top" secondItem="HOY-Ho-n6c" secondAttribute="bottom" constant="8" id="r1n-vD-4zs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ghr-sK-5WW" secondAttribute="trailing" constant="-20" id="sxE-46-1rV"/>
                             <constraint firstItem="RTI-wg-iSX" firstAttribute="top" secondItem="cnQ-1J-0bJ" secondAttribute="bottom" constant="8" id="vg6-hi-spq"/>
                             <constraint firstItem="ghr-sK-5WW" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" id="w6K-iU-mF0"/>
@@ -112,6 +125,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="map-marker-with-a-person-shape" width="256" height="256"/>
+        <image name="looking" width="44" height="44"/>
+        <image name="map-marker-with-a-person-shape" width="44" height="44"/>
     </resources>
 </document>

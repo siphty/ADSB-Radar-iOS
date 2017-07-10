@@ -50,7 +50,7 @@ internal func deltaAngle(_ angle1: Double, angle2: Double) -> Double
 @objc public protocol ARDataSource : NSObjectProtocol
 {
     /// Asks the data source to provide annotation view for annotation. Annotation view must be subclass of ARAnnotationView.
-    func ar(_ arViewController: ARViewController, viewForAnnotation: ARAnnotation) -> ARAnnotationView
+    func ar(_ arViewController: ARViewController, viewForAnnotation: ADSBAnnotation) -> ARAnnotationView
    
    /**
     *       READ BEFORE IMPLEMENTING
@@ -64,7 +64,7 @@ internal func deltaAngle(_ angle1: Double, angle2: Double) -> Double
     *       - parameter location:                Current location of the user
     *       - returns:                       Annotations to load, previous annotations are removed
     */
-    @objc optional func ar(_ arViewController: ARViewController, shouldReloadWithLocation location: CLLocation) -> [ARAnnotation]
+    @objc optional func ar(_ arViewController: ARViewController, shouldReloadWithLocation location: CLLocation) -> [ADSBAnnotation]
 
 }
 

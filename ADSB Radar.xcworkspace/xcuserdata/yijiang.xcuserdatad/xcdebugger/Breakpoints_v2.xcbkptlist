@@ -36,12 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-            timestampString = "521014576.980013"
+            timestampString = "521358702.706829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "locationManager(_:didChangeAuthorization:)"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "centerMapOnLocation(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -52,12 +52,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-            timestampString = "521014576.980132"
+            timestampString = "521358702.706829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "311"
-            endingLineNumber = "311"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "centerMapOnUAVAndHome()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,12 +68,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-            timestampString = "521014576.980236"
+            timestampString = "521358702.706829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "157"
-            endingLineNumber = "157"
-            landmarkName = "displayOnGroundSwitchValueChanged(_:)"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
+            landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -138,6 +138,22 @@
             startingLineNumber = "259"
             endingLineNumber = "259"
             landmarkName = "-doStart"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ADSB/HDAugmentedReality/Classes/ARViewController.swift"
+            timestampString = "521361538.178415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
+            landmarkName = "yPositionForAnnotationView(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

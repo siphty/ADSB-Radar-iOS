@@ -22,7 +22,7 @@ import CoreLocation
 
 
 /// Class used internally by ARViewController for location and orientation calculations.
-open class ARTrackingManager: NSObject, CLLocationManagerDelegate
+open class ARTrackingManager: NSObject
 {
     /**
      *      Defines whether altitude is taken into account when calculating distances. Set this to false if your annotations
@@ -171,15 +171,16 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         self.tracking = false
         self.stopLocationSearchTimer()
     }
-    
+}
+
     //==========================================================================================================================================================
     // MARK:                                                        CLLocationManagerDelegate
     //==========================================================================================================================================================
-    
+extension ARTrackingManager: CLLocationManagerDelegate {
     open func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading)
     {
         self.heading = fmod(newHeading.trueHeading, 360.0)
-      print("Heading value : \(newHeading.trueHeading)")
+//      print("Heading value : \(newHeading.trueHeading)")
     }
     
     open func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -251,11 +252,13 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         self.reportLocationDate = Date().timeIntervalSince1970
     }
     
-    
-    
+}
+
     //==========================================================================================================================================================
     // MARK:                                                        Calculations
     //==========================================================================================================================================================
+extension ARTrackingManager {
+    
     internal func calculatePitch() -> Double
     {
         if self.motionManager.accelerometerData == nil
@@ -291,7 +294,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             angle = atan2(-self.lastAcceleration.x, self.lastAcceleration.z)
         }
         
-        angle += M_PI_2
+        angle += .pi/2
         angle = (self.pitchPrevious + angle) / 2.0
         self.pitchPrevious = angle
         return angle
@@ -317,6 +320,26 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         azimuth += 180.0
         
         return azimuth;
+    }
+    
+    internal func calculateVerticalForTheAnnotation(_ location: CLLocation) -> Double
+    {
+        var verticalDegree: Double = 0
+        if self.userLocation == nil
+        {
+            return 0
+        }
+        let distanceToAircraft = self.userLocation?.distance(from: location)
+        
+        let altitude: CLLocationDistance = location.altitude
+        let userAltitude: CLLocationDistance = self.userLocation!.altitude
+        let altitudeDiff: Double = altitude  - userAltitude
+        
+        verticalDegree = radiansToDegrees(atan2(altitudeDiff,distanceToAircraft!))
+        
+        //vertical += 180.0
+        
+        return verticalDegree;
     }
     
     internal func startDebugMode(_ location: CLLocation)

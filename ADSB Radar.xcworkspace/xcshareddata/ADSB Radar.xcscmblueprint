@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "90527A0644FF2E9A83300211E8113D0BD25E623B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "90527A0644FF2E9A83300211E8113D0BD25E623B" : 9223372036854775807,
+    "A5CB23BA2FD9480DDEBE42EF9F8C95536667C47A" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "4B4065E1-37C0-4B59-AA0B-01A0C0152C2E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "90527A0644FF2E9A83300211E8113D0BD25E623B" : "ADSB%20Radar%20iOS\/",
+    "A5CB23BA2FD9480DDEBE42EF9F8C95536667C47A" : "..\/..\/IBM\/air-traffic-control"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ADSB Radar",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ADSB Radar.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/110.174.46.65\/Siphty-Dev-Team\/ADSB-Radar-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90527A0644FF2E9A83300211E8113D0BD25E623B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/110.174.46.65\/JiangYi\/IBM-ADS-B.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A5CB23BA2FD9480DDEBE42EF9F8C95536667C47A"
+    }
+  ]
+}

@@ -22,6 +22,16 @@ open class ADSBAnnotation: MKPointAnnotation {
         }
     }
     
+    //ARAnnotation  
+    /// View for annotation. It is set inside ARViewController after fetching view from dataSource.
+    internal(set) open var annotationView: ARAnnotationView?
+    // Internal use only, do not set this properties
+    internal(set) open var distanceFromUser: Double = 0
+    internal(set) open var azimuth: Double = 0
+    internal(set) open var verticalLevel: Int = 0
+    internal(set) open var active: Bool = false
+    
+    
     func setAircraftIcon(){
         var imageName: String = ADSBAircraftType.none.rawValue
         guard (aircraft != nil) else {
