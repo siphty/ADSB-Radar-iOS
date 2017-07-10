@@ -5,4 +5,7 @@ target ‘ADSB Radar’ do
   use_frameworks!
     pod 'NVActivityIndicatorView'
     pod 'SnapKit'
+	pod 'Fabric'
+	pod 'Crashlytics'
+	pod 'SwiftyJSON'
 end

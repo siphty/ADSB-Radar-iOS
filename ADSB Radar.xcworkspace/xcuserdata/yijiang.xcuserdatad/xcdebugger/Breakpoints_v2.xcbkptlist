@@ -6,7 +6,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
@@ -64,7 +64,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ADSB/ADSBModule/ADSBAeroChartViewController.swift"
@@ -80,58 +80,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
-            condition = "aircraft.isOnGround == true"
             continueAfterRunningActions = "No"
-            filePath = "ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-            timestampString = "521014576.980327"
+            filePath = "ADSB/ARModule/AR/ARKitEngine.m"
+            timestampString = "521340375.995109"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "428"
-            endingLineNumber = "428"
-            landmarkName = "aircraftListHasBeenUpdated()"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "-doStart"
             landmarkType = "7">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po aircraft.isOnGround == true &amp;&amp; ADSBConfig.isGroundAircraftFilterOn">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ADSB_Radar.ADSBAeroChartViewController.aircraftListHasBeenUpdated () -&gt; ()"
-                  moduleName = "ADSB Radar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yijiang/ARVR/ADSB%20Radar/ADSB%20Radar%20iOS/ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-                  timestampString = "521048515.503258"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "428"
-                  endingLineNumber = "428"
-                  offsetFromSymbolStart = "4052">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ADSB_Radar.ADSBAeroChartViewController.(aircraftListHasBeenUpdated () -&gt; ()).(implicit closure #1)"
-                  moduleName = "ADSB Radar"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yijiang/ARVR/ADSB%20Radar/ADSB%20Radar%20iOS/ADSB/ADSBModule/ADSBAeroChartViewController.swift"
-                  timestampString = "521048515.506567"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "428"
-                  endingLineNumber = "428"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ADSB/ARModule/AR/ARKitEngine.m"
+            timestampString = "521340420.439589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "-doStart"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ADSB/ARModule/AR/ARKitEngine.m"
+            timestampString = "521341058.395209"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-doStart"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ADSB/ARModule/AR/ARKitEngine.m"
+            timestampString = "521341632.71987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "-doStart"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

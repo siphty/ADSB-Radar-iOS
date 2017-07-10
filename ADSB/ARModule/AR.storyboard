@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CXd-lI-iqU">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ar Monocular View Controller-->
+        <scene sceneID="qHo-Nt-nHf">
+            <objects>
+                <viewController id="CXd-lI-iqU" customClass="arMonocularViewController" customModule="ADSB_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="i7d-YC-8Ah"/>
+                        <viewControllerLayoutGuide type="bottom" id="jKo-34-jKj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fWh-GT-dKE">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pX-kx-HzS">
+                                <rect key="frame" x="20" y="311" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="tFo-Uu-EwG"/>
+                                    <constraint firstAttribute="width" constant="44" id="yJ2-1p-cIr"/>
+                                </constraints>
+                                <state key="normal" image="RadarButtonIcon"/>
+                                <connections>
+                                    <action selector="backToRadarButtonTouchUpInside:" destination="CXd-lI-iqU" eventType="touchUpInside" id="fDf-ig-sR9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jKo-34-jKj" firstAttribute="top" secondItem="3pX-kx-HzS" secondAttribute="bottom" constant="20" id="jkP-UM-6nE"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="3pX-kx-HzS" secondAttribute="leading" id="p7t-fy-yBp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZO2-QL-TYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-97" y="2196"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="RadarButtonIcon" width="44" height="44"/>
+    </resources>
+</document>

@@ -83,9 +83,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
         configure()
         updateContents(for: annotation)
     }
-//    class func instanceFromNib() -> ADSBAnnotationCalloutView {
-//        return UINib(nibName: "ADSBAnnotationCalloutView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ADSBAnnotationCalloutView
-//    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("Should not call init(coder:)")
     }
@@ -106,10 +104,11 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
         if annotation?.aircraft?.isOnGround ?? false {
             altitudeLabel.text = "A: On The Ground"
         } else {
+            let vertiSpeed = annotation?.aircraft?.vertiSpeed ?? 0
             var InDecreaseString = ""
-            if (annotation?.aircraft?.vertiSpeed)! > 0 {
+            if vertiSpeed > 0 {
                 InDecreaseString = "▲"
-            } else if (annotation?.aircraft?.vertiSpeed)! < 0 {
+            } else if vertiSpeed < 0 {
                 InDecreaseString = "▼"
             } else {
                 InDecreaseString = ""
