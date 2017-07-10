@@ -1,11 +1,12 @@
 //
 //  ARTrackingManager.swift
-//  HDAugmentedRealityDemo
+//  IBMFlightTracker
 //
-//  Created by Danijel Huis on 22/04/15.
-//  Copyright (c) 2015 Danijel Huis. All rights reserved.
+//  Created by Sanjeev Ghimire on 12/5/16.
+//  Copyright © 2016 Sanjeev Ghimire. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreMotion
 import CoreLocation
@@ -21,7 +22,7 @@ import CoreLocation
 }
 
 
-/// Class used internally by ARViewController for location and orientation calculations.
+/// Class used internally by ARFlightViewController for location and orientation calculations.
 open class ARTrackingManager: NSObject, CLLocationManagerDelegate
 {
     /**
@@ -60,22 +61,23 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     fileprivate(set) internal var heading: Double = 0
     internal weak var delegate: ARTrackingManagerDelegate?
     internal var orientation: CLDeviceOrientation = CLDeviceOrientation.portrait
-        {
+    {
         didSet
         {
             self.locationManager.headingOrientation = self.orientation
         }
     }
-    internal var pitch: Double
-        {
-        get
-        {
+    internal var pitch: Double {
+        get {
             return self.calculatePitch()
         }
     }
     
+    
+    internal var roll: Double = 0.0
+    internal var yaw: Double = 0.0
     //===== Private variables
-    fileprivate var motionManager: CMMotionManager = CMMotionManager()
+    fileprivate(set) internal var motionManager: CMMotionManager = CMMotionManager()
     fileprivate var lastAcceleration: CMAcceleration = CMAcceleration(x: 0, y: 0, z: 0)
     fileprivate var reloadLocationPrevious: CLLocation?
     fileprivate var pitchPrevious: Double = 0
@@ -110,9 +112,9 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         self.locationManager.delegate = self
     }
     
-    //==========================================================================================================================================================
-    // MARK:                                                        Tracking
-    //==========================================================================================================================================================
+    //==========================================================================
+    // MARK:             Tracking
+    //==========================================================================
     
     /**
      Starts location and motion manager
@@ -140,6 +142,18 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         
         // Start motion and location managers
         self.motionManager.startAccelerometerUpdates()
+        
+        //device motion for calculating yaw and roll
+        self.motionManager.deviceMotionUpdateInterval = 0.01
+        self.motionManager.startDeviceMotionUpdates(to: OperationQueue.current!) { (deviceMotion, error) in
+            if(error == nil) {
+                self.handleDeviceMotionUpdate(deviceMotion: deviceMotion!)
+            } else {
+                print(error!)
+            }
+        }
+        
+        
         self.locationManager.startUpdatingHeading()
         self.locationManager.startUpdatingLocation()
         
@@ -156,6 +170,16 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         }
     }
     
+    internal func handleDeviceMotionUpdate(deviceMotion:CMDeviceMotion) {
+        let attitude = deviceMotion.attitude
+        //        let roll = radiansToDegrees(attitude.roll)
+        //        let pitch = radiansToDegrees(attitude.pitch)
+        //        let yaw = radiansToDegrees(attitude.yaw)
+        self.roll = radiansToDegrees(attitude.roll)
+        self.yaw = radiansToDegrees(attitude.yaw)
+        
+    }
+    
     /// Stops location and motion manager
     internal func stopTracking()
     {
@@ -165,6 +189,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         
         // Stop motion and location managers
         self.motionManager.stopAccelerometerUpdates()
+        self.motionManager.stopDeviceMotionUpdates()
         self.locationManager.stopUpdatingHeading()
         self.locationManager.stopUpdatingLocation()
         
@@ -172,9 +197,9 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         self.stopLocationSearchTimer()
     }
     
-    //==========================================================================================================================================================
-    // MARK:                                                        CLLocationManagerDelegate
-    //==========================================================================================================================================================
+    //=========================================================================
+    // MARK:                        CLLocationManagerDelegate
+    //========================================================================
     
     open func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading)
     {
@@ -237,24 +262,25 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     
     internal func reportLocationToDelegate()
     {
-        self.delegate?.arTrackingManager?(self, didUpdateUserLocation: self.userLocation)
-        
-        if self.userLocation != nil && self.reloadLocationPrevious != nil && self.reloadLocationPrevious!.distance(from: self.userLocation!) > self.reloadDistanceFilter!
-        {
-            self.reloadLocationPrevious = self.userLocation
-            self.delegate?.arTrackingManager?(self, didUpdateReloadLocation: self.userLocation)
-        }
-        
         self.reportLocationTimer?.invalidate()
         self.reportLocationTimer = nil
         self.reportLocationDate = Date().timeIntervalSince1970
+        
+        guard let userLocation = self.userLocation, let reloadLocationPrevious = self.reloadLocationPrevious else { return }
+        guard let reloadDistanceFilter = self.reloadDistanceFilter else { return }
+        
+        self.delegate?.arTrackingManager?(self, didUpdateUserLocation: userLocation)
+        
+        if reloadLocationPrevious.distance(from: userLocation) > reloadDistanceFilter
+        {
+            self.reloadLocationPrevious = userLocation
+            self.delegate?.arTrackingManager?(self, didUpdateReloadLocation: userLocation)
+        }
     }
     
-    
-    
-    //==========================================================================================================================================================
-    // MARK:                                                        Calculations
-    //==========================================================================================================================================================
+    //=========================================================================
+    // MARK:                        Calculations
+    //=========================================================================
     internal func calculatePitch() -> Double
     {
         if self.motionManager.accelerometerData == nil
@@ -290,7 +316,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             angle = atan2(-self.lastAcceleration.x, self.lastAcceleration.z)
         }
         
-        angle += M_PI_2
+        angle += .pi/2
         angle = (self.pitchPrevious + angle) / 2.0
         self.pitchPrevious = angle
         return angle
@@ -313,9 +339,30 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         
         // Simplified azimuth calculation
         azimuth = radiansToDegrees(atan2(longitudeDistance, (latitudeDistance * Double(LAT_LON_FACTOR))))
+        
         azimuth += 180.0
         
         return azimuth;
+    }
+    
+    internal func calculateVerticalForTheAnnotation(_ location: CLLocation) -> Double
+    {
+        var vertical: Double = 0
+        if self.userLocation == nil
+        {
+            return 0
+        }
+        let distanceFromCameraToPOI = self.userLocation?.distance(from: location)
+        
+        let altitude: CLLocationDistance = location.altitude
+        let userAltitude: CLLocationDistance = self.userLocation!.altitude
+        let altitudeDiff: Double = altitude  - userAltitude
+        
+        vertical = radiansToDegrees(atan2(altitudeDiff,distanceFromCameraToPOI!))
+        
+        //vertical += 180.0
+        
+        return vertical;
     }
     
     internal func startDebugMode(_ location: CLLocation)
