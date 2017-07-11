@@ -107,9 +107,10 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
             altitudeLabel.text = "A: On The Ground"
         } else {
             var InDecreaseString = ""
-            if (annotation?.aircraft?.vertiSpeed)! > 0 {
+            let vertiSpeed = annotation?.aircraft?.vertiSpeed ?? 0 
+            if vertiSpeed > 0 {
                 InDecreaseString = "▲"
-            } else if (annotation?.aircraft?.vertiSpeed)! < 0 {
+            } else if vertiSpeed < 0 {
                 InDecreaseString = "▼"
             } else {
                 InDecreaseString = ""

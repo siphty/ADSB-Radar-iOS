@@ -5,18 +5,19 @@ let LAT_LON_FACTOR: CGFloat = 1.33975031663                      // Used in azim
 let VERTICAL_SENS: CGFloat = 960
 let H_PIXELS_PER_DEGREE: CGFloat = 14                            // How many pixels per degree
 let OVERLAY_VIEW_WIDTH: CGFloat = 360 * H_PIXELS_PER_DEGREE      // 360 degrees x sensitivity
+let OVERLAY_VIEW_HEIGHT: CGFloat = 90 * H_PIXELS_PER_DEGREE      // 90  degrees x sensitivity
 
-let MAX_VISIBLE_ANNOTATIONS: Int = 500                           // Do not change, can affect performance
-let MAX_VERTICAL_LEVELS: Int = 10                                // Do not change, can affect performance
+let MAX_VISIBLE_ANNOTATIONS: Int = 20                           // Do not change, can affect performance
+//let MAX_VERTICAL_LEVELS: Int = 10                                // Do not change, can affect performance
 
 internal func radiansToDegrees(_ radians: Double) -> Double
 {
-    return (radians) * (180.0 / M_PI)
+    return (radians) * (180.0 / .pi)
 }
 
 internal func degreesToRadians(_ degrees: Double) -> Double
 {
-    return (degrees) * (M_PI / 180.0)
+    return (degrees) * (.pi / 180.0)
 }
 
 /// Normalizes degree to 360

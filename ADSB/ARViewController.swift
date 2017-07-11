@@ -32,24 +32,24 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     open weak var dataSource: ARDataSource?
     /// Orientation mask for view controller. Make sure orientations are enabled in project settings also.
     open var interfaceOrientationMask: UIInterfaceOrientationMask = UIInterfaceOrientationMask.all
-    /**
-     *       Defines in how many vertical levels can annotations be stacked. Default value is 5.
-     *       Annotations are initially vertically arranged by distance from user, but if two annotations visibly collide with each other,
-     *       then farther annotation is put higher, meaning it is moved onto next vertical level. If annotation is moved onto level higher
-     *       than this value, it will not be visible.
-     *       NOTE: This property greatly impacts performance because collision detection is heavy operation, use it in range 1-10.
-     *       Max value is 10.
-     */
-    open var maxVerticalLevel = 0
-        {
-        didSet
-        {
-            if(maxVerticalLevel > MAX_VERTICAL_LEVELS)
-            {
-                maxVerticalLevel = MAX_VERTICAL_LEVELS
-            }
-        }
-    }
+//    /**
+//     *       Defines in how many vertical levels can annotations be stacked. Default value is 5.
+//     *       Annotations are initially vertically arranged by distance from user, but if two annotations visibly collide with each other,
+//     *       then farther annotation is put higher, meaning it is moved onto next vertical level. If annotation is moved onto level higher
+//     *       than this value, it will not be visible.
+//     *       NOTE: This property greatly impacts performance because collision detection is heavy operation, use it in range 1-10.
+//     *       Max value is 10.
+//     */
+//    open var maxVerticalLevel = 0
+//        {
+//        didSet
+//        {
+//            if(maxVerticalLevel > MAX_VERTICAL_LEVELS)
+//            {
+//                maxVerticalLevel = MAX_VERTICAL_LEVELS
+//            }
+//        }
+//    }
     /// Total maximum number of visible annotation views. Default value is 100. Max value is 500
     open var maxVisibleAnnotations = 0
         {
@@ -163,8 +163,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         
         // Default values
         self.trackingManager.delegate = self
-        self.maxVerticalLevel = 5
-        self.maxVisibleAnnotations = 100
+//        self.maxVerticalLevel = 5
+        self.maxVisibleAnnotations = 20
         self.maxDistance = 0
         
         NotificationCenter.default.addObserver(self, selector: #selector(ARViewController.locationNotification(_:)), name: NSNotification.Name(rawValue: "kNotificationLocationSet"), object: nil)
@@ -405,19 +405,12 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         
         for annotation in array
         {
-            if annotation.location == nil   // This should never happen bcs we remove all annotations with invalid location in setAnnotation
-            {
+            guard annotation.location != nil else {// This should never happen bcs we remove all annotations with invalid location in
                 annotation.distanceFromUser = 0
                 annotation.azimuth = 0
                 continue
             }
-            
-            // Distance
-            annotation.distanceFromUser = annotation.location!.distance(from: userLocation)
-            
-            // Azimuth
-            let azimuth = self.trackingManager.azimuthFromUserToLocation(annotation.location!)
-            annotation.azimuth = azimuth
+            annotation.calibrate(using: userLocation, true)
         }
         
         if sort
@@ -442,7 +435,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             {
                 let delta = deltaAngle(currentHeading, angle2: annotationView.annotation!.azimuth)
                 
-                if fabs(delta) < degreesDelta && annotationView.annotation!.verticalLevel <= self.maxVerticalLevel
+                if fabs(delta) < degreesDelta// && annotationView.annotation!.verticalLevel <= self.maxVerticalLevel
                 {
                     if annotationView.superview == nil
                     {
@@ -499,8 +492,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     fileprivate func xPositionForAnnotationView(_ annotationView: ARAnnotationView, heading: Double) -> CGFloat
     {
-        if annotationView.annotation == nil { return 0 }
-        let annotation = annotationView.annotation!
+        guard let annotation = annotationView.annotation else { return 0 }
         
         // Azimuth
         let azimuth = annotation.azimuth
@@ -511,7 +503,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         // Fixing position in critical areas (near north).
         // If current heading is right of north(< 40), annotations that are between 320 - 360 wont be visible so we change their position so they are visible.
         // Also if current heading is left of north (320 - 360), annotations that are between 0 - 40 wont be visible so we change their position so they are visible.
-        // This is needed because all annotation view are on same ovelay view so views at start and end of overlay view cannot be visible at the same time.
+        // This is needed because all annotation view are on same overlay view so views at start and end of overlay view cannot be visible at the same time.
         let threshold: Double = 40
         if heading < threshold
         {
@@ -533,148 +525,48 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     fileprivate func yPositionForAnnotationView(_ annotationView: ARAnnotationView) -> CGFloat
     {
-        if annotationView.annotation == nil { return 0 }
-        let annotation = annotationView.annotation!
-        let annotationViewHeight: CGFloat = annotationView.bounds.size.height
-        var yPos: CGFloat = (self.view.bounds.size.height * 0.65) - (annotationViewHeight * CGFloat(annotation.verticalLevel))
-        yPos -= CGFloat( powf(Float(annotation.verticalLevel), 2) * 4)
+        guard let annotation = annotationView.annotation else { return 0 }
+        let inclination = annotation.inclination
+        let yPos: CGFloat = OVERLAY_VIEW_HEIGHT - (CGFloat(inclination) * H_PIXELS_PER_DEGREE)
         return yPos
     }
     
-    fileprivate func calculateVerticalLevels()
-    {
-        // Lot faster with NS stuff than swift collection classes
-        let dictionary: NSMutableDictionary = NSMutableDictionary()
-        
-        // Creating dictionary for each vertical level
-        for level in stride(from: 0, to: self.maxVerticalLevel + 1, by: 1)
-        {
-            let array = NSMutableArray()
-            dictionary[Int(level)] = array
-        }
-        
-        // Putting each annotation in its dictionary(each level has its own dictionary)
-        for i in stride(from: 0, to: self.activeAnnotations.count, by: 1)
-        {
-            let annotation = self.activeAnnotations[i] as ADSBAnnotation
-            if annotation.verticalLevel <= self.maxVerticalLevel
-            {
-                let array = dictionary[annotation.verticalLevel] as? NSMutableArray
-                array?.add(annotation)
-            }
-        }
-        
-        // Calculating annotation view's width in degrees. Assuming all annotation views have same width
-        var annotationWidthInDegrees: Double = 0
-        if let annotationWidth = self.getAnyAnnotationView()?.bounds.size.width
-        {
-            annotationWidthInDegrees = Double(annotationWidth / H_PIXELS_PER_DEGREE)
-        }
-        if annotationWidthInDegrees < 5 { annotationWidthInDegrees = 5 }
-        
-        // Doing the shit
-        var minVerticalLevel: Int = Int.max
-        for level in stride(from: 0, to: self.maxVerticalLevel + 1, by: 1)
-        {
-            let annotationsForCurrentLevel = dictionary[(level as Int)] as! NSMutableArray
-            let annotationsForNextLevel = dictionary[((level + 1) as Int)] as? NSMutableArray
-            
-            for i in stride(from: 0, to: annotationsForCurrentLevel.count, by: 1)
-            {
-                let annotation1 = annotationsForCurrentLevel[i] as! ADSBAnnotation
-                if annotation1.verticalLevel != level { continue }  // Can happen if it was moved to next level by previous annotation, it will be handled in next loop
-                
-                for j in stride(from: (i+1), to: annotationsForCurrentLevel.count, by: 1)
-                {
-                    let annotation2 = annotationsForCurrentLevel[j] as! ADSBAnnotation
-                    if annotation1 == annotation2 || annotation2.verticalLevel != level
-                    {
-                        continue
-                    }
-                    
-                    // Check if views are colliding horizontally. Using azimuth instead of view position in pixel bcs of performance.
-                    var deltaAzimuth = deltaAngle(annotation1.azimuth, angle2: annotation2.azimuth)
-                    deltaAzimuth = fabs(deltaAzimuth)
-                    
-                    if deltaAzimuth > annotationWidthInDegrees
-                    {
-                        // No collision
-                        continue
-                    }
-                    
-                    // Current annotation is farther away from user than comparing annotation, current will be pushed to the next level
-                    if annotation1.distanceFromUser > annotation2.distanceFromUser
-                    {
-                        annotation1.verticalLevel += 1
-                        if annotationsForNextLevel != nil
-                        {
-                            annotationsForNextLevel?.add(annotation1)
-                        }
-                        // Current annotation was moved to next level so no need to continue with this level
-                        break
-                    }
-                        // Compared annotation will be pushed to next level because it is furher away
-                    else
-                    {
-                        annotation2.verticalLevel += 1
-                        if annotationsForNextLevel != nil
-                        {
-                            annotationsForNextLevel?.add(annotation2)
-                        }
-                    }
-                }
-                
-                if annotation1.verticalLevel == level
-                {
-                    minVerticalLevel = Int(fmin(Float(minVerticalLevel), Float(annotation1.verticalLevel)))
-                }
-            }
-        }
-        
-        // Lower all annotation if there is no lower level annotations
-        for annotation in self.activeAnnotations
-        {
-            if annotation.verticalLevel <= self.maxVerticalLevel
-            {
-                annotation.verticalLevel -= minVerticalLevel
-            }
-        }
-    }
+    
     
     /// It is expected that annotations are sorted by distance before this method is called
-    fileprivate func setInitialVerticalLevels()
-    {
-        if self.activeAnnotations.count == 0
-        {
-            return
-        }
-        
-        // Fetch annotations filtered by maximumDistance and maximumAnnotationsOnScreen
-        let activeAnnotations = self.activeAnnotations
-        var minDistance = activeAnnotations.first!.distanceFromUser
-        var maxDistance = activeAnnotations.last!.distanceFromUser
-        if self.maxDistance > 0
-        {
-            minDistance = 0;
-            maxDistance = self.maxDistance;
-        }
-        var deltaDistance = maxDistance - minDistance
-        let maxLevel: Double = Double(self.maxVerticalLevel)
-        
-        // First reset vertical levels for all annotations
-        for annotation in self.annotations
-        {
-            annotation.verticalLevel = self.maxVerticalLevel + 1
-        }
-        if deltaDistance <= 0 { deltaDistance = 1 }
-        
-        // Calculate vertical levels for active annotations
-        for annotation in activeAnnotations
-        {
-            let verticalLevel = Int(((annotation.distanceFromUser - minDistance) / deltaDistance) * maxLevel)
-            annotation.verticalLevel = verticalLevel
-        }
-    }
+//    fileprivate func setInitialVerticalLevels()
+//    {
+//        if self.activeAnnotations.count == 0
+//        {
+//            return
+//        }
+//        
+//        // Fetch annotations filtered by maximumDistance and maximumAnnotationsOnScreen
+//        let activeAnnotations = self.activeAnnotations
+//        var minDistance = activeAnnotations.first!.distanceFromUser
+//        var maxDistance = activeAnnotations.last!.distanceFromUser
+//        if self.maxDistance > 0
+//        {
+//            minDistance = 0;
+//            maxDistance = self.maxDistance;
+//        }
+//        var deltaDistance = maxDistance - minDistance
+//        let maxLevel: Double = Double(self.maxVerticalLevel)
+//        
+//        // First reset vertical levels for all annotations
+//        for annotation in self.annotations
+//        {
+//            annotation.verticalLevel = self.maxVerticalLevel + 1
+//        }
+//        if deltaDistance <= 0 { deltaDistance = 1 }
+//        
+//        // Calculate vertical levels for active annotations
+//        for annotation in activeAnnotations
+//        {
+//            let verticalLevel = Int(((annotation.distanceFromUser - minDistance) / deltaDistance) * maxLevel)
+//            annotation.verticalLevel = verticalLevel
+//        }
+//    }
     
     fileprivate func getAnyAnnotationView() -> ARAnnotationView?
     {
@@ -713,12 +605,13 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         if(createAnnotationViews)
         {
             self.activeAnnotations = filteredAnnotations(nil, maxVisibleAnnotations: self.maxVisibleAnnotations, maxDistance: self.maxDistance)
-            self.setInitialVerticalLevels()
+//            self.setInitialVerticalLevels()
         }
         
         if calculateVerticalLevels
         {
-            self.calculateVerticalLevels()
+//            self.calculateVerticalLevels()
+            
         }
         
         if createAnnotationViews
@@ -749,7 +642,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         var count = 0
         
         let checkMaxVisibleAnnotations = maxVisibleAnnotations != nil
-        let checkMaxVerticalLevel = maxVerticalLevel != nil
+//        let checkMaxVerticalLevel = maxVerticalLevel != nil
         let checkMaxDistance = maxDistance != nil
         
         for nsAnnotation in nsAnnotations
@@ -764,8 +657,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             }
             
             // filter by maxVerticalLevel and maxDistance
-            if (!checkMaxVerticalLevel || annotation.verticalLevel <= maxVerticalLevel!) &&
-                (!checkMaxDistance || self.maxDistance == 0 || annotation.distanceFromUser <= maxDistance!)
+//            if (!checkMaxVerticalLevel || annotation.verticalLevel <= maxVerticalLevel!) &&
+            if   (!checkMaxDistance || self.maxDistance == 0 || annotation.distanceFromUser <= maxDistance!)
             {
                 filteredAnnotations.append(annotation)
                 annotation.active = true
@@ -999,7 +892,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     fileprivate func overlayFrame() -> CGRect
     {
-        let x: CGFloat = self.view.bounds.size.width / 2 - (CGFloat(currentHeading) * H_PIXELS_PER_DEGREE)
+        let x: CGFloat = view.bounds.size.width / 2 - (CGFloat(currentHeading) * H_PIXELS_PER_DEGREE)
         let y: CGFloat = (CGFloat(self.trackingManager.pitch) * VERTICAL_SENS) + 60.0
         
         let newFrame = CGRect(x: x, y: y, width: OVERLAY_VIEW_WIDTH, height: self.view.bounds.size.height)

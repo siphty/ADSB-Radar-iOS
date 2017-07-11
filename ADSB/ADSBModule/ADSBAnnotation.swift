@@ -28,8 +28,46 @@ open class ADSBAnnotation: MKPointAnnotation {
     // Internal use only, do not set this properties
     internal(set) open var distanceFromUser: Double = 0
     internal(set) open var azimuth: Double = 0
-    internal(set) open var verticalLevel: Int = 0
+    internal(set) open var inclination: Double = 0
+//    internal(set) open var verticalLevel: Int = 0
     internal(set) open var active: Bool = false
+    
+    
+    func getAngle(from first: CLLocationCoordinate2D, to second: CLLocationCoordinate2D) -> Float{
+        let longitudinalDIfference = second.longitude - first.longitude
+        let latitudinalDifference = second.latitude - first.latitude
+        let possibleAzimuth: Float = Float((.pi * 0.5) - atan(latitudinalDifference / longitudinalDIfference))
+        if longitudinalDIfference > 0 { return possibleAzimuth}
+        else if longitudinalDIfference < 0 { return (possibleAzimuth) + .pi }
+        else if latitudinalDifference < 0 { return .pi }
+        return 0.0
+        
+    }
+    
+    func calibrate(using origin: CLLocation, _ useAltitude: Bool) {
+        guard aircraft != nil,
+            aircraft?.presAltitude != nil,
+            aircraft?.ViewerDistance != nil,
+            aircraft?.ViewerBearing != nil   else {
+                guard location != nil else { return }
+                let baseDistance: Double = origin.distance(from: location!)
+                distanceFromUser = sqrt(pow(origin.altitude - (location?.altitude)!, 2) + pow(baseDistance, 2))
+                azimuth = Double(getAngle(from: origin.coordinate, to: (location?.coordinate)!))
+                return
+        }
+       
+        azimuth = (aircraft?.ViewerBearing)!
+        distanceFromUser = (aircraft?.ViewerDistance)!
+        
+        var angle = sin(abs(origin.altitude - (location?.altitude)!) / distanceFromUser)
+        if useAltitude {
+            angle = 0
+        }
+        if origin.altitude > (location?.altitude)! {
+            angle = -angle
+        }
+        inclination = angle
+    }
     
     
     func setAircraftIcon(){

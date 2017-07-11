@@ -67,15 +67,16 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             self.locationManager.headingOrientation = self.orientation
         }
     }
+    
+    
+    internal var roll: Double = 0.0
+    internal var yaw: Double = 0.0
     internal var pitch: Double {
         get {
             return self.calculatePitch()
         }
     }
     
-    
-    internal var roll: Double = 0.0
-    internal var yaw: Double = 0.0
     //===== Private variables
     fileprivate(set) internal var motionManager: CMMotionManager = CMMotionManager()
     fileprivate var lastAcceleration: CMAcceleration = CMAcceleration(x: 0, y: 0, z: 0)

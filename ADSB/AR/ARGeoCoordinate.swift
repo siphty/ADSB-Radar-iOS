@@ -24,9 +24,11 @@ class ARGeoCoordinate: NSObject {
         azimuth = 0
         geoLocation = nil
     }
+    
     func degreesToRadians(_ x: Double) -> Double {
         return .pi * x / 180.0
     }
+    
     func radiansToDegrees(_ x: Double) -> Double {
         return x * (180.0 / .pi)
     }
