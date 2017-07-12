@@ -18,7 +18,16 @@ enum APIRequestType{
 final class ADSBAPIClient {
     static let sharedInstance = ADSBAPIClient()
     private init(){}
-    var adsbLoction: CLLocation?
+    var isFirstRoundUpdate = true
+    var adsbLoction: CLLocation? {
+        didSet {
+            if isFirstRoundUpdate && adsbLoction != nil{
+                print("isFirstRoundUpdate")
+                updateAircrafts()
+                isFirstRoundUpdate = false
+            }
+        }
+    }
     var scanDistance: Float = ADSBConfig.scanRangeBase  // KM
     var scanFrequency: Int = ADSBConfig.scanFrequencyBase
     
@@ -42,7 +51,6 @@ final class ADSBAPIClient {
     
     func startUpdateAircrafts(){
         if isUpdatingAircrafts { return }
-        updateAircrafts()
         if requestTimer == nil {
             requestTimer =  Timer.scheduledTimer(
                 timeInterval: TimeInterval(scanFrequency),
@@ -61,8 +69,9 @@ final class ADSBAPIClient {
             print("Location has not been set")
             return
         }
-        let urlSting = makeRequestUrl(with: adsbLoction!, in: ADSBConfig.scanRangeBase)
-        guard let url = URL(string: urlSting) else {
+        let urlString = makeRequestUrl(with: adsbLoction!, in: ADSBConfig.scanRangeBase)
+        print("url string: \(urlString)")
+        guard let url = URL(string: urlString) else {
             print("URL string can't be parsed")
             return
         }

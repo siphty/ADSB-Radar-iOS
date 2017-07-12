@@ -78,8 +78,8 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     }
     
     //===== Private variables
-    fileprivate(set) internal var motionManager: CMMotionManager = CMMotionManager()
-    fileprivate var lastAcceleration: CMAcceleration = CMAcceleration(x: 0, y: 0, z: 0)
+    fileprivate(set) internal var motionManager = CMMotionManager()
+    fileprivate var lastAcceleration = CMAcceleration(x: 0, y: 0, z: 0)
     fileprivate var reloadLocationPrevious: CLLocation?
     fileprivate var pitchPrevious: Double = 0
     fileprivate var reportLocationTimer: Timer?
@@ -184,18 +184,18 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     /// Stops location and motion manager
     internal func stopTracking()
     {
-        self.reloadLocationPrevious = nil
-        self.userLocation = nil
-        self.reportLocationDate = nil
+        reloadLocationPrevious = nil
+        userLocation = nil
+        reportLocationDate = nil
         
         // Stop motion and location managers
-        self.motionManager.stopAccelerometerUpdates()
-        self.motionManager.stopDeviceMotionUpdates()
-        self.locationManager.stopUpdatingHeading()
-        self.locationManager.stopUpdatingLocation()
+        motionManager.stopAccelerometerUpdates()
+        motionManager.stopDeviceMotionUpdates()
+        locationManager.stopUpdatingHeading()
+        locationManager.stopUpdatingLocation()
         
-        self.tracking = false
-        self.stopLocationSearchTimer()
+        tracking = false
+        stopLocationSearchTimer()
     }
     
     //=========================================================================
@@ -204,7 +204,7 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     
     open func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading)
     {
-        self.heading = fmod(newHeading.trueHeading, 360.0)
+        heading = fmod(newHeading.trueHeading, 360.0)
     }
     
     open func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
@@ -284,6 +284,9 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
     //=========================================================================
     internal func calculatePitch() -> Double
     {
+        //MARK: -
+        //TODO: 👷🏼 🚧Please, refactor this calculatePitch() by deviceManager.attitude 🚧
+        //MARK: -
         if self.motionManager.accelerometerData == nil
         {
             return 0

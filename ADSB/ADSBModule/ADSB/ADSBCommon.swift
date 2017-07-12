@@ -41,8 +41,7 @@ public struct ADSBConfig{
 public enum ADSBAircraftType: String {
     case none = "ADSBUnknownAirplane_35m"
     //Conditions: Engines = 2; EngType = .Turbo; WTC = .Light; Species = (not tower or car); EngMount =
-    case jetTwoEngLight = "ADSBJetTwoEngLight_20.9m"
-    //⭕️(20.90m)
+    case jetTwoEngLight = "ADSBJetTwoEngLight_20.9m" //⭕️(20.90m)
     case jetTwoEngMediumB = "ADSBJetTwoEngMedium_31.2m" //⭕️(31.20m)
 
     case jetTwoEngMediumC = "ADSBJetTwoEngMedium_36.4m" //⭕️(36.40m)
@@ -52,7 +51,7 @@ public enum ADSBAircraftType: String {
     case jetFourEngHeavy =  "ADSBJetFourEngHeavy_72.72m"//⭕️(72.72m)
     
     
-    case pistonOneEngLight = "ADSBPistonOneEngLight_9.75m"  //⭕️(09.75m)
+    case pistonOneEngLight = "ADSBPistonOneEngLight_7.34m"  //⭕️(07.34m)
     
     case pistonTwoEngLight = "ADSBPistonTwoEngLight_15.81m"   //⭕️(15.81m)
     case turboTwoEngMedium = "ADSBTurboTwoEngMedium_27m"  //⭕️(32.80m)

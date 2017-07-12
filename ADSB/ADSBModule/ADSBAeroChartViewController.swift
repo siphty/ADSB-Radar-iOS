@@ -18,14 +18,14 @@ class ADSBAeroChartViewController: UIViewController {
     fileprivate var homeLocation: CLLocation? {
         didSet {
             ADSBAPIClient.sharedInstance.adsbLoction = homeLocation
-            print("Home location have been setted as : \(homeLocation.debugDescription)")
+//            print("Home location have been setted as : \(homeLocation.debugDescription)")
         }
     }
     fileprivate var mapRegionLocation: CLLocation? {
         didSet {
             ADSBAPIClient.sharedInstance.adsbLoction = mapRegionLocation
             mapView.scanRegionCoordinate = mapRegionLocation?.coordinate
-            print("Map Region location have been setted as : \(mapRegionLocation.debugDescription)")
+//            print("Map Region location have been setted as : \(mapRegionLocation.debugDescription)")
         }
     }
     fileprivate var uavLocation: CLLocation?
@@ -502,7 +502,6 @@ extension ADSBAeroChartViewController {
         arViewController.dataSource = self
         arViewController.maxDistance = 0
         arViewController.maxVisibleAnnotations = 30
-        arViewController.maxVerticalLevel = 5
         arViewController.headingSmoothingFactor = 0.95 //0.05
         
         arViewController.trackingManager.userDistanceFilter = 25

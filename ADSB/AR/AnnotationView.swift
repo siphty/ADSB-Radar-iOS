@@ -32,6 +32,7 @@ class AnnotationView: ARAnnotationView {
     var distanceLabel: UILabel?
     var speedLabel: UILabel?
     var altitudeLabel: UILabel?
+    var acIcon: UIImageView?
     
     var delegate: AnnotationViewDelegate?
 
@@ -41,49 +42,59 @@ class AnnotationView: ARAnnotationView {
     loadUI()
     }
   
-  func loadUI() {
-    titleLabel?.removeFromSuperview()
-    distanceLabel?.removeFromSuperview()
+    func loadUI() {
+        titleLabel?.removeFromSuperview()
+        distanceLabel?.removeFromSuperview()
+        guard annotation != nil else { return }
 
-    let label = UILabel(frame: CGRect(x: 2, y: 0, width: 50, height: 13))
-    label.font = UIFont.systemFont(ofSize: 10)
-    label.numberOfLines = 0
-    label.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    label.textColor = UIColor.white
-    self.addSubview(label)
-    self.titleLabel = label
-    
-    distanceLabel = UILabel(frame: CGRect(x: 2, y: 13, width: 50, height: 10))
-    distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    distanceLabel?.textColor = UIColor.green
-    distanceLabel?.font = UIFont.systemFont(ofSize: 8)
-    self.addSubview(distanceLabel!)
-    
-    speedLabel = UILabel(frame: CGRect(x: 2, y: 23, width: 50, height: 10))
-    speedLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    speedLabel?.textColor = UIColor.green
-    speedLabel?.font = UIFont.systemFont(ofSize: 8)
-    self.addSubview(speedLabel!)
+        acIcon = UIImageView()
+        acIcon?.image = annotation?.image
+        acIcon?.contentMode = .center
+        acIcon?.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        addSubview(acIcon!)
+        
+        titleLabel = UILabel(frame: CGRect(x: 45, y: 0, width: 50, height: 13))
+        titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        titleLabel?.numberOfLines = 0
+        titleLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        titleLabel?.textColor = UIColor.white
+        self.addSubview(titleLabel!)
+        
+        distanceLabel = UILabel(frame: CGRect(x: 45, y: 13, width: 50, height: 10))
+        distanceLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        distanceLabel?.textColor = UIColor.green
+        distanceLabel?.font = UIFont.systemFont(ofSize: 8)
+        self.addSubview(distanceLabel!)
+        
+        speedLabel = UILabel(frame: CGRect(x: 45, y: 23, width: 50, height: 10))
+        speedLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        speedLabel?.textColor = UIColor.green
+        speedLabel?.font = UIFont.systemFont(ofSize: 8)
+        self.addSubview(speedLabel!)
 
-    altitudeLabel = UILabel(frame: CGRect(x: 2, y: 33, width: 50, height: 10))
-    altitudeLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
-    altitudeLabel?.textColor = UIColor.green
-    altitudeLabel?.font = UIFont.systemFont(ofSize: 8)
-    self.addSubview(altitudeLabel!)
+        altitudeLabel = UILabel(frame: CGRect(x: 45, y: 33, width: 50, height: 10))
+        altitudeLabel?.backgroundColor = UIColor(white: 0.3, alpha: 0.7)
+        altitudeLabel?.textColor = UIColor.green
+        altitudeLabel?.font = UIFont.systemFont(ofSize: 8)
+        self.addSubview(altitudeLabel!)
 
-    
-    if let annotation = annotation  {
-        titleLabel?.text = annotation.aircraft?.callsign
-        let distance = annotation.aircraft?.ViewerDistance ?? 0
+        
+        let callSign = annotation?.aircraft?.callsign
+        let acId = annotation?.aircraft?.aircraftSN ?? ""
+        if callSign != nil {
+            titleLabel?.text = callSign
+        } else {
+            titleLabel?.text = String(acId)
+        }
+        let distance = annotation?.aircraft?.ViewerDistance ?? 0
         distanceLabel?.text = String(format: "%.1f km", Float(distance) )
         
-        let speed = annotation.aircraft?.groundSpeed ?? 0
+        let speed = annotation?.aircraft?.groundSpeed ?? 0
         speedLabel?.text = String(format: "%.1f km/h", Float(speed) )
         
-        let altitude = annotation.aircraft?.presAltitude ?? 0
+        let altitude = annotation?.aircraft?.presAltitude ?? 0
         altitudeLabel?.text = String(format: "%.0f feet", altitude)
-      
-    }
+    
   }
   
   override func layoutSubviews() {

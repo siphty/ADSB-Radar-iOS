@@ -59,14 +59,14 @@ open class ADSBAnnotation: MKPointAnnotation {
         azimuth = (aircraft?.ViewerBearing)!
         distanceFromUser = (aircraft?.ViewerDistance)!
         
-        var angle = sin(abs(origin.altitude - (location?.altitude)!) / distanceFromUser)
-        if useAltitude {
-            angle = 0
+        var radius = atan(abs(origin.altitude - (location?.altitude)!) / (distanceFromUser * 3280.84)  )
+        if !useAltitude {
+            radius = 0
         }
-        if origin.altitude > (location?.altitude)! {
-            angle = -angle
-        }
-        inclination = angle
+//        if origin.altitude > (location?.altitude)! {
+//            radius = -radius
+//        }
+        inclination = radius  * (180.0 / .pi)
     }
     
     

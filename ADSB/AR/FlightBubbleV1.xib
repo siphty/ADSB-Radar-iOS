@@ -64,7 +64,7 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.77462037849999998" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pc1-Hu-OKY">
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ADSBPistonOneEngLight_7.34m" translatesAutoresizingMaskIntoConstraints="NO" id="Pc1-Hu-OKY">
                     <rect key="frame" x="116" y="0.0" width="35" height="35"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
@@ -83,4 +83,7 @@
             <point key="canvasLocation" x="-700.5" y="-196.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="ADSBPistonOneEngLight_7.34m" width="34" height="26"/>
+    </resources>
 </document>
