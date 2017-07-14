@@ -42,6 +42,7 @@ class ADSBAeroChartViewController: UIViewController {
     
     @IBOutlet var switchDesciptionLabel: UILabel!
     @IBOutlet var hideOnGroundACSwitch: UISwitch!
+    @IBOutlet var rangeSlider: UISlider!
     
     enum MapLockOn {
         case none
@@ -114,7 +115,8 @@ class ADSBAeroChartViewController: UIViewController {
                                        object: nil)
         let apiClient = ADSBAPIClient.sharedInstance
         apiClient.adsbLoction = homeLocation
-        apiClient.startUpdateAircrafts()
+        ADSBConfig.scanRangeBase = rangeSlider.value
+        apiClient.startUpdateAircrafts(every: 7, range: ADSBConfig.scanRangeBase)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -366,7 +368,7 @@ extension ADSBAeroChartViewController{
                 }
                 annotation.coordinate = location.coordinate
                 annotation.location = location
-                
+                annotation.aircraft = aircraft
                 return
             }
         }
@@ -450,8 +452,6 @@ extension ADSBAeroChartViewController{
             
         }
         cleareExpiredAnnotation()
-        updateARViewAnnotations()
-//        aircraftAnnotations.append(annotation) // For AR View
     }
     
     //Remove all annotation
@@ -513,10 +513,7 @@ extension ADSBAeroChartViewController {
         self.present(arViewController, animated: true, completion: nil)
         
     }
-    
-    func updateARViewAnnotations(){
-        
-    }
+
     
 }
 

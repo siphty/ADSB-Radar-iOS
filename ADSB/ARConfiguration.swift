@@ -7,7 +7,7 @@ let H_PIXELS_PER_DEGREE: CGFloat = 14                            // How many pix
 let OVERLAY_VIEW_WIDTH: CGFloat = 360 * H_PIXELS_PER_DEGREE      // 360 degrees x sensitivity
 let OVERLAY_VIEW_HEIGHT: CGFloat = 90 * H_PIXELS_PER_DEGREE      // 90  degrees x sensitivity
 
-let MAX_VISIBLE_ANNOTATIONS: Int = 20                           // Do not change, can affect performance
+let MAX_VISIBLE_ANNOTATIONS: Int = 50                           // Do not change, can affect performance
 
 internal func radiansToDegrees(_ radians: Double) -> Double
 {

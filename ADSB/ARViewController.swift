@@ -32,24 +32,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     open weak var dataSource: ARDataSource?
     /// Orientation mask for view controller. Make sure orientations are enabled in project settings also.
     open var interfaceOrientationMask: UIInterfaceOrientationMask = UIInterfaceOrientationMask.all
-//    /**
-//     *       Defines in how many vertical levels can annotations be stacked. Default value is 5.
-//     *       Annotations are initially vertically arranged by distance from user, but if two annotations visibly collide with each other,
-//     *       then farther annotation is put higher, meaning it is moved onto next vertical level. If annotation is moved onto level higher
-//     *       than this value, it will not be visible.
-//     *       NOTE: This property greatly impacts performance because collision detection is heavy operation, use it in range 1-10.
-//     *       Max value is 10.
-//     */
-//    open var maxVerticalLevel = 0
-//        {
-//        didSet
-//        {
-//            if(maxVerticalLevel > MAX_VERTICAL_LEVELS)
-//            {
-//                maxVerticalLevel = MAX_VERTICAL_LEVELS
-//            }
-//        }
-//    }
     /// Total maximum number of visible annotation views. Default value is 100. Max value is 500
     open var maxVisibleAnnotations = 0
         {
@@ -105,7 +87,9 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      */
     open var uiOptions = UiOptions()
     
-    //===== Private
+    let notificationCenter = NotificationCenter.default
+    
+    //MARK: Private
     fileprivate var initialized: Bool = false
     fileprivate var cameraSession: AVCaptureSession = AVCaptureSession()
     fileprivate var overlayView: OverlayView = OverlayView()
@@ -194,14 +178,22 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     open override func viewDidAppear(_ animated: Bool)
     {
         super.viewDidAppear(animated)
-        ADSBAPIClient.sharedInstance.startUpdateAircrafts()
+        notificationCenter.addObserver(self,
+                                       selector: #selector(aircraftListHasBeenUpdated),
+                                       name: ADSBNotification.NewAircraftListKey,
+                                       object: nil)
+        ADSBAPIClient.sharedInstance.startUpdateAircrafts(every: 1.6, range: 25)
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        ADSBAPIClient.sharedInstance.stopUpdateAircrafts()
+        notificationCenter.removeObserver(ADSBNotification.NewAircraftListKey)
     }
     
     open override func viewDidDisappear(_ animated: Bool)
     {
         super.viewDidDisappear(animated)
         stopCamera()
-        ADSBAPIClient.sharedInstance.stopUpdateAircrafts()
     }
     
     open override func viewDidLayoutSubviews()
@@ -511,46 +503,12 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         guard let annotation = annotationView.annotation else { return 0 }
         let inclination = annotation.inclination
-        let yPos: CGFloat = VERTICAL_SENS / 2 - (CGFloat(inclination) * H_PIXELS_PER_DEGREE)
+//        let yPos: CGFloat = VERTICAL_SENS / 2 - (CGFloat(inclination) * H_PIXELS_PER_DEGREE)
+        let yPos: CGFloat = self.view.bounds.size.height - (CGFloat(inclination) * H_PIXELS_PER_DEGREE) - 44
         return yPos
     }
     
-    
-    
-    /// It is expected that annotations are sorted by distance before this method is called
-//    fileprivate func setInitialVerticalLevels()
-//    {
-//        if self.activeAnnotations.count == 0
-//        {
-//            return
-//        }
-//        
-//        // Fetch annotations filtered by maximumDistance and maximumAnnotationsOnScreen
-//        let activeAnnotations = self.activeAnnotations
-//        var minDistance = activeAnnotations.first!.distanceFromUser
-//        var maxDistance = activeAnnotations.last!.distanceFromUser
-//        if self.maxDistance > 0
-//        {
-//            minDistance = 0;
-//            maxDistance = self.maxDistance;
-//        }
-//        var deltaDistance = maxDistance - minDistance
-//        let maxLevel: Double = Double(self.maxVerticalLevel)
-//        
-//        // First reset vertical levels for all annotations
-//        for annotation in self.annotations
-//        {
-//            annotation.verticalLevel = self.maxVerticalLevel + 1
-//        }
-//        if deltaDistance <= 0 { deltaDistance = 1 }
-//        
-//        // Calculate vertical levels for active annotations
-//        for annotation in activeAnnotations
-//        {
-//            let verticalLevel = Int(((annotation.distanceFromUser - minDistance) / deltaDistance) * maxLevel)
-//            annotation.verticalLevel = verticalLevel
-//        }
-//    }
+   
     
     fileprivate func getAnyAnnotationView() -> ARAnnotationView?
     {
@@ -570,11 +528,8 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     // MARK: -
     // MARK: Main logic
-   
-    
     fileprivate func reload(calculateDistanceAndAzimuth: Bool, calculateVerticalLevels: Bool, createAnnotationViews: Bool)
     {
-        //NSLog("==========")
         if calculateDistanceAndAzimuth
         {
             
@@ -627,7 +582,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         var count = 0
         
         let checkMaxVisibleAnnotations = maxVisibleAnnotations != nil
-//        let checkMaxVerticalLevel = maxVerticalLevel != nil
         let checkMaxDistance = maxDistance != nil
         
         for nsAnnotation in nsAnnotations
@@ -641,8 +595,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
                 continue
             }
             
-            // filter by maxVerticalLevel and maxDistance
-//            if (!checkMaxVerticalLevel || annotation.verticalLevel <= maxVerticalLevel!) &&
             if   (!checkMaxDistance || maxDistance == 0 || annotation.distanceFromUser <= maxDistance!)
             {
                 filteredAnnotations.append(annotation)
@@ -882,7 +834,9 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         cameraLayer?.frame = self.view.bounds
         overlayView.frame = self.overlayFrame()
         overlayView.layer.frame = overlayView.bounds
-        
+//        overlayView.layer.borderWidth = 3
+//        overlayView.layer.borderColor = UIColor.red.cgColor
+        closeButton?.frame = CGRect(x: self.view.bounds.size.width - 53, y: self.view.bounds.size.height - 103,width: 44,height: 44)
     }
     
     
@@ -920,8 +874,9 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
-        self.layoutUi()
-        self.reload(calculateDistanceAndAzimuth: false, calculateVerticalLevels: false, createAnnotationViews: false)
+        layoutUi()
+        reload(calculateDistanceAndAzimuth: false, calculateVerticalLevels: false, createAnnotationViews: false)
+        
         CATransaction.commit()
     }
     
@@ -998,6 +953,91 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
    
+}
+
+//MARK: -
+//MARK: Annotation update
+extension ARViewController {
+    @objc func aircraftListHasBeenUpdated(){
+        let aircraftList = ADSBCacheManager.sharedInstance.adsbAircrafts
+        for aircraft in aircraftList {
+            if (aircraft.isOnGround ?? false)  && ADSBConfig.isGroundAircraftFilterOn { continue }
+            let annotationId = kAircraftAnnotationId + (aircraft.icaoId ?? "") + (aircraft.registration ?? "")
+            if aircraft.latitude == nil || aircraft.longitude == nil { continue }
+            let latitude = CLLocationDegrees(aircraft.latitude!)
+            let longitude = CLLocationDegrees(aircraft.longitude!)
+            let coordination = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let altitude = CLLocationDistance(aircraft.presAltitude ?? 0)
+            let speed = CLLocationSpeed(aircraft.groundSpeed ?? 0)
+            let heading = CLLocationDirection(aircraft.trackHeading ?? 0)
+            updateAnnotation(annotationId,
+                             withLocation: CLLocation(coordinate: coordination,
+                                                      altitude: altitude,
+                                                      horizontalAccuracy: CLLocationAccuracy(10),
+                                                      verticalAccuracy:  CLLocationAccuracy(10),
+                                                      course: heading,
+                                                      speed: speed,
+                                                      timestamp: Date()),
+                             aircraft: aircraft)
+            
+        }
+        cleareExpiredAnnotation()
+        reload(calculateDistanceAndAzimuth: true, calculateVerticalLevels: true, createAnnotationViews: true)
+    }
+    
+    
+    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
+        
+        for annotation in self.annotations{
+            if annotation.identifier == identifier {
+                annotation.coordinate = location.coordinate
+                annotation.location = location
+                annotation.aircraft = aircraft
+                return
+            }
+        }
+        let newAnnotation = createAnnotation(identifier, location: location, aircraft: aircraft)
+        annotations.append(newAnnotation)
+    }
+    
+    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
+        let annotation = ADSBAnnotation()
+        annotation.title = String("\(aircraft?.callsign ?? "---")")
+        annotation.identifier = identifier
+        annotation.subtitle = identifier
+        annotation.coordinate = location.coordinate
+        annotation.location = location
+        annotation.aircraft = aircraft
+        return annotation
+    }
+    
+    func cleareExpiredAnnotation(){
+        var i = 0
+        for anAnnotation in annotations {
+            let secondsInterval = Date().timeIntervalSince((anAnnotation.location?.timestamp)!)
+            if secondsInterval > ADSBConfig.expireSeconds {
+                annotations.remove(at: i)
+                i = i - 1
+            } else if secondsInterval > 1 {
+                guard anAnnotation.annotationView != nil else {
+                    continue
+                }
+               anAnnotation.annotationView?.alpha = (anAnnotation.annotationView?.alpha)! * 0.5
+            }
+            i = i + 1
+        }
+        
+    }
+    
+    func removeOnGroundAircraftAnnotation() {
+        var i = 0
+        for anAnnotation in annotations {
+            if anAnnotation.aircraft?.isOnGround ?? false{
+                annotations.remove(at: i)
+            }
+            i = i + 1
+        }
+    }
 }
 
 

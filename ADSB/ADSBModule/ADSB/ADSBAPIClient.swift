@@ -29,7 +29,6 @@ final class ADSBAPIClient {
         }
     }
     var scanDistance: Float = ADSBConfig.scanRangeBase  // KM
-    var scanFrequency: Int = ADSBConfig.scanFrequencyBase
     
     fileprivate let adsbexchangeBaseUrl = "http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json"
     fileprivate var requestTimer: Timer?
@@ -49,11 +48,12 @@ final class ADSBAPIClient {
         isUpdatingAircrafts = false
     }
     
-    func startUpdateAircrafts(){
+    func startUpdateAircrafts(every seconds: Double, range: Float){
         if isUpdatingAircrafts { return }
+        ADSBConfig.scanRangeBase = range
         if requestTimer == nil {
             requestTimer =  Timer.scheduledTimer(
-                timeInterval: TimeInterval(scanFrequency),
+                timeInterval: TimeInterval(seconds),
                 target      : self,
                 selector    : #selector(updateAircrafts),
                 userInfo    : nil,

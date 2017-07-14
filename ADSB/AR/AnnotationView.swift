@@ -92,8 +92,18 @@ class AnnotationView: ARAnnotationView {
         let speed = annotation?.aircraft?.groundSpeed ?? 0
         speedLabel?.text = String(format: "%.1f km/h", Float(speed) )
         
+        
+        var InDecreaseString = ""
+        let vertiSpeed = annotation?.aircraft?.vertiSpeed ?? 0
+        if vertiSpeed > 0 {
+            InDecreaseString = "▲"
+        } else if vertiSpeed < 0 {
+            InDecreaseString = "▼"
+        } else {
+            InDecreaseString = ""
+        }
         let altitude = annotation?.aircraft?.presAltitude ?? 0
-        altitudeLabel?.text = String(format: "%.0f feet", altitude)
+        altitudeLabel?.text = String(format: "%.0f feet %@", altitude, InDecreaseString)
     
   }
   

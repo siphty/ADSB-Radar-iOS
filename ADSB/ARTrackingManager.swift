@@ -23,7 +23,7 @@ import CoreLocation
 
 
 /// Class used internally by ARFlightViewController for location and orientation calculations.
-open class ARTrackingManager: NSObject, CLLocationManagerDelegate
+open class ARTrackingManager: NSObject
 {
     /**
      *      Defines whether altitude is taken into account when calculating distances. Set this to false if your annotations
@@ -197,11 +197,13 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         tracking = false
         stopLocationSearchTimer()
     }
-    
+}
+
     //=========================================================================
     // MARK:                        CLLocationManagerDelegate
     //========================================================================
-    
+extension ARTrackingManager:  CLLocationManagerDelegate {
+        
     open func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading)
     {
         heading = fmod(newHeading.trueHeading, 360.0)
@@ -278,10 +280,16 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
             self.delegate?.arTrackingManager?(self, didUpdateReloadLocation: userLocation)
         }
     }
-    
-    //=========================================================================
-    // MARK:                        Calculations
-    //=========================================================================
+}
+
+
+
+// MARK:-
+// MARK:                        Calculations
+// MARK:-
+
+
+extension ARTrackingManager {
     internal func calculatePitch() -> Double
     {
         //MARK: -
@@ -380,9 +388,9 @@ open class ARTrackingManager: NSObject, CLLocationManagerDelegate
         self.userLocation = nil
     }
     
-    //==========================================================================================================================================================
-    // MARK:                                                        Location search
-    //==========================================================================================================================================================
+    // MARK: -
+    // MARK:  Location search
+    // MARK: -
     
     func startLocationSearchTimer(resetStartTime: Bool = true)
     {

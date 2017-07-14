@@ -57,9 +57,9 @@
                                 </connections>
                             </switch>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- KM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTI-wg-iSX">
-                                <rect key="frame" x="89" y="46" width="462" height="95"/>
+                                <rect key="frame" x="132" y="46" width="404" height="95"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="462" id="9he-eg-T8m"/>
+                                    <constraint firstAttribute="width" constant="404" id="9he-eg-T8m"/>
                                     <constraint firstAttribute="height" constant="95" id="uTd-at-8G4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Gotham-Bold" family="Gotham" pointSize="120"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="nUr-BA-fK9" firstAttribute="top" secondItem="iPt-zn-O8w" secondAttribute="bottom" constant="56" id="CKM-9y-XgT"/>
                             <constraint firstItem="1Cx-Ur-GXh" firstAttribute="centerY" secondItem="HSg-KJ-Qlg" secondAttribute="centerY" id="Don-L8-EcC"/>
                             <constraint firstItem="cnQ-1J-0bJ" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="69" id="FlK-C0-T6r"/>
-                            <constraint firstItem="RTI-wg-iSX" firstAttribute="centerX" secondItem="cnQ-1J-0bJ" secondAttribute="centerX" constant="-14" id="M6C-DC-3ST"/>
+                            <constraint firstItem="RTI-wg-iSX" firstAttribute="centerX" secondItem="cnQ-1J-0bJ" secondAttribute="centerX" id="M6C-DC-3ST"/>
                             <constraint firstItem="ghr-sK-5WW" firstAttribute="leading" secondItem="COT-41-4XG" secondAttribute="leadingMargin" constant="-20" id="U55-Az-jHE"/>
                             <constraint firstItem="1Cx-Ur-GXh" firstAttribute="trailing" secondItem="nUr-BA-fK9" secondAttribute="trailing" constant="3" id="Z96-qN-djh"/>
                             <constraint firstItem="HOY-Ho-n6c" firstAttribute="centerX" secondItem="1Cx-Ur-GXh" secondAttribute="centerX" id="ZwD-8h-Aav"/>
@@ -117,6 +117,7 @@
                         <outlet property="hideOnGroundACSwitch" destination="1Cx-Ur-GXh" id="kgL-Pg-Zd1"/>
                         <outlet property="mapView" destination="ghr-sK-5WW" id="VIt-YX-VFm"/>
                         <outlet property="rangeRadiusLabel" destination="RTI-wg-iSX" id="yVw-s5-1IY"/>
+                        <outlet property="rangeSlider" destination="cnQ-1J-0bJ" id="aNh-9l-Dn6"/>
                         <outlet property="switchDesciptionLabel" destination="HSg-KJ-Qlg" id="3px-6L-Nke"/>
                     </connections>
                 </viewController>

@@ -25,7 +25,7 @@ public struct ADSBConfig{
     static var isGroundAircraftFilterOn = true
     static var scanRangeBase: Float = 30  // KM
     static let minimumScanRange: Float = 10  //KM
-    static let scanFrequencyBase: Int = 7
+    static let scanSeconds: Int = 7
     static let minimumAircraftsTracking: Int = 5
     static let maximumAircraftsTracking: Int = 80
     static let expireSeconds: Double = 33.0
