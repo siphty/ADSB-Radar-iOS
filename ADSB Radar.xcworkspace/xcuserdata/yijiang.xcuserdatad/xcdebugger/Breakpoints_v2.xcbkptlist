@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "710"
             endingLineNumber = "710"
-            landmarkName = "arTrackingManager(_:didUpdateReloadLocation:)"
-            landmarkType = "7">
+            landmarkName = "ARViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

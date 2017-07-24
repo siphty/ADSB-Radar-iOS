@@ -15,13 +15,11 @@
 		A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
 		A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA51F0B6A4E00A2C280 /* ViewController.swift */; };
 		A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2703CA71F0B6A4E00A2C280 /* Main.storyboard */; };
-		A2703CAC1F0B6A4E00A2C280 /* ADSB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2703CAA1F0B6A4E00A2C280 /* ADSB.xcdatamodeld */; };
 		A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2703CAD1F0B6A4E00A2C280 /* Assets.xcassets */; };
 		A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */; };
 		A2703CBC1F0B6A4E00A2C280 /* ADSBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CBB1F0B6A4E00A2C280 /* ADSBTests.swift */; };
 		A2703CC71F0B6A4E00A2C280 /* ADSBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CC61F0B6A4E00A2C280 /* ADSBUITests.swift */; };
 		A2703D231F0BB7F700A2C280 /* ADS-B.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */; };
-		A2703D241F0BB7F700A2C280 /* ADSBAerodrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D121F0BB7F700A2C280 /* ADSBAerodrome.swift */; };
 		A2703D251F0BB7F700A2C280 /* ADSBAircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D131F0BB7F700A2C280 /* ADSBAircraft.swift */; };
 		A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D141F0BB7F700A2C280 /* ADSBAPIClient.swift */; };
 		A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D151F0BB7F700A2C280 /* ADSBCacheManager.swift */; };
@@ -77,6 +75,10 @@
 		A2703D971F0D239E00A2C280 /* GothamRnd-LightIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A2703D7F1F0D239E00A2C280 /* GothamRnd-LightIta.otf */; };
 		A2703D981F0D239E00A2C280 /* GothamRnd-MedIta.otf in Resources */ = {isa = PBXBuildFile; fileRef = A2703D801F0D239E00A2C280 /* GothamRnd-MedIta.otf */; };
 		A2703D991F0D239E00A2C280 /* GothamRnd-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = A2703D811F0D239E00A2C280 /* GothamRnd-Medium.otf */; };
+		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
+		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
+		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
+		A2D9EF841F24D43C00872689 /* runways.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF821F24D43C00872689 /* runways.csv */; };
 		A2E217841F13929900E96747 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2177E1F13929900E96747 /* AnnotationView.swift */; };
 		A2E217851F13929900E96747 /* ARGeoCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2177F1F13929900E96747 /* ARGeoCoordinate.swift */; };
 		A2E217861F13929900E96747 /* FlightBubbleV1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E217801F13929900E96747 /* FlightBubbleV1.swift */; };
@@ -120,7 +122,6 @@
 		A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2703CA51F0B6A4E00A2C280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A2703CA81F0B6A4E00A2C280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A2703CAB1F0B6A4E00A2C280 /* ADSB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ADSB.xcdatamodel; sourceTree = "<group>"; };
 		A2703CAD1F0B6A4E00A2C280 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2703CB01F0B6A4E00A2C280 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2703CB21F0B6A4E00A2C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		A2703CC61F0B6A4E00A2C280 /* ADSBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSBUITests.swift; sourceTree = "<group>"; };
 		A2703CC81F0B6A4E00A2C280 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "ADS-B.storyboard"; sourceTree = "<group>"; };
-		A2703D121F0BB7F700A2C280 /* ADSBAerodrome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAerodrome.swift; sourceTree = "<group>"; };
 		A2703D131F0BB7F700A2C280 /* ADSBAircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAircraft.swift; sourceTree = "<group>"; };
 		A2703D141F0BB7F700A2C280 /* ADSBAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAPIClient.swift; sourceTree = "<group>"; };
 		A2703D151F0BB7F700A2C280 /* ADSBCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBCacheManager.swift; sourceTree = "<group>"; };
@@ -187,6 +187,10 @@
 		A2703D7F1F0D239E00A2C280 /* GothamRnd-LightIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-LightIta.otf"; sourceTree = "<group>"; };
 		A2703D801F0D239E00A2C280 /* GothamRnd-MedIta.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-MedIta.otf"; sourceTree = "<group>"; };
 		A2703D811F0D239E00A2C280 /* GothamRnd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GothamRnd-Medium.otf"; sourceTree = "<group>"; };
+		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
+		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
+		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
+		A2D9EF821F24D43C00872689 /* runways.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = runways.csv; sourceTree = "<group>"; };
 		A2E2177E1F13929900E96747 /* AnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnnotationView.swift; path = AR/AnnotationView.swift; sourceTree = "<group>"; };
 		A2E2177F1F13929900E96747 /* ARGeoCoordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ARGeoCoordinate.swift; path = AR/ARGeoCoordinate.swift; sourceTree = "<group>"; };
 		A2E217801F13929900E96747 /* FlightBubbleV1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlightBubbleV1.swift; path = AR/FlightBubbleV1.swift; sourceTree = "<group>"; };
@@ -289,8 +293,8 @@
 				A2703CAD1F0B6A4E00A2C280 /* Assets.xcassets */,
 				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
-				A2703CAA1F0B6A4E00A2C280 /* ADSB.xcdatamodeld */,
 				A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */,
+				A2D9EF7E1F24C8CC00872689 /* AirportModule */,
 				A2703D0F1F0BB7F700A2C280 /* ADSBModule */,
 				A26C90A71F13242600FF9514 /* ARModule */,
 			);
@@ -331,7 +335,6 @@
 			children = (
 				A2703D161F0BB7F700A2C280 /* ADSBCommon.swift */,
 				A2703D141F0BB7F700A2C280 /* ADSBAPIClient.swift */,
-				A2703D121F0BB7F700A2C280 /* ADSBAerodrome.swift */,
 				A2703D131F0BB7F700A2C280 /* ADSBAircraft.swift */,
 				A2703D151F0BB7F700A2C280 /* ADSBCacheManager.swift */,
 				A2703D171F0BB7F700A2C280 /* ADSBDictKeys.swift */,
@@ -503,6 +506,35 @@
 			path = Gotham;
 			sourceTree = "<group>";
 		};
+		A2D9EF651F24C3A200872689 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A2D9EF851F24D44D00872689 /* resources */,
+				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
+			);
+			name = Model;
+			path = ADSB;
+			sourceTree = "<group>";
+		};
+		A2D9EF7E1F24C8CC00872689 /* AirportModule */ = {
+			isa = PBXGroup;
+			children = (
+				A2D9EF651F24C3A200872689 /* Model */,
+				A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */,
+			);
+			name = AirportModule;
+			path = ADSBModule;
+			sourceTree = "<group>";
+		};
+		A2D9EF851F24D44D00872689 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				A2D9EF811F24D43C00872689 /* airports.csv */,
+				A2D9EF821F24D43C00872689 /* runways.csv */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		A2E2178A1F1393EE00E96747 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +689,7 @@
 				A2703D981F0D239E00A2C280 /* GothamRnd-MedIta.otf in Resources */,
 				A2703D861F0D239E00A2C280 /* Gotham-Book.otf in Resources */,
 				A2703D8F1F0D239E00A2C280 /* Gotham-UltraItalic.otf in Resources */,
+				A2D9EF841F24D43C00872689 /* runways.csv in Resources */,
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
 				A26C90BD1F13245500FF9514 /* hdar_close.png in Resources */,
 				A2703D821F0D239E00A2C280 /* Gotham-Black.otf in Resources */,
@@ -681,6 +714,7 @@
 				A26C90BF1F13245600FF9514 /* hdar_close@3x.png in Resources */,
 				A2703D871F0D239E00A2C280 /* Gotham-BookItalic.otf in Resources */,
 				A2703D941F0D239E00A2C280 /* GothamRnd-Book.otf in Resources */,
+				A2D9EF831F24D43C00872689 /* airports.csv in Resources */,
 				A2703D851F0D239E00A2C280 /* Gotham-BoldItalic.otf in Resources */,
 				A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */,
 			);
@@ -757,11 +791,11 @@
 			files = (
 				A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */,
 				A2E217841F13929900E96747 /* AnnotationView.swift in Sources */,
-				A2703CAC1F0B6A4E00A2C280 /* ADSB.xcdatamodeld in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
 				A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */,
+				A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */,
 				A2703D5C1F0BBA1600A2C280 /* UIViewController+Child.swift in Sources */,
 				A2703D5B1F0BBA1600A2C280 /* UIImage+Movement.swift in Sources */,
 				A2703D2B1F0BB7F700A2C280 /* ADSBXResponse.swift in Sources */,
@@ -781,9 +815,9 @@
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
-				A2703D241F0BB7F700A2C280 /* ADSBAerodrome.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
+				A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */,
 				A2E217881F13929900E96747 /* FlightCalloutView.swift in Sources */,
 				A2703D511F0BBA1600A2C280 /* CGRect+Resize.swift in Sources */,
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
@@ -1079,13 +1113,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A2703CAA1F0B6A4E00A2C280 /* ADSB.xcdatamodeld */ = {
+		A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A2703CAB1F0B6A4E00A2C280 /* ADSB.xcdatamodel */,
+				A2D9EF391F24A6E000872689 /* airport.xcdatamodel */,
 			);
-			currentVersion = A2703CAB1F0B6A4E00A2C280 /* ADSB.xcdatamodel */;
-			path = ADSB.xcdatamodeld;
+			currentVersion = A2D9EF391F24A6E000872689 /* airport.xcdatamodel */;
+			path = airport.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

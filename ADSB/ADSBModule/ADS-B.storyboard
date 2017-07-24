@@ -84,7 +84,7 @@
                                 </constraints>
                                 <state key="normal" image="looking"/>
                                 <connections>
-                                    <action selector="arViewButtonTouchUpInside:" destination="is2-qm-zg4" eventType="touchUpInside" id="DFw-NW-fH4"/>
+                                    <segue destination="1iw-u8-KoN" kind="showDetail" identifier="PresentARViewIdentifier" id="5g6-9V-hAG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,6 +124,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F1J-Cv-2Rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-96.7016491754123" y="1293.5999999999999"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HxT-og-BL9">
+            <objects>
+                <viewController id="1iw-u8-KoN" customClass="ARViewController" customModule="ADSB_Radar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uxD-jA-Tx6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bcq-w7-XQW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RQd-du-QbE">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jMR-lB-xvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="1299"/>
         </scene>
     </scenes>
     <resources>

@@ -21,7 +21,7 @@ public final class ADSBCacheManager {
         }
     }
     
-    var adsbAerodromes: [ADSBAerodrome] = [ADSBAerodrome]() {
+    var airports: [Airport] = [Airport]() {
         didSet{
             //Broadcast notification
             let notificationCenter = NotificationCenter.default

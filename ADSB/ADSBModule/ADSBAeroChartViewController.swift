@@ -449,7 +449,6 @@ extension ADSBAeroChartViewController{
                                                         speed: speed,
                                                         timestamp: Date()),
                              aircraft: aircraft)
-            
         }
         cleareExpiredAnnotation()
     }
@@ -512,6 +511,30 @@ extension ADSBAeroChartViewController {
         
         self.present(arViewController, animated: true, completion: nil)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PresentARViewIdentifier" {
+            if let arViewController = segue.destination as? ARViewController {
+                guard mapView.annotations.count != 0 else { return }
+                var annotationArray = [ADSBAnnotation]()
+                for annotation in mapView.annotations {
+                    if annotation is ADSBAnnotation {
+                        annotationArray.append(annotation as! ADSBAnnotation)
+                    }
+                }
+                arViewController.dataSource = self
+                arViewController.maxDistance = 0
+                arViewController.maxVisibleAnnotations = 30
+                arViewController.headingSmoothingFactor = 0.95 //0.05
+                
+                arViewController.trackingManager.userDistanceFilter = 25
+                arViewController.trackingManager.reloadDistanceFilter = 75
+                arViewController.setAnnotations(annotationArray)
+                arViewController.uiOptions.debugEnabled = false
+                arViewController.uiOptions.closeButtonEnabled = true 
+            }
+        }
     }
 
     

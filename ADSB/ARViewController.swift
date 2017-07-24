@@ -2,8 +2,8 @@
 //  ARViewController.swift
 //  HDAugmentedRealityDemo
 //
-//  Created by Danijel Huis on 23/04/15.
-//  Copyright (c) 2015 Danijel Huis. All rights reserved.
+//  Created by Yi JIANG on 19/7/17.
+//  Copyright © 2017 RobertYiJiang. All rights reserved.
 //
 
 import UIKit
@@ -22,8 +22,6 @@ import CoreLocation
  *      Properties maxVerticalLevel, maxVisibleAnnotations and maxDistance can be used to optimize performance.
  *      Use trackingManager.userDistanceFilter and trackingManager.reloadDistanceFilter to set how often data is refreshed/reloaded.
  *      All properties are documented.
- *
- *      https://github.com/DanijelHuis/HDAugmentedReality.git
  *
  */
 open class ARViewController: UIViewController, ARTrackingManagerDelegate
@@ -797,8 +795,10 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         cameraSession.startRunning()
         trackingManager.startTracking(notifyLocationFailure: notifyLocationFailure)
-        displayTimer = CADisplayLink(target: self, selector: #selector(ARViewController.displayTimerTick))
-        displayTimer?.add(to: RunLoop.current, forMode: RunLoopMode.defaultRunLoopMode)
+        displayTimer = CADisplayLink(target: self,
+                                     selector: #selector(ARViewController.displayTimerTick))
+        displayTimer?.add(to: RunLoop.current,
+                          forMode: RunLoopMode.defaultRunLoopMode)
     }
     
     fileprivate func stopCamera()
