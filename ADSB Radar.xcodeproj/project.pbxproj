@@ -421,11 +421,11 @@
 		A2D9EF651F24C3A200872689 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
 				A2340B771F26CE8A00B9A003 /* airport.sqlite */,
 				A2340B781F26CE8A00B9A003 /* airport.sqlite-shm */,
 				A2340B791F26CE8A00B9A003 /* airport.sqlite-wal */,
 				A2D9EF851F24D44D00872689 /* resources */,
-				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
 			);
 			name = Model;
 			path = ADSB;

@@ -2,18 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ADSB/AirportModule/Airport+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:ADSB/AirportModule/Airport+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:ADSB/AirportModule/Runway+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:ADSB/AirportModule/Runway+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:/Users/yijiang/ARVR/ADSB Radar/ADSB Radar iOS/ADSB Radar.xcodeproj">
    </FileRef>
    <FileRef
