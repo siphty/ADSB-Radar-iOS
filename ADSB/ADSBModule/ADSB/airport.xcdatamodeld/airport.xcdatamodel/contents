@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13154.30" systemVersion="16F73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Airport" representedClassName=".Airport" syncable="YES" codeGenerationType="class">
-        <attribute name="associated_airport" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dme_channel" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dme_elevation_ft" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dme_frequency_khz" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dme_latitude_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dme_longitude_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="continent" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="elevation_ft" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="frequency_khz" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gps_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="home_link" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iata_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="ident" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="iso_country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iso_region" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="local_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="longitude_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="magnetic_variation_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="municipality" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="power" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="slaved_variation_deg" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scheduled_service" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="usageType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="wikipedia_link" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Runway" representedClassName=".Runway" syncable="YES" codeGenerationType="class">
         <attribute name="airport_ident" optional="YES" attributeType="String" syncable="YES"/>
@@ -45,7 +43,7 @@
         <attribute name="width_ft" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Airport" positionX="160" positionY="192" width="128" height="343"/>
+        <element name="Airport" positionX="160" positionY="192" width="128" height="315"/>
         <element name="Runway" positionX="-261" positionY="189" width="128" height="343"/>
     </elements>
 </model>

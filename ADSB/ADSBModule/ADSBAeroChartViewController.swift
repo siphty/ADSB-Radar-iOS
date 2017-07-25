@@ -105,6 +105,7 @@ class ADSBAeroChartViewController: UIViewController {
         mapView.bounds = view.bounds
         mapView.scanRadius = regionRadius
         hideOnGroundACSwitch.setOn(ADSBConfig.isGroundAircraftFilterOn, animated: false)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -17,6 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let defaults = UserDefaults.standard
+        let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        print("documentsDir : \(documentsDir)")
+        let isPreloaded = defaults.bool(forKey: "isPreloaded")
+//        if !isPreloaded {
+//            DispatchQueue.global(qos: .background).async {
+                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+//                AirdomeCommon.sharedInstance.parseAirportCSV()
+//        AirdomeCommon.sharedInstance.usePrePopulatedDB()
+//            }
+//        }
+        AirdomeCommon.sharedInstance.demoAirportRecords()
         return true
     }
 
@@ -43,36 +55,81 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
 
     // MARK: - Core Data stack
-
+    lazy var applicationDocumentsDirectory: URL = {
+        // The directory the application uses to store the Core Data store file. This code uses a directory named "self.edu.SomeJunk" in the application's documents Application Support directory.
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return urls[urls.count-1]
+    }()
+    
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
+        let modelURL = Bundle.main.url(forResource: "airport", withExtension: "momd")!
+        return NSManagedObjectModel(contentsOf: modelURL)!
+    }()
+    
     lazy var persistentContainer: NSPersistentContainer = {
-        /*
-         The persistent container for the application. This implementation
-         creates and returns a container, having loaded the store for the
-         application to it. This property is optional since there are legitimate
-         error conditions that could cause the creation of the store to fail.
-        */
-        let container = NSPersistentContainer(name: "ADSB")
+        
+        let container = NSPersistentContainer(name: "airport")
+        
+        let dbName: String = "airport"
+        var persistentStoreDescriptions: NSPersistentStoreDescription
+        
+        let storeUrl = self.getDocumentsDirectory().appendingPathComponent("airport.sqlite")
+        
+        if !FileManager.default.fileExists(atPath: (storeUrl.path)) {
+            let seededDataUrl = Bundle.main.url(forResource: dbName, withExtension: "sqlite")
+            try! FileManager.default.copyItem(at: seededDataUrl!, to: storeUrl)
+        }
+        
+        let description = NSPersistentStoreDescription()
+        description.shouldInferMappingModelAutomatically = true
+        description.shouldMigrateStoreAutomatically = true
+        description.url = storeUrl
+        
+        container.persistentStoreDescriptions = [description]
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
-                /*
-                 Typical reasons for an error here include:
-                 * The parent directory does not exist, cannot be created, or disallows writing.
-                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                 * The device is out of space.
-                 * The store could not be migrated to the current model version.
-                 Check the error message to determine what the actual problem was.
-                 */
+                
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
         return container
+        
+        
+//        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+//        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite")
+//        let fileMgr = NSFileManager.defaultManager()
+//        if !fileMgr.fileExistsAtPath(url.path!) {
+//            do {
+//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite")!, toPath: self.applicationDocumentsDirectory.URLByAppment("airport.sqlite").path!)
+//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite-shm")!, toPath: self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite-shm").path!)
+//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite-wal")!, toPath: self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite-wal").path!)
+//            } catch {
+//                //
+//            }
+//            do {
+//                try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url,
+//                                                           options: [NSMigratePersistentStoresAutomaticallyOption:true, NSInferMappingModelAutomaticallyOption:true])
+//            } catch {
+//                //
+//            }
+//        } else {
+//            //
+//        }
+//        return coordinator
     }()
-
+    
+    func getDocumentsDirectory()-> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
+   
     // MARK: - Core Data Saving support
 
     func saveContext () {
