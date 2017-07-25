@@ -68,6 +68,10 @@
 		A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178D1F13947200E96747 /* ARConfiguration.swift */; };
 		A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178E1F13947200E96747 /* ARTrackingManager.swift */; };
 		A2E217941F13947200E96747 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178F1F13947200E96747 /* ARViewController.swift */; };
+		A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */; };
+		A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */; };
+		A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
+		A2F027921F276BA50058E3A5 /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */; };
 		A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F17BB01F258088008861C4 /* Scanner+.swift */; };
 		A402B2AB20D44D1147268C09 /* Pods_ADSB_Radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */; };
 /* End PBXBuildFile section */
@@ -160,6 +164,10 @@
 		A2E2178D1F13947200E96747 /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		A2E2178E1F13947200E96747 /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
 		A2E2178F1F13947200E96747 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runway+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runway+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Scanner+.swift"; path = "../../../../../Downloads/Chrome Robert Yi JIANG/EmailParser-final-project /EmailParser/Scanner+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -421,6 +429,10 @@
 		A2D9EF651F24C3A200872689 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */,
+				A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */,
+				A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */,
+				A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */,
 				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
 				A2340B771F26CE8A00B9A003 /* airport.sqlite */,
 				A2340B781F26CE8A00B9A003 /* airport.sqlite-shm */,
@@ -697,12 +709,15 @@
 				A2E217861F13929900E96747 /* FlightBubbleV1.swift in Sources */,
 				A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */,
 				A2703D251F0BB7F700A2C280 /* ADSBAircraft.swift in Sources */,
+				A2F027921F276BA50058E3A5 /* Airport+CoreDataProperties.swift in Sources */,
 				A2703D4F1F0BBA1600A2C280 /* CATextLayer+Frame.swift in Sources */,
 				A2703D331F0BB7F700A2C280 /* ADSBMapView.swift in Sources */,
 				A2703D501F0BBA1600A2C280 /* CGFloat+Extensions.swift in Sources */,
 				A2703D561F0BBA1600A2C280 /* String+UserLogin.swift in Sources */,
 				A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */,
+				A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */,
 				A2E217941F13947200E96747 /* ARViewController.swift in Sources */,
+				A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */,
 				A2E217851F13929900E96747 /* ARGeoCoordinate.swift in Sources */,
 				A2703D531F0BBA1600A2C280 /* Date+Utility.swift in Sources */,
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
@@ -711,6 +726,7 @@
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
+				A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */,
 				A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */,
 				A2E217881F13929900E96747 /* FlightCalloutView.swift in Sources */,
 				A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */,

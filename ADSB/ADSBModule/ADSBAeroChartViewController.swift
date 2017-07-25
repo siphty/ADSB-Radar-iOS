@@ -193,6 +193,12 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
     }
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapRegionLocation = CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude)
+        AirdomeCommon.sharedInstance.fetchNearestAirport(in: mapView.region.span, at: mapView.region.center,  completion: { (airports?) in
+            guard airports != nil else { return }
+            for airport in airports {
+                
+            }
+        })
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

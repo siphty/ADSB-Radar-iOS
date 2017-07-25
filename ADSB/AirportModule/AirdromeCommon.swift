@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import CoreData
+import CoreLocation
+import MapKit
 
 final class AirdomeCommon {
     
@@ -175,5 +177,30 @@ extension AirdomeCommon {
             print("i: \(i)")
             print("airpot: \(airports[i].description)")
         }
+    }
+    
+    
+    func fetchNearestAirport(in span: MKCoordinateSpan, at location: CLLocationCoordinate2D, completion : @escaping (_ airports: Airport?) -> Void) {
+        var airports: [Airport] = []
+//        var longitudeRange: Double = Double(location.coordinate.longitude) + (radius / 111)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            let request = Airport.getFetchRequest()
+            let maxLatitudePredicate = NSPredicate(format: "latitude_deg < %@", Double(location.latitude) + Double(span.latitudeDelta)/2)
+            let minLatitudePredicate = NSPredicate(format: "latitude_deg > %@", Double(location.latitude) - Double(span.latitudeDelta)/2)
+            let maxLongitudePredicate = NSPredicate(format: "longitude_deg < %@", Double(location.longitude) + Double(span.longitudeDelta)/2)
+            let minLongitudePredicate = NSPredicate(format: "longitude_deg > %@", Double(location.longitude) - Double(span.longitudeDelta)/2)
+            let andPredicate = NSCompoundPredicate.init(type: .and, subpredicates: [maxLatitudePredicate, minLatitudePredicate, maxLongitudePredicate, minLongitudePredicate])
+            request.predicate = andPredicate
+            airports = try context.fetch(request)
+            
+        }
+        catch {
+            print("Fetching Failed")
+        }
+        
+        completion(airports)
     }
 }
