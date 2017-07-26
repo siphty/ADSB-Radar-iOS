@@ -22,86 +22,86 @@ final class AirdomeCommon {
     }
     
     func parseAirportCSV() {
-        // Load the CSV file and parse it
-        let separater = ","
-        if false {
-            return //if CoreData has been preloaded.
-        }
-        removeAllAirport()
-        guard let contentsOfUrl = Bundle.main.url(forResource:"airports", withExtension: "csv") else { return }
-        var content = ""
-        do {
-            content = try String(contentsOf: contentsOfUrl, encoding: .utf8)
-        } catch {
-            print("error")
-        }
-//        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
-            let lines = content.components(separatedBy: .newlines) as [String]
-        
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: Date())
-        let minutes = calendar.component(.minute, from: Date())
-        print("====================        Start preload database       ======================== \(hour):\(minutes)")
-            for line in lines {
-                var values:[String] = []
-                if line != "" {
-                    // For a line with double quotes
-                    if line.range(of: "\"") != nil {
-                        var lineToScan = line
-                        var value: String?
-                        var lineScanner = Scanner(string: lineToScan)
-                        while !lineScanner.isAtEnd {
-                            let scannerString = lineScanner.string
-                            let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
-                            if (lineScanner.string as String).substring(to: index)  == "\"" {
-                                lineScanner.scanLocation += 1
-                                value = lineScanner.scanUpTo("\"") ?? ""
-                                lineScanner.scanLocation += 1
-                            } else {
-                                value = lineScanner.scanUpTo(separater) ?? ""
-                            }
-                            
-                            // Store the value into the values array
-                            values.append(value! as String)
-                            
-                            // Retrieve the unscanned remainder of the string
-                            if lineScanner.scanLocation < lineScanner.string.count {
-                                let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-                                lineToScan = scannerString.substring(from: index)
-                            } else {
-                                lineToScan = ""
-                            }
-                            lineScanner = Scanner(string: lineToScan)
-                        }
-                        
-                        // For a line without double quotes, we can simply separate the string
-                        // by using the separater (e.g. comma)
-                    } else  {
-                        values = line.components(separatedBy: separater)
-                    }
-                    // Put the values into the tuple and add it to the items array
-                    guard values.count != 0 else {
-                        print("Got no airport on this line")
-                        continue}
-                    saveAirport(values)
-                }
-            }
+//        // Load the CSV file and parse it
+//        let separater = ","
+//        if false {
+//            return //if CoreData has been preloaded.
 //        }
-        
-        let endHour = calendar.component(.hour, from: Date())
-        let endMinutes = calendar.component(.minute, from: Date())
-        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
-        
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let context = appDelegate.persistentContainer.viewContext
-        do {
-            try context.save()
-        } catch {
-            print("Could not save. ")//\(error), \(error.userInfo)")
-        }
-        
-        let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "isPreloaded")
+//        removeAllAirport()
+//        guard let contentsOfUrl = Bundle.main.url(forResource:"airports", withExtension: "csv") else { return }
+//        var content = ""
+//        do {
+//            content = try String(contentsOf: contentsOfUrl, encoding: .utf8)
+//        } catch {
+//            print("error")
+//        }
+////        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
+//            let lines = content.components(separatedBy: .newlines) as [String]
+//        
+//        let calendar = Calendar.current
+//        let hour = calendar.component(.hour, from: Date())
+//        let minutes = calendar.component(.minute, from: Date())
+//        print("====================        Start preload database       ======================== \(hour):\(minutes)")
+//            for line in lines {
+//                var values:[String] = []
+//                if line != "" {
+//                    // For a line with double quotes
+//                    if line.range(of: "\"") != nil {
+//                        var lineToScan = line
+//                        var value: String?
+//                        var lineScanner = Scanner(string: lineToScan)
+//                        while !lineScanner.isAtEnd {
+//                            let scannerString = lineScanner.string
+//                            let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
+//                            if (lineScanner.string as String).substring(to: index)  == "\"" {
+//                                lineScanner.scanLocation += 1
+//                                value = lineScanner.scanUpTo("\"") ?? ""
+//                                lineScanner.scanLocation += 1
+//                            } else {
+//                                value = lineScanner.scanUpTo(separater) ?? ""
+//                            }
+//                            
+//                            // Store the value into the values array
+//                            values.append(value! as String)
+//                            
+//                            // Retrieve the unscanned remainder of the string
+//                            if lineScanner.scanLocation < (lineScanner.string).count {
+//                                let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
+//                                lineToScan = scannerString.substring(from: index)
+//                            } else {
+//                                lineToScan = ""
+//                            }
+//                            lineScanner = Scanner(string: lineToScan)
+//                        }
+//                        
+//                        // For a line without double quotes, we can simply separate the string
+//                        // by using the separater (e.g. comma)
+//                    } else  {
+//                        values = line.components(separatedBy: separater)
+//                    }
+//                    // Put the values into the tuple and add it to the items array
+//                    guard values.count != 0 else {
+//                        print("Got no airport on this line")
+//                        continue}
+//                    saveAirport(values)
+//                }
+//            }
+////        }
+//        
+//        let endHour = calendar.component(.hour, from: Date())
+//        let endMinutes = calendar.component(.minute, from: Date())
+//        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
+//        
+//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//        let context = appDelegate.persistentContainer.viewContext
+//        do {
+//            try context.save()
+//        } catch {
+//            print("Could not save. ")//\(error), \(error.userInfo)")
+//        }
+//        
+//        let defaults = UserDefaults.standard
+//        defaults.set(true, forKey: "isPreloaded")
     }
     
     func saveAirport(_ values: [String]) {
@@ -160,27 +160,7 @@ extension AirdomeCommon {
         
     }
     
-    func demoAirportRecords(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-        let context = appDelegate.persistentContainer.viewContext
-        let count = 20
-        
-        do {
-            airports = try context.fetch(Airport.fetchRequest())
-            
-        }
-        catch {
-            print("Fetching Failed")
-        }
-        
-        for i in (0 ... count) {
-            print("i: \(i)")
-            print("airpot: \(airports[i].description)")
-        }
-    }
-    
-    
-    func fetchNearestAirport(in span: MKCoordinateSpan, at location: CLLocationCoordinate2D, completion : @escaping (_ airports: Airport?) -> Void) {
+    func fetchNearestAirport(in span: MKCoordinateSpan, at location: CLLocationCoordinate2D, completion : @escaping (_ airports: [Airport]?) -> Void) {
         var airports: [Airport] = []
 //        var longitudeRange: Double = Double(location.coordinate.longitude) + (radius / 111)
         
@@ -188,19 +168,27 @@ extension AirdomeCommon {
         let context = appDelegate.persistentContainer.viewContext
         do {
             let request = Airport.getFetchRequest()
-            let maxLatitudePredicate = NSPredicate(format: "latitude_deg < %@", Double(location.latitude) + Double(span.latitudeDelta)/2)
-            let minLatitudePredicate = NSPredicate(format: "latitude_deg > %@", Double(location.latitude) - Double(span.latitudeDelta)/2)
-            let maxLongitudePredicate = NSPredicate(format: "longitude_deg < %@", Double(location.longitude) + Double(span.longitudeDelta)/2)
-            let minLongitudePredicate = NSPredicate(format: "longitude_deg > %@", Double(location.longitude) - Double(span.longitudeDelta)/2)
+            let maxLatitudeDegree = Double(location.latitude) + Double(span.latitudeDelta)/2
+            let minLatitudeDegree = Double(location.latitude) - Double(span.latitudeDelta)/2
+            let maxLongitudeDegree = Double(location.longitude) + Double(span.longitudeDelta)/2
+            let minLongitudeDegree = Double(location.longitude) - Double(span.longitudeDelta)/2
+            
+            let maxLatitudePredicate = NSPredicate(format: "latitude_deg < %f", maxLatitudeDegree)
+            let minLatitudePredicate = NSPredicate(format: "latitude_deg > %f", minLatitudeDegree)
+            let maxLongitudePredicate = NSPredicate(format: "longitude_deg < %f", maxLongitudeDegree)
+            let minLongitudePredicate = NSPredicate(format: "longitude_deg > %f", minLongitudeDegree)
             let andPredicate = NSCompoundPredicate.init(type: .and, subpredicates: [maxLatitudePredicate, minLatitudePredicate, maxLongitudePredicate, minLongitudePredicate])
             request.predicate = andPredicate
             airports = try context.fetch(request)
-            
         }
         catch {
             print("Fetching Failed")
+            completion(nil)
         }
-        
         completion(airports)
     }
+}
+
+
+extension AirdomeCommon {
 }

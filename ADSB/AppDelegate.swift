@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        AirdomeCommon.sharedInstance.usePrePopulatedDB()
 //            }
 //        }
-        AirdomeCommon.sharedInstance.demoAirportRecords()
+//        AirdomeCommon.sharedInstance.demoAirportRecords()
         return true
     }
 

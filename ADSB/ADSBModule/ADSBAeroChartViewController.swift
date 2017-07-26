@@ -177,11 +177,30 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
     {
         if overlay is MKCircle
         {
-            let regionCircleRenderer = MKCircleRenderer(overlay: overlay)
-            regionCircleRenderer.fillColor = UIColor.black.withAlphaComponent(0.2)
-            regionCircleRenderer.strokeColor = UIColor.green
-            regionCircleRenderer.lineWidth = 2
-            return regionCircleRenderer
+            guard let overlayTitle: String = overlay.title! else { return MKOverlayRenderer(overlay: overlay) }
+            if (overlayTitle.range(of: "Scan" ) != nil) {
+                let regionCircleRenderer = MKCircleRenderer(overlay: overlay)
+                regionCircleRenderer.fillColor = UIColor.black.withAlphaComponent(0.2)
+                regionCircleRenderer.strokeColor = UIColor.green
+                regionCircleRenderer.lineWidth = 2
+                return regionCircleRenderer
+            } else if (overlayTitle.range(of: "Airport" ) != nil)  &&  (overlayTitle.range(of: "NFZ" ) != nil) {
+                let airportCircleRenderer = MKCircleRenderer(overlay: overlay)
+                airportCircleRenderer.fillColor = UIColor.red.withAlphaComponent(0.5)
+                return airportCircleRenderer
+            } else if (overlayTitle.range(of: "Airport" ) != nil)  &&  (overlayTitle.range(of: "NFA45" ) != nil) {
+                let airportCircleRenderer = MKCircleRenderer(overlay: overlay)
+                airportCircleRenderer.fillColor = UIColor.yellow.withAlphaComponent(0.4)
+                airportCircleRenderer.strokeColor = UIColor.yellow
+                airportCircleRenderer.lineWidth = 1
+                return airportCircleRenderer
+            } else if (overlayTitle.range(of: "Airport" ) != nil)  &&  (overlayTitle.range(of: "RESTRICT" ) != nil) {
+                let airportCircleRenderer = MKCircleRenderer(overlay: overlay)
+                airportCircleRenderer.fillColor = UIColor.yellow.withAlphaComponent(0.2)
+                airportCircleRenderer.strokeColor = UIColor.yellow
+                airportCircleRenderer.lineWidth = 1
+                return airportCircleRenderer
+            }
         }
         return MKOverlayRenderer(overlay: overlay)
     }
@@ -191,14 +210,12 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
             mapChangedFromUserInteraction = true
         }
     }
+    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapRegionLocation = CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude)
-        AirdomeCommon.sharedInstance.fetchNearestAirport(in: mapView.region.span, at: mapView.region.center,  completion: { (airports?) in
-            guard airports != nil else { return }
-            for airport in airports {
-                
-            }
-        })
+        if mapView.region.span.latitudeDelta + mapView.region.span.longitudeDelta < 3 {
+            (mapView as! ADSBMapView).drawAirportRestrictRegion()
+        }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -379,11 +396,11 @@ extension ADSBAeroChartViewController{
                 return
             }
         }
-        let newAnnotation = createAnnotation(identifier, location: location, aircraft: aircraft)
+        let newAnnotation = createAircraftAnnotation(identifier, location: location, aircraft: aircraft)
         mapView.addAnnotation(newAnnotation)
     }
     
-    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
+    func createAircraftAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
         let annotation = ADSBAnnotation()
         // if the location services is on we will show the travel time, so we give a blank title to mapPin to draw a bigger callout for AnnotationView loader
         annotation.title = String("TITLE")
