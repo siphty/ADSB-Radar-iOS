@@ -15,6 +15,8 @@ class ADSBAeroChartViewController: UIViewController {
     let locationManager = CLLocationManager()
     let notificationCenter = NotificationCenter.default
     
+    @IBOutlet var droneRestrictButton: UIButton!
+    
     fileprivate var homeLocation: CLLocation? {
         didSet {
             ADSBAPIClient.sharedInstance.adsbLoction = homeLocation
@@ -37,12 +39,14 @@ class ADSBAeroChartViewController: UIViewController {
     fileprivate var uavAnnotation: ADSBAnnotation?
     fileprivate var homeAnnotation: MKAnnotation?
     fileprivate var mapChangedFromUserInteraction = false
+    fileprivate var isShowingNFZ: Bool = false
     
     @IBOutlet var rangeRadiusLabel: UILabel!
     
     @IBOutlet var switchDesciptionLabel: UILabel!
     @IBOutlet var hideOnGroundACSwitch: UISwitch!
     @IBOutlet var rangeSlider: UISlider!
+    
     
     enum MapLockOn {
         case none
@@ -86,6 +90,21 @@ class ADSBAeroChartViewController: UIViewController {
         
     }
     
+    @IBAction func droneRestrictButtionTouchUpInside(_ sender: Any) {
+        if isShowingNFZ {
+            isShowingNFZ = false
+            droneRestrictButton.setImage(#imageLiteral(resourceName: "no-fly zone_disable"), for: .normal)
+            mapView.removeAllAirportRestrictRegion()
+        } else {
+            isShowingNFZ = true
+            droneRestrictButton.setImage(#imageLiteral(resourceName: "no-fly-zone_active"), for: .normal)
+            if mapView.region.span.latitudeDelta + mapView.region.span.longitudeDelta < 3 {
+                mapView.drawAirportRestrictRegion()
+            }
+        }
+        
+        
+    }
     
     fileprivate var aircraftAnnotations = [ADSBAnnotation]()
     
@@ -213,8 +232,10 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         mapRegionLocation = CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude)
-        if mapView.region.span.latitudeDelta + mapView.region.span.longitudeDelta < 3 {
-            (mapView as! ADSBMapView).drawAirportRestrictRegion()
+        if isShowingNFZ {
+            if mapView.region.span.latitudeDelta + mapView.region.span.longitudeDelta < 3 {
+                (mapView as! ADSBMapView).drawAirportRestrictRegion()
+            }
         }
     }
     

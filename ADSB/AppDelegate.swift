@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         print("documentsDir : \(documentsDir)")
-        let isPreloaded = defaults.bool(forKey: "isPreloaded")
+//        let isPreloaded = defaults.bool(forKey: "isPreloaded")
 //        if !isPreloaded {
 //            DispatchQueue.global(qos: .background).async {
                 print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")

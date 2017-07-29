@@ -274,10 +274,6 @@ class ADSBMapView: MKMapView {
         }
     }
 
-    
-}
-
-extension ADSBMapView {
     func drawScanRegion(by regionRadius: CLLocationDistance, at coordinate: CLLocationCoordinate2D){
         if regionCircle != nil {
             remove(regionCircle!)
@@ -286,6 +282,11 @@ extension ADSBMapView {
         regionCircle!.title = "Scan Range : \(Int(regionRadius / 1000))Km"
         add(regionCircle!)
     }
+    
+}
+//MARK: -
+//MARK: Airports
+extension ADSBMapView {
     
     func drawAirportRestrictRegion() {
         AirdomeCommon.sharedInstance.fetchNearestAirport(in: region.span, at: region.center, completion: { (airports) in
@@ -370,6 +371,16 @@ extension ADSBMapView {
                 }
             }
         })
+    }
+    
+    
+    func removeAllAirportRestrictRegion() {
+        for overlay in overlays {
+            guard let overlayTitle: String = overlay.title! else { continue }
+            if (overlayTitle.range(of: "Airport" ) != nil) {
+                remove(overlay)
+            }
+        }
     }
     
 }

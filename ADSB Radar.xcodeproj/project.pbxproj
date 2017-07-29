@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A202525A1F26F8B100A2759D /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A2340B771F26CE8A00B9A003 /* airport.sqlite */; };
-		A202525B1F26F8B100A2759D /* airport.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = A2340B781F26CE8A00B9A003 /* airport.sqlite-shm */; };
-		A202525C1F26F8B100A2759D /* airport.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = A2340B791F26CE8A00B9A003 /* airport.sqlite-wal */; };
+		A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */; };
 		A26C90BC1F13245500FF9514 /* DebugMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B21F13245500FF9514 /* DebugMapViewController.xib */; };
 		A26C90BD1F13245500FF9514 /* hdar_close.png in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B31F13245500FF9514 /* hdar_close.png */; };
 		A26C90BE1F13245500FF9514 /* hdar_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A26C90B41F13245500FF9514 /* hdar_close@2x.png */; };
@@ -100,8 +99,7 @@
 		53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_Radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
 		A2340B771F26CE8A00B9A003 /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
-		A2340B781F26CE8A00B9A003 /* airport.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "airport.sqlite-shm"; sourceTree = "<group>"; };
-		A2340B791F26CE8A00B9A003 /* airport.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = text; path = "airport.sqlite-wal"; sourceTree = "<group>"; };
+		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A26C90B21F13245500FF9514 /* DebugMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugMapViewController.xib; sourceTree = "<group>"; };
 		A26C90B31F13245500FF9514 /* hdar_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdar_close.png; sourceTree = "<group>"; };
 		A26C90B41F13245500FF9514 /* hdar_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hdar_close@2x.png"; sourceTree = "<group>"; };
@@ -439,8 +437,6 @@
 				A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */,
 				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
 				A2340B771F26CE8A00B9A003 /* airport.sqlite */,
-				A2340B781F26CE8A00B9A003 /* airport.sqlite-shm */,
-				A2340B791F26CE8A00B9A003 /* airport.sqlite-wal */,
 				A2D9EF851F24D44D00872689 /* resources */,
 			);
 			name = Model;
@@ -450,9 +446,10 @@
 		A2D9EF7E1F24C8CC00872689 /* AirportModule */ = {
 			isa = PBXGroup;
 			children = (
+				A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */,
+				A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */,
 				A2F027951F283C590058E3A5 /* Views */,
 				A2D9EF651F24C3A200872689 /* Model */,
-				A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */,
 			);
 			name = AirportModule;
 			path = ADSBModule;
@@ -621,14 +618,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A202525A1F26F8B100A2759D /* airport.sqlite in Resources */,
-				A202525B1F26F8B100A2759D /* airport.sqlite-shm in Resources */,
-				A202525C1F26F8B100A2759D /* airport.sqlite-wal in Resources */,
 				A26C90BE1F13245500FF9514 /* hdar_close@2x.png in Resources */,
 				A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */,
 				A26C90BC1F13245500FF9514 /* DebugMapViewController.xib in Resources */,
 				A2D9EF841F24D43C00872689 /* runways.csv in Resources */,
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
 				A26C90BD1F13245500FF9514 /* hdar_close.png in Resources */,
+				A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */,
 				A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */,
 				A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */,
 				A2E217891F13929900E96747 /* FlightCalloutView.xib in Resources */,
