@@ -98,29 +98,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         })
         return container
-        
-        
-//        let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-//        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite")
-//        let fileMgr = NSFileManager.defaultManager()
-//        if !fileMgr.fileExistsAtPath(url.path!) {
-//            do {
-//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite")!, toPath: self.applicationDocumentsDirectory.URLByAppment("airport.sqlite").path!)
-//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite-shm")!, toPath: self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite-shm").path!)
-//                try fileMgr.copyItemAtPath(NSBundle.mainBundle().pathForResource("airport", ofType: "sqlite-wal")!, toPath: self.applicationDocumentsDirectory.URLByAppendingPathComponent("airport.sqlite-wal").path!)
-//            } catch {
-//                //
-//            }
-//            do {
-//                try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url,
-//                                                           options: [NSMigratePersistentStoresAutomaticallyOption:true, NSInferMappingModelAutomaticallyOption:true])
-//            } catch {
-//                //
-//            }
-//        } else {
-//            //
-//        }
-//        return coordinator
     }()
     
     func getDocumentsDirectory()-> URL {

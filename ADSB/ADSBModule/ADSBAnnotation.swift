@@ -63,9 +63,6 @@ open class ADSBAnnotation: MKPointAnnotation {
         if !useAltitude {
             radius = 0
         }
-//        if origin.altitude > (location?.altitude)! {
-//            radius = -radius
-//        }
         inclination = radius  * (180.0 / .pi)
     }
     
