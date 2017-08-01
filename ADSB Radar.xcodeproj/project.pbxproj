@@ -162,7 +162,7 @@
 		A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2F027961F28417C0058E3A5 /* airportAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotationView.swift; path = ADSB/AirportModule/Views/airportAnnotationView.swift; sourceTree = SOURCE_ROOT; };
 		A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotation.swift; path = ADSB/AirportModule/Views/airportAnnotation.swift; sourceTree = SOURCE_ROOT; };
-		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Scanner+.swift"; path = "../../../../../Downloads/Chrome Robert Yi JIANG/EmailParser-final-project /EmailParser/Scanner+.swift"; sourceTree = "<group>"; };
+		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scanner+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
