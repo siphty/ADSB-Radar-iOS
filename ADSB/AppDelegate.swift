@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            DispatchQueue.global(qos: .background).async {
                 print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 //                AirdomeCommon.sharedInstance.parseAirportCSV()
+                        AirdomeCommon.sharedInstance.parseRunwayCSV()
 //        AirdomeCommon.sharedInstance.usePrePopulatedDB()
 //            }
 //        }

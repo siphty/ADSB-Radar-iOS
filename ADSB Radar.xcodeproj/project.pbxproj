@@ -142,6 +142,7 @@
 		A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A2703D611F0BBB6400A2C280 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
+		A2B783F51F38A76C0081B5C2 /* runway.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = runway.sqlite; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -417,6 +418,7 @@
 				A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */,
 				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
 				A2340B771F26CE8A00B9A003 /* airport.sqlite */,
+				A2B783F51F38A76C0081B5C2 /* runway.sqlite */,
 				A2D9EF851F24D44D00872689 /* resources */,
 			);
 			name = Model;

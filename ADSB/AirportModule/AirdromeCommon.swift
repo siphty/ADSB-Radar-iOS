@@ -16,92 +16,89 @@ final class AirdomeCommon {
     
     static let sharedInstance =  AirdomeCommon()
      var airports: [Airport] = []
-    
-    func parseRunwayCSV() {
-        
-    }
+    var runways: [Runway] = []
     
     func parseAirportCSV() {
-//        // Load the CSV file and parse it
-//        let separater = ","
-//        if false {
-//            return //if CoreData has been preloaded.
+        // Load the CSV file and parse it
+        let separater = ","
+        if false {
+            return //if CoreData has been preloaded.
+        }
+        removeAllAirport()
+        guard let contentsOfUrl = Bundle.main.url(forResource:"airports", withExtension: "csv") else { return }
+        var content = ""
+        do {
+            content = try String(contentsOf: contentsOfUrl, encoding: .utf8)
+        } catch {
+            print("error")
+        }
+//        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
+            let lines = content.components(separatedBy: .newlines) as [String]
+        
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: Date())
+        let minutes = calendar.component(.minute, from: Date())
+        print("====================        Start preload database       ======================== \(hour):\(minutes)")
+        for line in lines {
+            var values:[String] = []
+            if line != "" {
+                // For a line with double quotes
+                if line.range(of: "\"") != nil {
+                    var lineToScan = line
+                    var value: String?
+                    var lineScanner = Scanner(string: lineToScan)
+                    while !lineScanner.isAtEnd {
+                        let scannerString = lineScanner.string
+                        let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
+                        if (lineScanner.string as String).substring(to: index)  == "\"" {
+                            lineScanner.scanLocation += 1
+                            value = lineScanner.scanUpTo("\"") ?? ""
+                            lineScanner.scanLocation += 1
+                        } else {
+                            value = lineScanner.scanUpTo(separater) ?? ""
+                        }
+                        
+                        // Store the value into the values array
+                        values.append(value! as String)
+                        
+                        // Retrieve the unscanned remainder of the string
+                        if lineScanner.scanLocation < (lineScanner.string).count {
+                            let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
+                            lineToScan = scannerString.substring(from: index)
+                        } else {
+                            lineToScan = ""
+                        }
+                        lineScanner = Scanner(string: lineToScan)
+                    }
+                    
+                    // For a line without double quotes, we can simply separate the string
+                    // by using the separater (e.g. comma)
+                } else  {
+                    values = line.components(separatedBy: separater)
+                }
+                // Put the values into the tuple and add it to the items array
+                guard values.count != 0 else {
+                    print("Got no airport on this line")
+                    continue}
+                saveAirport(values)
+            }
+        }
 //        }
-//        removeAllAirport()
-//        guard let contentsOfUrl = Bundle.main.url(forResource:"airports", withExtension: "csv") else { return }
-//        var content = ""
-//        do {
-//            content = try String(contentsOf: contentsOfUrl, encoding: .utf8)
-//        } catch {
-//            print("error")
-//        }
-////        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
-//            let lines = content.components(separatedBy: .newlines) as [String]
-//        
-//        let calendar = Calendar.current
-//        let hour = calendar.component(.hour, from: Date())
-//        let minutes = calendar.component(.minute, from: Date())
-//        print("====================        Start preload database       ======================== \(hour):\(minutes)")
-//            for line in lines {
-//                var values:[String] = []
-//                if line != "" {
-//                    // For a line with double quotes
-//                    if line.range(of: "\"") != nil {
-//                        var lineToScan = line
-//                        var value: String?
-//                        var lineScanner = Scanner(string: lineToScan)
-//                        while !lineScanner.isAtEnd {
-//                            let scannerString = lineScanner.string
-//                            let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
-//                            if (lineScanner.string as String).substring(to: index)  == "\"" {
-//                                lineScanner.scanLocation += 1
-//                                value = lineScanner.scanUpTo("\"") ?? ""
-//                                lineScanner.scanLocation += 1
-//                            } else {
-//                                value = lineScanner.scanUpTo(separater) ?? ""
-//                            }
-//                            
-//                            // Store the value into the values array
-//                            values.append(value! as String)
-//                            
-//                            // Retrieve the unscanned remainder of the string
-//                            if lineScanner.scanLocation < (lineScanner.string).count {
-//                                let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-//                                lineToScan = scannerString.substring(from: index)
-//                            } else {
-//                                lineToScan = ""
-//                            }
-//                            lineScanner = Scanner(string: lineToScan)
-//                        }
-//                        
-//                        // For a line without double quotes, we can simply separate the string
-//                        // by using the separater (e.g. comma)
-//                    } else  {
-//                        values = line.components(separatedBy: separater)
-//                    }
-//                    // Put the values into the tuple and add it to the items array
-//                    guard values.count != 0 else {
-//                        print("Got no airport on this line")
-//                        continue}
-//                    saveAirport(values)
-//                }
-//            }
-////        }
-//        
-//        let endHour = calendar.component(.hour, from: Date())
-//        let endMinutes = calendar.component(.minute, from: Date())
-//        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
-//        
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-//        let context = appDelegate.persistentContainer.viewContext
-//        do {
-//            try context.save()
-//        } catch {
-//            print("Could not save. ")//\(error), \(error.userInfo)")
-//        }
-//        
-//        let defaults = UserDefaults.standard
-//        defaults.set(true, forKey: "isPreloaded")
+    
+        let endHour = calendar.component(.hour, from: Date())
+        let endMinutes = calendar.component(.minute, from: Date())
+        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            try context.save()
+        } catch {
+            print("Could not save. ")//\(error), \(error.userInfo)")
+        }
+        
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isPreloaded")
     }
     
     func saveAirport(_ values: [String]) {
@@ -191,4 +188,137 @@ extension AirdomeCommon {
 
 
 extension AirdomeCommon {
+    
+    
+    func parseRunwayCSV() {
+        // Load the CSV file and parse it
+        let separater = ","
+        if false {
+            return //if CoreData has been preloaded.
+        }
+        removeAllRunways()
+        guard let contentsOfUrl = Bundle.main.url(forResource:"runways", withExtension: "csv") else { return }
+        var content = ""
+        do {
+            content = try String(contentsOf: contentsOfUrl, encoding: .utf8)
+        } catch {
+            print("error")
+        }
+//        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
+            let lines = content.components(separatedBy: .newlines) as [String]
+
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: Date())
+        let minutes = calendar.component(.minute, from: Date())
+        print("====================        Start preload database       ======================== \(hour):\(minutes)")
+            for line in lines {
+                var values:[String] = []
+                if line != "" {
+                    // For a line with double quotes
+                    if line.range(of: "\"") != nil {
+                        var lineToScan = line
+                        var value: String?
+                        var lineScanner = Scanner(string: lineToScan)
+                        while !lineScanner.isAtEnd {
+                            let scannerString = lineScanner.string
+                            let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
+                            if (lineScanner.string as String).substring(to: index)  == "\"" {
+                                lineScanner.scanLocation += 1
+                                value = lineScanner.scanUpTo("\"") ?? ""
+                                lineScanner.scanLocation += 1
+                            } else {
+                                value = lineScanner.scanUpTo(separater) ?? ""
+                            }
+
+                            // Store the value into the values array
+                            values.append(value! as String)
+
+                            // Retrieve the unscanned remainder of the string
+                            if lineScanner.scanLocation < (lineScanner.string).count {
+                                let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
+                                lineToScan = scannerString.substring(from: index)
+                            } else {
+                                lineToScan = ""
+                            }
+                            lineScanner = Scanner(string: lineToScan)
+                        }
+
+                        // For a line without double quotes, we can simply separate the string
+                        // by using the separater (e.g. comma)
+                    } else  {
+                        values = line.components(separatedBy: separater)
+                    }
+                    // Put the values into the tuple and add it to the items array
+                    guard values.count != 0 else {
+                        print("Got no runway on this line")
+                        continue}
+                    saveRunway(values)
+                }
+            }
+//        }
+
+        let endHour = calendar.component(.hour, from: Date())
+        let endMinutes = calendar.component(.minute, from: Date())
+        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            try context.save()
+        } catch {
+            print("Could not save. ")//\(error), \(error.userInfo)")
+        }
+
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "isPreloaded")
+    }
+    
+    
+    func removeAllRunways() {
+    
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+    
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Runway")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+    
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    
+    func saveRunway(_ values: [String]) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        let runway = Runway(context: context)
+        let idString: String = values[0]
+        guard idString.isInt else { return }
+        runway.id = Int32(idString) ?? 0
+        runway.airport_ref = Int32(values[1]) ?? 0
+        runway.airport_ident = values[2]
+        runway.length_ft = Int16(values[3]) ?? 0
+        runway.width_ft = Int16(values[4]) ?? 0
+        runway.surface = values[5]
+        runway.lighted = (Int(values[6]) == 1)
+        runway.closed = (Int(values[7]) == 1)
+        runway.le_ident = values[8]
+        runway.le_latitude_deg = Double(values[9]) ?? 0
+        runway.le_longitude_deg = Double(values[10]) ?? 0
+        runway.le_elevation_ft = Int16(values[11]) ?? 0
+        runway.le_heading_degT = Double(values[12]) ?? 0
+        runway.le_displaced_threshold_ft = Int16(values[13]) ?? 0
+        runway.he_ident = values[14]
+        runway.he_latitude_deg = Double(values[15]) ?? 0
+        runway.he_longitude_deg = Double(values[16]) ?? 0
+        runway.he_elevation_ft = Int16(values[17]) ?? 0
+        runway.he_heading_degT = Double(values[18]) ?? 0
+        
+        if values.count >= 20 {
+            runway.he_displaced_threshold_ft = Int16(values[19]) ?? 0
+        }
+    }
 }
