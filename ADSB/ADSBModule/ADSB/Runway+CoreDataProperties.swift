@@ -13,7 +13,7 @@ import CoreData
 
 extension Runway {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Runway> {
+    @nonobjc public class func getFetchRequest() -> NSFetchRequest<Runway> {
         return NSFetchRequest<Runway>(entityName: "Runway")
     }
 

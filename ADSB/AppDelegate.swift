@@ -20,12 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let defaults = UserDefaults.standard
         let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         print("documentsDir : \(documentsDir)")
-//        let isPreloaded = defaults.bool(forKey: "isPreloaded")
-//        if !isPreloaded {
-//            DispatchQueue.global(qos: .background).async {
-                print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 //                AirdomeCommon.sharedInstance.parseAirportCSV()
-                        AirdomeCommon.sharedInstance.parseRunwayCSV()
+//                AirdomeCommon.sharedInstance.parseRunwayCSV()
 //        AirdomeCommon.sharedInstance.usePrePopulatedDB()
 //            }
 //        }
@@ -68,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = Bundle.main.url(forResource: "airport", withExtension: "momd")!
-        return NSManagedObjectModel(contentsOf: modelURL)!
+        return NSManagedObjectModel(contentsOf: modelURL)
     }()
     
     lazy var persistentContainer: NSPersistentContainer = {
@@ -77,19 +74,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let dbName: String = "airport"
         var persistentStoreDescriptions: NSPersistentStoreDescription
-        
+
         let storeUrl = self.getDocumentsDirectory().appendingPathComponent("airport.sqlite")
         
         if !FileManager.default.fileExists(atPath: (storeUrl.path)) {
             let seededDataUrl = Bundle.main.url(forResource: dbName, withExtension: "sqlite")
             try! FileManager.default.copyItem(at: seededDataUrl!, to: storeUrl)
         }
-        
+
         let description = NSPersistentStoreDescription()
         description.shouldInferMappingModelAutomatically = true
         description.shouldMigrateStoreAutomatically = true
         description.url = storeUrl
-        
+
         container.persistentStoreDescriptions = [description]
         
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in

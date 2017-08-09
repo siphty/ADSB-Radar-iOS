@@ -38,7 +38,7 @@ final class AirdomeCommon {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: Date())
         let minutes = calendar.component(.minute, from: Date())
-        print("====================        Start preload database       ======================== \(hour):\(minutes)")
+        print("====================        Start preload airport table       ======================== \(hour):\(minutes)")
         for line in lines {
             var values:[String] = []
             if line != "" {
@@ -87,7 +87,7 @@ final class AirdomeCommon {
     
         let endHour = calendar.component(.hour, from: Date())
         let endMinutes = calendar.component(.minute, from: Date())
-        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
+        print("====================        END preload airport table       ========================\(endHour):\(endMinutes)")
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
@@ -179,10 +179,29 @@ extension AirdomeCommon {
             airports = try context.fetch(request)
         }
         catch {
-            print("Fetching Failed")
+            print("Fetching Airport Failed")
             completion(nil)
         }
         completion(airports)
+    }
+    
+    func fetchRunway(on airport:Airport, completion: @escaping (_ runways: [Runway]?) -> Void){
+        var runways: [Runway] = []
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let context = appDelegate.persistentContainer.viewContext
+        guard let airport_ident = airport.ident else {
+            return
+        }
+        do {
+            let request = Runway.getFetchRequest()
+            let runwayPredicate = NSPredicate(format: "airport_ident == %@", airport_ident)
+            request.predicate = runwayPredicate
+            runways = try context.fetch(request)
+        } catch {
+            print("Fetching Runway Failed")
+            completion(nil)
+        }
+        completion(runways)
     }
 }
 
@@ -210,7 +229,7 @@ extension AirdomeCommon {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: Date())
         let minutes = calendar.component(.minute, from: Date())
-        print("====================        Start preload database       ======================== \(hour):\(minutes)")
+        print("====================        Start preload  Runway table       ======================== \(hour):\(minutes)")
             for line in lines {
                 var values:[String] = []
                 if line != "" {
@@ -259,7 +278,7 @@ extension AirdomeCommon {
 
         let endHour = calendar.component(.hour, from: Date())
         let endMinutes = calendar.component(.minute, from: Date())
-        print("====================        END preload database       ========================\(endHour):\(endMinutes)")
+        print("====================        END preload Runway table       ========================\(endHour):\(endMinutes)")
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext

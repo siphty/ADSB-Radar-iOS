@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A202525A1F26F8B100A2759D /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A2340B771F26CE8A00B9A003 /* airport.sqlite */; };
 		A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */; };
 		A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */; };
 		A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
@@ -49,6 +48,8 @@
 		A2703D601F0BBB5B00A2C280 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */; };
 		A2703D621F0BBB6400A2C280 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D611F0BBB6400A2C280 /* CoreMotion.framework */; };
 		A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */; };
+		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
+		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -94,7 +95,6 @@
 		3DA6EECE855CCC0A77EF118A /* Pods-ADSB Radar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.release.xcconfig"; sourceTree = "<group>"; };
 		53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_Radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
-		A2340B771F26CE8A00B9A003 /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ARAssets.xcassets; sourceTree = "<group>"; };
 		A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ADSB Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +142,8 @@
 		A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A2703D611F0BBB6400A2C280 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
-		A2B783F51F38A76C0081B5C2 /* runway.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = runway.sqlite; sourceTree = "<group>"; };
+		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
+		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -417,8 +418,6 @@
 				A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */,
 				A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */,
 				A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */,
-				A2340B771F26CE8A00B9A003 /* airport.sqlite */,
-				A2B783F51F38A76C0081B5C2 /* runway.sqlite */,
 				A2D9EF851F24D44D00872689 /* resources */,
 			);
 			name = Model;
@@ -440,6 +439,7 @@
 		A2D9EF851F24D44D00872689 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				A296DF4C1F3B366B003F060C /* airport.sqlite */,
 				A2D9EF811F24D43C00872689 /* airports.csv */,
 				A2D9EF821F24D43C00872689 /* runways.csv */,
 			);
@@ -462,6 +462,7 @@
 			children = (
 				A2F027961F28417C0058E3A5 /* airportAnnotationView.swift */,
 				A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */,
+				A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -599,7 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A202525A1F26F8B100A2759D /* airport.sqlite in Resources */,
+				A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */,
 				A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */,
 				A2D9EF841F24D43C00872689 /* runways.csv in Resources */,
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
@@ -708,6 +709,7 @@
 				A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */,
 				A2E217941F13947200E96747 /* ARViewController.swift in Sources */,
 				A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */,
+				A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */,
 				A2E217851F13929900E96747 /* ARGeoCoordinate.swift in Sources */,
 				A2703D531F0BBA1600A2C280 /* Date+Utility.swift in Sources */,
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
