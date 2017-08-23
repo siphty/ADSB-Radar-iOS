@@ -213,7 +213,7 @@ extension AirdomeCommon {
         // Load the CSV file and parse it
         let separater = ","
         if false {
-            return //if CoreData has been preloaded.
+            return //if CoreData has been preloaded.  
         }
         removeAllRunways()
         guard let contentsOfUrl = Bundle.main.url(forResource:"runways", withExtension: "csv") else { return }
