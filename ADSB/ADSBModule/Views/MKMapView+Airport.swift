@@ -32,7 +32,7 @@ extension MKMapView {
                         break
                     }
                     let title = String("Airport : \(airport.ident!)")
-                    if (overlay.title!!.range(of: title!) != nil) {
+                    if (overlay.title!!.range(of: title) != nil) {
                         isDrawn = true
                         break
                     }

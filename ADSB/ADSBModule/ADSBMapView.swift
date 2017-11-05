@@ -261,7 +261,7 @@ class ADSBMapView: MKMapView {
         // function scans subviews recursively and returns reference to the found one of a type
         if view.subviews.count > 0 {
             for subview in view.subviews {
-                if type(of: subview).description() == type {
+                if String(describing: subview.self) == type {
                     return subview
                 }
                 if let inSubviews = self.findViewOfType(type, inView: subview) {
