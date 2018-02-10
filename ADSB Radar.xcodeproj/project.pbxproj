@@ -274,14 +274,14 @@
 			children = (
 				A2703D201F0BB7F700A2C280 /* ADSBAssets.xcassets */,
 				A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */,
-				A2703D111F0BB7F700A2C280 /* ADS-B */,
+				A2703D111F0BB7F700A2C280 /* ADS-B Modle */,
 				A2703D651F0BD27000A2C280 /* Views */,
 			);
 			name = "ADSB Map Module";
 			path = ADSBModule;
 			sourceTree = "<group>";
 		};
-		A2703D111F0BB7F700A2C280 /* ADS-B */ = {
+		A2703D111F0BB7F700A2C280 /* ADS-B Modle */ = {
 			isa = PBXGroup;
 			children = (
 				A2703D161F0BB7F700A2C280 /* ADSBCommon.swift */,
@@ -291,7 +291,7 @@
 				A2703D171F0BB7F700A2C280 /* ADSBDictKeys.swift */,
 				A2703D1A1F0BB7F700A2C280 /* ADSBXResponse.swift */,
 			);
-			name = "ADS-B";
+			name = "ADS-B Modle";
 			path = ADSB;
 			sourceTree = "<group>";
 		};
