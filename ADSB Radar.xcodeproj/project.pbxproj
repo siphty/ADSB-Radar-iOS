@@ -50,11 +50,11 @@
 		A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */; };
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
-		A2AB505F202F31E1007E07AB /* ADSBExchangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */; };
-		A2AB5061202F3375007E07AB /* DarkSkyApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */; };
+		A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
 		A2AB5066202F357C007E07AB /* AcList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* AcList.swift */; };
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
 		A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */; };
+		A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -149,11 +149,11 @@
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
-		A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSBExchangeApiService.swift; sourceTree = "<group>"; };
-		A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyApiService.swift; sourceTree = "<group>"; };
+		A2AB505E202F31E1007E07AB /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		A2AB5063202F357B007E07AB /* AcList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcList.swift; sourceTree = "<group>"; };
 		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBEchangeRsponse.swift; sourceTree = "<group>"; };
+		A2AB506920306D7C007E07AB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -432,19 +432,19 @@
 		A2AB505C202F2DEE007E07AB /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				A2AB505D202F2EAA007E07AB /* ServerManagers */,
+				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2AB5062202F33A0007E07AB /* Models */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
 		};
-		A2AB505D202F2EAA007E07AB /* ServerManagers */ = {
+		A2AB505D202F2EAA007E07AB /* ServerManager */ = {
 			isa = PBXGroup;
 			children = (
-				A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */,
-				A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */,
+				A2AB505E202F31E1007E07AB /* ApiService.swift */,
+				A2AB506920306D7C007E07AB /* ApiClient.swift */,
 			);
-			path = ServerManagers;
+			path = ServerManager;
 			sourceTree = "<group>";
 		};
 		A2AB5062202F33A0007E07AB /* Models */ = {
@@ -786,7 +786,7 @@
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
 				A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */,
-				A2AB505F202F31E1007E07AB /* ADSBExchangeApiService.swift in Sources */,
+				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
@@ -798,8 +798,8 @@
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
-				A2AB5061202F3375007E07AB /* DarkSkyApiService.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
+				A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */,
 				A2703D521F0BBA1600A2C280 /* CLLocation+Operator.swift in Sources */,
 				A2703D5A1F0BBA1600A2C280 /* UIImage+Mask.swift in Sources */,
 				A2703D541F0BBA1600A2C280 /* Geometric.swift in Sources */,

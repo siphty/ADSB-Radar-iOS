@@ -50,9 +50,19 @@ struct AcList : Codable {
 	let isInterested : Bool?    //True if the aircraft is flagged as interesting in the BaseStation.sqb local database.
 	let flightsCount : Int?     //The number of Flights records the aircraft has in the database.
 	let isOnGround : Bool?      //True if the aircraft is on the ground.
-	let speedType : Int?        //The type of speed that Spd represents. Only used with raw feeds. 0/missing = ground speed, 1 = ground speed reversing, 2 = indicated air speed, 3 = true air speed.
+	let speedType : Int?        //The type of speed that Spd represents. Only used with raw feeds.
+                                //0 = missing ground speed,
+                                //1 = ground speed reversing,
+                                //2 = indicated air speed,
+                                //3 = true air speed.
 	let isCallsignUnsure : Bool?//True if the callsign may not be correct.
-	let transponderType : Int?  //Transponder type - 0=Unknown, 1=Mode-S, 2=ADS-B (unknown version), 3=ADS-B 0, 4=ADS-B 1, 5=ADS-B 2.
+    let transponderType : Int?  //Transponder type :
+                                //0=Unknown,
+                                //1=Mode-S,
+                                //2=ADS-B (unknown version),
+                                //3=ADS-B 0,
+                                //4=ADS-B 1,
+                                //5=ADS-B 2.
 	let yearOfManuf : Int?      //The year that the aircraft was manufactured.
 
 	enum CodingKeys: String, CodingKey {
