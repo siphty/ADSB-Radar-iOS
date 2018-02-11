@@ -23,13 +23,10 @@ extension UIViewController {
         dismissBackgroundButton.add(for: .touchDown){
             self.dismissPopoverChildViewController(content)
         }
-    
         addChildViewController(content)
         view.addSubview(content.view)
         content.didMove(toParentViewController: self)
         view.bringSubview(toFront: content.view)
-        
-        
     }
     
     /// Dismiss pop overed child view.

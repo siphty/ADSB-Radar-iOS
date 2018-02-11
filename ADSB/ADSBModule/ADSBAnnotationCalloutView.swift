@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import SnapKit
 import NVActivityIndicatorView
 
 class ADSBAnnotationCalloutView: ADSBCalloutView {

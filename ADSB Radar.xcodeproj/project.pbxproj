@@ -50,6 +50,11 @@
 		A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */; };
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
+		A2AB505F202F31E1007E07AB /* ADSBExchangeApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */; };
+		A2AB5061202F3375007E07AB /* DarkSkyApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */; };
+		A2AB5066202F357C007E07AB /* AcList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* AcList.swift */; };
+		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
+		A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -144,6 +149,11 @@
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
+		A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSBExchangeApiService.swift; sourceTree = "<group>"; };
+		A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkSkyApiService.swift; sourceTree = "<group>"; };
+		A2AB5063202F357B007E07AB /* AcList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcList.swift; sourceTree = "<group>"; };
+		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
+		A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBEchangeRsponse.swift; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -238,15 +248,15 @@
 			isa = PBXGroup;
 			children = (
 				A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */,
-				A2703CA51F0B6A4E00A2C280 /* ViewController.swift */,
-				A2703CA71F0B6A4E00A2C280 /* Main.storyboard */,
 				A2703CAD1F0B6A4E00A2C280 /* Assets.xcassets */,
 				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
+				A2AB505C202F2DEE007E07AB /* MVVM */,
 				A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */,
 				A26C90A71F13242600FF9514 /* AR Module */,
 				A2703D0F1F0BB7F700A2C280 /* ADSB Map Module */,
 				A2D9EF7E1F24C8CC00872689 /* Airport Sub-Module */,
+				A2AB505B202F2DB1007E07AB /* Trash */,
 			);
 			path = ADSB;
 			sourceTree = "<group>";
@@ -274,14 +284,14 @@
 			children = (
 				A2703D201F0BB7F700A2C280 /* ADSBAssets.xcassets */,
 				A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */,
-				A2703D111F0BB7F700A2C280 /* ADS-B Modle */,
+				A2703D111F0BB7F700A2C280 /* ADS-B Model */,
 				A2703D651F0BD27000A2C280 /* Views */,
 			);
 			name = "ADSB Map Module";
 			path = ADSBModule;
 			sourceTree = "<group>";
 		};
-		A2703D111F0BB7F700A2C280 /* ADS-B Modle */ = {
+		A2703D111F0BB7F700A2C280 /* ADS-B Model */ = {
 			isa = PBXGroup;
 			children = (
 				A2703D161F0BB7F700A2C280 /* ADSBCommon.swift */,
@@ -291,7 +301,7 @@
 				A2703D171F0BB7F700A2C280 /* ADSBDictKeys.swift */,
 				A2703D1A1F0BB7F700A2C280 /* ADSBXResponse.swift */,
 			);
-			name = "ADS-B Modle";
+			name = "ADS-B Model";
 			path = ADSB;
 			sourceTree = "<group>";
 		};
@@ -408,6 +418,43 @@
 				A2703D211F0BB7F700A2C280 /* ADSBCalloutView.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		A2AB505B202F2DB1007E07AB /* Trash */ = {
+			isa = PBXGroup;
+			children = (
+				A2703CA51F0B6A4E00A2C280 /* ViewController.swift */,
+				A2703CA71F0B6A4E00A2C280 /* Main.storyboard */,
+			);
+			path = Trash;
+			sourceTree = "<group>";
+		};
+		A2AB505C202F2DEE007E07AB /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				A2AB505D202F2EAA007E07AB /* ServerManagers */,
+				A2AB5062202F33A0007E07AB /* Models */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		A2AB505D202F2EAA007E07AB /* ServerManagers */ = {
+			isa = PBXGroup;
+			children = (
+				A2AB505E202F31E1007E07AB /* ADSBExchangeApiService.swift */,
+				A2AB5060202F3375007E07AB /* DarkSkyApiService.swift */,
+			);
+			path = ServerManagers;
+			sourceTree = "<group>";
+		};
+		A2AB5062202F33A0007E07AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A2AB5063202F357B007E07AB /* AcList.swift */,
+				A2AB5064202F357B007E07AB /* Feeds.swift */,
+				A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A2D9EF651F24C3A200872689 /* Model */ = {
@@ -642,13 +689,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -696,6 +753,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */,
+				A2AB5066202F357C007E07AB /* AcList.swift in Sources */,
 				A2E217841F13929900E96747 /* AnnotationView.swift in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
@@ -705,6 +763,7 @@
 				A2703D5C1F0BBA1600A2C280 /* UIViewController+Child.swift in Sources */,
 				A2703D5B1F0BBA1600A2C280 /* UIImage+Movement.swift in Sources */,
 				A2703D2B1F0BB7F700A2C280 /* ADSBXResponse.swift in Sources */,
+				A2AB5067202F357C007E07AB /* Feeds.swift in Sources */,
 				A2703D321F0BB7F700A2C280 /* ADSBCalloutView.swift in Sources */,
 				A2E217861F13929900E96747 /* FlightBubbleV1.swift in Sources */,
 				A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */,
@@ -726,6 +785,8 @@
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
+				A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */,
+				A2AB505F202F31E1007E07AB /* ADSBExchangeApiService.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
@@ -737,6 +798,7 @@
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
+				A2AB5061202F3375007E07AB /* DarkSkyApiService.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
 				A2703D521F0BBA1600A2C280 /* CLLocation+Operator.swift in Sources */,
 				A2703D5A1F0BBA1600A2C280 /* UIImage+Mask.swift in Sources */,

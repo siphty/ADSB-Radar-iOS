@@ -12,7 +12,6 @@ import Foundation
 extension UIImage {
     
     func maskWithColor(color: UIColor) -> UIImage? {
-        
         let shadowLayer = CALayer()
         shadowLayer.bounds = CGRect(x: -1, y: -1, width: size.width + 2, height: size.height + 2)
         shadowLayer.backgroundColor = UIColor.black.cgColor

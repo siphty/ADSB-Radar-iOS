@@ -44,7 +44,6 @@ extension UIImage {
         }
         
         bitmap.scaleBy(x: yFlip, y: -1.0)
-        
         bitmap.draw(self.cgImage!, in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()

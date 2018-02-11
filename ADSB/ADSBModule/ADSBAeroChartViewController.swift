@@ -572,7 +572,6 @@ extension ADSBAeroChartViewController {
                 arViewController.maxDistance = 0
                 arViewController.maxVisibleAnnotations = 30
                 arViewController.headingSmoothingFactor = 0.95 //0.05
-                
                 arViewController.trackingManager.userDistanceFilter = 25
                 arViewController.trackingManager.reloadDistanceFilter = 75
                 arViewController.setAnnotations(annotationArray)
@@ -581,8 +580,6 @@ extension ADSBAeroChartViewController {
             }
         }
     }
-
-    
 }
 
 
@@ -592,27 +589,14 @@ extension ADSBAeroChartViewController: ARDataSource {
         annotationView.annotation = viewForAnnotation
         annotationView.delegate = self
         annotationView.frame = CGRect(x: 0, y: 0, width: 150, height: 50)
-        
         return annotationView
     }
-    
-    
 }
-
-
 
 extension ADSBAeroChartViewController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
         if let annotation = annotationView.annotation {
             print("Annotation is beed touched: \(String(describing: annotation.aircraft?.icaoId))")
-            
         }
     }
 }
-
-
-
-
-
-
-

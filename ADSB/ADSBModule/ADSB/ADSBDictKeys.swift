@@ -30,6 +30,13 @@ struct ExRspKeys {
 
 /// Aircraft Keys
 struct AcKeys {
+    
+    
+    
+    
+    
+    
+    
     static let AircraftId:      String = "Id"       //The unique identifier of the aircraft.
     static let TrackedSec:      String = "TSecs"    //The number of seconds that the aircraft has been tracked for.
     static let ReceiverId:      String = "Rcvr"     //he ID of the feed that last supplied information about the aircraft.
