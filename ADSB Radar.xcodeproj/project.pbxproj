@@ -55,6 +55,13 @@
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
 		A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */; };
 		A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
+		A2AB50742031C151007E07AB /* Currently.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506D2031C150007E07AB /* Currently.swift */; };
+		A2AB50752031C151007E07AB /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506E2031C150007E07AB /* ThemeColor.swift */; };
+		A2AB50762031C151007E07AB /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506F2031C150007E07AB /* Flag.swift */; };
+		A2AB50772031C151007E07AB /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50702031C151007E07AB /* Daily.swift */; };
+		A2AB50782031C151007E07AB /* WeatherDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */; };
+		A2AB50792031C151007E07AB /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50722031C151007E07AB /* WeatherDetail.swift */; };
+		A2AB507A2031C151007E07AB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50732031C151007E07AB /* Weather.swift */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -154,6 +161,13 @@
 		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBEchangeRsponse.swift; sourceTree = "<group>"; };
 		A2AB506920306D7C007E07AB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A2AB506D2031C150007E07AB /* Currently.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currently.swift; sourceTree = "<group>"; };
+		A2AB506E2031C150007E07AB /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
+		A2AB506F2031C150007E07AB /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		A2AB50702031C151007E07AB /* Daily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
+		A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDisplayModel.swift; sourceTree = "<group>"; };
+		A2AB50722031C151007E07AB /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
+		A2AB50732031C151007E07AB /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -252,6 +266,7 @@
 				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
 				A2AB505C202F2DEE007E07AB /* MVVM */,
+				A2AB507B2031C167007E07AB /* ViewModels */,
 				A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */,
 				A26C90A71F13242600FF9514 /* AR Module */,
 				A2703D0F1F0BB7F700A2C280 /* ADSB Map Module */,
@@ -450,11 +465,41 @@
 		A2AB5062202F33A0007E07AB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2AB506C2031C12F007E07AB /* DarkSky */,
+				A2AB506B2031C111007E07AB /* ADSBExchange */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A2AB506B2031C111007E07AB /* ADSBExchange */ = {
+			isa = PBXGroup;
+			children = (
 				A2AB5063202F357B007E07AB /* AcList.swift */,
 				A2AB5064202F357B007E07AB /* Feeds.swift */,
 				A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */,
 			);
-			path = Models;
+			path = ADSBExchange;
+			sourceTree = "<group>";
+		};
+		A2AB506C2031C12F007E07AB /* DarkSky */ = {
+			isa = PBXGroup;
+			children = (
+				A2AB506D2031C150007E07AB /* Currently.swift */,
+				A2AB50702031C151007E07AB /* Daily.swift */,
+				A2AB506F2031C150007E07AB /* Flag.swift */,
+				A2AB506E2031C150007E07AB /* ThemeColor.swift */,
+				A2AB50732031C151007E07AB /* Weather.swift */,
+				A2AB50722031C151007E07AB /* WeatherDetail.swift */,
+				A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */,
+			);
+			path = DarkSky;
+			sourceTree = "<group>";
+		};
+		A2AB507B2031C167007E07AB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A2D9EF651F24C3A200872689 /* Model */ = {
@@ -752,12 +797,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2AB50742031C151007E07AB /* Currently.swift in Sources */,
 				A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */,
 				A2AB5066202F357C007E07AB /* AcList.swift in Sources */,
 				A2E217841F13929900E96747 /* AnnotationView.swift in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
+				A2AB507A2031C151007E07AB /* Weather.swift in Sources */,
 				A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */,
 				A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */,
 				A2703D5C1F0BBA1600A2C280 /* UIViewController+Child.swift in Sources */,
@@ -768,6 +815,7 @@
 				A2E217861F13929900E96747 /* FlightBubbleV1.swift in Sources */,
 				A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */,
 				A2703D251F0BB7F700A2C280 /* ADSBAircraft.swift in Sources */,
+				A2AB50762031C151007E07AB /* Flag.swift in Sources */,
 				A2F027971F28417C0058E3A5 /* airportAnnotationView.swift in Sources */,
 				A2F027921F276BA50058E3A5 /* Airport+CoreDataProperties.swift in Sources */,
 				A2703D4F1F0BBA1600A2C280 /* CATextLayer+Frame.swift in Sources */,
@@ -780,6 +828,7 @@
 				A2E217941F13947200E96747 /* ARViewController.swift in Sources */,
 				A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */,
 				A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */,
+				A2AB50752031C151007E07AB /* ThemeColor.swift in Sources */,
 				A2E217851F13929900E96747 /* ARGeoCoordinate.swift in Sources */,
 				A2703D531F0BBA1600A2C280 /* Date+Utility.swift in Sources */,
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
@@ -788,8 +837,10 @@
 				A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */,
 				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
+				A2AB50792031C151007E07AB /* WeatherDetail.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
+				A2AB50772031C151007E07AB /* Daily.swift in Sources */,
 				A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */,
 				A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */,
 				A2E217881F13929900E96747 /* FlightCalloutView.swift in Sources */,
@@ -799,6 +850,7 @@
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
+				A2AB50782031C151007E07AB /* WeatherDisplayModel.swift in Sources */,
 				A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */,
 				A2703D521F0BBA1600A2C280 /* CLLocation+Operator.swift in Sources */,
 				A2703D5A1F0BBA1600A2C280 /* UIImage+Mask.swift in Sources */,

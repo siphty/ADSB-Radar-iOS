@@ -15,7 +15,7 @@ import ObjectMapper
 class ApiClient: ApiService {
     
     func fetchDSWeather(_ config: ApiConfig) -> Observable<RequestStatus> {
-        let url = config.getFullURL()
+        let url = config.getFullUrl()
         return Observable<RequestStatus>.create { observable -> Disposable in
             self.networkRequest(url, completionHandler: { (json, error) in
                 guard let json = json else {

@@ -29,7 +29,7 @@ struct RequestError : LocalizedError {
 }
 
 enum  ApiConfig {
-    case aircrafts(CLLocation)
+    case aircrafts(CLLocation, Int)
     case weather(CLLocation)
     case localAircrafts
     
@@ -40,17 +40,16 @@ enum  ApiConfig {
     fileprivate static let DSApiKey = "60cc7f28d75d3f655f5f354338af0d99"
     //RPi: Raspberry Pi
     fileprivate static let RPiBaseUrl = "192.168.1.1"
+    //Airport: local
     
     var urlPath: String {
         switch self {
-        case .aircrafts(let location):
+        case .aircrafts(let location, let radius):
             return "/VirtualRadar/AircraftList.json?lat=\(location.coordinate.latitude)&lng=\(location.coordinate.longitude)&fDstL=0&fDstU=\(radius)"
         case .weather(let location):
-            return "/forecast/\(ApiConfig.DSApiKey)/\(location.coordinate.latitude),\(ocation.coordinate.longitude)"
+            return "/forecast/\(ApiConfig.DSApiKey)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
         case .localAircrafts:
             return ":30003"
-        default:
-            return ""
         }
     }
     
