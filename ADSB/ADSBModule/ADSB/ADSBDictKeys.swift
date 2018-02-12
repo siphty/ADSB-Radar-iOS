@@ -62,7 +62,7 @@ struct AcKeys {
     static let VertiSpeedType:  String = "VsiT"     //0 = vertical speed is barometric, 1 = vertical speed is geometric. Default to barometric until told otherwise.
     static let TrackHeading:    String = "Trak"     //Aircraft's track angle across the ground clockwise from 0° north.
     static let TrackIsHeading:  String = "TrkH"     //True if Trak is the aircraft's heading, false if it's the ground track. Default to ground track until told otherwise.
-    static let TargetHeading:   String = "TTrk"     //The track or heading currently set on the aircraft's autopilot or FMS.
+    static let targetTrack:     String = "TTrk"     //The track or heading currently set on the aircraft's autopilot or FMS.
     static let AcICAOType:      String = "Type"     //The aircraft model's ICAO type code.
     static let AircraftModel:   String = "Mdl"      //A description of the aircraft's model. Usually also includes the manufacturer's name.
     static let Manufacture:     String = "Man"      //The manufacturer's name.
