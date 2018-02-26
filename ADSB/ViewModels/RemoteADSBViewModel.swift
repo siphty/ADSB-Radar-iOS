@@ -15,6 +15,7 @@ class AdsbExchangeViewModel {
     
     let disposeBag = DisposeBag()
     
+    var aeResponse = Variable<AEResponse?>(nil)
     var airecrafts: Observable<[Aircraft]>? = nil
     var radius = Variable<Int>(30)
     var apiService: ApiService? = nil 
@@ -65,10 +66,11 @@ class AdsbExchangeViewModel {
             .subscribe(onNext: { status in
                 self.isIndicatorHiding.value = true
                 switch status {
-                case .success(let apiResponse as? AEResponse):
-                    let apiResponseSafe = apiResponse as? AEResponse
-                    self.airecrafts = apiResponse.aircrafts
-                    self.isAlertShowing.value = false
+                case .success(let apiResponse):
+                    guard let apiResponseSafe = apiResponse as? AEResponse else { return }
+                    self.aeResponse.value = apiResponseSafe
+//                    self.airecrafts = apiResponseSafe.aircrafts
+//                    self.isAlertShowing.value = false
                 case .fail(let error):
                     print(error.errorDescription ?? "Faild to load weather data")
                     self.isAlertShowing.value = true
