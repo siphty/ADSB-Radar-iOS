@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
 		A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */; };
+		A2436E2320440CE7009B5F03 /* RemoteADSBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2220440CE7009B5F03 /* RemoteADSBViewModel.swift */; };
+		A2436E2420440CE7009B5F03 /* RemoteADSBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2220440CE7009B5F03 /* RemoteADSBViewModel.swift */; };
+		A2436E2720441971009B5F03 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2620441971009B5F03 /* Notifications.swift */; };
+		A2436E2820441971009B5F03 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2620441971009B5F03 /* Notifications.swift */; };
+		A2436E2920441971009B5F03 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2620441971009B5F03 /* Notifications.swift */; };
+		A2436E2B20441F50009B5F03 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2A20441F50009B5F03 /* GeofenceManager.swift */; };
+		A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2A20441F50009B5F03 /* GeofenceManager.swift */; };
+		A2436E2D20441F50009B5F03 /* GeofenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2A20441F50009B5F03 /* GeofenceManager.swift */; };
+		A2436E2F204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
+		A2436E30204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
+		A2436E31204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
 		A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */; };
 		A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
 		A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA51F0B6A4E00A2C280 /* ViewController.swift */; };
@@ -48,12 +60,18 @@
 		A2703D601F0BBB5B00A2C280 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */; };
 		A2703D621F0BBB6400A2C280 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D611F0BBB6400A2C280 /* CoreMotion.framework */; };
 		A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */; };
+		A27E88F42039A36D000DB52D /* GlobalAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* GlobalAcList.json */; };
+		A27E88F52039A36D000DB52D /* GlobalAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* GlobalAcList.json */; };
+		A27E88F62039A36D000DB52D /* GlobalAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* GlobalAcList.json */; };
+		A27E88F82039A387000DB52D /* EmptyAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* EmptyAcList.json */; };
+		A27E88F92039A387000DB52D /* EmptyAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* EmptyAcList.json */; };
+		A27E88FA2039A387000DB52D /* EmptyAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* EmptyAcList.json */; };
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
 		A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
-		A2AB5066202F357C007E07AB /* AcList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* AcList.swift */; };
+		A2AB5066202F357C007E07AB /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* Aircraft.swift */; };
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
-		A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */; };
+		A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* AEResponse.swift */; };
 		A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
 		A2AB50742031C151007E07AB /* Currently.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506D2031C150007E07AB /* Currently.swift */; };
 		A2AB50752031C151007E07AB /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506E2031C150007E07AB /* ThemeColor.swift */; };
@@ -84,6 +102,7 @@
 		A2F027991F2846BE0058E3A5 /* airportAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */; };
 		A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F17BB01F258088008861C4 /* Scanner+.swift */; };
 		A402B2AB20D44D1147268C09 /* Pods_ADSB_Radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */; };
+		F0DA60D10AF6E216ED98C6D1 /* Pods_ADSB_RadarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDD430C1AB8E01E5FC02230 /* Pods_ADSB_RadarTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +123,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29F62AAF9E77F402382D2471 /* Pods-ADSB RadarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests.release.xcconfig"; sourceTree = "<group>"; };
+		33C21DE9D584300F6A67CEAB /* Pods-ADSB RadarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3DA6EECE855CCC0A77EF118A /* Pods-ADSB Radar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.release.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.release.xcconfig"; sourceTree = "<group>"; };
 		53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_Radar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
+		845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
+		A2436E2220440CE7009B5F03 /* RemoteADSBViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteADSBViewModel.swift; sourceTree = "<group>"; };
+		A2436E2620441971009B5F03 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		A2436E2A20441F50009B5F03 /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
+		A2436E2E204424E9009B5F03 /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
 		A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ARAssets.xcassets; sourceTree = "<group>"; };
 		A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ADSB Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -154,12 +181,14 @@
 		A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A2703D611F0BBB6400A2C280 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
+		A27E88F32039A36D000DB52D /* GlobalAcList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GlobalAcList.json; sourceTree = "<group>"; };
+		A27E88F72039A387000DB52D /* EmptyAcList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyAcList.json; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
 		A2AB505E202F31E1007E07AB /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
-		A2AB5063202F357B007E07AB /* AcList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcList.swift; sourceTree = "<group>"; };
+		A2AB5063202F357B007E07AB /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
-		A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBEchangeRsponse.swift; sourceTree = "<group>"; };
+		A2AB5065202F357C007E07AB /* AEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEResponse.swift; sourceTree = "<group>"; };
 		A2AB506920306D7C007E07AB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		A2AB506D2031C150007E07AB /* Currently.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currently.swift; sourceTree = "<group>"; };
 		A2AB506E2031C150007E07AB /* ThemeColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
@@ -189,6 +218,8 @@
 		A2F027961F28417C0058E3A5 /* airportAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotationView.swift; path = ADSB/AirportModule/Views/airportAnnotationView.swift; sourceTree = SOURCE_ROOT; };
 		A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotation.swift; path = ADSB/AirportModule/Views/airportAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scanner+.swift"; sourceTree = "<group>"; };
+		ADDD430C1AB8E01E5FC02230 /* Pods_ADSB_RadarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFDE8E902A8F867CE4721086 /* Pods-ADSB RadarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0DA60D10AF6E216ED98C6D1 /* Pods_ADSB_RadarTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,12 +246,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2436E2520441951009B5F03 /* Utilis */ = {
+			isa = PBXGroup;
+			children = (
+				A2436E2620441971009B5F03 /* Notifications.swift */,
+				A2436E2A20441F50009B5F03 /* GeofenceManager.swift */,
+				A2436E2E204424E9009B5F03 /* Geotification.swift */,
+			);
+			path = Utilis;
+			sourceTree = "<group>";
+		};
 		A26C90A71F13242600FF9514 /* AR Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +324,8 @@
 			children = (
 				A2703CBB1F0B6A4E00A2C280 /* ADSBTests.swift */,
 				A2703CBD1F0B6A4E00A2C280 /* Info.plist */,
+				A27E88F32039A36D000DB52D /* GlobalAcList.json */,
+				A27E88F72039A387000DB52D /* EmptyAcList.json */,
 			);
 			path = ADSBTests;
 			sourceTree = "<group>";
@@ -447,6 +492,7 @@
 		A2AB505C202F2DEE007E07AB /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				A2436E2520441951009B5F03 /* Utilis */,
 				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2AB5062202F33A0007E07AB /* Models */,
 			);
@@ -474,9 +520,9 @@
 		A2AB506B2031C111007E07AB /* ADSBExchange */ = {
 			isa = PBXGroup;
 			children = (
-				A2AB5063202F357B007E07AB /* AcList.swift */,
+				A2AB5063202F357B007E07AB /* Aircraft.swift */,
 				A2AB5064202F357B007E07AB /* Feeds.swift */,
-				A2AB5065202F357C007E07AB /* ADSBEchangeRsponse.swift */,
+				A2AB5065202F357C007E07AB /* AEResponse.swift */,
 			);
 			path = ADSBExchange;
 			sourceTree = "<group>";
@@ -498,6 +544,7 @@
 		A2AB507B2031C167007E07AB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A2436E2220440CE7009B5F03 /* RemoteADSBViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -564,6 +611,10 @@
 			children = (
 				7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */,
 				3DA6EECE855CCC0A77EF118A /* Pods-ADSB Radar.release.xcconfig */,
+				AFDE8E902A8F867CE4721086 /* Pods-ADSB RadarTests.debug.xcconfig */,
+				29F62AAF9E77F402382D2471 /* Pods-ADSB RadarTests.release.xcconfig */,
+				845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */,
+				33C21DE9D584300F6A67CEAB /* Pods-ADSB RadarUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -575,6 +626,8 @@
 				A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */,
 				A2703D5D1F0BBB5100A2C280 /* CoreLocation.framework */,
 				53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */,
+				ADDD430C1AB8E01E5FC02230 /* Pods_ADSB_RadarTests.framework */,
+				875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -606,9 +659,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2703CCE1F0B6A4E00A2C280 /* Build configuration list for PBXNativeTarget "ADSB RadarTests" */;
 			buildPhases = (
+				C594FEEB736D7C92211E81BB /* [CP] Check Pods Manifest.lock */,
 				A2703CB31F0B6A4E00A2C280 /* Sources */,
 				A2703CB41F0B6A4E00A2C280 /* Frameworks */,
 				A2703CB51F0B6A4E00A2C280 /* Resources */,
+				F7F5B6ED5670D9765011CCDD /* [CP] Embed Pods Frameworks */,
+				2BA86357EEEA8AB5F8B431E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -624,9 +680,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2703CD11F0B6A4E00A2C280 /* Build configuration list for PBXNativeTarget "ADSB RadarUITests" */;
 			buildPhases = (
+				5CBD3BD67168887122FEBE5F /* [CP] Check Pods Manifest.lock */,
 				A2703CBE1F0B6A4E00A2C280 /* Sources */,
 				A2703CBF1F0B6A4E00A2C280 /* Frameworks */,
 				A2703CC01F0B6A4E00A2C280 /* Resources */,
+				A8DBEADE8355372A53F32790 /* [CP] Embed Pods Frameworks */,
+				C46C46DD2E80C3E39B57F4FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -697,10 +756,12 @@
 			files = (
 				A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */,
 				A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */,
+				A27E88F42039A36D000DB52D /* GlobalAcList.json in Resources */,
 				A2D9EF841F24D43C00872689 /* runways.csv in Resources */,
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
 				A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */,
 				A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */,
+				A27E88F82039A387000DB52D /* EmptyAcList.json in Resources */,
 				A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */,
 				A2E217891F13929900E96747 /* FlightCalloutView.xib in Resources */,
 				A2703D231F0BB7F700A2C280 /* ADS-B.storyboard in Resources */,
@@ -714,6 +775,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27E88F52039A36D000DB52D /* GlobalAcList.json in Resources */,
+				A27E88F92039A387000DB52D /* EmptyAcList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +784,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A27E88F62039A36D000DB52D /* GlobalAcList.json in Resources */,
+				A27E88FA2039A387000DB52D /* EmptyAcList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +800,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -745,6 +811,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -755,6 +822,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2BA86357EEEA8AB5F8B431E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5CBD3BD67168887122FEBE5F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ADSB RadarUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6708D7F63601A48FEBF358BC /* [CP] Check Pods Manifest.lock */ = {
@@ -769,6 +869,65 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ADSB Radar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8DBEADE8355372A53F32790 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C46C46DD2E80C3E39B57F4FD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C594FEEB736D7C92211E81BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ADSB RadarTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -790,6 +949,32 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F7F5B6ED5670D9765011CCDD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftIcons/SwiftIcons.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIcons.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -799,9 +984,10 @@
 			files = (
 				A2AB50742031C151007E07AB /* Currently.swift in Sources */,
 				A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */,
-				A2AB5066202F357C007E07AB /* AcList.swift in Sources */,
+				A2AB5066202F357C007E07AB /* Aircraft.swift in Sources */,
 				A2E217841F13929900E96747 /* AnnotationView.swift in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
+				A2436E2B20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
 				A2AB507A2031C151007E07AB /* Weather.swift in Sources */,
@@ -834,19 +1020,22 @@
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
-				A2AB5068202F357C007E07AB /* ADSBEchangeRsponse.swift in Sources */,
+				A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */,
 				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2AB50792031C151007E07AB /* WeatherDetail.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
 				A2AB50772031C151007E07AB /* Daily.swift in Sources */,
+				A2436E2F204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */,
 				A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */,
 				A2E217881F13929900E96747 /* FlightCalloutView.swift in Sources */,
 				A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */,
 				A2703D511F0BBA1600A2C280 /* CGRect+Resize.swift in Sources */,
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
+				A2436E2320440CE7009B5F03 /* RemoteADSBViewModel.swift in Sources */,
+				A2436E2720441971009B5F03 /* Notifications.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
@@ -863,7 +1052,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2436E2820441971009B5F03 /* Notifications.swift in Sources */,
+				A2436E2420440CE7009B5F03 /* RemoteADSBViewModel.swift in Sources */,
 				A2703CBC1F0B6A4E00A2C280 /* ADSBTests.swift in Sources */,
+				A2436E30204424E9009B5F03 /* Geotification.swift in Sources */,
+				A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,7 +1064,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2436E2920441971009B5F03 /* Notifications.swift in Sources */,
 				A2703CC71F0B6A4E00A2C280 /* ADSBUITests.swift in Sources */,
+				A2436E2D20441F50009B5F03 /* GeofenceManager.swift in Sources */,
+				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1057,6 +1253,7 @@
 		};
 		A2703CCF1F0B6A4E00A2C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFDE8E902A8F867CE4721086 /* Pods-ADSB RadarTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1073,6 +1270,7 @@
 		};
 		A2703CD01F0B6A4E00A2C280 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 29F62AAF9E77F402382D2471 /* Pods-ADSB RadarTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1089,6 +1287,7 @@
 		};
 		A2703CD21F0B6A4E00A2C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GZQL33LF2B;
@@ -1104,6 +1303,7 @@
 		};
 		A2703CD31F0B6A4E00A2C280 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C21DE9D584300F6A67CEAB /* Pods-ADSB RadarUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = GZQL33LF2B;

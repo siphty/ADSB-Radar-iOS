@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.6.0)
+  - Kingfisher (4.6.2)
   - NVActivityIndicatorView (4.0.0):
     - NVActivityIndicatorView/Presenter (= 4.0.0)
   - NVActivityIndicatorView/Presenter (4.0.0)
@@ -11,16 +12,18 @@ PODS:
   - SwiftIcons (2.0.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.5)
+  - Alamofire
+  - Kingfisher
   - NVActivityIndicatorView
-  - ObjectMapper (~> 3.1)
+  - ObjectMapper
   - RxCocoa
   - RxSwift
   - SnapKit (~> 4.0.0)
-  - SwiftIcons (~> 2.0.1)
+  - SwiftIcons
 
 SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
+  Kingfisher: 55b9c395bf8d3949676ad3861111923990ab68cf
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
@@ -28,6 +31,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftIcons: e475a56ae2c2da40672dbf16061ca5dd5cee7dbb
 
-PODFILE CHECKSUM: 2b89e8e4dec645c6eaf7c87ae17a2e8891bd50ff
+PODFILE CHECKSUM: aafd7e2b3e533b2aae0aaae427bdea41aadc1216
 
 COCOAPODS: 1.3.1

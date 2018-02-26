@@ -1,13 +1,26 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :ios, '10.0'
+#platform :ios, '10.0'
 use_frameworks!
 
-target ‘ADSB Radar’ do
-    pod 'NVActivityIndicatorView'
-    pod 'SnapKit', '~> 4.0.0'
+def shared_pods_for_target
     pod 'RxSwift'
     pod 'RxCocoa'
-    pod 'Alamofire', '~> 4.5'
-    pod 'ObjectMapper', '~> 3.1'
-    pod 'SwiftIcons', '~> 2.0.1'
+    pod 'Alamofire'
+    pod 'ObjectMapper'
+    pod 'SwiftIcons'
+end
+
+target ‘ADSB Radar’ do
+    shared_pods_for_target
+    pod 'Kingfisher'
+    pod 'NVActivityIndicatorView'
+    pod 'SnapKit', '~> 4.0.0'
+end
+
+target 'ADSB RadarTests' do
+    shared_pods_for_target
+end
+
+target 'ADSB RadarUITests' do
+    shared_pods_for_target
 end

@@ -12,7 +12,7 @@ import RxCocoa
 import CoreLocation
 
 enum RequestStatus {
-    case success(Any)
+    case success(AnyObject?)
     case fail(RequestError)
 }
 
@@ -73,9 +73,7 @@ enum  ApiConfig {
 }
 
 protocol ApiService {
-    func fetchDSWeather(_ config: ApiConfig) -> Observable<RequestStatus>
-    func fetchAEAircrafts(_ config: ApiConfig) -> Observable<RequestStatus>
-    func fetchTCPAircrafts(_ config: ApiConfig) -> Observable<RequestStatus>
+    func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus>
     func networkRequest(_ url: URL, completionHandler: @escaping ((_ jsonResponse: [String: Any]?, _ error: RequestError?) -> Void))
     func tcpConnect()
 }

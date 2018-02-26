@@ -7,7 +7,7 @@
 
 import Foundation
 import ObjectMapper
-class AcList : NSObject, NSCoding, Mappable{
+class Aircraft : NSObject, NSCoding, Mappable{
 	var aircraftId : Int?       //The unique identifier of the aircraft.
 	var receiverId : Int?       //The ID of the feed that last supplied information about the aircraft.
 	var hasSignalLevel : Bool?  //True if the aircraft has a signal level associated with it.
@@ -81,7 +81,7 @@ class AcList : NSObject, NSCoding, Mappable{
     var vertiSpeed : Int?      //Vertical speed in Feet per Minute.
     
     class func newInstance(map: Map) -> Mappable?{
-        return AcList()
+        return Aircraft()
     }
     
     required init?(map: Map){}

@@ -1,5 +1,5 @@
 //
-//    RootClass.swift
+//    AEReponse.swift
 //
 //    Create by Jiang Yi on 12/2/2018
 //    Copyright © 2018 Digiflex Pty Ltd. All rights reserved.
@@ -9,9 +9,9 @@ import Foundation
 import ObjectMapper
 
 
-class AEReponse : NSObject, NSCoding, Mappable{
+class AEResponse : NSObject, NSCoding, Mappable{
     
-    var acList : [AcList]?
+    var aircrafts : [Aircraft]?
     var feeds : [Feed]?
     var flgH : Int?
     var flgW : Int?
@@ -27,14 +27,14 @@ class AEReponse : NSObject, NSCoding, Mappable{
     
     
     class func newInstance(map: Map) -> Mappable?{
-        return RootClass()
+        return AEResponse()
     }
     required init?(map: Map){}
     private override init(){}
     
     func mapping(map: Map)
     {
-        acList <- map["acList"]
+        aircrafts <- map["acList"]
         feeds <- map["feeds"]
         flgH <- map["flgH"]
         flgW <- map["flgW"]
@@ -56,7 +56,7 @@ class AEReponse : NSObject, NSCoding, Mappable{
      */
     @objc required init(coder aDecoder: NSCoder)
     {
-        acList = aDecoder.decodeObject(forKey: "acList") as? [AcList]
+        aircrafts = aDecoder.decodeObject(forKey: "acList") as? [Aircraft]
         feeds = aDecoder.decodeObject(forKey: "feeds") as? [Feed]
         flgH = aDecoder.decodeObject(forKey: "flgH") as? Int
         flgW = aDecoder.decodeObject(forKey: "flgW") as? Int
@@ -78,8 +78,8 @@ class AEReponse : NSObject, NSCoding, Mappable{
      */
     @objc func encode(with aCoder: NSCoder)
     {
-        if acList != nil{
-            aCoder.encode(acList, forKey: "acList")
+        if aircrafts != nil{
+            aCoder.encode(aircrafts, forKey: "acList")
         }
         if feeds != nil{
             aCoder.encode(feeds, forKey: "feeds")

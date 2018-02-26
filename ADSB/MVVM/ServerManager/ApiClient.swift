@@ -14,7 +14,7 @@ import ObjectMapper
 
 class ApiClient: ApiService {
     
-    func fetchDSWeather(_ config: ApiConfig) -> Observable<RequestStatus> {
+    func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus> {
         let url = config.getFullUrl()
         return Observable<RequestStatus>.create { observable -> Disposable in
             self.networkRequest(url, completionHandler: { (json, error) in
@@ -27,8 +27,17 @@ class ApiClient: ApiService {
                     observable.onCompleted()
                     return
                 }
-                if let weather = Mapper<Weather>().map(JSON: json) {
-                    observable.onNext(RequestStatus.success(weather))
+                var response: AnyObject? = nil
+                switch config {
+                case .aircrafts(_, _):
+                    response = Mapper<AEResponse>().map(JSON: json)
+                case .weather(_):
+                    response = Mapper<Weather>().map(JSON: json)
+                case .localAircrafts:
+                    response = Mapper<AEResponse>().map(JSON: json)
+                }
+                if let response = response {
+                    observable.onNext(RequestStatus.success(response))
                     observable.onCompleted()
                 } else {
                     observable.onNext(RequestStatus.fail(RequestError("Parse Weather information failed.")))
@@ -37,14 +46,6 @@ class ApiClient: ApiService {
             })
             return Disposables.create()
             }.share()
-    }
-    
-    func fetchAEAircrafts(_ config: ApiConfig) -> Observable<RequestStatus> {
-        
-    }
-    
-    func fetchTCPAircrafts(_ config: ApiConfig) -> Observable<RequestStatus> {
-        
     }
     
     // MARK: conform to ApiService protocol. For new class inherit from ApiClient class, you can overwrite this function and use any other HTTP networking libraries. Like in Unit test, I create MockApiClient which request network by load local JSON file.

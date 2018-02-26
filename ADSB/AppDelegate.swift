@@ -8,12 +8,13 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var locationManager = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -27,25 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
 //        AirdomeCommon.sharedInstance.demoAirportRecords()
+        
+        //MARK: LocationManager
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = 10
+        locationManager.distanceFilter = 20
         return true
-    }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -54,7 +42,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
     
-
     // MARK: - Core Data stack
     lazy var applicationDocumentsDirectory: URL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "self.edu.SomeJunk" in the application's documents Application Support directory.
@@ -106,7 +93,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
    
     // MARK: - Core Data Saving support
-
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -120,6 +106,95 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
+
+//MARK: - CLLocationManagerDelegate
+extension AppDelegate: CLLocationManagerDelegate{
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locationDict:[String: CLLocation] = ["location": (locations.last)!]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:LMNotification.didUpdateLocations),
+                                        object: nil,
+                                        userInfo: locationDict)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        let locationAuthDict:[String: CLAuthorizationStatus] = ["CLAuthorizationStatus": status]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue:LMNotification.didChangeAuthorization),
+                                        object: nil,
+                                        userInfo: locationAuthDict)
+    }
+    
+    // MARK: geo fence
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            handleEvent(forRegion: region, isEnterRegion: true)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if region is CLCircularRegion {
+            handleEvent(forRegion: region, isEnterRegion: false)
+        }
+    }
+    
+    func handleEvent(forRegion region: CLRegion!, isEnterRegion: Bool) {
+        // Show an alert if application is active
+        if UIApplication.shared.applicationState == .active {
+            guard let geotification = geotification(fromRegionIdentifier: region.identifier) else { return }
+            let message = note(fromGeotification: geotification, isEnterRegion: isEnterRegion)
+            if isEnterRegion {
+                if !message.isEmpty {
+                    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        // refetch geochatrooms
+                        GeofenceManager.sharedInstance.fetchGeolocationsWithLocation(geotification.coordinate)
+                    }))
+                    window?.rootViewController?.present(alert, animated: true, completion: nil)
+                } else {
+                    // refetch geochatrooms
+                    GeofenceManager.sharedInstance.fetchGeolocationsWithLocation(geotification.coordinate)
+                }
+            } else if !isEnterRegion {
+                let locationDict:[String: CLLocation] = ["location": CLLocation(latitude: geotification.coordinate.latitude, longitude: geotification.coordinate.longitude) ]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue:LMNotification.didUpdateLocations), object: nil, userInfo: locationDict)
+            }
+        } else {
+            guard let geotification = geotification(fromRegionIdentifier: region.identifier) else { return }
+            let message = note(fromGeotification: geotification, isEnterRegion: isEnterRegion)
+            if !message.isEmpty {
+                // Otherwise present a local notification
+                let notification = UILocalNotification()
+                notification.alertBody = message
+                notification.soundName = "Default"
+                UIApplication.shared.presentLocalNotificationNow(notification)
+                
+                // refetch geochatrooms
+                GeofenceManager.sharedInstance.fetchGeolocationsWithLocation(geotification.coordinate)
+            }
+        }
+    }
+    
+    func geotification(fromRegionIdentifier identifier: String) -> Geotification? {
+        let savedItems = UserDefaults.standard.array(forKey: PreferencesKeys.savedItems) as? [NSData]
+        let geotifications = savedItems?.map { NSKeyedUnarchiver.unarchiveObject(with: $0 as Data) as? Geotification }
+        let index = geotifications?.index { $0?.identifier == identifier }
+        return index != nil ? geotifications?[index!] : nil
+    }
+    
+    func note(fromGeotification geotification: Geotification?, isEnterRegion: Bool) -> String {
+        guard let geo = geotification else {
+            return ""
+        }
+        if isEnterRegion {
+            return "You've entered \(String(describing: geo.note))"
+        } else {
+            return "You've left \(String(describing: geo.note))"
+        }
+    }
+    
+}
+
+
+
 
