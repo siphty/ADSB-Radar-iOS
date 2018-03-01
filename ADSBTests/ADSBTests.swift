@@ -7,7 +7,10 @@
 //
 
 import XCTest
-@testable import ADSB
+import RxCocoa
+import RxSwift
+import ObjectMapper
+@testable import ADSB_Radar
 
 class ADSBTests: XCTestCase {
     

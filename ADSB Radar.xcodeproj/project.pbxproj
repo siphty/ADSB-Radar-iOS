@@ -69,6 +69,32 @@
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
 		A2A8A2A920480D3600B462F0 /* DSWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */; };
+		A2A8A2AC204825E400B462F0 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* Aircraft.swift */; };
+		A2A8A2AD204825E400B462F0 /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* Aircraft.swift */; };
+		A2A8A2AE204825E900B462F0 /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
+		A2A8A2AF204825E900B462F0 /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
+		A2A8A2B02048265100B462F0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
+		A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
+		A2A8A2B22048265500B462F0 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
+		A2A8A2B32048265500B462F0 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
+		A2A8A2B42048268000B462F0 /* AEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* AEResponse.swift */; };
+		A2A8A2B52048268600B462F0 /* AEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* AEResponse.swift */; };
+		A2A8A2B6204826C900B462F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
+		A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
+		A2A8A2B8204826D400B462F0 /* DSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50732031C151007E07AB /* DSResponse.swift */; };
+		A2A8A2B9204826D500B462F0 /* DSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50732031C151007E07AB /* DSResponse.swift */; };
+		A2A8A2BA204826D800B462F0 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50722031C151007E07AB /* WeatherDetail.swift */; };
+		A2A8A2BB204826DC00B462F0 /* WeatherDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */; };
+		A2A8A2BC204826DD00B462F0 /* WeatherDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */; };
+		A2A8A2BD204826E100B462F0 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506E2031C150007E07AB /* ThemeColor.swift */; };
+		A2A8A2BE204826E200B462F0 /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506E2031C150007E07AB /* ThemeColor.swift */; };
+		A2A8A2BF204826E400B462F0 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506F2031C150007E07AB /* Flag.swift */; };
+		A2A8A2C0204826E500B462F0 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506F2031C150007E07AB /* Flag.swift */; };
+		A2A8A2C1204826E700B462F0 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50702031C151007E07AB /* Daily.swift */; };
+		A2A8A2C2204826E800B462F0 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50702031C151007E07AB /* Daily.swift */; };
+		A2A8A2C3204826EA00B462F0 /* Currently.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506D2031C150007E07AB /* Currently.swift */; };
+		A2A8A2C4204826EB00B462F0 /* Currently.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506D2031C150007E07AB /* Currently.swift */; };
+		A2A8A2C5204826EF00B462F0 /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50722031C151007E07AB /* WeatherDetail.swift */; };
 		A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
 		A2AB5066202F357C007E07AB /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* Aircraft.swift */; };
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
@@ -311,7 +337,6 @@
 				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
 				A2AB505C202F2DEE007E07AB /* MVVM */,
-				A2AB507B2031C167007E07AB /* ViewModels */,
 				A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */,
 				A26C90A71F13242600FF9514 /* AR Module */,
 				A2703D0F1F0BB7F700A2C280 /* ADSB Map Module */,
@@ -497,6 +522,7 @@
 				A2436E2520441951009B5F03 /* Utilis */,
 				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2AB5062202F33A0007E07AB /* Models */,
+				A2AB507B2031C167007E07AB /* ViewModels */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -1056,11 +1082,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A8A2B6204826C900B462F0 /* AppDelegate.swift in Sources */,
 				A2436E2820441971009B5F03 /* Notifications.swift in Sources */,
+				A2A8A2C3204826EA00B462F0 /* Currently.swift in Sources */,
 				A2436E2420440CE7009B5F03 /* RemoteADSBViewModel.swift in Sources */,
+				A2A8A2B42048268000B462F0 /* AEResponse.swift in Sources */,
+				A2A8A2B22048265500B462F0 /* ApiClient.swift in Sources */,
 				A2703CBC1F0B6A4E00A2C280 /* ADSBTests.swift in Sources */,
 				A2436E30204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */,
+				A2A8A2AC204825E400B462F0 /* Aircraft.swift in Sources */,
+				A2A8A2C1204826E700B462F0 /* Daily.swift in Sources */,
+				A2A8A2BB204826DC00B462F0 /* WeatherDisplayModel.swift in Sources */,
+				A2A8A2B8204826D400B462F0 /* DSResponse.swift in Sources */,
+				A2A8A2B02048265100B462F0 /* ApiService.swift in Sources */,
+				A2A8A2BA204826D800B462F0 /* WeatherDetail.swift in Sources */,
+				A2A8A2AE204825E900B462F0 /* Feeds.swift in Sources */,
+				A2A8A2BD204826E100B462F0 /* ThemeColor.swift in Sources */,
+				A2A8A2BF204826E400B462F0 /* Flag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1068,10 +1107,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A8A2BE204826E200B462F0 /* ThemeColor.swift in Sources */,
+				A2A8A2C0204826E500B462F0 /* Flag.swift in Sources */,
+				A2A8A2C4204826EB00B462F0 /* Currently.swift in Sources */,
 				A2436E2920441971009B5F03 /* Notifications.swift in Sources */,
 				A2703CC71F0B6A4E00A2C280 /* ADSBUITests.swift in Sources */,
+				A2A8A2AD204825E400B462F0 /* Aircraft.swift in Sources */,
+				A2A8A2BC204826DD00B462F0 /* WeatherDisplayModel.swift in Sources */,
+				A2A8A2B32048265500B462F0 /* ApiClient.swift in Sources */,
+				A2A8A2B52048268600B462F0 /* AEResponse.swift in Sources */,
 				A2436E2D20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
+				A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */,
+				A2A8A2C5204826EF00B462F0 /* WeatherDetail.swift in Sources */,
+				A2A8A2C2204826E800B462F0 /* Daily.swift in Sources */,
+				A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */,
+				A2A8A2B9204826D500B462F0 /* DSResponse.swift in Sources */,
+				A2A8A2AF204825E900B462F0 /* Feeds.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
