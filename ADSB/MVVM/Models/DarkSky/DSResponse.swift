@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 
-class Weather : NSObject, NSCoding, Mappable{
+class DSResponse : NSObject, NSCoding, Mappable{
 
 	var currently : Currently?
 	var daily : Daily?
@@ -22,7 +22,7 @@ class Weather : NSObject, NSCoding, Mappable{
 
 
 	class func newInstance(map: Map) -> Mappable?{
-		return Weather()
+		return DSResponse()
 	}
 	required init?(map: Map){}
 	private override init(){}

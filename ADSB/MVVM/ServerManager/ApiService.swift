@@ -53,6 +53,39 @@ enum  ApiConfig {
         }
     }
     
+    var method: String {
+        switch self {
+        case .weather(_):
+            return "GET"
+        case .aircrafts(_, _):
+            return "GET"
+        case .localAircrafts:
+            return ""
+        }
+    }
+    
+    var header: [String: Any]?{
+        switch self {
+        case .weather(_):
+            return nil
+        case .aircrafts(_, _):
+            return nil
+        case .localAircrafts:
+            return nil
+        }
+    }
+    
+    var parameters: [String: Any]? {
+        switch self {
+        case .weather(_):
+            return nil
+        case .aircrafts(_, _):
+            return nil
+        case .localAircrafts:
+            return nil
+        }
+    }
+    
     func getFullUrl() -> URL {
         var baseUrl: String!
         switch self {

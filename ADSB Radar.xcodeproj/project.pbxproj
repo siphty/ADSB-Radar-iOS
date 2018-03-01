@@ -68,6 +68,7 @@
 		A27E88FA2039A387000DB52D /* EmptyAcList.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* EmptyAcList.json */; };
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
+		A2A8A2A920480D3600B462F0 /* DSWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */; };
 		A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB505E202F31E1007E07AB /* ApiService.swift */; };
 		A2AB5066202F357C007E07AB /* Aircraft.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5063202F357B007E07AB /* Aircraft.swift */; };
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
@@ -79,7 +80,7 @@
 		A2AB50772031C151007E07AB /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50702031C151007E07AB /* Daily.swift */; };
 		A2AB50782031C151007E07AB /* WeatherDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */; };
 		A2AB50792031C151007E07AB /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50722031C151007E07AB /* WeatherDetail.swift */; };
-		A2AB507A2031C151007E07AB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50732031C151007E07AB /* Weather.swift */; };
+		A2AB507A2031C151007E07AB /* DSResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB50732031C151007E07AB /* DSResponse.swift */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -185,6 +186,7 @@
 		A27E88F72039A387000DB52D /* EmptyAcList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = EmptyAcList.json; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
+		A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSWeatherViewModel.swift; sourceTree = "<group>"; };
 		A2AB505E202F31E1007E07AB /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		A2AB5063202F357B007E07AB /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
 		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
@@ -196,7 +198,7 @@
 		A2AB50702031C151007E07AB /* Daily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDisplayModel.swift; sourceTree = "<group>"; };
 		A2AB50722031C151007E07AB /* WeatherDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
-		A2AB50732031C151007E07AB /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		A2AB50732031C151007E07AB /* DSResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSResponse.swift; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -534,7 +536,7 @@
 				A2AB50702031C151007E07AB /* Daily.swift */,
 				A2AB506F2031C150007E07AB /* Flag.swift */,
 				A2AB506E2031C150007E07AB /* ThemeColor.swift */,
-				A2AB50732031C151007E07AB /* Weather.swift */,
+				A2AB50732031C151007E07AB /* DSResponse.swift */,
 				A2AB50722031C151007E07AB /* WeatherDetail.swift */,
 				A2AB50712031C151007E07AB /* WeatherDisplayModel.swift */,
 			);
@@ -545,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				A2436E2220440CE7009B5F03 /* RemoteADSBViewModel.swift */,
+				A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -990,7 +993,7 @@
 				A2436E2B20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
-				A2AB507A2031C151007E07AB /* Weather.swift in Sources */,
+				A2AB507A2031C151007E07AB /* DSResponse.swift in Sources */,
 				A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */,
 				A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */,
 				A2703D5C1F0BBA1600A2C280 /* UIViewController+Child.swift in Sources */,
@@ -1020,6 +1023,7 @@
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
+				A2A8A2A920480D3600B462F0 /* DSWeatherViewModel.swift in Sources */,
 				A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */,
 				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,

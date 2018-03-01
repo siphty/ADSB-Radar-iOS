@@ -32,7 +32,7 @@ class ApiClient: ApiService {
                 case .aircrafts(_, _):
                     response = Mapper<AEResponse>().map(JSON: json)
                 case .weather(_):
-                    response = Mapper<Weather>().map(JSON: json)
+                    response = Mapper<DSResponse>().map(JSON: json)
                 case .localAircrafts:
                     response = Mapper<AEResponse>().map(JSON: json)
                 }
