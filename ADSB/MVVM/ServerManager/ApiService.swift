@@ -106,7 +106,6 @@ enum  ApiConfig {
 }
 
 protocol ApiService {
-    func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus>
-    func networkRequest(_ url: URL, completionHandler: @escaping ((_ jsonResponse: [String: Any]?, _ error: RequestError?) -> Void))
-    func tcpConnect()
+//    @objc optional func fetchOWMWeather(_ config: ApiConfig) -> Observable<RequestStatus>
+    func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((_ jsonResponse: [String: Any]?, _ error: RequestError?) -> Void))
 }

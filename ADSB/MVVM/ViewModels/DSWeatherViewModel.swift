@@ -13,21 +13,21 @@ import CoreLocation
 
 class DSWeatherViewModel {
     let disposeBag = DisposeBag()
-    var apiService: ApiService? = nil
+    var apiClient: ApiClient? = nil
     var dsResponse = Variable<DSResponse?>(nil)
     var hourlyData: Observable<[WeatherDetail]>? = nil
     var dailyData = Variable<[WeatherDetail]>([])
     var cityName = Variable<String>("Not found")
     var isLoading = Variable<Bool>(false)
     
-    init(_ apiService: ApiService) {
+    init(_ apiClient: ApiClient) {
         bindHourlyData()
         
-        self.apiService = apiService
-        fetchWeatherInfo(apiService)
+        self.apiClient = apiClient
+        fetchWeatherInfo(apiClient)
     }
     
-    fileprivate func fetchWeatherInfo(_ apiService: ApiService) {
+    fileprivate func fetchWeatherInfo(_ apiService: ApiClient) {
         self.isLoading.value = true
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

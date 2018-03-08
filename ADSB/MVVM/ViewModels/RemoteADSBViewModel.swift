@@ -18,15 +18,15 @@ class AdsbExchangeViewModel {
     var aeResponse = Variable<AEResponse?>(nil)
     var airecrafts: Observable<[Aircraft]>? = nil
     var radius = Variable<Int>(30)
-    var apiService: ApiService? = nil 
+    var apiClient: ApiClient? = nil
     var locationManager: CLLocationManager? = nil
     var isIndicatorHiding = Variable<Bool>(false)
     var isAlertShowing = Variable<Bool>(false)
     
-    init(_ apiService: ApiService) {
+    init(_ apiClient: ApiClient) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         locationManager = appDelegate.locationManager
-        self.apiService = apiService
+        self.apiClient = apiClient
         bindAircraftsData()
         startFetchAircrafts()
     }
@@ -44,7 +44,7 @@ class AdsbExchangeViewModel {
     }
     
     fileprivate func fetchAircrafts() {
-        guard let apiService = apiService else { return }
+        guard let apiClient = apiClient else { return }
         guard let locationManager = locationManager else { return }
         var currentLocation: CLLocation? = nil
         if CLLocationManager.locationServicesEnabled() {
@@ -62,7 +62,7 @@ class AdsbExchangeViewModel {
             print("Location services are not enabled")
         }
         guard let currentLocationSaft = currentLocation else { return }
-        apiService.fetchRestfulApi(ApiConfig.aircrafts(currentLocationSaft, radius.value))
+        apiClient.fetchRestfulApi(ApiConfig.aircrafts(currentLocationSaft, radius.value))
             .subscribe(onNext: { status in
                 self.isIndicatorHiding.value = true
                 switch status {
