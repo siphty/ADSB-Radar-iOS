@@ -42,12 +42,28 @@ class ADSBTests: XCTestCase {
                 XCTAssertTrue(aircrafts!.count > 0)
             //MARK: We can test more key:value to verify the decode logic is right.
             case .fail(let error):
-                print(error.errorDescription ?? "Faild to load weather data")
+                print(error.errorDescription ?? "Faild to load AdsbExchange data")
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
     
-    
+    func testDarkSkyApiServiceWithCorrectApi(){
+        let apiClient = ApiClient()
+        let sydLatitude = CLLocationDegrees(-33.873692)
+        let sydLongitude = CLLocationDegrees(151.206768)
+        let sydneyLocation = CLLocation.init(latitude: sydLatitude, longitude: sydLongitude)
+        apiClient.fetchRestfulApi(.weather(sydneyLocation)).subscribe(onNext: { status in
+            switch status {
+            case .success(let apiResponse):
+                let dsResponse = apiResponse as! DSResponse
+                let currentWeather = dsResponse.currently
+                XCTAssertTrue(currentWeather != nil)
+            //MARK: We can test more key:value to verify the decode logic is right.
+            case .fail(let error):
+                print(error.errorDescription ?? "Faild to load weather data")
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
