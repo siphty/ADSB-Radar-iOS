@@ -6,59 +6,25 @@
 //    Model file generated using JSONExport: https://github.com/Ahmed-Ali/JSONExport
 
 import Foundation
-import ObjectMapper
 
-
-class Feed : NSObject, NSCoding, Mappable{
+struct Feed : Codable {
     
-    var id : Int?
-    var name : String?
-    var polarPlot : Bool?
+    let id : Int?
+    let name : String?
+    let polarPlot : Bool?
     
     
-    class func newInstance(map: Map) -> Mappable?{
-        return Feed()
-    }
-    required init?(map: Map){}
-    private override init(){}
-    
-    func mapping(map: Map)
-    {
-        id <- map["id"]
-        name <- map["name"]
-        polarPlot <- map["polarPlot"]
-        
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+        case polarPlot = "polarPlot"
     }
     
-    /**
-     * NSCoding required initializer.
-     * Fills the data from the passed decoder
-     */
-    @objc required init(coder aDecoder: NSCoder)
-    {
-        id = aDecoder.decodeObject(forKey: "id") as? Int
-        name = aDecoder.decodeObject(forKey: "name") as? String
-        polarPlot = aDecoder.decodeObject(forKey: "polarPlot") as? Bool
-        
-    }
-    
-    /**
-     * NSCoding required method.
-     * Encodes mode properties into the decoder
-     */
-    @objc func encode(with aCoder: NSCoder)
-    {
-        if id != nil{
-            aCoder.encode(id, forKey: "id")
-        }
-        if name != nil{
-            aCoder.encode(name, forKey: "name")
-        }
-        if polarPlot != nil{
-            aCoder.encode(polarPlot, forKey: "polarPlot")
-        }
-        
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        id = try values.decodeIfPresent(Int.self, forKey: .id)
+        name = try values.decodeIfPresent(String.self, forKey: .name)
+        polarPlot = try values.decodeIfPresent(Bool.self, forKey: .polarPlot)
     }
     
 }
-
