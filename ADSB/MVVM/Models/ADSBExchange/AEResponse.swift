@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RootClass : Codable {
+struct AEResponse : Codable {
     
     let acList : [Aircraft]?
     let feeds : [Feed]?
@@ -41,7 +41,7 @@ struct RootClass : Codable {
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        acList = try values.decodeIfPresent([AcList].self, forKey: .acList)
+        acList = try values.decodeIfPresent([Aircraft].self, forKey: .acList)
         feeds = try values.decodeIfPresent([Feed].self, forKey: .feeds)
         flgH = try values.decodeIfPresent(Int.self, forKey: .flgH)
         flgW = try values.decodeIfPresent(Int.self, forKey: .flgW)

@@ -30,7 +30,7 @@ struct Aircraft : Codable {
     let help : Bool?
     let icaoId : String?
     let aircraftId : Int?
-    let aircraftId : Float?
+    let presInHg : Float?
     let interested : Bool?
     let latitude : Float?
     let longitude : Float?
@@ -38,7 +38,7 @@ struct Aircraft : Codable {
     let aircraftModel : String?
     let isMilitary : Bool?
     let isFoundByMLAT : Bool?
-    let op : String?
+    let aircraftOperator : String?
     let acOperatorICAO : String?
     let lastPosTime : Int?
     let receiverId : Int?
@@ -142,7 +142,7 @@ struct Aircraft : Codable {
         help = try values.decodeIfPresent(Bool.self, forKey: .help)
         icaoId = try values.decodeIfPresent(String.self, forKey: .icaoId)
         aircraftId = try values.decodeIfPresent(Int.self, forKey: .aircraftId)
-        aircraftId = try values.decodeIfPresent(Float.self, forKey: .aircraftId)
+        presInHg = try values.decodeIfPresent(Float.self, forKey: .presInHg)
         interested = try values.decodeIfPresent(Bool.self, forKey: .interested)
         latitude = try values.decodeIfPresent(Float.self, forKey: .latitude)
         longitude = try values.decodeIfPresent(Float.self, forKey: .longitude)
@@ -150,7 +150,7 @@ struct Aircraft : Codable {
         aircraftModel = try values.decodeIfPresent(String.self, forKey: .aircraftModel)
         isMilitary = try values.decodeIfPresent(Bool.self, forKey: .isMilitary)
         isFoundByMLAT = try values.decodeIfPresent(Bool.self, forKey: .isFoundByMLAT)
-        op = try values.decodeIfPresent(String.self, forKey: .op)
+        aircraftOperator = try values.decodeIfPresent(String.self, forKey: .aircraftOperator)
         acOperatorICAO = try values.decodeIfPresent(String.self, forKey: .acOperatorICAO)
         lastPosTime = try values.decodeIfPresent(Int.self, forKey: .lastPosTime)
         receiverId = try values.decodeIfPresent(Int.self, forKey: .receiverId)
