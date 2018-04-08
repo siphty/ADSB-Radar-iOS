@@ -88,9 +88,6 @@ class MockApiClient: ApiClient {
     
     override func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus> {
         return super.fetchRestfulApi(config)
-//        return networkRequest(config){ (json, error) in
-//            guard let error = error else { return }
-//        }
     }
     
     //Use mock response data based on the

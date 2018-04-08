@@ -1,5 +1,5 @@
 //
-//  RemoteADSBViewModel.swift
+//  AEAircraftsViewModel.swift
 //  ADSB Radar
 //
 //  Created by Yi JIANG on 26/2/18.
@@ -11,7 +11,7 @@ import RxCocoa
 import RxSwift
 import CoreLocation
 
-class AdsbExchangeViewModel {
+class AEAircraftsViewModel {
     
     let disposeBag = DisposeBag()
     
@@ -61,8 +61,8 @@ class AdsbExchangeViewModel {
         } else {
             print("Location services are not enabled")
         }
-        guard let currentLocationSaft = currentLocation else { return }
-        apiClient.fetchRestfulApi(ApiConfig.aircrafts(currentLocationSaft, radius.value))
+        guard let currentLocationSafe = currentLocation else { return }
+        apiClient.fetchRestfulApi(ApiConfig.aircrafts(currentLocationSafe, radius.value))
             .subscribe(onNext: { status in
                 self.isIndicatorHiding.value = true
                 switch status {

@@ -22,7 +22,7 @@ class ApiClient: ApiService {
                     if let error = error {
                         observable.onNext(RequestStatus.fail(error))
                     } else {
-                        observable.onNext(RequestStatus.fail(RequestError("Parse Weather information failed.")))
+                        observable.onNext(RequestStatus.fail(RequestError("Parse JSON information failed.")))
                     }
                     observable.onCompleted()
                     return
@@ -39,7 +39,7 @@ class ApiClient: ApiService {
                 if let response = response {
                     observable.onNext(RequestStatus.success(response))
                 } else {
-                    observable.onNext(RequestStatus.fail(RequestError("Parse Weather information failed.")))
+                    observable.onNext(RequestStatus.fail(RequestError("Parse JSON information failed.")))
                 }
                 observable.onCompleted()
             })
