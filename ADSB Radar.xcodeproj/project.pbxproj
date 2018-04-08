@@ -529,10 +529,10 @@
 		A2AB505C202F2DEE007E07AB /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				A2436E2520441951009B5F03 /* Utilis */,
-				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2AB5062202F33A0007E07AB /* Models */,
+				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2AB507B2031C167007E07AB /* ViewModels */,
+				A2436E2520441951009B5F03 /* Utilis */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
