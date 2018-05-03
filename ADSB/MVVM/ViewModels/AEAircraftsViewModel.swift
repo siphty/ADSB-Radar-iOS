@@ -16,7 +16,7 @@ class AEAircraftsViewModel {
     let disposeBag = DisposeBag()
     
     var aeResponse = Variable<AEResponse?>(nil)
-    var airecrafts: Observable<[Aircraft]>? = nil
+    var airecrafts = Variable<[Aircraft]?>(nil)
     var radius = Variable<Int>(30)
     var apiClient: ApiClient? = nil
     var locationManager: CLLocationManager? = nil
@@ -69,15 +69,15 @@ class AEAircraftsViewModel {
                 case .success(let apiResponse):
                     guard let apiResponseSafe = apiResponse as? AEResponse else { return }
                     self.aeResponse.value = apiResponseSafe
-//                    self.airecrafts = apiResponseSafe.aircrafts
-//                    self.isAlertShowing.value = false
+                    self.airecrafts.value = apiResponseSafe.acList
+                    self.isAlertShowing.value = false
                 case .fail(let error):
                     print(error.errorDescription ?? "Faild to load weather data")
                     self.isAlertShowing.value = true
                 }
             }, onError: { error in
                 print(error.localizedDescription)
-                self.airecrafts = nil
+                self.airecrafts.value = nil
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
