@@ -62,6 +62,7 @@ import UIKit
  - BallRotateChase:         BallRotateChase animation.
  - Orbit:                   Orbit animation.
  - AudioEqualizer:          AudioEqualizer animation.
+ - CircleStrokeSpin:        CircleStrokeSpin animation.
  */
 public enum NVActivityIndicatorType: Int {
     /**
@@ -256,9 +257,16 @@ public enum NVActivityIndicatorType: Int {
      - returns: Instance of NVActivityIndicatorAnimationAudioEqualizer.
      */
     case audioEqualizer
+    /**
+     Stroke.
+     
+     - returns: Instance of NVActivityIndicatorAnimationCircleStrokeSpin.
+     */
+    case circleStrokeSpin
 
-    static let allTypes = (blank.rawValue ... audioEqualizer.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
+    static let allTypes = (blank.rawValue ... circleStrokeSpin.rawValue).map { NVActivityIndicatorType(rawValue: $0)! }
 
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func animation() -> NVActivityIndicatorAnimationDelegate {
         switch self {
         case .blank:
@@ -325,12 +333,24 @@ public enum NVActivityIndicatorType: Int {
             return NVActivityIndicatorAnimationOrbit()
         case .audioEqualizer:
             return NVActivityIndicatorAnimationAudioEqualizer()
+        case .circleStrokeSpin:
+            return NVActivityIndicatorAnimationCircleStrokeSpin()
         }
     }
 }
 
+/// Function that performs fade in/out animation.
+public typealias FadeInAnimation = (UIView) -> Void
+
+/// Function that performs fade out animation.
+///
+/// - Note: Must call the second parameter on the animation completion.
+public typealias FadeOutAnimation = (UIView, @escaping () -> Void) -> Void
+
+// swiftlint:disable file_length
 /// Activity indicator view with nice animations
 public final class NVActivityIndicatorView: UIView {
+    // swiftlint:disable identifier_name
     /// Default type. Default value is .BallSpinFadeLoader.
     public static var DEFAULT_TYPE: NVActivityIndicatorType = .ballSpinFadeLoader
 
@@ -347,19 +367,50 @@ public final class NVActivityIndicatorView: UIView {
     public static var DEFAULT_BLOCKER_SIZE = CGSize(width: 60, height: 60)
 
     /// Default display time threshold to actually display UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default time that has to be elapsed (between calls of `startAnimating()` and `stopAnimating()`) in order to actually display UI blocker. It should be set thinking about what the minimum duration of an activity is to be worth showing it to the user. If the activity ends before this time threshold, then it will not be displayed at all.
     public static var DEFAULT_BLOCKER_DISPLAY_TIME_THRESHOLD = 0
 
     /// Default minimum display time of UI blocker. Default value is 0 ms.
+    ///
+    /// - note:
+    /// Default minimum display time of UI blocker. Its main purpose is to avoid flashes showing and hiding it so fast. For instance, setting it to 200ms will force UI blocker to be shown for at least this time (regardless of calling `stopAnimating()` ealier).
     public static var DEFAULT_BLOCKER_MINIMUM_DISPLAY_TIME = 0
 
     /// Default message displayed in UI blocker. Default value is nil.
     public static var DEFAULT_BLOCKER_MESSAGE: String?
+
+    /// Default message spacing to activity indicator view in UI blocker. Default value is 8.
+    public static var DEFAULT_BLOCKER_MESSAGE_SPACING = CGFloat(8.0)
 
     /// Default font of message displayed in UI blocker. Default value is bold system font, size 20.
     public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
 
     /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
     public static var DEFAULT_BLOCKER_BACKGROUND_COLOR = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)
+
+    /// Default fade in animation.
+    public static var DEFAULT_FADE_IN_ANIMATION: FadeInAnimation = { view in
+        view.alpha = 0
+        UIView.animate(withDuration: 0.25) {
+            view.alpha = 1
+        }
+    }
+
+    /// Default fade out animation.
+    public static var DEFAULT_FADE_OUT_ANIMATION: FadeOutAnimation = { (view, complete) in
+        UIView.animate(withDuration: 0.25,
+                       animations: {
+                        view.alpha = 0
+        },
+                       completion: { completed in
+                        if completed {
+                            complete()
+                        }
+        })
+    }
+    // swiftlint:enable identifier_name
 
     /// Animation type.
     public var type: NVActivityIndicatorType = NVActivityIndicatorView.DEFAULT_TYPE
@@ -435,6 +486,15 @@ public final class NVActivityIndicatorView: UIView {
         return CGSize(width: bounds.width, height: bounds.height)
     }
 
+    public override var bounds: CGRect {
+        didSet {
+            // setup the animation again for the new bounds
+            if oldValue != bounds && isAnimating {
+                setUpAnimation()
+            }
+        }
+    }
+
     /**
      Start animating.
      */
@@ -456,6 +516,7 @@ public final class NVActivityIndicatorView: UIView {
 
     // MARK: Internal
 
+    // swiftlint:disable:next identifier_name
     func _setTypeName(_ typeName: String) {
         for item in NVActivityIndicatorType.allTypes {
             if String(describing: item).caseInsensitiveCompare(typeName) == ComparisonResult.orderedSame {
@@ -473,7 +534,7 @@ public final class NVActivityIndicatorView: UIView {
 
     private final func setUpAnimation() {
         let animation: NVActivityIndicatorAnimationDelegate = type.animation()
-        var animationRect = UIEdgeInsetsInsetRect(frame, UIEdgeInsetsMake(padding, padding, padding, padding))
+        var animationRect = UIEdgeInsetsInsetRect(frame, UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding))
         let minEdge = min(animationRect.width, animationRect.height)
 
         layer.sublayers = nil

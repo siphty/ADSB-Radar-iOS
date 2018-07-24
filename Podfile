@@ -1,5 +1,5 @@
 source 'https://github.com/CocoaPods/Specs.git'
-#platform :ios, '10.0'
+platform :ios, '10.0'
 use_frameworks!
 
 def shared_pods_for_target
@@ -10,7 +10,7 @@ def shared_pods_for_target
     pod 'SwiftIcons'
 end
 
-target ‘ADSB Radar’ do
+target 'ADSB Radar' do
     shared_pods_for_target
     pod 'Kingfisher'
     pod 'NVActivityIndicatorView'

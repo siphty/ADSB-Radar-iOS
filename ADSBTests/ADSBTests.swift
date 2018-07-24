@@ -37,7 +37,7 @@ class ADSBTests: XCTestCase {
             switch status {
             case .success(let apiResponse):
                 let aeResponse = apiResponse as! AEResponse
-                let aircrafts = aeResponse.aircrafts
+                let aircrafts = aeResponse.acList
                 XCTAssertTrue(aircrafts != nil)
                 XCTAssertTrue(aircrafts!.count > 0)
             //MARK: We can test more key:value to verify the decode logic is right.
@@ -91,8 +91,8 @@ class MockApiClient: ApiClient {
     }
     
     //Use mock response data based on the
-    override func networkRequest(_ config: ApiConfig, completionHandler: @escaping (([String : Any]?, RequestError?) -> Void)) {
-        guard let json = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) as? [String: Any] else {
+    override func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {
+        guard let json = JsonFileLoader.loadJson(fileName: jsonFileName.rawValue) as? Data else {
             completionHandler(nil, RequestError("Parse Weather information failed."))
             return
         }

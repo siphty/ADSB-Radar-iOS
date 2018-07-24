@@ -683,7 +683,6 @@
 				A2703C9D1F0B6A4E00A2C280 /* Frameworks */,
 				A2703C9E1F0B6A4E00A2C280 /* Resources */,
 				09684FD2E37BB022636B4490 /* [CP] Embed Pods Frameworks */,
-				F439E7716FFBD291EE4FBE4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -703,7 +702,6 @@
 				A2703CB41F0B6A4E00A2C280 /* Frameworks */,
 				A2703CB51F0B6A4E00A2C280 /* Resources */,
 				F7F5B6ED5670D9765011CCDD /* [CP] Embed Pods Frameworks */,
-				2BA86357EEEA8AB5F8B431E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -724,7 +722,6 @@
 				A2703CBF1F0B6A4E00A2C280 /* Frameworks */,
 				A2703CC01F0B6A4E00A2C280 /* Resources */,
 				A8DBEADE8355372A53F32790 /* [CP] Embed Pods Frameworks */,
-				C46C46DD2E80C3E39B57F4FD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -748,20 +745,20 @@
 				TargetAttributes = {
 					A2703C9F1F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GZQL33LF2B;
+						DevelopmentTeam = 4PQU2QH5JS;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					A2703CB61F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GZQL33LF2B;
+						DevelopmentTeam = 4PQU2QH5JS;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A2703C9F1F0B6A4E00A2C280;
 					};
 					A2703CC11F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = GZQL33LF2B;
+						DevelopmentTeam = 4PQU2QH5JS;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A2703C9F1F0B6A4E00A2C280;
@@ -869,21 +866,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2BA86357EEEA8AB5F8B431E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5CBD3BD67168887122FEBE5F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -946,21 +928,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C46C46DD2E80C3E39B57F4FD /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C594FEEB736D7C92211E81BB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -977,21 +944,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F439E7716FFBD291EE4FBE4E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F7F5B6ED5670D9765011CCDD /* [CP] Embed Pods Frameworks */ = {
@@ -1295,8 +1247,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1312,8 +1265,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1327,9 +1281,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AFDE8E902A8F867CE4721086 /* Pods-ADSB RadarTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBTests;
@@ -1344,9 +1298,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 29F62AAF9E77F402382D2471 /* Pods-ADSB RadarTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBTests;
@@ -1361,8 +1315,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBUITests;
@@ -1377,8 +1331,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33C21DE9D584300F6A67CEAB /* Pods-ADSB RadarUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				DEVELOPMENT_TEAM = GZQL33LF2B;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBUITests;
