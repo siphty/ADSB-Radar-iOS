@@ -75,46 +75,6 @@ extension ApiClient {
         task.resume()
     }
     
-//    func networkRequestByAFNetworking(_ config: ApiConfig, completionHandler: @escaping ((_ jsonResponse: [String: Any]?, _ error: RequestError?) -> Void)) {
-//        URLCache.shared.removeAllCachedResponses()
-//        let url = config.getFullUrl()
-//        let method = config.method
-//        let sessionManager = AFHTTPSessionManager()
-//        sessionManager.requestSerializer.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-//        sessionManager.requestSerializer = AFHTTPRequestSerializer()
-//        sessionManager.responseSerializer = AFHTTPResponseSerializer()
-//        switch method {
-//        case "GET":
-//            DispatchQueue.global().async {
-//                sessionManager.get(url.absoluteString,
-//                                   parameters: nil,
-//                                   progress: nil,
-//                                   success: { (task, response) in
-//                                    let jsonString = String(data: response as! Data, encoding: String.Encoding.ascii)
-//                                    let data = jsonString?.data(using: .utf8)
-//                                    self.responseHandler(data, nil, completionHandler)
-//                },
-//                                   failure: { (task: URLSessionDataTask?, error) in
-//                                    self.responseHandler(nil, error, completionHandler)
-//                })
-//            }
-//        case "POST":
-//            return
-//        case "PUT":
-//            return
-//        case "DELETE":
-//            return
-//        case "OPTIONS":
-//            return
-//        case "CONNECT":
-//            return
-//        case "HEAD":
-//            return
-//        default:
-//            return
-//        }
-//    }
-    
     fileprivate func responseHandler(_ data: Data?, _ error: Error?, _ completionHandler: @escaping ((_ jsonResponse: Data?, _ error: RequestError?) -> Void)){
         completionHandler(data, RequestError(error?.localizedDescription ?? "Error with no message"))
     }

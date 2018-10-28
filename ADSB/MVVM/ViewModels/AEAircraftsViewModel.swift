@@ -28,14 +28,14 @@ class AEAircraftsViewModel {
         locationManager = appDelegate.locationManager
         self.apiClient = apiClient
         bindAircraftsData()
-        startFetchAircrafts()
+//        startUpdateAircrafts()
     }
     
     fileprivate func bindAircraftsData() {
         
     }
     
-    fileprivate func startFetchAircrafts() {
+    fileprivate func startUpdateAircrafts(frequency seconds: Double, range: Float){ 
     
     }
     

@@ -7,37 +7,37 @@
 
 import Foundation
 
-struct AEResponse : Codable {
+struct AEResponse: Codable {
     
-    let acList : [Aircraft]?
-    let feeds : [Feed]?
-    let flgH : Int?
-    let flgW : Int?
-    let lastDv : String?
-    let showFlg : Bool?
-    let showPic : Bool?
-    let showSil : Bool?
-    let shtTrlSec : Int?
-    let src : Int?
-    let srcFeed : Int?
-    let stm : Int?
-    let totalAc : Int?
+    let acList: [Aircraft]?
+    let feeds: [Feed]?
+    let flgH: Int?
+    let flgW: Int?
+    let lastDv: String?
+    let showFlg: Bool?
+    let showPic: Bool?
+    let showSil: Bool?
+    let shtTrlSec: Int?
+    let src: Int?
+    let srcFeed: Int?
+    let stm: Int?
+    let totalAc: Int?
     
-    enum CodingKeys: String, CodingKey {
-        case acList = "acList"
-        case feeds = "feeds"
-        case flgH = "flgH"
-        case flgW = "flgW"
-        case lastDv = "lastDv"
-        case showFlg = "showFlg"
-        case showPic = "showPic"
-        case showSil = "showSil"
-        case shtTrlSec = "shtTrlSec"
-        case src = "src"
-        case srcFeed = "srcFeed"
-        case stm = "stm"
-        case totalAc = "totalAc"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case acList = "acList"
+//        case feeds = "feeds"
+//        case flgH = "flgH"
+//        case flgW = "flgW"
+//        case lastDv = "lastDv"
+//        case showFlg = "showFlg"
+//        case showPic = "showPic"
+//        case showSil = "showSil"
+//        case shtTrlSec = "shtTrlSec"
+//        case src = "src"
+//        case srcFeed = "srcFeed"
+//        case stm = "stm"
+//        case totalAc = "totalAc"
+//    }
     
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

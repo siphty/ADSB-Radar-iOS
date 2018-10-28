@@ -15,9 +15,9 @@ struct Feed : Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "name"
-        case polarPlot = "polarPlot"
+        case id
+        case name
+        case polarPlot = "polar_plot"
     }
     
     init(from decoder: Decoder) throws {
