@@ -94,13 +94,7 @@ struct DarkSky: Codable {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             summary = try container.decode(String.self, forKey: .summary)
             icon = try container.decode(String.self, forKey: .icon)
-            var unkeyedContainer = try container.nestedUnkeyedContainer(forKey: .data)
-            var data = [Data]()
-            while !unkeyedContainer.isAtEnd {
-                let datum = try unkeyedContainer.decode(Data.self)
-                data.append(datum)
-            }
-            self.data = data
+            data = try container.decode([Data].self, forKey: .data)
         }
     }
     
@@ -117,13 +111,7 @@ struct DarkSky: Codable {
         
         init(from decoder: Decoder) throws{
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            var unkeyedContainer = try container.nestedUnkeyedContainer(forKey: .sources)
-            var sources = [String]()
-            while !unkeyedContainer.isAtEnd {
-                let source = try unkeyedContainer.decode(String.self)
-                sources.append(source)
-            }
-            self.sources = sources
+            sources = try container.decode([String].self, forKey: .sources)
             units = try container.decode(String.self, forKey: .units)
             nearestStation = try container.decode(Double.self, forKey: .nearestStation)
         }

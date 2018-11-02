@@ -88,27 +88,27 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     let notificationCenter = NotificationCenter.default
     
     //MARK: Private
-    fileprivate var initialized: Bool = false
-    fileprivate var cameraSession: AVCaptureSession = AVCaptureSession()
-    fileprivate var overlayView: OverlayView = OverlayView()
+    fileprivate var initialized = false
+    fileprivate var cameraSession = AVCaptureSession()
+    fileprivate var overlayView = OverlayView()
     fileprivate var displayTimer: CADisplayLink?
     fileprivate var cameraLayer: AVCaptureVideoPreviewLayer?    // Will be set in init
-    fileprivate var annotationViews: [ARAnnotationView] = []
+    fileprivate var annotationViews = [ARAnnotationView]()
     fileprivate var previosRegion: Int = 0
     fileprivate var degreesPerScreen: CGFloat = 0
-    fileprivate var shouldReloadAnnotations: Bool = false
+    fileprivate var shouldReloadAnnotations = false
     fileprivate var reloadInProgress = false
     fileprivate var reloadToken: Int = 0
     fileprivate var reloadLock = NSRecursiveLock()
-    fileprivate var annotations: [ADSBAnnotation] = []
-    fileprivate var activeAnnotations: [ADSBAnnotation] = []
+    fileprivate var annotations = [ADSBAnnotation]()
+    fileprivate var activeAnnotations = [ADSBAnnotation]()
     fileprivate var closeButton: UIButton?
     fileprivate var currentHeading: Double = 0
     fileprivate var lastLocation: CLLocation?
 
     fileprivate var debugLabel: UILabel?
     fileprivate var debugMapButton: UIButton?
-    fileprivate var didLayoutSubviews: Bool = false
+    fileprivate var didLayoutSubviews = false
     
     // MARK: -
     // MARK: Init
@@ -203,10 +203,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     fileprivate func onViewWillAppear()
     {
         // Camera layer if not added
-        if self.cameraLayer?.superlayer == nil { self.loadCamera() }
+        if self.cameraLayer?.superlayer == nil {
+            self.loadCamera()
+        }
         
         // Overlay
-        if self.overlayView.superview == nil { self.loadOverlay() }
+        if self.overlayView.superview == nil {
+            self.loadOverlay()
+        }
         
         // Set orientation and start camera
         setOrientation(UIApplication.shared.statusBarOrientation)
@@ -284,7 +288,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      */
     open func setAnnotations(_ annotations: [ADSBAnnotation])
     {
-        var validAnnotations: [ADSBAnnotation] = []
+        var validAnnotations = [ADSBAnnotation]()
         // Don't use annotations without valid location
         for annotation in annotations
         {
