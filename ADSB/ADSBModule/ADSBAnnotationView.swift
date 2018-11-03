@@ -29,7 +29,7 @@ class ADSBAnnotationView: MKAnnotationView {
 //            dotLayer.frame = CGRect(x: 20, y: 20, width: 2, height: 2)
             annotationImageView?.layer.addSublayer(dotLayer)
             addSubview(annotationImageView!)
-            annotationImageView?.sendSubview(toBack: self)
+            annotationImageView?.sendSubviewToBack(self)
         }
     }
     var annotationImageView: UIView?

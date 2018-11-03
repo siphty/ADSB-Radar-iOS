@@ -19,23 +19,23 @@ extension UIViewController {
         dismissBackgroundButton.frame = view.frame
         dismissBackgroundButton.accessibilityIdentifier = "DismissBackgroundButton"
         view.addSubview(dismissBackgroundButton)
-        view.bringSubview(toFront: dismissBackgroundButton)
+        view.bringSubviewToFront(dismissBackgroundButton)
         dismissBackgroundButton.add(for: .touchDown){
             self.dismissPopoverChildViewController(content)
         }
-        addChildViewController(content)
+        addChild(content)
         view.addSubview(content.view)
-        content.didMove(toParentViewController: self)
-        view.bringSubview(toFront: content.view)
+        content.didMove(toParent: self)
+        view.bringSubviewToFront(content.view)
     }
     
     /// Dismiss pop overed child view.
     ///
     /// - Parameter content: <#content description#>
     func dismissPopoverChildViewController(_ content: UIViewController) {
-        content.willMove(toParentViewController: nil)
+        content.willMove(toParent: nil)
         content.view.removeFromSuperview()
-        content.removeFromParentViewController()
+        content.removeFromParent()
         for subview in view.subviews {
             if subview.accessibilityIdentifier == "DismissBackgroundButton" {
                 subview.removeFromSuperview()
@@ -49,16 +49,16 @@ extension UIViewController {
     ///
     /// - Parameter content: an UIViewController
     func displayChildViewController(_ content: UIViewController) {
-        addChildViewController(content)
+        addChild(content)
         view.addSubview(content.view)
-        content.didMove(toParentViewController: self)
-        view.bringSubview(toFront: content.view)
+        content.didMove(toParent: self)
+        view.bringSubviewToFront(content.view)
         
         let dismissBackgroundButton = UIButton()
         content.view.addSubview(dismissBackgroundButton)
         dismissBackgroundButton.bounds = content.view.frame
         dismissBackgroundButton.accessibilityIdentifier = "DismissBackgroundButton"
-        view.bringSubview(toFront: dismissBackgroundButton)
+        view.bringSubviewToFront(dismissBackgroundButton)
         dismissBackgroundButton.add(for: .touchDown){
             self.hideChildViewController(content)
         }
@@ -69,9 +69,9 @@ extension UIViewController {
     }
     
     func hideChildViewController(_ content: UIViewController) {
-        content.willMove(toParentViewController: nil)
+        content.willMove(toParent: nil)
         content.view.removeFromSuperview()
-        content.removeFromParentViewController()
+        content.removeFromParent()
         for subview in view.subviews {
             if subview.accessibilityIdentifier == "DismissBackgroundButton" {
                 subview.removeFromSuperview()

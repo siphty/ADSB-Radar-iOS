@@ -56,7 +56,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         didSet
         {
-            closeButton?.setImage(self.closeButtonImage, for: UIControlState())
+            closeButton?.setImage(self.closeButtonImage, for: UIControl.State())
         }
     }
     /// Enables map debugging and some other debugging features, set before controller is shown
@@ -148,8 +148,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.maxVisibleAnnotations = 20
         self.maxDistance = 0
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ARViewController.appWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ARViewController.appDidEnterBackground(_:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ARViewController.appWillEnterForeground(_:)),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ARViewController.appDidEnterBackground(_:)),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
         self.initialize()
     }
     
@@ -219,7 +225,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
     
-    internal func closeButtonTap()
+    @objc internal func closeButtonTap()
     {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -249,14 +255,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         
         
     }
-    internal func appDidEnterBackground(_ notification: Notification)
+    @objc internal func appDidEnterBackground(_ notification: Notification)
     {
         if(view.window != nil)
         {
             trackingManager.stopTracking()
         }
     }
-    internal func appWillEnterForeground(_ notification: Notification)
+    @objc internal func appWillEnterForeground(_ notification: Notification)
     {
         if(view.window != nil)
         {
@@ -801,7 +807,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         displayTimer = CADisplayLink(target: self,
                                      selector: #selector(ARViewController.displayTimerTick))
         displayTimer?.add(to: RunLoop.current,
-                          forMode: RunLoopMode.defaultRunLoopMode)
+                          forMode: RunLoop.Mode.default)
     }
     
     fileprivate func stopCamera()
@@ -910,11 +916,11 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.closeButtonImage = #imageLiteral(resourceName: "RadarButtonIcon")
         self.closeButton?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         // Close button - make it customizable
-        let closeButton: UIButton = UIButton(type: UIButtonType.custom)
-        closeButton.setImage(closeButtonImage, for: UIControlState());
+        let closeButton: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        closeButton.setImage(closeButtonImage, for: UIControl.State());
         closeButton.frame = CGRect(x: self.view.bounds.size.width - 53, y: self.view.bounds.size.height - 103,width: 44,height: 44)
-        closeButton.addTarget(self, action: #selector(ARViewController.closeButtonTap), for: UIControlEvents.touchUpInside)
-        closeButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleBottomMargin]
+        closeButton.addTarget(self, action: #selector(ARViewController.closeButtonTap), for: UIControl.Event.touchUpInside)
+        closeButton.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin, UIView.AutoresizingMask.flexibleBottomMargin]
         self.view.addSubview(closeButton)
         self.closeButton = closeButton
     }

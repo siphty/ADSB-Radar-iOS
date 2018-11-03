@@ -11,13 +11,15 @@ import Foundation
 class MockApiClient: ApiClient {
     
     enum JsonFileName: String {
-        case aeResponse_correct = "AEResponse"
-        case aeResponse_empty = "APIResponse_empty"
-        case aeResponse_incorrect = "APIResponse_incorrect"
-        case 
+        case AEResponseSuccess = "AEResponse"
+        case AEResponseEmpty = "APIResponseEmpty"
+        case AEResponseFail = "APIResponseFail"
+        case DSResponseSuccess = "DSRsponse"
+        case DSResponseFail = "DSResponseFail"
+        case DSResponseEmpty = "DSResponseEmpty"
     }
     
-    var jsonFileName: JsonFileName = .vcResponse_correct
+    var jsonFileName: JsonFileName = .AEResponseSuccess
     var isNetworkRequestCalled = false
     var completionHandler: ((Data?, RequestError?) -> Void)!
     

@@ -27,7 +27,7 @@ class Geometric {
         return radian
     }
     static func degreeToRadian(_ degree:NSNumber) -> CGFloat {
-        let radian = CGFloat(Double.pi) * CGFloat(degree)/180
+        let radian = CGFloat(Double.pi) * CGFloat(truncating: degree)/180
         return radian
     }
 }

@@ -152,7 +152,7 @@ class ADSBAeroChartViewController: UIViewController {
         //  Look through gesture recognizers to determine whether this region change is from user interaction
         if let gestureRecognizers = view.gestureRecognizers {
             for recognizer in gestureRecognizers {
-                if( recognizer.state == UIGestureRecognizerState.began || recognizer.state == UIGestureRecognizerState.ended ) {
+                if( recognizer.state == UIGestureRecognizer.State.began || recognizer.state == UIGestureRecognizer.State.ended ) {
                     return true
                 }
             }
@@ -370,8 +370,9 @@ extension ADSBAeroChartViewController{
         if mapChangedFromUserInteraction {
             return
         }
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
+                                                  latitudinalMeters: regionRadius * 2.0,
+                                                  longitudinalMeters: regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
@@ -386,9 +387,9 @@ extension ADSBAeroChartViewController{
             return
         }
         let regionRadius = homeLocation!.distance(from: uavLocation!)
-        let region = MKCoordinateRegionMakeWithDistance(homeLocation!.getMidpointTo(uavLocation!).coordinate,
-                                                        regionRadius * 2.2 + ADSBConfig.minimumMapViewRange,
-                                                        regionRadius * 2.2 + ADSBConfig.minimumMapViewRange)
+        let region = MKCoordinateRegion(center: homeLocation!.getMidpointTo(uavLocation!).coordinate,
+                                        latitudinalMeters: regionRadius * 2.2 + ADSBConfig.minimumMapViewRange,
+                                        longitudinalMeters: regionRadius * 2.2 + ADSBConfig.minimumMapViewRange)
         mapView.setRegion(region, animated: true)
     }
     

@@ -139,7 +139,7 @@ class ADSBMapView: MKMapView {
             altitudeLabel.contentsScale = UIScreen.main.scale
 //            altitudeLabel.borderColor = UIColor.red.cgColor
 //            altitudeLabel.borderWidth = 1
-            altitudeLabel.alignmentMode = kCAAlignmentCenter
+            altitudeLabel.alignmentMode = CATextLayerAlignmentMode.center
             altitudeLabel.foregroundColor = UIColor.blue.cgColor
             layer.addSublayer(altitudeLabel)
         }
@@ -240,7 +240,7 @@ class ADSBMapView: MKMapView {
                                       selector: #selector(ADSBMapView.trackChanges),
                                       userInfo: nil,
                                       repeats: true)
-            RunLoop.current.add(self.changesTimer!, forMode: RunLoopMode.commonModes)
+            RunLoop.current.add(self.changesTimer!, forMode: RunLoop.Mode.common)
         }
     }
     
@@ -275,12 +275,12 @@ class ADSBMapView: MKMapView {
     }
 
     func drawScanRegion(by regionRadius: CLLocationDistance, at coordinate: CLLocationCoordinate2D){
-        if regionCircle != nil {
-            remove(regionCircle!)
-        }
+//        if regionCircle != nil {
+//            remove(regionCircle!)
+//        }
         regionCircle = MKCircle(center: coordinate, radius: regionRadius)
         regionCircle!.title = "Scan Range : \(Int(regionRadius / 1000))Km"
-        add(regionCircle!)
+        addOverlay(regionCircle!)
     }
     
 }

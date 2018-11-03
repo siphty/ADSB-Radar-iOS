@@ -247,7 +247,7 @@ extension ADSBCalloutView {
     ///
     /// - Parameter sender: The actual hidden button that was tapped, not the callout, itself.
     
-    func didTouchUpInCallout(_ sender: Any) {
+    @objc func didTouchUpInCallout(_ sender: Any) {
         // this is intentionally blank
     }
 }

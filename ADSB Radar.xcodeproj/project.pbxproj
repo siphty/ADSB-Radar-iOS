@@ -63,9 +63,9 @@
 		A27E88F42039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
 		A27E88F52039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
 		A27E88F62039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
-		A27E88F82039A387000DB52D /* AEResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponse_empty.json */; };
-		A27E88F92039A387000DB52D /* AEResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponse_empty.json */; };
-		A27E88FA2039A387000DB52D /* AEResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponse_empty.json */; };
+		A27E88F82039A387000DB52D /* AEResponseFail.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponseFail.json */; };
+		A27E88F92039A387000DB52D /* AEResponseFail.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponseFail.json */; };
+		A27E88FA2039A387000DB52D /* AEResponseFail.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F72039A387000DB52D /* AEResponseFail.json */; };
 		A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
 		A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */ = {isa = PBXBuildFile; fileRef = A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */; };
 		A2A5D8A52175638900A92892 /* DarkSky.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5D8A42175638800A92892 /* DarkSky.swift */; };
@@ -84,9 +84,9 @@
 		A2A8A2B52048268600B462F0 /* AEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* AEResponse.swift */; };
 		A2A8A2B6204826C900B462F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
 		A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
-		A2A8A2C820482EA500B462F0 /* DSResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponse_empty.json */; };
-		A2A8A2C920482EA500B462F0 /* DSResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponse_empty.json */; };
-		A2A8A2CA20482EA500B462F0 /* DSResponse_empty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponse_empty.json */; };
+		A2A8A2C820482EA500B462F0 /* DSResponseEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */; };
+		A2A8A2C920482EA500B462F0 /* DSResponseEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */; };
+		A2A8A2CA20482EA500B462F0 /* DSResponseEmpty.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */; };
 		A2A8A2CB20482EA500B462F0 /* DSResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C720482EA400B462F0 /* DSResponse.json */; };
 		A2A8A2CC20482EA500B462F0 /* DSResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C720482EA400B462F0 /* DSResponse.json */; };
 		A2A8A2CD20482EA500B462F0 /* DSResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A8A2C720482EA400B462F0 /* DSResponse.json */; };
@@ -198,12 +198,12 @@
 		A2703D611F0BBB6400A2C280 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
 		A27E88F32039A36D000DB52D /* AEResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AEResponse.json; sourceTree = "<group>"; };
-		A27E88F72039A387000DB52D /* AEResponse_empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AEResponse_empty.json; sourceTree = "<group>"; };
+		A27E88F72039A387000DB52D /* AEResponseFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AEResponseFail.json; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
 		A296DF4E1F3B3D59003F060C /* MKMapView+Airport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Airport.swift"; sourceTree = "<group>"; };
 		A2A5D8A42175638800A92892 /* DarkSky.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkSky.swift; sourceTree = "<group>"; };
 		A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSWeatherViewModel.swift; sourceTree = "<group>"; };
-		A2A8A2C620482EA400B462F0 /* DSResponse_empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DSResponse_empty.json; sourceTree = "<group>"; };
+		A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DSResponseEmpty.json; sourceTree = "<group>"; };
 		A2A8A2C720482EA400B462F0 /* DSResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = DSResponse.json; sourceTree = "<group>"; };
 		A2AB505E202F31E1007E07AB /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		A2AB5063202F357B007E07AB /* Aircraft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aircraft.swift; sourceTree = "<group>"; };
@@ -336,11 +336,11 @@
 		A2703CBA1F0B6A4E00A2C280 /* ADSBTests */ = {
 			isa = PBXGroup;
 			children = (
+				A2FBFF64218C5253007A61D6 /* MockApiClient.swift */,
 				A2FBFF61218C403C007A61D6 /* AdsbExpressTests */,
 				A2FBFF60218C4016007A61D6 /* DarkSkyTests */,
 				A2703CBB1F0B6A4E00A2C280 /* ADSBTests.swift */,
 				A2703CBD1F0B6A4E00A2C280 /* Info.plist */,
-				A2FBFF64218C5253007A61D6 /* MockApiClient.swift */,
 			);
 			path = ADSBTests;
 			sourceTree = "<group>";
@@ -620,7 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				A27E88F32039A36D000DB52D /* AEResponse.json */,
-				A27E88F72039A387000DB52D /* AEResponse_empty.json */,
+				A27E88F72039A387000DB52D /* AEResponseFail.json */,
 			);
 			path = "Mock Responses";
 			sourceTree = "<group>";
@@ -645,7 +645,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A8A2C720482EA400B462F0 /* DSResponse.json */,
-				A2A8A2C620482EA400B462F0 /* DSResponse_empty.json */,
+				A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */,
 			);
 			path = "Mock Responses";
 			sourceTree = "<group>";
@@ -802,10 +802,10 @@
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
 				A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */,
 				A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */,
-				A27E88F82039A387000DB52D /* AEResponse_empty.json in Resources */,
+				A27E88F82039A387000DB52D /* AEResponseFail.json in Resources */,
 				A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */,
 				A2A8A2CB20482EA500B462F0 /* DSResponse.json in Resources */,
-				A2A8A2C820482EA500B462F0 /* DSResponse_empty.json in Resources */,
+				A2A8A2C820482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2E217891F13929900E96747 /* FlightCalloutView.xib in Resources */,
 				A2703D231F0BB7F700A2C280 /* ADS-B.storyboard in Resources */,
 				A2703D311F0BB7F700A2C280 /* ADSBAssets.xcassets in Resources */,
@@ -818,10 +818,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2A8A2C920482EA500B462F0 /* DSResponse_empty.json in Resources */,
+				A2A8A2C920482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2A8A2CC20482EA500B462F0 /* DSResponse.json in Resources */,
 				A27E88F52039A36D000DB52D /* AEResponse.json in Resources */,
-				A27E88F92039A387000DB52D /* AEResponse_empty.json in Resources */,
+				A27E88F92039A387000DB52D /* AEResponseFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,10 +829,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2A8A2CA20482EA500B462F0 /* DSResponse_empty.json in Resources */,
+				A2A8A2CA20482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2A8A2CD20482EA500B462F0 /* DSResponse.json in Resources */,
 				A27E88F62039A36D000DB52D /* AEResponse.json in Resources */,
-				A27E88FA2039A387000DB52D /* AEResponse_empty.json in Resources */,
+				A27E88FA2039A387000DB52D /* AEResponseFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1237,13 +1237,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1255,13 +1255,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
