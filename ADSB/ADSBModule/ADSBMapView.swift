@@ -275,9 +275,9 @@ class ADSBMapView: MKMapView {
     }
 
     func drawScanRegion(by regionRadius: CLLocationDistance, at coordinate: CLLocationCoordinate2D){
-//        if regionCircle != nil {
-//            remove(regionCircle!)
-//        }
+        if let regionCircle = regionCircle {
+            removeOverlay(regionCircle)
+        }
         regionCircle = MKCircle(center: coordinate, radius: regionRadius)
         regionCircle!.title = "Scan Range : \(Int(regionRadius / 1000))Km"
         addOverlay(regionCircle!)

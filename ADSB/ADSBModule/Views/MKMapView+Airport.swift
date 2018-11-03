@@ -111,7 +111,7 @@ extension MKMapView {
         for overlay in overlays {
             guard let overlayTitle = overlay.title else { continue }
             if (overlayTitle!.range(of: "Airport" ) != nil) {
-//                remove(overlay)
+                removeOverlay(overlay)
             }
         }
     }
