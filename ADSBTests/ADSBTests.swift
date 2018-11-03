@@ -7,15 +7,11 @@
 //
 
 import XCTest
-import RxCocoa
-import RxSwift
-import ObjectMapper
 import CoreLocation
 
-@testable import ADSB_Radar
+//@testable import ADSB_Radar
 
 class ADSBTests: XCTestCase {
-    let disposeBag = DisposeBag()
     
     override func setUp() {
         super.setUp()

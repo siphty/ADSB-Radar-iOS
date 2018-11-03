@@ -263,7 +263,7 @@ extension ARTrackingManager:  CLLocationManagerDelegate {
         }
     }
     
-    internal func reportLocationToDelegate()
+    @objc internal func reportLocationToDelegate()
     {
         self.reportLocationTimer?.invalidate()
         self.reportLocationTimer = nil
@@ -410,7 +410,7 @@ extension ARTrackingManager {
         self.locationSearchTimer = nil
     }
     
-    func locationSearchTimerTick()
+    @objc func locationSearchTimerTick()
     {
         guard let locationSearchStartTime = self.locationSearchStartTime else { return }
         let elapsedSeconds = Date().timeIntervalSince1970 - locationSearchStartTime

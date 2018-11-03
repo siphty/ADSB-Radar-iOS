@@ -621,7 +621,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     // MARK: -
     // MARK: Events: ARLocationManagerDelegate/Display timer
     
-    internal func displayTimerTick()
+    @objc internal func displayTimerTick()
     {
         let filterFactor: Double = headingSmoothingFactor
         let newHeading = trackingManager.heading

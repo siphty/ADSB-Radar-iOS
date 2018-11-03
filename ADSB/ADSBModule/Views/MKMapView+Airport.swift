@@ -14,8 +14,8 @@ import MapKit
 extension MKMapView {
     func drawRunway(on airport: Airport){
         AirdomeCommon.sharedInstance.fetchRunway(on: airport) { (runways) in
-            guard runways != nil else {return}
-            for runway in runways! {
+            guard let runways = runways else {return}
+            for runway in runways {
                 
             }
         }
@@ -23,8 +23,8 @@ extension MKMapView {
     
     func drawAirportRestrictRegion() {
         AirdomeCommon.sharedInstance.fetchNearestAirport(in: region.span, at: region.center, completion: { (airports) in
-            guard airports != nil else { return }
-            for airport in airports! {
+            guard let airports = airports else { return }
+            for airport in airports {
                 var isDrawn = false
                 for overlay in self.overlays {
                     guard airport.ident != nil else {
