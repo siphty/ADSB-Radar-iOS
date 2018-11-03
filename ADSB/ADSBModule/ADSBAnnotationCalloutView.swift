@@ -157,9 +157,9 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
                                                    color: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1),
                                                    padding: 0)
         contentView.addSubview(loadingIndicator)
-        loadingIndicator.snp.makeConstraints { (make) in
-            make.center.equalTo(contentView)
-        }
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.centerXAnchor.constraint(equalTo: loadingIndicator.centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true 
     }
     
     override func didTouchUpInCallout(_ sender: Any) {

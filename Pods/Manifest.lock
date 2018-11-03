@@ -1,47 +1,25 @@
 PODS:
-  - Alamofire (4.7.3)
   - Kingfisher (4.8.0)
-  - NVActivityIndicatorView (4.3.0):
-    - NVActivityIndicatorView/Presenter (= 4.3.0)
-  - NVActivityIndicatorView/Presenter (4.3.0)
-  - ObjectMapper (3.3.0)
-  - RxCocoa (4.2.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.2.0)
-  - SnapKit (4.0.0)
-  - SwiftIcons (2.1.0)
+  - NVActivityIndicatorView (4.4.0):
+    - NVActivityIndicatorView/Presenter (= 4.4.0)
+  - NVActivityIndicatorView/Presenter (4.4.0)
 
 DEPENDENCIES:
-  - Alamofire
   - Kingfisher
-  - NVActivityIndicatorView
-  - ObjectMapper
-  - RxCocoa
-  - RxSwift
-  - SnapKit (~> 4.0.0)
-  - SwiftIcons
+  - NVActivityIndicatorView (from `../../NVActivityIndicatorView/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Alamofire
     - Kingfisher
-    - NVActivityIndicatorView
-    - ObjectMapper
-    - RxCocoa
-    - RxSwift
-    - SnapKit
-    - SwiftIcons
+
+EXTERNAL SOURCES:
+  NVActivityIndicatorView:
+    :path: "../../NVActivityIndicatorView/"
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
-  NVActivityIndicatorView: 963f62bf9f993fcf23218e55958e5b1761b9504c
-  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
-  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftIcons: e414be7906347ef584d10280715d88aceac052e5
+  NVActivityIndicatorView: 9ea034e0d62bf8155b0d4b32ad10ec0b93759b30
 
-PODFILE CHECKSUM: 4481be91b74c4ffc58fb4540992aac1145294af3
+PODFILE CHECKSUM: ba375f1feb9ab86b3969de0a7fe11c1faa65bd90
 
 COCOAPODS: 1.5.3

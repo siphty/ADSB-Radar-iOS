@@ -7,41 +7,12 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
-import Alamofire
-import ObjectMapper
-//import AFNetworking
 
 class ApiClient: ApiService {
     
-    
-    func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus> {
-        return Observable<RequestStatus>.create { observable -> Disposable in
-            self.networkRequest(config, completionHandler: { (data, error) in
-                guard let data = data else {
-                    if let error = error {
-                        observable.onNext(RequestStatus.fail(error))
-                    } else {
-                        observable.onNext(RequestStatus.fail(RequestError("Parse JSON information failed.")))
-                    }
-                    observable.onCompleted()
-                    return
-                }
-                observable.onNext(RequestStatus.success(data as AnyObject))
-                observable.onCompleted()
-            })
-            return Disposables.create()
-            }.share()
-    }
-    
     // MARK: conform to ApiService protocol. For new class inherit from ApiClient class, you can overwrite this function and use any other HTTP networking libraries. Like in Unit test, I create MockApiClient which request network by load local JSON file.
-    
     func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {
-//        networkRequestByAFNetworking(config, completionHandler: completionHandler)
-        networkRequestByAlamoFire(config, completionHandler: completionHandler)
-//        networkRequestByNSURLSession(config, completionHandler: completionHandler)
-//        networkRequestByNSURLConnection(config, completionHandler: completionHandler)
+        networkRequestByNSURLSession(config, completionHandler: completionHandler)
     }
     
 }
@@ -51,19 +22,6 @@ class ApiClient: ApiService {
 // you can overwrite this function and use any other HTTP networking libraries.
 // Like in Unit test, I created MockApiClient which request network by load local JSON file.
 extension ApiClient {
-    
-    func networkRequestByAlamoFire(_ config: ApiConfig, completionHandler: @escaping ((_ jsonResponse: Data?, _ error: RequestError?) -> Void)) {
-        URLCache.shared.removeAllCachedResponses()
-        let url = config.getFullUrl()
-        Alamofire.request(url).responseData(queue: DispatchQueue.global()) { response in
-            guard let data = response.result.value else {
-                print("Error: \(String(describing: response.result.error))")
-                completionHandler(nil, RequestError((response.result.error?.localizedDescription)!))
-                return
-            }
-            completionHandler(data, nil)
-        }
-    }
     
     func networkRequestByNSURLSession(_ config: ApiConfig, completionHandler: @escaping ((_ jsonResponse: Data?, _ error: RequestError?) -> Void)) {
         URLCache.shared.removeAllCachedResponses()
