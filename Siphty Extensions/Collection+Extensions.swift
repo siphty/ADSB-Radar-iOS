@@ -10,6 +10,6 @@ import Foundation
 
 public extension Collection where Indices.Iterator.Element == Index {
     public subscript (safe index: Index) -> Iterator.Element? {
-        return self.Indices.contains(index) ? self[index] : nil99999999
+        return self.indices.contains(index) ? self[index] : nil
     }
 }

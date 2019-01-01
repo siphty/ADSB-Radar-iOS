@@ -132,6 +132,8 @@
 		A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178E1F13947200E96747 /* ARTrackingManager.swift */; };
 		A2E217941F13947200E96747 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178F1F13947200E96747 /* ARViewController.swift */; };
 		A2ED007721DA4525009B2C37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */; };
+		A2ED007821DB6DD1009B2C37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */; };
+		A2ED007921DB6DD2009B2C37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */; };
 		A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */; };
 		A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */; };
 		A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -1082,6 +1084,7 @@
 			files = (
 				A2A8A2B6204826C900B462F0 /* AppDelegate.swift in Sources */,
 				A2436E2820441971009B5F03 /* Notifications.swift in Sources */,
+				A2ED007821DB6DD1009B2C37 /* Collection+Extensions.swift in Sources */,
 				A2436E2420440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
 				A22AA9AD21D995CA002EFDAE /* String+UserLogin.swift in Sources */,
 				A2A8A2B42048268000B462F0 /* AEResponse.swift in Sources */,
@@ -1116,6 +1119,7 @@
 				A2A8A2B32048265500B462F0 /* ApiClient.swift in Sources */,
 				A2A8A2B52048268600B462F0 /* AEResponse.swift in Sources */,
 				A2436E2D20441F50009B5F03 /* GeofenceManager.swift in Sources */,
+				A2ED007921DB6DD2009B2C37 /* Collection+Extensions.swift in Sources */,
 				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */,
 				A2A5D8A72175638900A92892 /* DarkSky.swift in Sources */,

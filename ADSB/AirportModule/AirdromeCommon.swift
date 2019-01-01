@@ -59,7 +59,6 @@ final class AirdomeCommon {
                         
                         // Store the value into the values array
                         values.append(value.pointee! as String)
-                        
                         // Retrieve the unscanned remainder of the string
                         if lineScanner.scanLocation < lineScanner.string.count {
                             let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
@@ -327,11 +326,9 @@ extension AirdomeCommon {
         runway.he_longitude_deg = Double(values[16]) ?? 0
         runway.he_elevation_ft = Int16(values[17]) ?? 0
         runway.he_heading_degT = Double(values[18]) ?? 0
-        runway.he_displaced_threshold_ft = values.indices.contains(19) ?
-            (Int16(values[19]) ?? 0) : 0
-        guard  let heDisplacedThresholdFt = values[safe: 19] else {
-            return
-        }
-        runway.he_displaced_threshold_ft = heDisplacedThresholdFt
+//        runway.he_displaced_threshold_ft = values.indices.contains(19) ?
+//            (Int16(values[19]) ?? 0) : 0
+        guard let heDisplacedThresholdFt = values[safe: 19] else { return }
+        runway.he_displaced_threshold_ft = Int16(heDisplacedThresholdFt) ?? 0
     }
 }
