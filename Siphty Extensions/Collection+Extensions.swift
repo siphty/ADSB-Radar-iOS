@@ -8,8 +8,8 @@
 
 import Foundation
 
-public extension Collection where Indices.Iterator.Element == Index {
+public extension Collection where Indices.Iterator.Element == Index, Index == Int {
     public subscript (safe index: Index) -> Iterator.Element? {
-        return self.indices.contains(index) ? self[index] : nil
+        return index < self.count ? self[index] : nil
     }
 }

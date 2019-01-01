@@ -62,7 +62,7 @@ final class AirdomeCommon {
                         // Retrieve the unscanned remainder of the string
                         if lineScanner.scanLocation < lineScanner.string.count {
                             let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-                            lineToScan = String(scannerString[..<index])
+                            lineToScan = String(scannerString[index...])
                         } else {
                             lineToScan = ""
                         }
@@ -249,7 +249,7 @@ extension AirdomeCommon {
                         
                         if lineScanner.scanLocation < lineScanner.string.count {
                             let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-                            lineToScan = String(scannerString[..<index])
+                            lineToScan = String(scannerString[index...])
                         } else {
                             lineToScan = ""
                         }

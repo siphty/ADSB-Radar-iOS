@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var locationManager = CLLocationManager()
+    let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if shouldParseCSV {
@@ -27,7 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AirdomeCommon.sharedInstance.parseAirportCSV()
             AirdomeCommon.sharedInstance.parseRunwayCSV()
             AirdomeCommon.sharedInstance.usePrePopulatedDB()
-    //        AirdomeCommon.sharedInstance.demoAirportRecords()
+        }
+        
+        
+        notificationCenter.getNotificationSettings { [weak self] (settings) in
+            guard let self = self else { return }
+            if settings.authorizationStatus == .authorized {
+                print("Has notification auth")
+            } else {
+                self.notificationCenter.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                    if granted {
+                        print("Granted notification auth")
+                    } else {
+                        print("Don't have notification auth")
+                    }
+                }
+            }
         }
 
         //MARK: LocationManager
@@ -63,7 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let dbName: String = "airport"
         var persistentStoreDescriptions: NSPersistentStoreDescription
 
-        let storeUrl = self.getDocumentsDirectory().appendingPathComponent("airport.sqlite")
+        let storeUrl = getDocumentsDirectory().appendingPathComponent("airport.sqlite")
         
         if !FileManager.default.fileExists(atPath: (storeUrl.path)) {
             let seededDataUrl = Bundle.main.url(forResource: dbName, withExtension: "sqlite")
@@ -87,8 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
     
     func getDocumentsDirectory()-> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
+        let documentsDirectory: URL
+        if shouldParseCSV {
+            documentsDirectory = URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        } else {
+            documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        }
         return documentsDirectory
     }
     
@@ -164,10 +184,15 @@ extension AppDelegate: CLLocationManagerDelegate{
             let message = note(fromGeotification: geotification, isEnterRegion: isEnterRegion)
             if !message.isEmpty {
                 // Otherwise present a local notification
-                let notification = UILocalNotification()
-                notification.alertBody = message
-                notification.soundName = "Default"
-                UIApplication.shared.presentLocalNotificationNow(notification)
+                let notificationContent = UNMutableNotificationContent()
+                notificationContent.title = NSString.localizedUserNotificationString(forKey: "Airdome alert", arguments: nil)
+                notificationContent.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
+                notificationContent.sound = .default
+                notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber;
+                notificationContent.categoryIdentifier = "com.siphty.localNotification"
+                let request = UNNotificationRequest.init(identifier: "GeoNotification", content: notificationContent, trigger: nil)
+                // Schedule the notification.
+                notificationCenter.add(request)
                 
                 // refetch geochatrooms
                 GeofenceManager.sharedInstance.fetchGeolocationsWithLocation(geotification.coordinate)
