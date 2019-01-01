@@ -8,6 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
+		A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
+		A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
+		A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
+		A22AA99C21D6EF2A002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
+		A22AA99D21D6EF2C002EFDAE /* Runway+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */; };
+		A22AA99E21D6EF2D002EFDAE /* Runway+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */; };
+		A22AA99F21D6EF2F002EFDAE /* Runway+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */; };
+		A22AA9A021D6EF2F002EFDAE /* Runway+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */; };
+		A22AA9A121D6EF31002EFDAE /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */; };
+		A22AA9A221D6EF31002EFDAE /* Airport+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278E1F276BA50058E3A5 /* Airport+CoreDataProperties.swift */; };
+		A22AA9A321D6EF36002EFDAE /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
+		A22AA9A421D6EF36002EFDAE /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
+		A22AA9A521D6EF3A002EFDAE /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
+		A22AA9A621D6EF3B002EFDAE /* airport.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A296DF4C1F3B366B003F060C /* airport.sqlite */; };
+		A22AA9A721D6EF3E002EFDAE /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
+		A22AA9A821D6EF3E002EFDAE /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
+		A22AA9A921D6EF41002EFDAE /* runways.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF821F24D43C00872689 /* runways.csv */; };
+		A22AA9AA21D6EF41002EFDAE /* runways.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF821F24D43C00872689 /* runways.csv */; };
+		A22AA9AB21D995BE002EFDAE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D421F0BBA1600A2C280 /* String+Extensions.swift */; };
+		A22AA9AC21D995BF002EFDAE /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D421F0BBA1600A2C280 /* String+Extensions.swift */; };
+		A22AA9AD21D995CA002EFDAE /* String+UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D431F0BBA1600A2C280 /* String+UserLogin.swift */; };
+		A22AA9AE21D995CB002EFDAE /* String+UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D431F0BBA1600A2C280 /* String+UserLogin.swift */; };
 		A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */; };
 		A2436E2320440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */; };
 		A2436E2420440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */; };
@@ -109,6 +131,7 @@
 		A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178D1F13947200E96747 /* ARConfiguration.swift */; };
 		A2E217931F13947200E96747 /* ARTrackingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178E1F13947200E96747 /* ARTrackingManager.swift */; };
 		A2E217941F13947200E96747 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2E2178F1F13947200E96747 /* ARViewController.swift */; };
+		A2ED007721DA4525009B2C37 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */; };
 		A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */; };
 		A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */; };
 		A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -117,6 +140,11 @@
 		A2F027991F2846BE0058E3A5 /* airportAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */; };
 		A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F17BB01F258088008861C4 /* Scanner+.swift */; };
 		A2FBFF65218C5253007A61D6 /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF64218C5253007A61D6 /* MockApiClient.swift */; };
+		A2FBFF68218F211F007A61D6 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */; };
+		A2FBFF6A218F21B5007A61D6 /* AdsbARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */; };
+		A2FBFF6C218F21D5007A61D6 /* RadarMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF6B218F21D5007A61D6 /* RadarMapViewModel.swift */; };
+		A2FBFF6E218F21FF007A61D6 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */; };
+		A2FBFF7221915F76007A61D6 /* AdsbExchangeViewModeling.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF7121915F76007A61D6 /* AdsbExchangeViewModeling.swift */; };
 		A402B2AB20D44D1147268C09 /* Pods_ADSB_Radar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53FDA4AF82A011808E4BEF9A /* Pods_ADSB_Radar.framework */; };
 		F0DA60D10AF6E216ED98C6D1 /* Pods_ADSB_RadarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDD430C1AB8E01E5FC02230 /* Pods_ADSB_RadarTests.framework */; };
 /* End PBXBuildFile section */
@@ -224,6 +252,7 @@
 		A2E2178D1F13947200E96747 /* ARConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARConfiguration.swift; sourceTree = "<group>"; };
 		A2E2178E1F13947200E96747 /* ARTrackingManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARTrackingManager.swift; sourceTree = "<group>"; };
 		A2E2178F1F13947200E96747 /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		A2F0278B1F276BA50058E3A5 /* Runway+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runway+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A2F0278C1F276BA50058E3A5 /* Runway+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Runway+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Airport+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -232,6 +261,11 @@
 		A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotation.swift; path = ADSB/AirportModule/Views/airportAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scanner+.swift"; sourceTree = "<group>"; };
 		A2FBFF64218C5253007A61D6 /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
+		A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
+		A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsbARViewController.swift; sourceTree = "<group>"; };
+		A2FBFF6B218F21D5007A61D6 /* RadarMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarMapViewModel.swift; sourceTree = "<group>"; };
+		A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
+		A2FBFF7121915F76007A61D6 /* AdsbExchangeViewModeling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsbExchangeViewModeling.swift; sourceTree = "<group>"; };
 		ADDD430C1AB8E01E5FC02230 /* Pods_ADSB_RadarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFDE8E902A8F867CE4721086 /* Pods-ADSB RadarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -392,6 +426,7 @@
 				A2703D471F0BBA1600A2C280 /* UIControl */,
 				A2703D491F0BBA1600A2C280 /* UIImage */,
 				A2703D4C1F0BBA1600A2C280 /* UIViewController */,
+				A2ED007621DA4525009B2C37 /* Collection+Extensions.swift */,
 			);
 			path = "Siphty Extensions";
 			sourceTree = "<group>";
@@ -506,9 +541,10 @@
 		A2AB505C202F2DEE007E07AB /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				A2FBFF66218EE723007A61D6 /* Views */,
+				A2AB507B2031C167007E07AB /* ViewModels */,
 				A2AB5062202F33A0007E07AB /* Models */,
 				A2AB505D202F2EAA007E07AB /* ServerManager */,
-				A2AB507B2031C167007E07AB /* ViewModels */,
 				A2436E2520441951009B5F03 /* Utilis */,
 			);
 			path = MVVM;
@@ -527,19 +563,19 @@
 			isa = PBXGroup;
 			children = (
 				A2AB506C2031C12F007E07AB /* DarkSky */,
-				A2AB506B2031C111007E07AB /* ADSBExchange */,
+				A2AB506B2031C111007E07AB /* AdsbExchange */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A2AB506B2031C111007E07AB /* ADSBExchange */ = {
+		A2AB506B2031C111007E07AB /* AdsbExchange */ = {
 			isa = PBXGroup;
 			children = (
 				A2AB5063202F357B007E07AB /* Aircraft.swift */,
 				A2AB5064202F357B007E07AB /* Feeds.swift */,
 				A2AB5065202F357C007E07AB /* AEResponse.swift */,
 			);
-			path = ADSBExchange;
+			path = AdsbExchange;
 			sourceTree = "<group>";
 		};
 		A2AB506C2031C12F007E07AB /* DarkSky */ = {
@@ -555,6 +591,9 @@
 			children = (
 				A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */,
 				A2A8A2A820480D3600B462F0 /* DSWeatherViewModel.swift */,
+				A2FBFF6B218F21D5007A61D6 /* RadarMapViewModel.swift */,
+				A2FBFF7121915F76007A61D6 /* AdsbExchangeViewModeling.swift */,
+				A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -648,6 +687,15 @@
 				A2A8A2C620482EA400B462F0 /* DSResponseEmpty.json */,
 			);
 			path = "Mock Responses";
+			sourceTree = "<group>";
+		};
+		A2FBFF66218EE723007A61D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */,
+				A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FD3AE9EDEF5FA9A5ACD29195 /* Pods */ = {
@@ -816,8 +864,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22AA9A921D6EF41002EFDAE /* runways.csv in Resources */,
 				A2A8A2C920482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2A8A2CC20482EA500B462F0 /* DSResponse.json in Resources */,
+				A22AA9A721D6EF3E002EFDAE /* airports.csv in Resources */,
+				A22AA9A521D6EF3A002EFDAE /* airport.sqlite in Resources */,
 				A27E88F52039A36D000DB52D /* AEResponse.json in Resources */,
 				A27E88F92039A387000DB52D /* AEResponseFail.json in Resources */,
 			);
@@ -827,8 +878,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22AA9AA21D6EF41002EFDAE /* runways.csv in Resources */,
 				A2A8A2CA20482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2A8A2CD20482EA500B462F0 /* DSResponse.json in Resources */,
+				A22AA9A821D6EF3E002EFDAE /* airports.csv in Resources */,
+				A22AA9A621D6EF3B002EFDAE /* airport.sqlite in Resources */,
 				A27E88F62039A36D000DB52D /* AEResponse.json in Resources */,
 				A27E88FA2039A387000DB52D /* AEResponseFail.json in Resources */,
 			);
@@ -982,9 +1036,12 @@
 				A2F027911F276BA50058E3A5 /* Airport+CoreDataClass.swift in Sources */,
 				A2E217941F13947200E96747 /* ARViewController.swift in Sources */,
 				A2F0278F1F276BA50058E3A5 /* Runway+CoreDataClass.swift in Sources */,
+				A2FBFF6C218F21D5007A61D6 /* RadarMapViewModel.swift in Sources */,
 				A296DF4F1F3B3D59003F060C /* MKMapView+Airport.swift in Sources */,
+				A2ED007721DA4525009B2C37 /* Collection+Extensions.swift in Sources */,
 				A2E217851F13929900E96747 /* ARGeoCoordinate.swift in Sources */,
 				A2703D531F0BBA1600A2C280 /* Date+Utility.swift in Sources */,
+				A2FBFF7221915F76007A61D6 /* AdsbExchangeViewModeling.swift in Sources */,
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
@@ -992,16 +1049,19 @@
 				A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */,
 				A2FBFF65218C5253007A61D6 /* MockApiClient.swift in Sources */,
 				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
+				A2FBFF68218F211F007A61D6 /* RadarMapViewController.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
 				A2436E2F204424E9009B5F03 /* Geotification.swift in Sources */,
+				A2FBFF6E218F21FF007A61D6 /* ARViewModel.swift in Sources */,
 				A2F027901F276BA50058E3A5 /* Runway+CoreDataProperties.swift in Sources */,
 				A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */,
 				A2A5D8A52175638900A92892 /* DarkSky.swift in Sources */,
 				A2E217881F13929900E96747 /* FlightCalloutView.swift in Sources */,
 				A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */,
 				A2703D511F0BBA1600A2C280 /* CGRect+Resize.swift in Sources */,
+				A2FBFF6A218F21B5007A61D6 /* AdsbARViewController.swift in Sources */,
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2436E2320440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
 				A2436E2720441971009B5F03 /* Notifications.swift in Sources */,
@@ -1023,15 +1083,23 @@
 				A2A8A2B6204826C900B462F0 /* AppDelegate.swift in Sources */,
 				A2436E2820441971009B5F03 /* Notifications.swift in Sources */,
 				A2436E2420440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
+				A22AA9AD21D995CA002EFDAE /* String+UserLogin.swift in Sources */,
 				A2A8A2B42048268000B462F0 /* AEResponse.swift in Sources */,
 				A2A8A2B22048265500B462F0 /* ApiClient.swift in Sources */,
+				A22AA9A121D6EF31002EFDAE /* Airport+CoreDataProperties.swift in Sources */,
 				A2703CBC1F0B6A4E00A2C280 /* ADSBTests.swift in Sources */,
 				A2436E30204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2A8A2AC204825E400B462F0 /* Aircraft.swift in Sources */,
 				A2A8A2B02048265100B462F0 /* ApiService.swift in Sources */,
 				A2A5D8A62175638900A92892 /* DarkSky.swift in Sources */,
+				A22AA99D21D6EF2C002EFDAE /* Runway+CoreDataProperties.swift in Sources */,
+				A22AA9AB21D995BE002EFDAE /* String+Extensions.swift in Sources */,
+				A22AA9A321D6EF36002EFDAE /* airport.xcdatamodeld in Sources */,
+				A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */,
+				A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */,
 				A2A8A2AE204825E900B462F0 /* Feeds.swift in Sources */,
+				A22AA99F21D6EF2F002EFDAE /* Runway+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1039,8 +1107,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22AA99C21D6EF2A002EFDAE /* Airport+CoreDataClass.swift in Sources */,
+				A22AA99E21D6EF2D002EFDAE /* Runway+CoreDataProperties.swift in Sources */,
 				A2436E2920441971009B5F03 /* Notifications.swift in Sources */,
 				A2703CC71F0B6A4E00A2C280 /* ADSBUITests.swift in Sources */,
+				A22AA9AC21D995BF002EFDAE /* String+Extensions.swift in Sources */,
 				A2A8A2AD204825E400B462F0 /* Aircraft.swift in Sources */,
 				A2A8A2B32048265500B462F0 /* ApiClient.swift in Sources */,
 				A2A8A2B52048268600B462F0 /* AEResponse.swift in Sources */,
@@ -1048,8 +1119,13 @@
 				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */,
 				A2A5D8A72175638900A92892 /* DarkSky.swift in Sources */,
+				A22AA9AE21D995CB002EFDAE /* String+UserLogin.swift in Sources */,
 				A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */,
+				A22AA9A421D6EF36002EFDAE /* airport.xcdatamodeld in Sources */,
 				A2A8A2AF204825E900B462F0 /* Feeds.swift in Sources */,
+				A22AA9A021D6EF2F002EFDAE /* Runway+CoreDataClass.swift in Sources */,
+				A22AA9A221D6EF31002EFDAE /* Airport+CoreDataProperties.swift in Sources */,
+				A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,10 +8,10 @@
 
 import Swift
 
-extension String{
-    
+extension String {
     
     var isInt: Bool {
         return Int(self) != nil
     }
+    
 }

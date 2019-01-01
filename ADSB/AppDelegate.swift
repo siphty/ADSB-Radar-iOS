@@ -11,25 +11,25 @@ import CoreData
 import CoreLocation
 import UserNotifications
 
+let shouldParseCSV = false
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var locationManager = CLLocationManager()
 
-    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        let defaults = UserDefaults.standard
-//        let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
-//        print("documentsDir : \(documentsDir)")
-//        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-//                AirdomeCommon.sharedInstance.parseAirportCSV()
-//                AirdomeCommon.sharedInstance.parseRunwayCSV()
-//        AirdomeCommon.sharedInstance.usePrePopulatedDB()
-//            }
-//        }
-//        AirdomeCommon.sharedInstance.demoAirportRecords()
-        
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if shouldParseCSV {
+            let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+            print("documentsDir : \(documentsDir)")
+            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            AirdomeCommon.sharedInstance.parseAirportCSV()
+            AirdomeCommon.sharedInstance.parseRunwayCSV()
+            AirdomeCommon.sharedInstance.usePrePopulatedDB()
+    //        AirdomeCommon.sharedInstance.demoAirportRecords()
+        }
+
         //MARK: LocationManager
         locationManager.delegate = self
         locationManager.desiredAccuracy = 10

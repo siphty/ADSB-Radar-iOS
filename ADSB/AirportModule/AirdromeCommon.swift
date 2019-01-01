@@ -15,15 +15,13 @@ import MapKit
 final class AirdomeCommon {
     
     static let sharedInstance =  AirdomeCommon()
-     var airports: [Airport] = []
+    var airports: [Airport] = []
     var runways: [Runway] = []
     
+    /// Load the CSV file and parse it
     func parseAirportCSV() {
-        // Load the CSV file and parse it
+        // TODO: if CoreData has been preloaded. Skip parse Runway CSV
         let separater = ","
-        if false {
-            return //if CoreData has been preloaded.
-        }
         removeAllAirport()
         guard let contentsOfUrl = Bundle.main.url(forResource:"airports", withExtension: "csv") else { return }
         var content = ""
@@ -39,32 +37,33 @@ final class AirdomeCommon {
         let hour = calendar.component(.hour, from: Date())
         let minutes = calendar.component(.minute, from: Date())
         print("====================        Start preload airport table       ======================== \(hour):\(minutes)")
-        for line in lines {
+        lines.forEach { line in
             var values:[String] = []
             if line != "" {
                 // For a line with double quotes
                 if line.range(of: "\"") != nil {
                     var lineToScan = line
-                    var value: String?
+                    var outcomeString: NSString? = nil
+                    let value = AutoreleasingUnsafeMutablePointer<NSString?>(&outcomeString)
                     var lineScanner = Scanner(string: lineToScan)
                     while !lineScanner.isAtEnd {
                         let scannerString = lineScanner.string
                         let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
-                        if (lineScanner.string as String).substring(to: index)  == "\"" {
+                        if String(lineScanner.string[..<index]) == "\"" {
                             lineScanner.scanLocation += 1
-                            value = lineScanner.scanUpTo("\"") ?? ""
+                            _ = lineScanner.scanUpTo("\"", into: value)
                             lineScanner.scanLocation += 1
                         } else {
-                            value = lineScanner.scanUpTo(separater) ?? ""
+                            _ = lineScanner.scanUpTo(separater, into: value)
                         }
                         
                         // Store the value into the values array
-                        values.append(value! as String)
+                        values.append(value.pointee! as String)
                         
                         // Retrieve the unscanned remainder of the string
-                        if lineScanner.scanLocation < (lineScanner.string).characters.count {
+                        if lineScanner.scanLocation < lineScanner.string.count {
                             let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-                            lineToScan = scannerString.substring(from: index)
+                            lineToScan = String(scannerString[..<index])
                         } else {
                             lineToScan = ""
                         }
@@ -79,11 +78,11 @@ final class AirdomeCommon {
                 // Put the values into the tuple and add it to the items array
                 guard values.count != 0 else {
                     print("Got no airport on this line")
-                    continue}
+                    return
+                }
                 saveAirport(values)
             }
         }
-//        }
     
         let endHour = calendar.component(.hour, from: Date())
         let endMinutes = calendar.component(.minute, from: Date())
@@ -118,16 +117,14 @@ final class AirdomeCommon {
         airport.iso_country = values[8]
         airport.iso_region = values[9]
         airport.municipality = values[10]
-        if values[11] == "yes"  {
-            airport.scheduled_service = true
-        } else {
-            airport.scheduled_service = false
-        }
+        airport.scheduled_service = (values[11] == "yes")
         airport.gps_code = values[12]
         airport.iata_code = values[13]
         airport.local_code = values[14]
         airport.home_link = values[15]
-        airport.wikipedia_link = values[16]
+        if values.count >= 17 {
+            airport.wikipedia_link = values[16]
+        }
         if values.count >= 18 {
             airport.keywords = values[17]
         }
@@ -207,14 +204,11 @@ extension AirdomeCommon {
 
 
 extension AirdomeCommon {
-    
-    
+
     func parseRunwayCSV() {
+        // TODO: if CoreData has been preloaded. Skip parse Runway CSV
         // Load the CSV file and parse it
         let separater = ","
-        if false {
-            return //if CoreData has been preloaded.  
-        }
         removeAllRunways()
         guard let contentsOfUrl = Bundle.main.url(forResource:"runways", withExtension: "csv") else { return }
         var content = ""
@@ -224,57 +218,58 @@ extension AirdomeCommon {
             print("error")
         }
 //        if let content = String(   contentsOfURL: contentsOfUrl, encoding: NSUTF8StringEncoding, error: error) {
-            let lines = content.components(separatedBy: .newlines) as [String]
-
+        let lines = content.components(separatedBy: .newlines) as [String]
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: Date())
         let minutes = calendar.component(.minute, from: Date())
         print("====================        Start preload  Runway table       ======================== \(hour):\(minutes)")
-            for line in lines {
-                var values:[String] = []
-                if line != "" {
-                    // For a line with double quotes
-                    if line.range(of: "\"") != nil {
-                        var lineToScan = line
-                        var value: String?
-                        var lineScanner = Scanner(string: lineToScan)
-                        while !lineScanner.isAtEnd {
-                            let scannerString = lineScanner.string
-                            let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
-                            if (lineScanner.string as String).substring(to: index)  == "\"" {
-                                lineScanner.scanLocation += 1
-                                value = lineScanner.scanUpTo("\"") ?? ""
-                                lineScanner.scanLocation += 1
-                            } else {
-                                value = lineScanner.scanUpTo(separater) ?? ""
-                            }
-
-                            // Store the value into the values array
-                            values.append(value! as String)
-
-                            // Retrieve the unscanned remainder of the string
-                            if lineScanner.scanLocation < (lineScanner.string).characters.count {
-                                let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
-                                lineToScan = scannerString.substring(from: index)
-                            } else {
-                                lineToScan = ""
-                            }
-                            lineScanner = Scanner(string: lineToScan)
+        lines.forEach { line in
+            var values:[String] = []
+            if line != "" {
+                // For a line with double quotes
+                if line.range(of: "\"") != nil {
+                    var lineToScan = line
+                    var outcomeString: NSString? = nil
+                    let value = AutoreleasingUnsafeMutablePointer<NSString?>(&outcomeString)
+                    var lineScanner = Scanner(string: lineToScan)
+                    while !lineScanner.isAtEnd {
+                        let scannerString = lineScanner.string
+                        let index = scannerString.index(scannerString.startIndex , offsetBy: 1)
+                        if String(lineScanner.string[..<index]) == "\"" {
+                            lineScanner.scanLocation += 1
+                            _ = lineScanner.scanUpTo("\"", into: value)
+                            lineScanner.scanLocation += 1
+                        } else {
+                            _ = lineScanner.scanUpTo(separater, into: value)
                         }
 
-                        // For a line without double quotes, we can simply separate the string
-                        // by using the separater (e.g. comma)
-                    } else  {
-                        values = line.components(separatedBy: separater)
+                        // Store the value into the values array
+                        values.append(value.pointee! as String)
+
+                        // Retrieve the unscanned remainder of the string
+                        
+                        if lineScanner.scanLocation < lineScanner.string.count {
+                            let index = scannerString.index(lineToScan.startIndex, offsetBy: lineScanner.scanLocation + 1)
+                            lineToScan = String(scannerString[..<index])
+                        } else {
+                            lineToScan = ""
+                        }
+                        lineScanner = Scanner(string: lineToScan)
                     }
-                    // Put the values into the tuple and add it to the items array
-                    guard values.count != 0 else {
-                        print("Got no runway on this line")
-                        continue}
-                    saveRunway(values)
+
+                    // For a line without double quotes, we can simply separate the string
+                    // by using the separater (e.g. comma)
+                } else  {
+                    values = line.components(separatedBy: separater)
                 }
+                // Put the values into the tuple and add it to the items array
+                guard values.count != 0 else {
+                    print("Got no runway on this line")
+                    return
+                }
+                saveRunway(values)
             }
-//        }
+        }
 
         let endHour = calendar.component(.hour, from: Date())
         let endMinutes = calendar.component(.minute, from: Date())
@@ -294,10 +289,8 @@ extension AirdomeCommon {
     
     
     func removeAllRunways() {
-    
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let context = appDelegate.persistentContainer.viewContext
-    
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Runway")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
     
@@ -308,7 +301,6 @@ extension AirdomeCommon {
             print ("There was an error")
         }
     }
-    
     
     func saveRunway(_ values: [String]) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -335,9 +327,11 @@ extension AirdomeCommon {
         runway.he_longitude_deg = Double(values[16]) ?? 0
         runway.he_elevation_ft = Int16(values[17]) ?? 0
         runway.he_heading_degT = Double(values[18]) ?? 0
-        
-        if values.count >= 20 {
-            runway.he_displaced_threshold_ft = Int16(values[19]) ?? 0
+        runway.he_displaced_threshold_ft = values.indices.contains(19) ?
+            (Int16(values[19]) ?? 0) : 0
+        guard  let heDisplacedThresholdFt = values[safe: 19] else {
+            return
         }
+        runway.he_displaced_threshold_ft = heDisplacedThresholdFt
     }
 }

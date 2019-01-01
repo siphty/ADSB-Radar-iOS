@@ -723,11 +723,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     fileprivate func loadCamera()
     {
-//        if cameraLayer != nil {
-//            cameraLayer?.removeFromSuperlayer()
-//            cameraLayer = nil
-//        }
-        
         //===== Video device/video input
         let captureSessionResult = ARViewController.createCaptureSession()
         guard captureSessionResult.error == nil, let session = captureSessionResult.session else
@@ -735,7 +730,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             print("HDAugmentedReality: Cannot create capture session, use createCaptureSession method to check if device is capable for augmented reality.")
             return
         }
-        
         cameraSession = session
         
         //===== View preview layer
@@ -751,52 +745,34 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         var error: NSError?
         var captureSession: AVCaptureSession?
-        var backVideoDevice: AVCaptureDevice?
-        let videoDevices = AVCaptureDevice.devices(for: AVMediaType.video)
-        
-        // Get back video device        
-        for captureDevice in videoDevices
+        guard let backVideoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else
         {
-            if (captureDevice as AnyObject).position == AVCaptureDevice.Position.back
-            {
-                backVideoDevice = captureDevice as AVCaptureDevice
-                break
-            }
+            error = NSError(domain: "HDAugmentedReality", code: 10000, userInfo: ["description": "Back video device not found."])
+            return (session: nil, error: error)
         }
-        
-        
-        if backVideoDevice != nil
+        var videoInput: AVCaptureDeviceInput!
+        do {
+            videoInput = try AVCaptureDeviceInput(device: backVideoDevice)
+        } catch let error1 as NSError {
+            error = error1
+            videoInput = nil
+        }
+        if error == nil
         {
-            var videoInput: AVCaptureDeviceInput!
-            do {
-                videoInput = try AVCaptureDeviceInput(device: backVideoDevice!)
-            } catch let error1 as NSError {
-                error = error1
-                videoInput = nil
-            }
-            if error == nil
+            captureSession = AVCaptureSession()
+            if captureSession!.canAddInput(videoInput)
             {
-                captureSession = AVCaptureSession()
-                
-                if captureSession!.canAddInput(videoInput)
-                {
-                    captureSession!.addInput(videoInput)
-                }
-                else
-                {
-                    error = NSError(domain: "HDAugmentedReality", code: 10002, userInfo: ["description": "Error adding video input."])
-                }
+                captureSession!.addInput(videoInput)
             }
             else
             {
-                error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input."])
+                error = NSError(domain: "HDAugmentedReality", code: 10002, userInfo: ["description": "Error adding video input."])
             }
         }
         else
         {
-            error = NSError(domain: "HDAugmentedReality", code: 10000, userInfo: ["description": "Back video device not found."])
+            error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input."])
         }
-        
         return (session: captureSession, error: error)
     }
     
