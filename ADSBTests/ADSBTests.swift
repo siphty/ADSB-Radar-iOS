@@ -29,18 +29,23 @@ class ADSBTests: XCTestCase {
         let sydLatitude = CLLocationDegrees(-33.873692)
         let sydLongitude = CLLocationDegrees(151.206768)
         let sydneyLocation = CLLocation.init(latitude: sydLatitude, longitude: sydLongitude)
-        apiClient.fetchRestfulApi(.aircrafts(sydneyLocation, 20) ).subscribe(onNext: { status in
-            switch status {
-            case .success(let apiResponse):
-                let aeResponse = apiResponse as! AEResponse
-                let aircrafts = aeResponse.acList
-                XCTAssertTrue(aircrafts != nil)
-                XCTAssertTrue(aircrafts!.count > 0)
-            //MARK: We can test more key:value to verify the decode logic is right.
-            case .fail(let error):
-                print(error.errorDescription ?? "Faild to load AdsbExchange data")
+        apiClient.networkRequest(.aircrafts(sydneyLocation, 20)) { (data, error) in
+            if error != nil {
+//                print(data)
             }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+        }
+//        apiClient.fetchRestfulApi(.aircrafts(sydneyLocation, 20) ).subscribe(onNext: { status in
+//            switch status {
+//            case .success(let apiResponse):
+//                let aeResponse = apiResponse as! AEResponse
+//                let aircrafts = aeResponse.acList
+//                XCTAssertTrue(aircrafts != nil)
+//                XCTAssertTrue(aircrafts!.count > 0)
+//            //MARK: We can test more key:value to verify the decode logic is right.
+//            case .fail(let error):
+//                print(error.errorDescription ?? "Faild to load AdsbExchange data")
+//            }
+//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
     
     func testDarkSkyApiServiceWithCorrectApi(){
@@ -48,17 +53,17 @@ class ADSBTests: XCTestCase {
         let sydLatitude = CLLocationDegrees(-33.873692)
         let sydLongitude = CLLocationDegrees(151.206768)
         let sydneyLocation = CLLocation.init(latitude: sydLatitude, longitude: sydLongitude)
-        apiClient.fetchRestfulApi(.weather(sydneyLocation)).subscribe(onNext: { status in
-            switch status {
-            case .success(let apiResponse):
-                let dsResponse = apiResponse as! DSResponse
-                let currentWeather = dsResponse.currently
-                XCTAssertTrue(currentWeather != nil)
-            //MARK: We can test more key:value to verify the decode logic is right.
-            case .fail(let error):
-                print(error.errorDescription ?? "Faild to load weather data")
-            }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+//        apiClient.fetchRestfulApi(.weather(sydneyLocation)).subscribe(onNext: { status in
+//            switch status {
+//            case .success(let apiResponse):
+//                let dsResponse = apiResponse as! DSResponse
+//                let currentWeather = dsResponse.currently
+//                XCTAssertTrue(currentWeather != nil)
+//            //MARK: We can test more key:value to verify the decode logic is right.
+//            case .fail(let error):
+//                print(error.errorDescription ?? "Faild to load weather data")
+//            }
+//        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
     }
     
     func testPerformanceExample() {
@@ -82,9 +87,9 @@ class MockApiClient: ApiClient {
     
     var jsonFileName = JsonFileName.aeResponse
     
-    override func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus> {
-        return super.fetchRestfulApi(config)
-    }
+//    override func fetchRestfulApi(_ config: ApiConfig) -> Observable<RequestStatus> {
+//        return super.fetchRestfulApi(config)
+//    }
     
     //Use mock response data based on the
     override func networkRequest(_ config: ApiConfig, completionHandler: @escaping ((Data?, RequestError?) -> Void)) {

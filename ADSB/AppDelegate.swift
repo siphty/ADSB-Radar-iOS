@@ -187,7 +187,6 @@ extension AppDelegate: CLLocationManagerDelegate{
                 let notificationContent = UNMutableNotificationContent()
                 notificationContent.title = NSString.localizedUserNotificationString(forKey: "Airdome alert", arguments: nil)
                 notificationContent.body = NSString.localizedUserNotificationString(forKey: message, arguments: nil)
-                notificationContent.sound = .default
                 notificationContent.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber;
                 notificationContent.categoryIdentifier = "com.siphty.localNotification"
                 let request = UNNotificationRequest.init(identifier: "GeoNotification", content: notificationContent, trigger: nil)

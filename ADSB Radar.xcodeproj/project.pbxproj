@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
+		A228458521DC49BC007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
+		A228458721DC6B24007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
+		A228458821DC6B25007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
 		A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -176,6 +179,7 @@
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
 		845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOutOfBoundaryTest.swift; sourceTree = "<group>"; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAircraftsViewModel.swift; sourceTree = "<group>"; };
 		A2436E2620441971009B5F03 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -376,6 +380,7 @@
 				A2FBFF61218C403C007A61D6 /* AdsbExpressTests */,
 				A2FBFF60218C4016007A61D6 /* DarkSkyTests */,
 				A2703CBB1F0B6A4E00A2C280 /* ADSBTests.swift */,
+				A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */,
 				A2703CBD1F0B6A4E00A2C280 /* Info.plist */,
 			);
 			path = ADSBTests;
@@ -1067,6 +1072,7 @@
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2436E2320440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
 				A2436E2720441971009B5F03 /* Notifications.swift in Sources */,
+				A228458821DC6B25007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
@@ -1095,6 +1101,7 @@
 				A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2A8A2AC204825E400B462F0 /* Aircraft.swift in Sources */,
 				A2A8A2B02048265100B462F0 /* ApiService.swift in Sources */,
+				A228458521DC49BC007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2A5D8A62175638900A92892 /* DarkSky.swift in Sources */,
 				A22AA99D21D6EF2C002EFDAE /* Runway+CoreDataProperties.swift in Sources */,
 				A22AA9AB21D995BE002EFDAE /* String+Extensions.swift in Sources */,
@@ -1122,6 +1129,7 @@
 				A2ED007921DB6DD2009B2C37 /* Collection+Extensions.swift in Sources */,
 				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */,
+				A228458721DC6B24007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2A5D8A72175638900A92892 /* DarkSky.swift in Sources */,
 				A22AA9AE21D995CB002EFDAE /* String+UserLogin.swift in Sources */,
 				A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */,
