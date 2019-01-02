@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import CoreLocation
 import UserNotifications
+import Fabric
+import Crashlytics
 
 let shouldParseCSV = false
 
@@ -21,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationCenter = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        Fabric.with([Crashlytics.self])
         if shouldParseCSV {
             let documentsDir = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
             print("documentsDir : \(documentsDir)")

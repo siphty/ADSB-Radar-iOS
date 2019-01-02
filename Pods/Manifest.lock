@@ -1,15 +1,22 @@
 PODS:
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - Kingfisher (5.0.1)
   - NVActivityIndicatorView (4.4.0):
     - NVActivityIndicatorView/Presenter (= 4.4.0)
   - NVActivityIndicatorView/Presenter (4.4.0)
 
 DEPENDENCIES:
+  - Crashlytics (~> 3.12)
+  - Fabric
   - Kingfisher
   - NVActivityIndicatorView (from `../../NVActivityIndicatorView/`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Crashlytics
+    - Fabric
     - Kingfisher
 
 EXTERNAL SOURCES:
@@ -17,9 +24,11 @@ EXTERNAL SOURCES:
     :path: "../../NVActivityIndicatorView/"
 
 SPEC CHECKSUMS:
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Kingfisher: 4f771421b9208185217550528a06fd48756cb7c2
   NVActivityIndicatorView: 9ea034e0d62bf8155b0d4b32ad10ec0b93759b30
 
-PODFILE CHECKSUM: ba375f1feb9ab86b3969de0a7fe11c1faa65bd90
+PODFILE CHECKSUM: ad2e4c8e43a84f2e67887a4c19adc4788c4d7ed4
 
 COCOAPODS: 1.5.3

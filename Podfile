@@ -4,6 +4,8 @@ use_frameworks!
 
 def shared_pods_for_target
     pod 'Kingfisher'
+    pod 'Fabric'
+    pod 'Crashlytics', '~>  3.12'
 end
 
 target 'ADSB Radar' do

@@ -48,6 +48,16 @@
                ReferencedContainer = "container:ADSB Radar.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A228458D21DCA04B007FC7AC"
+               BuildableName = "ADSB RadarTests Array.xctest"
+               BlueprintName = "ADSB RadarTests Array"
+               ReferencedContainer = "container:ADSB Radar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

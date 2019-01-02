@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
-		A228458521DC49BC007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
-		A228458721DC6B24007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
-		A228458821DC6B25007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */; };
+		A228459121DCA04B007FC7AC /* ADSB_RadarTests_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */; };
 		A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -155,6 +153,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A228459321DCA04B007FC7AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2703C981F0B6A4E00A2C280 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A2703C9F1F0B6A4E00A2C280;
+			remoteInfo = "ADSB Radar";
+		};
 		A2703CB81F0B6A4E00A2C280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2703C981F0B6A4E00A2C280 /* Project object */;
@@ -179,7 +184,9 @@
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
 		845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayOutOfBoundaryTest.swift; sourceTree = "<group>"; };
+		A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ADSB RadarTests Array.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSB_RadarTests_Array.swift; sourceTree = "<group>"; };
+		A228459221DCA04B007FC7AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAircraftsViewModel.swift; sourceTree = "<group>"; };
 		A2436E2620441971009B5F03 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -277,6 +284,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A228458B21DCA04B007FC7AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2703C9D1F0B6A4E00A2C280 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +321,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A228458F21DCA04B007FC7AC /* ADSB RadarTests Array */ = {
+			isa = PBXGroup;
+			children = (
+				A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */,
+				A228459221DCA04B007FC7AC /* Info.plist */,
+			);
+			path = "ADSB RadarTests Array";
+			sourceTree = "<group>";
+		};
 		A2436E2520441951009B5F03 /* Utilis */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +362,7 @@
 				A2703D341F0BBA1600A2C280 /* Siphty Extensions */,
 				A2703CBA1F0B6A4E00A2C280 /* ADSBTests */,
 				A2703CC51F0B6A4E00A2C280 /* ADSBUITests */,
+				A228458F21DCA04B007FC7AC /* ADSB RadarTests Array */,
 				A2703CA11F0B6A4E00A2C280 /* Products */,
 				FD3AE9EDEF5FA9A5ACD29195 /* Pods */,
 				FD83CB73777CEDCD16B51A92 /* Frameworks */,
@@ -351,6 +375,7 @@
 				A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */,
 				A2703CB71F0B6A4E00A2C280 /* ADSB RadarTests.xctest */,
 				A2703CC21F0B6A4E00A2C280 /* ADSB RadarUITests.xctest */,
+				A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -380,7 +405,6 @@
 				A2FBFF61218C403C007A61D6 /* AdsbExpressTests */,
 				A2FBFF60218C4016007A61D6 /* DarkSkyTests */,
 				A2703CBB1F0B6A4E00A2C280 /* ADSBTests.swift */,
-				A228458321DC498F007FC7AC /* ArrayOutOfBoundaryTest.swift */,
 				A2703CBD1F0B6A4E00A2C280 /* Info.plist */,
 			);
 			path = ADSBTests;
@@ -734,6 +758,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A228458D21DCA04B007FC7AC /* ADSB RadarTests Array */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A228459521DCA04B007FC7AC /* Build configuration list for PBXNativeTarget "ADSB RadarTests Array" */;
+			buildPhases = (
+				A228458A21DCA04B007FC7AC /* Sources */,
+				A228458B21DCA04B007FC7AC /* Frameworks */,
+				A228458C21DCA04B007FC7AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A228459421DCA04B007FC7AC /* PBXTargetDependency */,
+			);
+			name = "ADSB RadarTests Array";
+			productName = "ADSB RadarTests Array";
+			productReference = A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2703CCB1F0B6A4E00A2C280 /* Build configuration list for PBXNativeTarget "ADSB Radar" */;
@@ -743,6 +785,7 @@
 				A2703C9D1F0B6A4E00A2C280 /* Frameworks */,
 				A2703C9E1F0B6A4E00A2C280 /* Resources */,
 				09684FD2E37BB022636B4490 /* [CP] Embed Pods Frameworks */,
+				A228458921DC9923007FC7AC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -799,10 +842,16 @@
 		A2703C981F0B6A4E00A2C280 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Siphty;
 				TargetAttributes = {
+					A228458D21DCA04B007FC7AC = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = GZQL33LF2B;
+						ProvisioningStyle = Automatic;
+						TestTargetID = A2703C9F1F0B6A4E00A2C280;
+					};
 					A2703C9F1F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4PQU2QH5JS;
@@ -839,11 +888,19 @@
 				A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */,
 				A2703CB61F0B6A4E00A2C280 /* ADSB RadarTests */,
 				A2703CC11F0B6A4E00A2C280 /* ADSB RadarUITests */,
+				A228458D21DCA04B007FC7AC /* ADSB RadarTests Array */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A228458C21DCA04B007FC7AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2703C9E1F0B6A4E00A2C280 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -954,6 +1011,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A228458921DC9923007FC7AC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 74307a882f6e2ef5efd2515490d4afd121e739ab 1724e0496ae884fc01d1e1319f1a455a3746ce97c6aea428f00be67902973de4\n";
+		};
 		A8DBEADE8355372A53F32790 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1011,6 +1086,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A228458A21DCA04B007FC7AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A228459121DCA04B007FC7AC /* ADSB_RadarTests_Array.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A2703C9C1F0B6A4E00A2C280 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1072,7 +1155,6 @@
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2436E2320440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
 				A2436E2720441971009B5F03 /* Notifications.swift in Sources */,
-				A228458821DC6B25007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
 				A2E217921F13947200E96747 /* ARConfiguration.swift in Sources */,
@@ -1101,7 +1183,6 @@
 				A2436E2C20441F50009B5F03 /* GeofenceManager.swift in Sources */,
 				A2A8A2AC204825E400B462F0 /* Aircraft.swift in Sources */,
 				A2A8A2B02048265100B462F0 /* ApiService.swift in Sources */,
-				A228458521DC49BC007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2A5D8A62175638900A92892 /* DarkSky.swift in Sources */,
 				A22AA99D21D6EF2C002EFDAE /* Runway+CoreDataProperties.swift in Sources */,
 				A22AA9AB21D995BE002EFDAE /* String+Extensions.swift in Sources */,
@@ -1129,7 +1210,6 @@
 				A2ED007921DB6DD2009B2C37 /* Collection+Extensions.swift in Sources */,
 				A2436E31204424E9009B5F03 /* Geotification.swift in Sources */,
 				A2A8A2B12048265200B462F0 /* ApiService.swift in Sources */,
-				A228458721DC6B24007FC7AC /* ArrayOutOfBoundaryTest.swift in Sources */,
 				A2A5D8A72175638900A92892 /* DarkSky.swift in Sources */,
 				A22AA9AE21D995CB002EFDAE /* String+UserLogin.swift in Sources */,
 				A2A8A2B7204826C900B462F0 /* AppDelegate.swift in Sources */,
@@ -1144,6 +1224,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A228459421DCA04B007FC7AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */;
+			targetProxy = A228459321DCA04B007FC7AC /* PBXContainerItemProxy */;
+		};
 		A2703CB91F0B6A4E00A2C280 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */;
@@ -1176,6 +1261,51 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A228459621DCA04B007FC7AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ADSB RadarTests Array/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inteliment.ADSB-RadarTests-Array";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
+			};
+			name = Debug;
+		};
+		A228459721DCA04B007FC7AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "ADSB RadarTests Array/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.inteliment.ADSB-RadarTests-Array";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
+			};
+			name = Release;
+		};
 		A2703CC91F0B6A4E00A2C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1297,12 +1427,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -1315,12 +1447,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSB/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.siphty.adsb.radar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.2;
@@ -1408,6 +1542,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A228459521DCA04B007FC7AC /* Build configuration list for PBXNativeTarget "ADSB RadarTests Array" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A228459621DCA04B007FC7AC /* Debug */,
+				A228459721DCA04B007FC7AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A2703C9B1F0B6A4E00A2C280 /* Build configuration list for PBXProject "ADSB Radar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
