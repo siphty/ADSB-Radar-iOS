@@ -11,6 +11,7 @@ import Foundation
 enum BundleFile: String {
     case googleMapStyle1 = "GoogleMapStyle1"
     case googleMapStyle2 = "GoogleMapStyle2"
+    case test = "GoogleMapStyleTest"
 }
 
 

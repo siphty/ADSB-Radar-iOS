@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="is2-qm-zg4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,25 +23,26 @@
                         <viewControllerLayoutGuide type="bottom" id="9yt-tC-Uoy"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="COT-41-4XG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ghr-sK-5WW" customClass="ADSBMapView" customModule="ADSB_Radar" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUr-BA-fK9">
-                                <rect key="frame" x="540" y="76" width="44" height="44"/>
+                                <rect key="frame" x="315" y="76" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="InN-sM-Du7"/>
                                     <constraint firstAttribute="width" constant="44" id="Xqb-82-uTw"/>
                                 </constraints>
+                                <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="map-marker-with-a-person-shape"/>
                                 <connections>
                                     <action selector="remoteButtonTouchUpInside:" destination="is2-qm-zg4" eventType="touchUpInside" id="85G-vB-hgm"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="30" minValue="10" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="cnQ-1J-0bJ">
-                                <rect key="frame" x="32" y="28" width="536" height="31"/>
+                                <rect key="frame" x="32" y="28" width="311" height="31"/>
                                 <connections>
                                     <action selector="radarRangeSliderTouchDown:" destination="is2-qm-zg4" eventType="touchDown" id="cw9-j1-DUT"/>
                                     <action selector="radarRangeSliderTouchUp:" destination="is2-qm-zg4" eventType="touchUpOutside" id="RUE-gv-hmb"/>
@@ -46,13 +51,13 @@
                                 </connections>
                             </slider>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Cx-Ur-GXh">
-                                <rect key="frame" x="535" y="561" width="51" height="31"/>
+                                <rect key="frame" x="310" y="628" width="51" height="31"/>
                                 <connections>
                                     <action selector="displayOnGroundSwitchValueChanged:" destination="is2-qm-zg4" eventType="valueChanged" id="t1Q-Ob-zqb"/>
                                 </connections>
                             </switch>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-- KM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTI-wg-iSX">
-                                <rect key="frame" x="8" y="66" width="534" height="95"/>
+                                <rect key="frame" x="8" y="66" width="309" height="95"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="95" id="uTd-at-8G4"/>
                                 </constraints>
@@ -61,7 +66,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hidden aircrafts on the ground" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSg-KJ-Qlg">
-                                <rect key="frame" x="20" y="562.5" width="507" height="28"/>
+                                <rect key="frame" x="20" y="629.5" width="282" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="vgG-tK-Fwj"/>
                                 </constraints>
@@ -70,7 +75,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6p-nx-Ghi">
-                                <rect key="frame" x="540" y="142" width="44" height="44"/>
+                                <rect key="frame" x="315" y="142" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="aix-sc-BEd"/>
                                     <constraint firstAttribute="width" constant="44" id="syb-XO-tbX"/>
@@ -82,7 +87,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HOY-Ho-n6c">
-                                <rect key="frame" x="537.5" y="501" width="44" height="44"/>
+                                <rect key="frame" x="312.5" y="568" width="44" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="cDn-pM-66c"/>
                                     <constraint firstAttribute="width" constant="44" id="yhP-xG-IF0"/>
@@ -143,7 +148,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Bcq-w7-XQW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="RQd-du-QbE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -154,8 +159,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="looking" width="105.59999847412109" height="105.59999847412109"/>
-        <image name="map-marker-with-a-person-shape" width="100" height="100"/>
+        <image name="looking" width="70.400001525878906" height="70.400001525878906"/>
+        <image name="map-marker-with-a-person-shape" width="66.694740295410156" height="66.694740295410156"/>
         <image name="no-fly zone_disable" width="1428" height="1290"/>
         <image name="no-fly-zone_active" width="342.72000122070312" height="309.60000610351562"/>
     </resources>

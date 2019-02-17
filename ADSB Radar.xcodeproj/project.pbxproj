@@ -121,6 +121,8 @@
 		A2C82A0A22182B580020DAE5 /* BundleFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0922182B580020DAE5 /* BundleFileLoader.swift */; };
 		A2C82A0D221901970020DAE5 /* MKMapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0C221901970020DAE5 /* MKMapView+Extension.swift */; };
 		A2C82A0F22190FC90020DAE5 /* GoogleMapStyle2.json in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */; };
+		A2C82A10221968550020DAE5 /* GoogleMapStyle2.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */; };
+		A2C82A1222196BFD0020DAE5 /* GoogleMapStyleTest.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C82A1122196BFD0020DAE5 /* GoogleMapStyleTest.json */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -256,6 +258,7 @@
 		A2C82A0922182B580020DAE5 /* BundleFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleFileLoader.swift; sourceTree = "<group>"; };
 		A2C82A0C221901970020DAE5 /* MKMapView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extension.swift"; sourceTree = "<group>"; };
 		A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapStyle2.json; sourceTree = "<group>"; };
+		A2C82A1122196BFD0020DAE5 /* GoogleMapStyleTest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapStyleTest.json; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -379,8 +382,6 @@
 			children = (
 				A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */,
 				A2703CAD1F0B6A4E00A2C280 /* Assets.xcassets */,
-				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
-				A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
 				A2AB505C202F2DEE007E07AB /* New Architecture */,
 				A26C90A71F13242600FF9514 /* AR View */,
@@ -627,6 +628,7 @@
 		A2C82A032218263D0020DAE5 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A26C90C21F1325CC00FF9514 /* ARViewAssets.xcassets */,
 				A2703D201F0BB7F700A2C280 /* MapViewAssets.xcassets */,
 				A2C82A04221826750020DAE5 /* PreloadData */,
@@ -648,6 +650,7 @@
 			children = (
 				A2C82A06221826BD0020DAE5 /* GoogleMapStyle1.json */,
 				A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */,
+				A2C82A1122196BFD0020DAE5 /* GoogleMapStyleTest.json */,
 			);
 			path = GoogleMapStyles;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 		A2C82A08221827430020DAE5 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -944,6 +948,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2C82A10221968550020DAE5 /* GoogleMapStyle2.json in Resources */,
 				A296DF4D1F3B390F003F060C /* airport.sqlite in Resources */,
 				A2703CB11F0B6A4E00A2C280 /* LaunchScreen.storyboard in Resources */,
 				A27E88F42039A36D000DB52D /* AEResponse.json in Resources */,
@@ -960,6 +965,7 @@
 				A2703D231F0BB7F700A2C280 /* ADS-B.storyboard in Resources */,
 				A2703D311F0BB7F700A2C280 /* MapViewAssets.xcassets in Resources */,
 				A2D9EF831F24D43C00872689 /* airports.csv in Resources */,
+				A2C82A1222196BFD0020DAE5 /* GoogleMapStyleTest.json in Resources */,
 				A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

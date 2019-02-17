@@ -146,7 +146,7 @@ class RadarMapViewController: UIViewController {
         mapView.delegate = self
         mapView.bounds = view.bounds
         mapView.scanRadius = regionRadius
-        mapView.configureTileOverlay(withJson: BundleFile.googleMapStyle2.rawValue)
+        mapView.configureTileOverlay(withJson: BundleFile.test.rawValue)
         mapView.isUserInteractionEnabled = true
     }
     
