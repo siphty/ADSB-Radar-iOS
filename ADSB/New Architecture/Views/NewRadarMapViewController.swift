@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RadarMapViewController: UIViewController {
+class NewRadarMapViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,61 +7,61 @@
 
 import Foundation
 
-struct Aircraft : Codable {
+struct Aircraft: Codable {
     
-    let presAltitude  : Int?
-    let altitudeType : Int?
-    let isNotIcao : Bool?
-    let messagesCount : Int?
-    let aircraftSN : String?
-    let callsign : String?
-    let isCallsignUnsure : Bool?
-    let registerCountry : String?
-    let engineMount : Int?
-    let engType : Int?
-    let engineCount : String?
-    let fSeen : String?
-    let flightsCount : Int?
-    let from : String?
-    let groundAltitude : Int?
-    let isOnGround : Bool?
-    let hasPicture : Bool?
-    let hasSignalLevel : Bool?
-    let help : Bool?
-    let icaoId : String?
-    let aircraftId : Int?
-    let presInHg : Float?
-    let interested : Bool?
-    let latitude : Float?
-    let longitude : Float?
-    let manufacture : String?
-    let aircraftModel : String?
-    let isMilitary : Bool?
-    let isFoundByMLAT : Bool?
-    let aircraftOperator : String?
-    let acOperatorICAO : String?
-    let lastPosTime : Int?
-    let receiverId : Int?
-    let registration : String?
-    let sat : Bool?
-    let groundSpeed : Float?
-    let speedType : Int?
-    let species : Int?
-    let squawkId : String?
-    let routeStops : [String]?
-    let targetAltitude : Int?
-    let trackedSec : Int?
-    let targetTrack : Float?
-    let isTISBSource : Bool?
-    let to : String?
-    let trackHeading : Float?
-    let trackIsHeading : Bool?
-    let transponderType : Int?
-    let aircraftICAOType : String?
-    let vertiSpeed : Int?
-    let vertiSpeedType : Int?
-    let wTC : Int?
-    let yearOfManuf : String?
+    let presAltitude : Int?
+    let altitudeType: Int?
+    let isNotIcao: Bool?
+    let messagesCount: Int?
+    let aircraftSN: String?
+    let callsign: String?
+    let isCallsignUnsure: Bool?
+    let registerCountry: String?
+    let engineMount: Int?
+    let engType: Int?
+    let engineCount: String?
+    let fSeen: String?
+    let flightsCount: Int?
+    let from: String?
+    let groundAltitude: Int?
+    let isOnGround: Bool?
+    let hasPicture: Bool?
+    let hasSignalLevel: Bool?
+    let help: Bool?
+    let icaoId: String?
+    let aircraftId: Int?
+    let presInHg: Float?
+    let interested: Bool?
+    let latitude: Float?
+    let longitude: Float?
+    let manufacture: String?
+    let aircraftModel: String?
+    let isMilitary: Bool?
+    let isFoundByMLAT: Bool?
+    let aircraftOperator: String?
+    let acOperatorICAO: String?
+    let lastPosTime: Int?
+    let receiverId: Int?
+    let registration: String?
+    let sat: Bool?
+    let groundSpeed: Float?
+    let speedType: Int?
+    let species: Int?
+    let squawkId: String?
+    let routeStops: [String]?
+    let targetAltitude: Int?
+    let trackedSec: Int?
+    let targetTrack: Float?
+    let isTISBSource: Bool?
+    let to: String?
+    let trackHeading: Float?
+    let trackIsHeading: Bool?
+    let transponderType: Int?
+    let aircraftICAOType: String?
+    let vertiSpeed: Int?
+    let vertiSpeedType: Int?
+    let wTC: Int?
+    let yearOfManuf: String?
     
     enum CodingKeys: String, CodingKey {
         case presAltitude  = "Alt"

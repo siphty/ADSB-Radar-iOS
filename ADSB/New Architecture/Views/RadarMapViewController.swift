@@ -1,5 +1,5 @@
 //
-//  ADSBAeroChartViewController.swift
+//  RadarMapViewController.swift
 //  HMD
 //
 //  Created by Yi JIANG on 8/6/17.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ADSBAeroChartViewController: UIViewController {
+class RadarMapViewController: UIViewController {
     
     var arViewController: ARViewController!
     let locationManager = CLLocationManager()
@@ -119,12 +119,8 @@ class ADSBAeroChartViewController: UIViewController {
             locationManager.startUpdatingLocation()
             mapView.showsUserLocation = true
         }
-        mapView.listener = self
-        mapView.delegate = self
-        mapView.bounds = view.bounds
-        mapView.scanRadius = regionRadius
         hideOnGroundACSwitch.setOn(ADSBConfig.isGroundAircraftFilterOn, animated: false)
-
+        prepareMapView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -142,6 +138,16 @@ class ADSBAeroChartViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         ADSBAPIClient.sharedInstance.stopUpdateAircrafts()
         notificationCenter.removeObserver(self, name: ADSBNotification.NewAircraftListKey, object: nil)
+    }
+    
+    
+    private func prepareMapView(){
+        mapView.listener = self
+        mapView.delegate = self
+        mapView.bounds = view.bounds
+        mapView.scanRadius = regionRadius
+        mapView.configureTileOverlay(withJson: BundleFile.googleMapStyle2.rawValue)
+        mapView.isUserInteractionEnabled = true
     }
     
     
@@ -191,7 +197,8 @@ class ADSBAeroChartViewController: UIViewController {
 }
 
 //MARK: MKMapViewDelegate
-extension ADSBAeroChartViewController: MKMapViewDelegate {
+extension RadarMapViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer
     {
         if overlay is MKCircle
@@ -220,7 +227,9 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
                 airportCircleRenderer.lineWidth = 1
                 return airportCircleRenderer
             }
-        }
+        } else if let tileOverlay = overlay as? MKTileOverlay {
+            return MKTileOverlayRenderer(tileOverlay: tileOverlay)
+        } 
         return MKOverlayRenderer(overlay: overlay)
     }
     
@@ -314,7 +323,7 @@ extension ADSBAeroChartViewController: MKMapViewDelegate {
 }
 
 //MARK: ADSBMapViewListener
-extension ADSBAeroChartViewController: ADSBMapViewListener {
+extension RadarMapViewController: ADSBMapViewListener {
     func mapView(_ mapView: ADSBMapView, rotationDidChange rotation: Double) {
         if isRotatingAnnotations {
             return
@@ -336,7 +345,7 @@ extension ADSBAeroChartViewController: ADSBMapViewListener {
 }
 
 //MARK: CLLocationManagerDelegate
-extension ADSBAeroChartViewController: CLLocationManagerDelegate {
+extension RadarMapViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         var isLocationAutorized = false
@@ -365,7 +374,7 @@ extension ADSBAeroChartViewController: CLLocationManagerDelegate {
 }
 
 //MARK: Miscellaneous
-extension ADSBAeroChartViewController{
+extension RadarMapViewController{
     func centerMapOnLocation(_ location: CLLocation) {
         if mapChangedFromUserInteraction {
             return
@@ -533,7 +542,7 @@ extension ADSBAeroChartViewController{
 
 
 //AR View related func
-extension ADSBAeroChartViewController {
+extension RadarMapViewController {
     
     @IBAction func arViewButtonTouchUpInside(_ sender: Any) {
         guard mapView.annotations.count != 0 else { return }
@@ -584,7 +593,7 @@ extension ADSBAeroChartViewController {
 }
 
 
-extension ADSBAeroChartViewController: ARDataSource {
+extension RadarMapViewController: ARDataSource {
     func ar(_ arViewController: ARViewController, viewForAnnotation: ADSBAnnotation) -> ARAnnotationView {
         let annotationView = AnnotationView()
         annotationView.annotation = viewForAnnotation
@@ -594,7 +603,7 @@ extension ADSBAeroChartViewController: ARDataSource {
     }
 }
 
-extension ADSBAeroChartViewController: AnnotationViewDelegate {
+extension RadarMapViewController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
         if let annotation = annotationView.annotation {
             print("Annotation is beed touched: \(String(describing: annotation.aircraft?.icaoId))")

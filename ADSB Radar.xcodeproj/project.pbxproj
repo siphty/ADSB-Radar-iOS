@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
-		A228459121DCA04B007FC7AC /* ADSB_RadarTests_Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */; };
 		A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -43,7 +42,7 @@
 		A2436E2F204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
 		A2436E30204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
 		A2436E31204424E9009B5F03 /* Geotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2436E2E204424E9009B5F03 /* Geotification.swift */; };
-		A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */; };
+		A26C90C31F1325CC00FF9514 /* ARViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A26C90C21F1325CC00FF9514 /* ARViewAssets.xcassets */; };
 		A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */; };
 		A2703CA61F0B6A4E00A2C280 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703CA51F0B6A4E00A2C280 /* ViewController.swift */; };
 		A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2703CA71F0B6A4E00A2C280 /* Main.storyboard */; };
@@ -61,7 +60,7 @@
 		A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D1D1F0BB7F700A2C280 /* ADSBAnnotation.swift */; };
 		A2703D2F1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D1E1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift */; };
 		A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D1F1F0BB7F700A2C280 /* ADSBAnnotationView.swift */; };
-		A2703D311F0BB7F700A2C280 /* ADSBAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2703D201F0BB7F700A2C280 /* ADSBAssets.xcassets */; };
+		A2703D311F0BB7F700A2C280 /* MapViewAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2703D201F0BB7F700A2C280 /* MapViewAssets.xcassets */; };
 		A2703D321F0BB7F700A2C280 /* ADSBCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D211F0BB7F700A2C280 /* ADSBCalloutView.swift */; };
 		A2703D331F0BB7F700A2C280 /* ADSBMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D221F0BB7F700A2C280 /* ADSBMapView.swift */; };
 		A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D361F0BBA1600A2C280 /* CALayer+Extensions.swift */; };
@@ -82,7 +81,7 @@
 		A2703D5E1F0BBB5100A2C280 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D5D1F0BBB5100A2C280 /* CoreLocation.framework */; };
 		A2703D601F0BBB5B00A2C280 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */; };
 		A2703D621F0BBB6400A2C280 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2703D611F0BBB6400A2C280 /* CoreMotion.framework */; };
-		A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */; };
+		A2703D641F0BCFEC00A2C280 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2703D631F0BCFEC00A2C280 /* RadarMapViewController.swift */; };
 		A27E88F42039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
 		A27E88F52039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
 		A27E88F62039A36D000DB52D /* AEResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A27E88F32039A36D000DB52D /* AEResponse.json */; };
@@ -118,6 +117,10 @@
 		A2AB5067202F357C007E07AB /* Feeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5064202F357B007E07AB /* Feeds.swift */; };
 		A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB5065202F357C007E07AB /* AEResponse.swift */; };
 		A2AB506A20306D7C007E07AB /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2AB506920306D7C007E07AB /* ApiClient.swift */; };
+		A2C82A07221826BD0020DAE5 /* GoogleMapStyle1.json in Resources */ = {isa = PBXBuildFile; fileRef = A2C82A06221826BD0020DAE5 /* GoogleMapStyle1.json */; };
+		A2C82A0A22182B580020DAE5 /* BundleFileLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0922182B580020DAE5 /* BundleFileLoader.swift */; };
+		A2C82A0D221901970020DAE5 /* MKMapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0C221901970020DAE5 /* MKMapView+Extension.swift */; };
+		A2C82A0F22190FC90020DAE5 /* GoogleMapStyle2.json in Sources */ = {isa = PBXBuildFile; fileRef = A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */; };
 		A2D9EF3A1F24A6E000872689 /* airport.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF381F24A6E000872689 /* airport.xcdatamodeld */; };
 		A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A2D9EF831F24D43C00872689 /* airports.csv in Resources */ = {isa = PBXBuildFile; fileRef = A2D9EF811F24D43C00872689 /* airports.csv */; };
@@ -143,7 +146,7 @@
 		A2F027991F2846BE0058E3A5 /* airportAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */; };
 		A2F17BB11F258088008861C4 /* Scanner+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F17BB01F258088008861C4 /* Scanner+.swift */; };
 		A2FBFF65218C5253007A61D6 /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF64218C5253007A61D6 /* MockApiClient.swift */; };
-		A2FBFF68218F211F007A61D6 /* RadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */; };
+		A2FBFF68218F211F007A61D6 /* NewRadarMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF67218F211F007A61D6 /* NewRadarMapViewController.swift */; };
 		A2FBFF6A218F21B5007A61D6 /* AdsbARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */; };
 		A2FBFF6C218F21D5007A61D6 /* RadarMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF6B218F21D5007A61D6 /* RadarMapViewModel.swift */; };
 		A2FBFF6E218F21FF007A61D6 /* ARViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */; };
@@ -185,14 +188,12 @@
 		845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ADSB RadarTests Array.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSB_RadarTests_Array.swift; sourceTree = "<group>"; };
-		A228459221DCA04B007FC7AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAircraftsViewModel.swift; sourceTree = "<group>"; };
 		A2436E2620441971009B5F03 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		A2436E2A20441F50009B5F03 /* GeofenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeofenceManager.swift; sourceTree = "<group>"; };
 		A2436E2E204424E9009B5F03 /* Geotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geotification.swift; sourceTree = "<group>"; };
-		A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ARAssets.xcassets; sourceTree = "<group>"; };
+		A26C90C21F1325CC00FF9514 /* ARViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ARViewAssets.xcassets; sourceTree = "<group>"; };
 		A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ADSB Radar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2703CA31F0B6A4E00A2C280 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2703CA51F0B6A4E00A2C280 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,7 +217,7 @@
 		A2703D1D1F0BB7F700A2C280 /* ADSBAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAnnotation.swift; sourceTree = "<group>"; };
 		A2703D1E1F0BB7F700A2C280 /* ADSBAnnotationCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAnnotationCalloutView.swift; sourceTree = "<group>"; };
 		A2703D1F1F0BB7F700A2C280 /* ADSBAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBAnnotationView.swift; sourceTree = "<group>"; };
-		A2703D201F0BB7F700A2C280 /* ADSBAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = ADSBAssets.xcassets; path = ADSB/ADSBModule/ADSBAssets.xcassets; sourceTree = SOURCE_ROOT; };
+		A2703D201F0BB7F700A2C280 /* MapViewAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MapViewAssets.xcassets; path = "ADSB/New Architecture/Miscellaneous/MapViewAssets.xcassets"; sourceTree = SOURCE_ROOT; };
 		A2703D211F0BB7F700A2C280 /* ADSBCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBCalloutView.swift; sourceTree = "<group>"; };
 		A2703D221F0BB7F700A2C280 /* ADSBMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSBMapView.swift; sourceTree = "<group>"; };
 		A2703D361F0BBA1600A2C280 /* CALayer+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Extensions.swift"; sourceTree = "<group>"; };
@@ -237,7 +238,7 @@
 		A2703D5D1F0BBB5100A2C280 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A2703D5F1F0BBB5B00A2C280 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A2703D611F0BBB6400A2C280 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ADSBAeroChartViewController.swift; path = ADSBModule/ADSBAeroChartViewController.swift; sourceTree = "<group>"; };
+		A2703D631F0BCFEC00A2C280 /* RadarMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
 		A27E88F32039A36D000DB52D /* AEResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AEResponse.json; sourceTree = "<group>"; };
 		A27E88F72039A387000DB52D /* AEResponseFail.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AEResponseFail.json; sourceTree = "<group>"; };
 		A296DF4C1F3B366B003F060C /* airport.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = airport.sqlite; sourceTree = "<group>"; };
@@ -251,6 +252,10 @@
 		A2AB5064202F357B007E07AB /* Feeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feeds.swift; sourceTree = "<group>"; };
 		A2AB5065202F357C007E07AB /* AEResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AEResponse.swift; sourceTree = "<group>"; };
 		A2AB506920306D7C007E07AB /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		A2C82A06221826BD0020DAE5 /* GoogleMapStyle1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GoogleMapStyle1.json; sourceTree = "<group>"; };
+		A2C82A0922182B580020DAE5 /* BundleFileLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BundleFileLoader.swift; sourceTree = "<group>"; };
+		A2C82A0C221901970020DAE5 /* MKMapView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extension.swift"; sourceTree = "<group>"; };
+		A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = GoogleMapStyle2.json; sourceTree = "<group>"; };
 		A2D9EF391F24A6E000872689 /* airport.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = airport.xcdatamodel; sourceTree = "<group>"; };
 		A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AirdromeCommon.swift; path = ADSB/AirportModule/AirdromeCommon.swift; sourceTree = SOURCE_ROOT; };
 		A2D9EF811F24D43C00872689 /* airports.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = airports.csv; sourceTree = "<group>"; };
@@ -274,7 +279,7 @@
 		A2F027981F2846BE0058E3A5 /* airportAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = airportAnnotation.swift; path = ADSB/AirportModule/Views/airportAnnotation.swift; sourceTree = SOURCE_ROOT; };
 		A2F17BB01F258088008861C4 /* Scanner+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scanner+.swift"; sourceTree = "<group>"; };
 		A2FBFF64218C5253007A61D6 /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
-		A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarMapViewController.swift; sourceTree = "<group>"; };
+		A2FBFF67218F211F007A61D6 /* NewRadarMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRadarMapViewController.swift; sourceTree = "<group>"; };
 		A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsbARViewController.swift; sourceTree = "<group>"; };
 		A2FBFF6B218F21D5007A61D6 /* RadarMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarMapViewModel.swift; sourceTree = "<group>"; };
 		A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewModel.swift; sourceTree = "<group>"; };
@@ -321,15 +326,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A228458F21DCA04B007FC7AC /* ADSB RadarTests Array */ = {
-			isa = PBXGroup;
-			children = (
-				A228459021DCA04B007FC7AC /* ADSB_RadarTests_Array.swift */,
-				A228459221DCA04B007FC7AC /* Info.plist */,
-			);
-			path = "ADSB RadarTests Array";
-			sourceTree = "<group>";
-		};
 		A2436E2520441951009B5F03 /* Utilis */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,10 +336,9 @@
 			path = Utilis;
 			sourceTree = "<group>";
 		};
-		A26C90A71F13242600FF9514 /* AR Module */ = {
+		A26C90A71F13242600FF9514 /* AR View */ = {
 			isa = PBXGroup;
 			children = (
-				A26C90C21F1325CC00FF9514 /* ARAssets.xcassets */,
 				A2E2178F1F13947200E96747 /* ARViewController.swift */,
 				A2E2177E1F13929900E96747 /* AnnotationView.swift */,
 				A2E2177F1F13929900E96747 /* ARGeoCoordinate.swift */,
@@ -352,7 +347,7 @@
 				A2E2178E1F13947200E96747 /* ARTrackingManager.swift */,
 				A2E2178A1F1393EE00E96747 /* Model */,
 			);
-			name = "AR Module";
+			name = "AR View";
 			sourceTree = "<group>";
 		};
 		A2703C971F0B6A4E00A2C280 = {
@@ -362,7 +357,6 @@
 				A2703D341F0BBA1600A2C280 /* Siphty Extensions */,
 				A2703CBA1F0B6A4E00A2C280 /* ADSBTests */,
 				A2703CC51F0B6A4E00A2C280 /* ADSBUITests */,
-				A228458F21DCA04B007FC7AC /* ADSB RadarTests Array */,
 				A2703CA11F0B6A4E00A2C280 /* Products */,
 				FD3AE9EDEF5FA9A5ACD29195 /* Pods */,
 				FD83CB73777CEDCD16B51A92 /* Frameworks */,
@@ -388,10 +382,9 @@
 				A2703CAF1F0B6A4E00A2C280 /* LaunchScreen.storyboard */,
 				A2703D101F0BB7F700A2C280 /* ADS-B.storyboard */,
 				A2703CB21F0B6A4E00A2C280 /* Info.plist */,
-				A2AB505C202F2DEE007E07AB /* MVVM */,
-				A2703D631F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift */,
-				A26C90A71F13242600FF9514 /* AR Module */,
-				A2703D0F1F0BB7F700A2C280 /* ADSB Map */,
+				A2AB505C202F2DEE007E07AB /* New Architecture */,
+				A26C90A71F13242600FF9514 /* AR View */,
+				A2703D0F1F0BB7F700A2C280 /* Radar */,
 				A2D9EF7E1F24C8CC00872689 /* Airport Sub-Module */,
 				A2AB505B202F2DB1007E07AB /* Trash */,
 			);
@@ -419,18 +412,17 @@
 			path = ADSBUITests;
 			sourceTree = "<group>";
 		};
-		A2703D0F1F0BB7F700A2C280 /* ADSB Map */ = {
+		A2703D0F1F0BB7F700A2C280 /* Radar */ = {
 			isa = PBXGroup;
 			children = (
-				A2703D201F0BB7F700A2C280 /* ADSBAssets.xcassets */,
-				A2703D111F0BB7F700A2C280 /* ADS-B Model */,
+				A2703D111F0BB7F700A2C280 /* ADS-B */,
 				A2703D651F0BD27000A2C280 /* Views */,
 			);
-			name = "ADSB Map";
+			name = Radar;
 			path = ADSBModule;
 			sourceTree = "<group>";
 		};
-		A2703D111F0BB7F700A2C280 /* ADS-B Model */ = {
+		A2703D111F0BB7F700A2C280 /* ADS-B */ = {
 			isa = PBXGroup;
 			children = (
 				A2703D161F0BB7F700A2C280 /* ADSBCommon.swift */,
@@ -440,13 +432,14 @@
 				A2703D171F0BB7F700A2C280 /* ADSBDictKeys.swift */,
 				A2703D1A1F0BB7F700A2C280 /* ADSBXResponse.swift */,
 			);
-			name = "ADS-B Model";
+			name = "ADS-B";
 			path = ADSB;
 			sourceTree = "<group>";
 		};
 		A2703D341F0BBA1600A2C280 /* Siphty Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A2C82A0B2219018C0020DAE5 /* MapKit */,
 				A2703D351F0BBA1600A2C280 /* CoreAnimation */,
 				A2703D381F0BBA1600A2C280 /* CoreGraphic */,
 				A2703D3B1F0BBA1600A2C280 /* CoreLocation */,
@@ -569,16 +562,18 @@
 			path = Trash;
 			sourceTree = "<group>";
 		};
-		A2AB505C202F2DEE007E07AB /* MVVM */ = {
+		A2AB505C202F2DEE007E07AB /* New Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				A2C82A08221827430020DAE5 /* Storyboards */,
+				A2C82A032218263D0020DAE5 /* Miscellaneous */,
 				A2FBFF66218EE723007A61D6 /* Views */,
 				A2AB507B2031C167007E07AB /* ViewModels */,
 				A2AB5062202F33A0007E07AB /* Models */,
 				A2AB505D202F2EAA007E07AB /* ServerManager */,
 				A2436E2520441951009B5F03 /* Utilis */,
 			);
-			path = MVVM;
+			path = "New Architecture";
 			sourceTree = "<group>";
 		};
 		A2AB505D202F2EAA007E07AB /* ServerManager */ = {
@@ -627,6 +622,49 @@
 				A2FBFF6D218F21FF007A61D6 /* ARViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A2C82A032218263D0020DAE5 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				A26C90C21F1325CC00FF9514 /* ARViewAssets.xcassets */,
+				A2703D201F0BB7F700A2C280 /* MapViewAssets.xcassets */,
+				A2C82A04221826750020DAE5 /* PreloadData */,
+				A2C82A0922182B580020DAE5 /* BundleFileLoader.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		A2C82A04221826750020DAE5 /* PreloadData */ = {
+			isa = PBXGroup;
+			children = (
+				A2C82A052218269E0020DAE5 /* GoogleMapStyles */,
+			);
+			path = PreloadData;
+			sourceTree = "<group>";
+		};
+		A2C82A052218269E0020DAE5 /* GoogleMapStyles */ = {
+			isa = PBXGroup;
+			children = (
+				A2C82A06221826BD0020DAE5 /* GoogleMapStyle1.json */,
+				A2C82A0E22190FC90020DAE5 /* GoogleMapStyle2.json */,
+			);
+			path = GoogleMapStyles;
+			sourceTree = "<group>";
+		};
+		A2C82A08221827430020DAE5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		A2C82A0B2219018C0020DAE5 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				A2C82A0C221901970020DAE5 /* MKMapView+Extension.swift */,
+			);
+			path = MapKit;
 			sourceTree = "<group>";
 		};
 		A2D9EF651F24C3A200872689 /* Model */ = {
@@ -723,7 +761,8 @@
 		A2FBFF66218EE723007A61D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2FBFF67218F211F007A61D6 /* RadarMapViewController.swift */,
+				A2FBFF67218F211F007A61D6 /* NewRadarMapViewController.swift */,
+				A2703D631F0BCFEC00A2C280 /* RadarMapViewController.swift */,
 				A2FBFF69218F21B5007A61D6 /* AdsbARViewController.swift */,
 			);
 			path = Views;
@@ -913,12 +952,13 @@
 				A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */,
 				A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */,
 				A27E88F82039A387000DB52D /* AEResponseFail.json in Resources */,
-				A26C90C31F1325CC00FF9514 /* ARAssets.xcassets in Resources */,
+				A26C90C31F1325CC00FF9514 /* ARViewAssets.xcassets in Resources */,
+				A2C82A07221826BD0020DAE5 /* GoogleMapStyle1.json in Resources */,
 				A2A8A2CB20482EA500B462F0 /* DSResponse.json in Resources */,
 				A2A8A2C820482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2E217891F13929900E96747 /* FlightCalloutView.xib in Resources */,
 				A2703D231F0BB7F700A2C280 /* ADS-B.storyboard in Resources */,
-				A2703D311F0BB7F700A2C280 /* ADSBAssets.xcassets in Resources */,
+				A2703D311F0BB7F700A2C280 /* MapViewAssets.xcassets in Resources */,
 				A2D9EF831F24D43C00872689 /* airports.csv in Resources */,
 				A2703CA91F0B6A4E00A2C280 /* Main.storyboard in Resources */,
 			);
@@ -963,11 +1003,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MapKitGoogleStyler/MapKitGoogleStyler.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapKitGoogleStyler.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1037,10 +1079,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MapKitGoogleStyler/MapKitGoogleStyler.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapKitGoogleStyler.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1073,10 +1117,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ADSB RadarTests/Pods-ADSB RadarTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MapKitGoogleStyler/MapKitGoogleStyler.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapKitGoogleStyler.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1090,7 +1136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A228459121DCA04B007FC7AC /* ADSB_RadarTests_Array.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1103,10 +1148,11 @@
 				A2E217841F13929900E96747 /* AnnotationView.swift in Sources */,
 				A2703D291F0BB7F700A2C280 /* ADSBDictKeys.swift in Sources */,
 				A2436E2B20441F50009B5F03 /* GeofenceManager.swift in Sources */,
-				A2703D641F0BCFEC00A2C280 /* ADSBAeroChartViewController.swift in Sources */,
+				A2703D641F0BCFEC00A2C280 /* RadarMapViewController.swift in Sources */,
 				A2703D301F0BB7F700A2C280 /* ADSBAnnotationView.swift in Sources */,
 				A2703D2E1F0BB7F700A2C280 /* ADSBAnnotation.swift in Sources */,
 				A2D9EF801F24C92C00872689 /* AirdromeCommon.swift in Sources */,
+				A2C82A0D221901970020DAE5 /* MKMapView+Extension.swift in Sources */,
 				A2703D5C1F0BBA1600A2C280 /* UIViewController+Child.swift in Sources */,
 				A2703D5B1F0BBA1600A2C280 /* UIImage+Movement.swift in Sources */,
 				A2703D2B1F0BB7F700A2C280 /* ADSBXResponse.swift in Sources */,
@@ -1119,6 +1165,7 @@
 				A2F027921F276BA50058E3A5 /* Airport+CoreDataProperties.swift in Sources */,
 				A2703D4F1F0BBA1600A2C280 /* CATextLayer+Frame.swift in Sources */,
 				A2703D331F0BB7F700A2C280 /* ADSBMapView.swift in Sources */,
+				A2C82A0F22190FC90020DAE5 /* GoogleMapStyle2.json in Sources */,
 				A2703D501F0BBA1600A2C280 /* CGFloat+Extensions.swift in Sources */,
 				A2703D561F0BBA1600A2C280 /* String+UserLogin.swift in Sources */,
 				A2F027991F2846BE0058E3A5 /* airportAnnotation.swift in Sources */,
@@ -1139,7 +1186,7 @@
 				A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */,
 				A2FBFF65218C5253007A61D6 /* MockApiClient.swift in Sources */,
 				A2AB505F202F31E1007E07AB /* ApiService.swift in Sources */,
-				A2FBFF68218F211F007A61D6 /* RadarMapViewController.swift in Sources */,
+				A2FBFF68218F211F007A61D6 /* NewRadarMapViewController.swift in Sources */,
 				A2703D271F0BB7F700A2C280 /* ADSBCacheManager.swift in Sources */,
 				A2703D281F0BB7F700A2C280 /* ADSBCommon.swift in Sources */,
 				A2E217911F13947200E96747 /* ARAnnotationView.swift in Sources */,
@@ -1154,6 +1201,7 @@
 				A2FBFF6A218F21B5007A61D6 /* AdsbARViewController.swift in Sources */,
 				A2703CA41F0B6A4E00A2C280 /* AppDelegate.swift in Sources */,
 				A2436E2320440CE7009B5F03 /* AEAircraftsViewModel.swift in Sources */,
+				A2C82A0A22182B580020DAE5 /* BundleFileLoader.swift in Sources */,
 				A2436E2720441971009B5F03 /* Notifications.swift in Sources */,
 				A2703D551F0BBA1600A2C280 /* String+Extensions.swift in Sources */,
 				A2703D4E1F0BBA1600A2C280 /* CALayer+Extensions.swift in Sources */,
@@ -1476,7 +1524,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
 			};
 			name = Debug;
@@ -1496,7 +1544,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
 			};
 			name = Release;
@@ -1515,7 +1563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ADSB;
 			};
 			name = Debug;
@@ -1534,7 +1582,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_TARGET_NAME = ADSB;
 			};
 			name = Release;

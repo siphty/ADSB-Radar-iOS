@@ -6,6 +6,7 @@ def shared_pods_for_target
     pod 'Kingfisher'
     pod 'Fabric'
     pod 'Crashlytics', '~>  3.12'
+    pod 'MapKitGoogleStyler'
 end
 
 target 'ADSB Radar' do
