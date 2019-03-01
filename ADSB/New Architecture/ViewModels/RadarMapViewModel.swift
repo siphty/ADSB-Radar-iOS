@@ -9,8 +9,5 @@
 import Foundation
 
 class RadarMapViewModel: AdsbExchangeViewModeling {
-    
-    func tryTheTestFun() {
-        testAbc()
-    }
+
 }

@@ -167,12 +167,10 @@ class RadarMapViewController: UIViewController {
     }
     
     @IBAction func radarRangeSliderTouchDown(_ sender: Any) {
-        print("radarRangeSliderTouchDown")
         rangeRadiusLabel.isHidden = false
     }
     
     @IBAction func radarRangeSliderTouchUp(_ sender: Any) {
-        print("radarRangeSliderTouchUp")
         rangeRadiusLabel.isHidden = true
     }
     

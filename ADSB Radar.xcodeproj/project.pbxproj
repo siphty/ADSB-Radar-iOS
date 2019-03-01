@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		388161D3EF6564CCD85BAAD8 /* Pods_ADSB_RadarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */; };
+		A227941D222940B200860DAD /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A227941C222940B100860DAD /* UIImage+Extensions.swift */; };
 		A22AA99921D6ED68002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99A21D6ED69002EFDAE /* AirdromeCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D9EF7F1F24C92C00872689 /* AirdromeCommon.swift */; };
 		A22AA99B21D6EF29002EFDAE /* Airport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F0278D1F276BA50058E3A5 /* Airport+CoreDataClass.swift */; };
@@ -158,13 +159,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A228459321DCA04B007FC7AC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A2703C981F0B6A4E00A2C280 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A2703C9F1F0B6A4E00A2C280;
-			remoteInfo = "ADSB Radar";
-		};
 		A2703CB81F0B6A4E00A2C280 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A2703C981F0B6A4E00A2C280 /* Project object */;
@@ -189,7 +183,7 @@
 		7EB3C82610B56653FD17FD59 /* Pods-ADSB Radar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB Radar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB Radar/Pods-ADSB Radar.debug.xcconfig"; sourceTree = "<group>"; };
 		845EC6DF40E87B71D9A9AD4A /* Pods-ADSB RadarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ADSB RadarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ADSB RadarUITests/Pods-ADSB RadarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		875FB5C42B1259020CFE0755 /* Pods_ADSB_RadarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ADSB_RadarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ADSB RadarTests Array.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A227941C222940B100860DAD /* UIImage+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		A23683AA1F2AE74900376835 /* AirportNFZAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AirportNFZAssets.xcassets; path = ADSB/AirportModule/AirportNFZAssets.xcassets; sourceTree = SOURCE_ROOT; };
 		A2436E2220440CE7009B5F03 /* AEAircraftsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AEAircraftsViewModel.swift; sourceTree = "<group>"; };
 		A2436E2620441971009B5F03 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
@@ -292,13 +286,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A228458B21DCA04B007FC7AC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A2703C9D1F0B6A4E00A2C280 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,7 +359,6 @@
 				A2703CA01F0B6A4E00A2C280 /* ADSB Radar.app */,
 				A2703CB71F0B6A4E00A2C280 /* ADSB RadarTests.xctest */,
 				A2703CC21F0B6A4E00A2C280 /* ADSB RadarUITests.xctest */,
-				A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -528,6 +514,7 @@
 		A2703D491F0BBA1600A2C280 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
+				A227941C222940B100860DAD /* UIImage+Extensions.swift */,
 				A2703D4A1F0BBA1600A2C280 /* UIImage+Mask.swift */,
 				A2703D4B1F0BBA1600A2C280 /* UIImage+Movement.swift */,
 			);
@@ -801,24 +788,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A228458D21DCA04B007FC7AC /* ADSB RadarTests Array */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A228459521DCA04B007FC7AC /* Build configuration list for PBXNativeTarget "ADSB RadarTests Array" */;
-			buildPhases = (
-				A228458A21DCA04B007FC7AC /* Sources */,
-				A228458B21DCA04B007FC7AC /* Frameworks */,
-				A228458C21DCA04B007FC7AC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A228459421DCA04B007FC7AC /* PBXTargetDependency */,
-			);
-			name = "ADSB RadarTests Array";
-			productName = "ADSB RadarTests Array";
-			productReference = A228458E21DCA04B007FC7AC /* ADSB RadarTests Array.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A2703CCB1F0B6A4E00A2C280 /* Build configuration list for PBXNativeTarget "ADSB Radar" */;
@@ -889,12 +858,6 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = Siphty;
 				TargetAttributes = {
-					A228458D21DCA04B007FC7AC = {
-						CreatedOnToolsVersion = 10.1;
-						DevelopmentTeam = GZQL33LF2B;
-						ProvisioningStyle = Automatic;
-						TestTargetID = A2703C9F1F0B6A4E00A2C280;
-					};
 					A2703C9F1F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 4PQU2QH5JS;
@@ -909,6 +872,7 @@
 					};
 					A2703CC11F0B6A4E00A2C280 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 4PQU2QH5JS;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = A2703C9F1F0B6A4E00A2C280;
@@ -931,19 +895,11 @@
 				A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */,
 				A2703CB61F0B6A4E00A2C280 /* ADSB RadarTests */,
 				A2703CC11F0B6A4E00A2C280 /* ADSB RadarUITests */,
-				A228458D21DCA04B007FC7AC /* ADSB RadarTests Array */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A228458C21DCA04B007FC7AC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A2703C9E1F0B6A4E00A2C280 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -956,6 +912,7 @@
 				A2E217871F13929900E96747 /* FlightBubbleV1.xib in Resources */,
 				A23683AB1F2AE74900376835 /* AirportNFZAssets.xcassets in Resources */,
 				A2703CAE1F0B6A4E00A2C280 /* Assets.xcassets in Resources */,
+				A227941E222945BD00860DAD /* Info.plist in Resources */,
 				A27E88F82039A387000DB52D /* AEResponseFail.json in Resources */,
 				A26C90C31F1325CC00FF9514 /* ARViewAssets.xcassets in Resources */,
 				A2C82A07221826BD0020DAE5 /* GoogleMapStyle1.json in Resources */,
@@ -975,6 +932,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A22AA9A921D6EF41002EFDAE /* runways.csv in Resources */,
+				A2279423222945E700860DAD /* Info.plist in Resources */,
 				A2A8A2C920482EA500B462F0 /* DSResponseEmpty.json in Resources */,
 				A2A8A2CC20482EA500B462F0 /* DSResponse.json in Resources */,
 				A22AA9A721D6EF3E002EFDAE /* airports.csv in Resources */,
@@ -994,6 +952,7 @@
 				A22AA9A821D6EF3E002EFDAE /* airports.csv in Resources */,
 				A22AA9A621D6EF3B002EFDAE /* airport.sqlite in Resources */,
 				A27E88F62039A36D000DB52D /* AEResponse.json in Resources */,
+				A2279428222945EE00860DAD /* Info.plist in Resources */,
 				A27E88FA2039A387000DB52D /* AEResponseFail.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1138,13 +1097,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A228458A21DCA04B007FC7AC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A2703C9C1F0B6A4E00A2C280 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1188,6 +1140,7 @@
 				A2703D591F0BBA1600A2C280 /* UIControl+Closure.swift in Sources */,
 				A2703D261F0BB7F700A2C280 /* ADSBAPIClient.swift in Sources */,
 				A2703D581F0BBA1600A2C280 /* UIColor+RGB.swift in Sources */,
+				A227941D222940B200860DAD /* UIImage+Extensions.swift in Sources */,
 				A2A8A2A920480D3600B462F0 /* DSWeatherViewModel.swift in Sources */,
 				A2AB5068202F357C007E07AB /* AEResponse.swift in Sources */,
 				A2FBFF65218C5253007A61D6 /* MockApiClient.swift in Sources */,
@@ -1278,11 +1231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		A228459421DCA04B007FC7AC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */;
-			targetProxy = A228459321DCA04B007FC7AC /* PBXContainerItemProxy */;
-		};
 		A2703CB91F0B6A4E00A2C280 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A2703C9F1F0B6A4E00A2C280 /* ADSB Radar */;
@@ -1315,51 +1263,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A228459621DCA04B007FC7AC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ADSB RadarTests Array/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inteliment.ADSB-RadarTests-Array";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
-			};
-			name = Debug;
-		};
-		A228459721DCA04B007FC7AC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "ADSB RadarTests Array/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.inteliment.ADSB-RadarTests-Array";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ADSB Radar.app/ADSB Radar";
-			};
-			name = Release;
-		};
 		A2703CC91F0B6A4E00A2C280 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1562,7 +1465,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBUITests;
@@ -1581,7 +1484,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 4PQU2QH5JS;
 				INFOPLIST_FILE = ADSBUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.siphty.com.ADSBUITests;
@@ -1596,15 +1499,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A228459521DCA04B007FC7AC /* Build configuration list for PBXNativeTarget "ADSB RadarTests Array" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A228459621DCA04B007FC7AC /* Debug */,
-				A228459721DCA04B007FC7AC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		A2703C9B1F0B6A4E00A2C280 /* Build configuration list for PBXProject "ADSB Radar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

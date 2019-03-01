@@ -11,6 +11,7 @@ import Foundation
 
 /// ADS-B Exchange Response Keys
 struct ExRspKeys {
+    
     static let ListVersionId:   String = "lastDv"   //Identifies the version of the aircraft list.
     static let TotalAircraft:   String = "totalAc"  //The total number of aircraft tracked by the list.
     static let TotalSource:     String = "src"      //The source that the feed is working from.
@@ -30,12 +31,6 @@ struct ExRspKeys {
 
 /// Aircraft Keys
 struct AcKeys {
-    
-    
-    
-    
-    
-    
     
     static let AircraftId:      String = "Id"       //The unique identifier of the aircraft.
     static let TrackedSec:      String = "TSecs"    //The number of seconds that the aircraft has been tracked for.

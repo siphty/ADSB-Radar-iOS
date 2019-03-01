@@ -10,7 +10,6 @@ import Foundation
 import MapKit
 
 open class ADSBAnnotation: MKPointAnnotation {
-//    override dynamic open var coordinate : CLLocationCoordinate2D
     var identifier: String = ""
     var image: UIImage = UIImage()
     var clusterAnnotation: ADSBAnnotation!
@@ -106,10 +105,16 @@ open class ADSBAnnotation: MKPointAnnotation {
             } else {
                 imageName = ADSBAircraftType.militaryJet.rawValue
             }            
-        }else if engineType == .Jet && wtc == .Light && isFixedWing && !isGroundObject{
+        }else if engineType == .Jet,
+            wtc == .Light,
+            isFixedWing,
+            !isGroundObject
+        {
             imageName = ADSBAircraftType.jetTwoEngLight.rawValue
-            
-        }else if engineType == .Jet && wtc == .Medium && isFixedWing && !isGroundObject {
+        }else if engineType == .Jet,
+            wtc == .Medium,
+            isFixedWing,
+            !isGroundObject {
             imageName = ADSBAircraftType.jetTwoEngMediumC.rawValue
             
         }else if engineType == .Jet && wtc == .Heavy && isFixedWing && !isGroundObject {
@@ -142,16 +147,25 @@ open class ADSBAnnotation: MKPointAnnotation {
         }else if engineType == .Piston && wtc == .Heavy && isFixedWing && !isGroundObject {
             imageName = ADSBAircraftType.turboTwoEngMedium.rawValue
             
-        }else if engineType == .Piston && wtc == .None && isFixedWing && !isGroundObject {
-            imageName = ADSBAircraftType.pistonTwoEngLight.rawValue // I can't find 2 piston engines heavy plane's top view png file
-            
-        }else if isHelicopter && !isGroundObject && wtc == .Light {
+        }else if engineType == .Piston,
+            wtc == .None,
+            isFixedWing,
+            !isGroundObject 
+        {
+            imageName = ADSBAircraftType.pistonTwoEngLight.rawValue // I can't find 2 piston engines heavy plane's top view png file 
+        }else if isHelicopter,
+            !isGroundObject,
+            wtc == .Light {
             imageName = ADSBAircraftType.heliLight.rawValue
             
-        }else if isHelicopter && !isGroundObject && wtc == .Medium {
+        }else if isHelicopter,
+            !isGroundObject,
+            wtc == .Medium {
             imageName = ADSBAircraftType.heliMedium.rawValue
             
-        }else if isHelicopter && !isGroundObject && wtc == .Heavy {
+        }else if isHelicopter,
+            !isGroundObject,
+            wtc == .Heavy {
             imageName = ADSBAircraftType.heliHeavy.rawValue
         }else {
             imageName = ADSBAircraftType.none.rawValue

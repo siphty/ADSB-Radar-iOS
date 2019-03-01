@@ -56,7 +56,6 @@ class ADSBMapView: MKMapView {
     }
     override var bounds: CGRect {
         didSet{
-            print("\(bounds)")
             drawAltitudeReferenceColorStick()
         }
     }
@@ -76,8 +75,6 @@ class ADSBMapView: MKMapView {
     //MARK:-
     //MARK: Draw Altitude color stick
     func drawAltitudeReferenceColorStick(){
-//        altitudeStickLayer.borderWidth = 1
-//        altitudeStickLayer.borderColor = UIColor.blue.cgColor
         altitudeStickLayer.removeFromSuperlayer()
         altitudeStickLayer.sublayers = nil
         if bounds.height > 100 {
@@ -91,7 +88,6 @@ class ADSBMapView: MKMapView {
                                       UIColor(red: 1, green: 1, blue: 0, alpha: 1).cgColor as AnyObject,
                                       UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor as AnyObject]
             colorStickLayer.locations = [0, 0.21, 0.67, 0.79, 0.91, 1] as [NSNumber]?
-            //        colorStickLayer.locations = [0, 0.21, 0.67, 0.79, 1] as [NSNumber]?
             colorStickLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
             colorStickLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
             altitudeStickLayer.addSublayer(colorStickLayer)
@@ -137,10 +133,8 @@ class ADSBMapView: MKMapView {
             }
             altitudeLabel.fontSize = 12
             altitudeLabel.contentsScale = UIScreen.main.scale
-//            altitudeLabel.borderColor = UIColor.red.cgColor
-//            altitudeLabel.borderWidth = 1
             altitudeLabel.alignmentMode = CATextLayerAlignmentMode.center
-            altitudeLabel.foregroundColor = UIColor.blue.cgColor
+            altitudeLabel.foregroundColor = UIColor.green.cgColor
             layer.addSublayer(altitudeLabel)
         }
     }

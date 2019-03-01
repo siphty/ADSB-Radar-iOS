@@ -13,7 +13,5 @@ protocol AdsbExchangeViewModeling {
 }
 
 extension AdsbExchangeViewModeling {
-    func testAbc() {
-        print("Test ABC")
-    }
+    
 }
