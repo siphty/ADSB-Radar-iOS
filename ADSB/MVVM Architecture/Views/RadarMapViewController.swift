@@ -400,7 +400,7 @@ extension RadarMapViewController{
         mapView.setRegion(region, animated: true)
     }
     
-    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
+    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: Aircraft?){
         
         for exsitingAnnotation in mapView.annotations{
             guard let annotation = exsitingAnnotation as? ADSBAnnotation else {
@@ -429,7 +429,7 @@ extension RadarMapViewController{
         mapView.addAnnotation(newAnnotation)
     }
     
-    func createAircraftAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
+    func createAircraftAnnotation(_ identifier: String, location: CLLocation, aircraft: Aircraft?) -> ADSBAnnotation {
         let annotation = ADSBAnnotation()
         // if the location services is on we will show the travel time, so we give a blank title to mapPin to draw a bigger callout for AnnotationView loader
         annotation.title = String("TITLE")
@@ -465,11 +465,11 @@ extension RadarMapViewController{
         return isLocationAuthorized() && CLLocationManager.locationServicesEnabled()
     }
     
-    fileprivate func getAircraft(by identifier: String, completion : @escaping (_ aircraft: ADSBAircraft?) -> Void) {
+    fileprivate func getAircraft(by identifier: String, completion : @escaping (_ aircraft: Aircraft?) -> Void) {
         //Search aircraft list by identifier
         let aircraftList = ADSBCacheManager.sharedInstance.adsbAircrafts
         for aircraft in aircraftList {
-            let aircraftIdentifier = kAircraftAnnotationId + (aircraft.icaoId ?? "") + (aircraft.registration ?? "")
+            let aircraftIdentifier = kAircraftAnnotationId + (aircraft.icaoID ?? "") + (aircraft.registration ?? "")
             if aircraftIdentifier == identifier {
                 completion(aircraft)
             }
@@ -485,7 +485,7 @@ extension RadarMapViewController{
         let aircraftList = ADSBCacheManager.sharedInstance.adsbAircrafts
         for aircraft in aircraftList {
             if (aircraft.isOnGround ?? false)  && ADSBConfig.isGroundAircraftFilterOn { continue }
-            let annotationId = kAircraftAnnotationId + (aircraft.icaoId ?? "") + (aircraft.registration ?? "")
+            let annotationId = kAircraftAnnotationId + (aircraft.icaoID ?? "") + (aircraft.registration ?? "")
             if aircraft.latitude == nil || aircraft.longitude == nil { continue }
             let latitude = CLLocationDegrees(aircraft.latitude!)
             let longitude = CLLocationDegrees(aircraft.longitude!)
@@ -604,7 +604,7 @@ extension RadarMapViewController: ARDataSource {
 extension RadarMapViewController: AnnotationViewDelegate {
     func didTouch(annotationView: AnnotationView) {
         if let annotation = annotationView.annotation {
-            print("Annotation is beed touched: \(String(describing: annotation.aircraft?.icaoId))")
+            print("Annotation is beed touched: \(String(describing: annotation.aircraft?.icaoID))")
         }
     }
 }

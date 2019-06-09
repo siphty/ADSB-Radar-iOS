@@ -7,173 +7,162 @@
 
 import Foundation
 
+enum AircraftSpeedType {
+    case groundSpeed
+    case groundSpeedReversing
+    case indicatedAirSpeed
+    case trueAirSpeed
+}
+
+enum AircraftAltitudeType {
+    
+}
+
 struct Aircraft: Codable {
     
-    let presAltitude : Int?
+    let lastPOSTime: Date?
+    let icaoID: String?
+    let registration: String?
+    let aircraftICAOType: String?
+    
+    // Wake Turbulence category.  Broadcast by the aircraft. 0 = None, 1 = Light, 2 = Medium, 3 = Heavy
+    let wtc: Int?
+    
+    // 0/missing = ground speed, 1 = ground speed reversing, 2 = indicated air speed, 3 = true air speed.
+    let speedType: String? 
+    let groundSpeed: Float?
+    
+    // 0 = standard pressure altitude, 1 = indicated altitude (above mean sea level).
     let altitudeType: Int?
-    let isNotIcao: Bool?
-    let messagesCount: Int?
-    let aircraftSN: String?
-    let callsign: String?
-    let isCallsignUnsure: Bool?
-    let registerCountry: String?
-    let engineMount: Int?
-    let engType: Int?
-    let engineCount: String?
-    let fSeen: String?
-    let flightsCount: Int?
-    let from: String?
+    let presAltitude : Int?
     let groundAltitude: Int?
-    let isOnGround: Bool?
-    let hasPicture: Bool?
-    let hasSignalLevel: Bool?
-    let help: Bool?
-    let icaoId: String?
-    let aircraftId: Int?
-    let presInHg: Float?
-    let interested: Bool?
+    let targetAltitude: Int?
     let latitude: Float?
     let longitude: Float?
-    let manufacture: String?
-    let aircraftModel: String?
-    let isMilitary: Bool?
-    let isFoundByMLAT: Bool?
-    let aircraftOperator: String?
-    let acOperatorICAO: String?
-    let lastPosTime: Int?
-    let receiverId: Int?
-    let registration: String?
-    let sat: Bool?
-    let groundSpeed: Float?
-    let speedType: Int?
-    let species: Int?
-    let squawkId: String?
-    let routeStops: [String]?
-    let targetAltitude: Int?
-    let trackedSec: Int?
-    let targetTrack: Float?
-    let isTISBSource: Bool?
-    let to: String?
-    let trackHeading: Float?
-    let trackIsHeading: Bool?
-    let transponderType: Int?
-    let aircraftICAOType: String?
-    let vertiSpeed: Int?
+    
+    //0 = vertical speed is barometric, 1 = vertical speed is geometric. Default to barometric until told otherwise.
     let vertiSpeedType: Int?
-    let wTC: Int?
-    let yearOfManuf: String?
+    let vertiSpeed: Int?
+    let trackIsHeading: Bool?
+    let targetTrack: Float?
+    let trackHeading: Float?
+    let squawkId: String?
+    let callSign: String?
+    let isOnGround: Bool?
+    
+    //Transponder type. 0=Unknown, 1=Mode-S, 2=ADS-B (unknown version), 
+    //3=ADS-B 0 – DO-260, 4=ADS-B 1 – DO-260 (A), 5=ADS-B 2 – DO-260 (B)
+    let transponderType: Int?
+    let pos: String?
+    let isFoundByMLAT: Bool?
+    let isTISBSource: Bool?
+    let sat: Bool?
+    let acOperatorICAO: String?
+    let registerCountry: String?
+    let isMilitary: Bool?
+    let interested: Bool?
+    let from: String?
+    let to: String?
+    
+    let engineType: Int?
     
     enum CodingKeys: String, CodingKey {
-        case presAltitude  = "Alt"
-        case altitudeType = "AltT"
-        case isNotIcao = "Bad"
-        case messagesCount = "CMsgs"
-        case aircraftSN = "CNum"
-        case callsign = "Call"
-        case isCallsignUnsure = "CallSus"
-        case registerCountry = "Cou"
-        case engineMount = "EngMount"
-        case engType = "EngType"
-        case engineCount = "Engines"
-        case fSeen = "FSeen"
-        case flightsCount = "FlightsCount"
-        case from = "From"
-        case groundAltitude = "GAlt"
-        case isOnGround = "Gnd"
-        case hasPicture = "HasPic"
-        case hasSignalLevel = "HasSig"
-        case help = "Help"
-        case icaoId = "Icao"
-        case aircraftId = "Id"
-        case presInHg = "InHg"
-        case interested = "Interested"
-        case latitude = "Lat"
-        case longitude = "Long"
-        case manufacture = "Man"
-        case aircraftModel = "Mdl"
-        case isMilitary = "Mil"
-        case isFoundByMLAT = "Mlat"
-        case aircraftOperator = "Op"
-        case acOperatorICAO = "OpIcao"
-        case lastPosTime = "PosTime"
-        case receiverId = "Rcvr"
-        case registration = "Reg"
-        case sat = "Sat"
-        case groundSpeed = "Spd"
-        case speedType = "SpdTyp"
-        case species = "Species"
-        case squawkId = "Sqk"
-        case routeStops = "Stops"
-        case targetAltitude = "TAlt"
-        case trackedSec = "TSecs"
-        case targetTrack = "TTrk"
-        case isTISBSource = "Tisb"
-        case to = "To"
-        case trackHeading = "Trak"
-        case trackIsHeading = "TrkH"
-        case transponderType = "Trt"
-        case aircraftICAOType = "Type"
-        case vertiSpeed = "Vsi"
-        case vertiSpeedType = "VsiT"
-        case wTC = "WTC"
-        case yearOfManuf = "Year"
+        case lastPOSTime = "postime"
+        case icaoID = "icao"
+        case registration = "reg"
+        case aircraftICAOType = "type"
+        case wtc = "wtc"
+        case speedType = "spdtyp"
+        case groundSpeed = "spd"
+        case altitudeType = "altt"
+        case presAltitude  = "alt"
+        case groundAltitude = "galt"
+        case targetAltitude = "talt"
+        case latitude = "lat"
+        case longitude = "lon"
+        case vertiSpeedType = "vsit"
+        case vertiSpeed = "vsi"
+        case trackIsHeading = "trkh"
+        case targetTrack = "ttrk"
+        case trackHeading = "trak"
+        case squawkId = "sqk"
+        case callSign = "call"
+        case isOnGround = "gnd"
+        case transponderType = "trt"
+        case pos = "pos"
+        case isFoundByMLAT = "mlat"
+        case isTISBSource = "tisb"
+        case sat = "sat"
+        case acOperatorICAO = "opIcao"
+        case registerCountry = "cou"   
+        case isMilitary = "mil"   
+        case interested = "interested"  
+        case from = "from"
+        case to = "to"
+        
+        
+        case engineType = "EngType"
+        
     }
     
     init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        presAltitude  = try values.decodeIfPresent(Int.self, forKey: .presAltitude )
-        altitudeType = try values.decodeIfPresent(Int.self, forKey: .altitudeType)
-        isNotIcao = try values.decodeIfPresent(Bool.self, forKey: .isNotIcao)
-        messagesCount = try values.decodeIfPresent(Int.self, forKey: .messagesCount)
-        aircraftSN = try values.decodeIfPresent(String.self, forKey: .aircraftSN)
-        callsign = try values.decodeIfPresent(String.self, forKey: .callsign)
-        isCallsignUnsure = try values.decodeIfPresent(Bool.self, forKey: .isCallsignUnsure)
-        registerCountry = try values.decodeIfPresent(String.self, forKey: .registerCountry)
-        engineMount = try values.decodeIfPresent(Int.self, forKey: .engineMount)
-        engType = try values.decodeIfPresent(Int.self, forKey: .engType)
-        engineCount = try values.decodeIfPresent(String.self, forKey: .engineCount)
-        fSeen = try values.decodeIfPresent(String.self, forKey: .fSeen)
-        flightsCount = try values.decodeIfPresent(Int.self, forKey: .flightsCount)
-        from = try values.decodeIfPresent(String.self, forKey: .from)
-        groundAltitude = try values.decodeIfPresent(Int.self, forKey: .groundAltitude)
-        isOnGround = try values.decodeIfPresent(Bool.self, forKey: .isOnGround)
-        hasPicture = try values.decodeIfPresent(Bool.self, forKey: .hasPicture)
-        hasSignalLevel = try values.decodeIfPresent(Bool.self, forKey: .hasSignalLevel)
-        help = try values.decodeIfPresent(Bool.self, forKey: .help)
-        icaoId = try values.decodeIfPresent(String.self, forKey: .icaoId)
-        aircraftId = try values.decodeIfPresent(Int.self, forKey: .aircraftId)
-        presInHg = try values.decodeIfPresent(Float.self, forKey: .presInHg)
-        interested = try values.decodeIfPresent(Bool.self, forKey: .interested)
-        latitude = try values.decodeIfPresent(Float.self, forKey: .latitude)
-        longitude = try values.decodeIfPresent(Float.self, forKey: .longitude)
-        manufacture = try values.decodeIfPresent(String.self, forKey: .manufacture)
-        aircraftModel = try values.decodeIfPresent(String.self, forKey: .aircraftModel)
-        isMilitary = try values.decodeIfPresent(Bool.self, forKey: .isMilitary)
-        isFoundByMLAT = try values.decodeIfPresent(Bool.self, forKey: .isFoundByMLAT)
-        aircraftOperator = try values.decodeIfPresent(String.self, forKey: .aircraftOperator)
-        acOperatorICAO = try values.decodeIfPresent(String.self, forKey: .acOperatorICAO)
-        lastPosTime = try values.decodeIfPresent(Int.self, forKey: .lastPosTime)
-        receiverId = try values.decodeIfPresent(Int.self, forKey: .receiverId)
-        registration = try values.decodeIfPresent(String.self, forKey: .registration)
-        sat = try values.decodeIfPresent(Bool.self, forKey: .sat)
-        groundSpeed = try values.decodeIfPresent(Float.self, forKey: .groundSpeed)
-        speedType = try values.decodeIfPresent(Int.self, forKey: .speedType)
-        species = try values.decodeIfPresent(Int.self, forKey: .species)
-        squawkId = try values.decodeIfPresent(String.self, forKey: .squawkId)
-        routeStops = try values.decodeIfPresent([String].self, forKey: .routeStops)
-        targetAltitude = try values.decodeIfPresent(Int.self, forKey: .targetAltitude)
-        trackedSec = try values.decodeIfPresent(Int.self, forKey: .trackedSec)
-        targetTrack = try values.decodeIfPresent(Float.self, forKey: .targetTrack)
-        isTISBSource = try values.decodeIfPresent(Bool.self, forKey: .isTISBSource)
-        to = try values.decodeIfPresent(String.self, forKey: .to)
-        trackHeading = try values.decodeIfPresent(Float.self, forKey: .trackHeading)
-        trackIsHeading = try values.decodeIfPresent(Bool.self, forKey: .trackIsHeading)
-        transponderType = try values.decodeIfPresent(Int.self, forKey: .transponderType)
-        aircraftICAOType = try values.decodeIfPresent(String.self, forKey: .aircraftICAOType)
-        vertiSpeed = try values.decodeIfPresent(Int.self, forKey: .vertiSpeed)
-        vertiSpeedType = try values.decodeIfPresent(Int.self, forKey: .vertiSpeedType)
-        wTC = try values.decodeIfPresent(Int.self, forKey: .wTC)
-        yearOfManuf = try values.decodeIfPresent(String.self, forKey: .yearOfManuf)
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        let lastPOSTimeDouble = Double(try container.decodeIfPresent(String.self, forKey: .lastPOSTime) ?? "0") ?? 0
+        lastPOSTime = Date(timeIntervalSince1970: lastPOSTimeDouble)
+        icaoID = try container.decodeIfPresent(String.self, forKey: .icaoID)
+        registration = try container.decodeIfPresent(String.self, forKey: .registration)
+        aircraftICAOType = try container.decodeIfPresent(String.self, forKey: .aircraftICAOType)
+        let wtcString = try container.decodeIfPresent(String.self, forKey: .wtc) ?? "0"
+        wtc = Int(wtcString) ?? 0
+        speedType = try container.decodeIfPresent(String.self, forKey: .speedType)
+        let groundSpeedString = try container.decodeIfPresent(String.self, forKey: .groundSpeed) ?? "0"
+        groundSpeed = Float(groundSpeedString) ?? 0.0
+        let altitudeTypeString = try container.decodeIfPresent(String.self, forKey: .altitudeType) ?? "0"
+        altitudeType = Int(altitudeTypeString) ?? 0 
+        let presAltitudeString = try container.decodeIfPresent(String.self, forKey: .presAltitude) ?? "0"
+        presAltitude = Int(presAltitudeString) ?? 0 
+        let groundAltitudeString = try container.decodeIfPresent(String.self, forKey: .groundAltitude) ?? "0"
+        groundAltitude = Int(groundAltitudeString) ?? 0 
+        let targetAltitudeString = try container.decodeIfPresent(String.self, forKey: .targetAltitude) ?? "0"
+        targetAltitude = Int(targetAltitudeString) ?? 0 
+        let latitudeString = try container.decodeIfPresent(String.self, forKey: .latitude) ?? "0"
+        latitude = Float(latitudeString) ?? 0 
+        let longitudeString = try container.decodeIfPresent(String.self, forKey: .longitude) ?? "0"
+        longitude = Float(longitudeString) ?? 0 
+        let vertiSpeedTypeString = try container.decodeIfPresent(String.self, forKey: .vertiSpeedType) ?? "0"
+        vertiSpeedType = Int(vertiSpeedTypeString) ?? 0 
+        let vertiSpeedString = try container.decodeIfPresent(String.self, forKey: .vertiSpeed) ?? "0"
+        vertiSpeed = Int(vertiSpeedString) ?? 0 
+        let trackIsHeadingString = try container.decodeIfPresent(String.self, forKey: .trackIsHeading) ?? "0"
+        trackIsHeading = (Int(trackIsHeadingString) ?? 0) > 0 ? true : false
+        let targetTrackString = try container.decodeIfPresent(String.self, forKey: .targetTrack) ?? "0"
+        targetTrack = Float(targetTrackString) ?? 0 
+        let trackHeadingString = try container.decodeIfPresent(String.self, forKey: .trackHeading) ?? "0"
+        trackHeading = Float(trackHeadingString) ?? 0 
+        squawkId = try container.decodeIfPresent(String.self, forKey: .squawkId)
+        callSign = try container.decodeIfPresent(String.self, forKey: .callSign)
+        let isOnGroundString = try container.decodeIfPresent(String.self, forKey: .isOnGround) ?? "0"
+        isOnGround = (Int(isOnGroundString) ?? 0) > 0 ? true : false
+        let transponderTypeString = try container.decodeIfPresent(String.self, forKey: .transponderType) ?? "0"
+        transponderType = Int(transponderTypeString) ?? 0 
+        pos = try container.decodeIfPresent(String.self, forKey: .pos)
+        let isFoundByMLATString = try container.decodeIfPresent(String.self, forKey: .isFoundByMLAT) ?? "0"
+        isFoundByMLAT = (Int(isFoundByMLATString) ?? 0) > 0 ? true : false
+        let isTISBSourceString = try container.decodeIfPresent(String.self, forKey: .isTISBSource) ?? "0"
+        isTISBSource = (Int(isTISBSourceString) ?? 0) > 0 ? true : false
+        let satString = try container.decodeIfPresent(String.self, forKey: .sat) ?? "0"
+        sat = (Int(satString) ?? 0) > 0 ? true : false
+        acOperatorICAO = try container.decodeIfPresent(String.self, forKey: .acOperatorICAO)
+        registerCountry = try container.decodeIfPresent(String.self, forKey: .registerCountry)
+        let isMilitaryString = try container.decodeIfPresent(String.self, forKey: .isMilitary) ?? "0"
+        isMilitary = (Int(isMilitaryString) ?? 0) > 0 ? true : false
+        let interestedString = try container.decodeIfPresent(String.self, forKey: .interested) ?? "0"
+        interested = (Int(interestedString) ?? 0) > 0 ? true : false
+        from = try container.decodeIfPresent(String.self, forKey: .from)
+        to = try container.decodeIfPresent(String.self, forKey: .to)
+        let engineTypeString = try container.decodeIfPresent(String.self, forKey: .engineType) ?? "0"
+        engineType = Int(engineTypeString) ?? 0
     }
+        
     
 }

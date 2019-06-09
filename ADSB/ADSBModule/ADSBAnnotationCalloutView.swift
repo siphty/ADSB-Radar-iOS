@@ -91,7 +91,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
     /// Update callout contents
     
     private func updateContents(for annotation: ADSBAnnotation?) {
-        icaoIdLabel.text = String(annotation?.aircraft?.icaoId ?? "UFO")
+        icaoIdLabel.text = String(annotation?.aircraft?.icaoID ?? "UFO")
         if  annotation?.aircraft?.isMilitary ?? false {
             if annotation?.aircraft?.isOnGround ?? false {
                 callsignLabel.text = "Airport Truck"
@@ -99,7 +99,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
                 callsignLabel.text = "Military Aircraft"
             }
         } else {
-            callsignLabel.text = String(annotation?.aircraft?.callsign ?? "------")
+            callsignLabel.text = String(annotation?.aircraft?.callSign ?? "------")
         }
         
         if annotation?.aircraft?.isOnGround ?? false {
@@ -114,7 +114,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
             } else {
                 InDecreaseString = ""
             }
-            altitudeLabel.text = "A: " + String(annotation?.aircraft?.presAltitude ?? 0.0) + " Feet" +  InDecreaseString
+            altitudeLabel.text = "A: " + String(annotation?.aircraft?.presAltitude ?? 0) + " Feet" +  InDecreaseString
         }
         speedLabel.text = "S: " + String(annotation?.aircraft?.groundSpeed ?? 0.0) + " Knots"
     }

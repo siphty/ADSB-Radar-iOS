@@ -32,7 +32,7 @@ enum  ApiConfig {
     case localAircrafts
     
     //AE: AdsbExchange
-    fileprivate static let AEBaseUrl = "http://public-api.adsbexchange.com"
+    fileprivate static let AEBaseUrl = "https://adsbexchange.com/api/"
     //DS: DarkSky
     fileprivate static let DSBaseUrl = "https://api.darksky.net"
     fileprivate static let DSApiKey = "60cc7f28d75d3f655f5f354338af0d99"
@@ -43,7 +43,7 @@ enum  ApiConfig {
     var urlPath: String {
         switch self {
         case .aircrafts(let location, let radius):
-            return "/VirtualRadar/AircraftList.json?lat=\(location.coordinate.latitude)&lng=\(location.coordinate.longitude)&fDstL=0&fDstU=\(radius)"
+            return  "aircraft/json/lat/\(location.coordinate.latitude)/lon=\(location.coordinate.longitude)/dist/\(radius)/key/0c32da63-6aca-43be-9b5f-6b73bd5ffdaa"
         case .weather(let location):
             return "/forecast/\(ApiConfig.DSApiKey)/\(location.coordinate.latitude),\(location.coordinate.longitude)"
         case .localAircrafts:

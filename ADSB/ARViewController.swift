@@ -947,7 +947,7 @@ extension ARViewController {
         let aircraftList = ADSBCacheManager.sharedInstance.adsbAircrafts
         for aircraft in aircraftList {
             if (aircraft.isOnGround ?? false)  && ADSBConfig.isGroundAircraftFilterOn { continue }
-            let annotationId = kAircraftAnnotationId + (aircraft.icaoId ?? "") + (aircraft.registration ?? "")
+            let annotationId = kAircraftAnnotationId + (aircraft.icaoID ?? "") + (aircraft.registration ?? "")
             if aircraft.latitude == nil || aircraft.longitude == nil { continue }
             let latitude = CLLocationDegrees(aircraft.latitude!)
             let longitude = CLLocationDegrees(aircraft.longitude!)
@@ -971,7 +971,7 @@ extension ARViewController {
     }
     
     
-    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
+    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: Aircraft?){
         
         for annotation in self.annotations{
             if annotation.identifier == identifier {
@@ -985,9 +985,9 @@ extension ARViewController {
         annotations.append(newAnnotation)
     }
     
-    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
+    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: Aircraft?) -> ADSBAnnotation {
         let annotation = ADSBAnnotation()
-        annotation.title = String("\(aircraft?.callsign ?? "---")")
+        annotation.title = String("\(aircraft?.callSign ?? "---")")
         annotation.identifier = identifier
         annotation.subtitle = identifier
         annotation.coordinate = location.coordinate

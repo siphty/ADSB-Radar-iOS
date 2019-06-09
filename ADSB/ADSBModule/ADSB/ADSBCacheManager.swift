@@ -12,7 +12,7 @@ public final class ADSBCacheManager {
     
     static let sharedInstance = ADSBCacheManager()
     
-    var adsbAircrafts: [ADSBAircraft] = [ADSBAircraft]() {
+    var adsbAircrafts = [Aircraft]() {
         didSet{
             //Broadcast notification
             let notificationCenter = NotificationCenter.default
