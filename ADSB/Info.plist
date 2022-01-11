@@ -17,9 +17,23 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0</string>
+	<string>2.2</string>
 	<key>CFBundleVersion</key>
-	<string>11</string>
+	<string>15</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>74307a882f6e2ef5efd2515490d4afd121e739ab</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -29,6 +43,10 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>You will see AR view through iPhone camera.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Enable this can send aircraft alert to you from background.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Enable this can send aircraft alert to you from background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We need fetch aircraft information above your current spot. 😊</string>
 	<key>UILaunchStoryboardName</key>

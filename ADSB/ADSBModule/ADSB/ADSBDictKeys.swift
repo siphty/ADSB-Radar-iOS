@@ -11,6 +11,7 @@ import Foundation
 
 /// ADS-B Exchange Response Keys
 struct ExRspKeys {
+    
     static let ListVersionId:   String = "lastDv"   //Identifies the version of the aircraft list.
     static let TotalAircraft:   String = "totalAc"  //The total number of aircraft tracked by the list.
     static let TotalSource:     String = "src"      //The source that the feed is working from.
@@ -30,6 +31,7 @@ struct ExRspKeys {
 
 /// Aircraft Keys
 struct AcKeys {
+    
     static let AircraftId:      String = "Id"       //The unique identifier of the aircraft.
     static let TrackedSec:      String = "TSecs"    //The number of seconds that the aircraft has been tracked for.
     static let ReceiverId:      String = "Rcvr"     //he ID of the feed that last supplied information about the aircraft.
@@ -55,7 +57,7 @@ struct AcKeys {
     static let VertiSpeedType:  String = "VsiT"     //0 = vertical speed is barometric, 1 = vertical speed is geometric. Default to barometric until told otherwise.
     static let TrackHeading:    String = "Trak"     //Aircraft's track angle across the ground clockwise from 0° north.
     static let TrackIsHeading:  String = "TrkH"     //True if Trak is the aircraft's heading, false if it's the ground track. Default to ground track until told otherwise.
-    static let TargetHeading:   String = "TTrk"     //The track or heading currently set on the aircraft's autopilot or FMS.
+    static let targetTrack:     String = "TTrk"     //The track or heading currently set on the aircraft's autopilot or FMS.
     static let AcICAOType:      String = "Type"     //The aircraft model's ICAO type code.
     static let AircraftModel:   String = "Mdl"      //A description of the aircraft's model. Usually also includes the manufacturer's name.
     static let Manufacture:     String = "Man"      //The manufacturer's name.

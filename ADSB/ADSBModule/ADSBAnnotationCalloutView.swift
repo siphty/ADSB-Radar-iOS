@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import SnapKit
 import NVActivityIndicatorView
 
 class ADSBAnnotationCalloutView: ADSBCalloutView {
@@ -92,7 +91,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
     /// Update callout contents
     
     private func updateContents(for annotation: ADSBAnnotation?) {
-        icaoIdLabel.text = String(annotation?.aircraft?.icaoId ?? "UFO")
+        icaoIdLabel.text = String(annotation?.aircraft?.icaoID ?? "UFO")
         if  annotation?.aircraft?.isMilitary ?? false {
             if annotation?.aircraft?.isOnGround ?? false {
                 callsignLabel.text = "Airport Truck"
@@ -100,7 +99,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
                 callsignLabel.text = "Military Aircraft"
             }
         } else {
-            callsignLabel.text = String(annotation?.aircraft?.callsign ?? "------")
+            callsignLabel.text = String(annotation?.aircraft?.callSign ?? "------")
         }
         
         if annotation?.aircraft?.isOnGround ?? false {
@@ -115,7 +114,7 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
             } else {
                 InDecreaseString = ""
             }
-            altitudeLabel.text = "A: " + String(annotation?.aircraft?.presAltitude ?? 0.0) + " Feet" +  InDecreaseString
+            altitudeLabel.text = "A: " + String(annotation?.aircraft?.presAltitude ?? 0) + " Feet" +  InDecreaseString
         }
         speedLabel.text = "S: " + String(annotation?.aircraft?.groundSpeed ?? 0.0) + " Knots"
     }
@@ -158,9 +157,9 @@ class ADSBAnnotationCalloutView: ADSBCalloutView {
                                                    color: #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1),
                                                    padding: 0)
         contentView.addSubview(loadingIndicator)
-        loadingIndicator.snp.makeConstraints { (make) in
-            make.center.equalTo(contentView)
-        }
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.centerXAnchor.constraint(equalTo: loadingIndicator.centerXAnchor).isActive = true
+        loadingIndicator.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true 
     }
     
     override func didTouchUpInCallout(_ sender: Any) {

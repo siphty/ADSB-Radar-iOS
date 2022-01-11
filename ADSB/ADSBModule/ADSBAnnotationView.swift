@@ -29,7 +29,7 @@ class ADSBAnnotationView: MKAnnotationView {
 //            dotLayer.frame = CGRect(x: 20, y: 20, width: 2, height: 2)
             annotationImageView?.layer.addSublayer(dotLayer)
             addSubview(annotationImageView!)
-            annotationImageView?.sendSubview(toBack: self)
+            annotationImageView?.sendSubviewToBack(self)
         }
     }
     var annotationImageView: UIView?
@@ -52,13 +52,12 @@ class ADSBAnnotationView: MKAnnotationView {
         }
         annotationImageView = UIImageView(image: annotationImage!)
         annotationImageView?.alpha = 0.99
-//        self.layer.addSublayer(dotLayer)
         annotationImageView?.center = CGPoint(x: 0, y: 0)
         let dotLayer : CALayer = CALayer()
-        dotLayer.backgroundColor =  #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
-        dotLayer.borderColor =  #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
+        dotLayer.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
+        dotLayer.borderColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor
         dotLayer.borderWidth = 2
-        dotLayer.frame = CGRect(x: (annotationImageView?.center.x )!  - 1, y: (annotationImageView?.center.y )!  - 1, width: 2, height: 2)
+        dotLayer.frame = CGRect(x: (annotationImageView?.center.x )! - 1, y: (annotationImageView?.center.y )!  - 1, width: 2, height: 2)
         annotationImageView?.layer.addSublayer(dotLayer)
         addSubview(annotationImageView!)
         image = nil

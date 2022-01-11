@@ -56,7 +56,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         didSet
         {
-            closeButton?.setImage(self.closeButtonImage, for: UIControlState())
+            closeButton?.setImage(self.closeButtonImage, for: UIControl.State())
         }
     }
     /// Enables map debugging and some other debugging features, set before controller is shown
@@ -88,27 +88,27 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     let notificationCenter = NotificationCenter.default
     
     //MARK: Private
-    fileprivate var initialized: Bool = false
-    fileprivate var cameraSession: AVCaptureSession = AVCaptureSession()
-    fileprivate var overlayView: OverlayView = OverlayView()
+    fileprivate var initialized = false
+    fileprivate var cameraSession = AVCaptureSession()
+    fileprivate var overlayView = OverlayView()
     fileprivate var displayTimer: CADisplayLink?
     fileprivate var cameraLayer: AVCaptureVideoPreviewLayer?    // Will be set in init
-    fileprivate var annotationViews: [ARAnnotationView] = []
+    fileprivate var annotationViews = [ARAnnotationView]()
     fileprivate var previosRegion: Int = 0
     fileprivate var degreesPerScreen: CGFloat = 0
-    fileprivate var shouldReloadAnnotations: Bool = false
+    fileprivate var shouldReloadAnnotations = false
     fileprivate var reloadInProgress = false
     fileprivate var reloadToken: Int = 0
     fileprivate var reloadLock = NSRecursiveLock()
-    fileprivate var annotations: [ADSBAnnotation] = []
-    fileprivate var activeAnnotations: [ADSBAnnotation] = []
+    fileprivate var annotations = [ADSBAnnotation]()
+    fileprivate var activeAnnotations = [ADSBAnnotation]()
     fileprivate var closeButton: UIButton?
     fileprivate var currentHeading: Double = 0
     fileprivate var lastLocation: CLLocation?
 
     fileprivate var debugLabel: UILabel?
     fileprivate var debugMapButton: UIButton?
-    fileprivate var didLayoutSubviews: Bool = false
+    fileprivate var didLayoutSubviews = false
     
     // MARK: -
     // MARK: Init
@@ -148,8 +148,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.maxVisibleAnnotations = 20
         self.maxDistance = 0
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ARViewController.appWillEnterForeground(_:)), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ARViewController.appDidEnterBackground(_:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ARViewController.appWillEnterForeground(_:)),
+                                               name: UIApplication.willEnterForegroundNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(ARViewController.appDidEnterBackground(_:)),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
         self.initialize()
     }
     
@@ -203,10 +209,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     fileprivate func onViewWillAppear()
     {
         // Camera layer if not added
-        if self.cameraLayer?.superlayer == nil { self.loadCamera() }
+        if self.cameraLayer?.superlayer == nil {
+            self.loadCamera()
+        }
         
         // Overlay
-        if self.overlayView.superview == nil { self.loadOverlay() }
+        if self.overlayView.superview == nil {
+            self.loadOverlay()
+        }
         
         // Set orientation and start camera
         setOrientation(UIApplication.shared.statusBarOrientation)
@@ -215,7 +225,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     }
     
     
-    internal func closeButtonTap()
+    @objc internal func closeButtonTap()
     {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
@@ -245,14 +255,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         
         
     }
-    internal func appDidEnterBackground(_ notification: Notification)
+    @objc internal func appDidEnterBackground(_ notification: Notification)
     {
         if(view.window != nil)
         {
             trackingManager.stopTracking()
         }
     }
-    internal func appWillEnterForeground(_ notification: Notification)
+    @objc internal func appWillEnterForeground(_ notification: Notification)
     {
         if(view.window != nil)
         {
@@ -284,7 +294,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
      */
     open func setAnnotations(_ annotations: [ADSBAnnotation])
     {
-        var validAnnotations: [ADSBAnnotation] = []
+        var validAnnotations = [ADSBAnnotation]()
         // Don't use annotations without valid location
         for annotation in annotations
         {
@@ -611,7 +621,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     // MARK: -
     // MARK: Events: ARLocationManagerDelegate/Display timer
     
-    internal func displayTimerTick()
+    @objc internal func displayTimerTick()
     {
         let filterFactor: Double = headingSmoothingFactor
         let newHeading = trackingManager.heading
@@ -713,9 +723,6 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     
     fileprivate func loadCamera()
     {
-        cameraLayer?.removeFromSuperlayer()
-        cameraLayer = nil
-        
         //===== Video device/video input
         let captureSessionResult = ARViewController.createCaptureSession()
         guard captureSessionResult.error == nil, let session = captureSessionResult.session else
@@ -723,16 +730,14 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
             print("HDAugmentedReality: Cannot create capture session, use createCaptureSession method to check if device is capable for augmented reality.")
             return
         }
-        
         cameraSession = session
         
         //===== View preview layer
-        if let cameraLayer = AVCaptureVideoPreviewLayer(session: cameraSession)
-        {
-            cameraLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-            view.layer.insertSublayer(cameraLayer, at: 0)
-            self.cameraLayer = cameraLayer
-        }
+        let cameraLayer = AVCaptureVideoPreviewLayer(session: cameraSession)
+        cameraLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        view.layer.insertSublayer(cameraLayer, at: 0)
+        self.cameraLayer = cameraLayer
+        
     }
     
     /// Tries to find back video device and add video input to it. This method can be used to check if device has hardware available for augmented reality.
@@ -740,54 +745,34 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
     {
         var error: NSError?
         var captureSession: AVCaptureSession?
-        var backVideoDevice: AVCaptureDevice?
-        let videoDevices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
-        
-        // Get back video device
-        if let videoDevices = videoDevices
+        guard let backVideoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) else
         {
-            for captureDevice in videoDevices
-            {
-                if (captureDevice as AnyObject).position == AVCaptureDevicePosition.back
-                {
-                    backVideoDevice = captureDevice as? AVCaptureDevice
-                    break
-                }
-            }
+            error = NSError(domain: "HDAugmentedReality", code: 10000, userInfo: ["description": "Back video device not found."])
+            return (session: nil, error: error)
         }
-        
-        if backVideoDevice != nil
+        var videoInput: AVCaptureDeviceInput!
+        do {
+            videoInput = try AVCaptureDeviceInput(device: backVideoDevice)
+        } catch let error1 as NSError {
+            error = error1
+            videoInput = nil
+        }
+        if error == nil
         {
-            var videoInput: AVCaptureDeviceInput!
-            do {
-                videoInput = try AVCaptureDeviceInput(device: backVideoDevice)
-            } catch let error1 as NSError {
-                error = error1
-                videoInput = nil
-            }
-            if error == nil
+            captureSession = AVCaptureSession()
+            if captureSession!.canAddInput(videoInput)
             {
-                captureSession = AVCaptureSession()
-                
-                if captureSession!.canAddInput(videoInput)
-                {
-                    captureSession!.addInput(videoInput)
-                }
-                else
-                {
-                    error = NSError(domain: "HDAugmentedReality", code: 10002, userInfo: ["description": "Error adding video input."])
-                }
+                captureSession!.addInput(videoInput)
             }
             else
             {
-                error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input."])
+                error = NSError(domain: "HDAugmentedReality", code: 10002, userInfo: ["description": "Error adding video input."])
             }
         }
         else
         {
-            error = NSError(domain: "HDAugmentedReality", code: 10000, userInfo: ["description": "Back video device not found."])
+            error = NSError(domain: "HDAugmentedReality", code: 10001, userInfo: ["description": "Error creating capture device input."])
         }
-        
         return (session: captureSession, error: error)
     }
     
@@ -798,7 +783,7 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         displayTimer = CADisplayLink(target: self,
                                      selector: #selector(ARViewController.displayTimerTick))
         displayTimer?.add(to: RunLoop.current,
-                          forMode: RunLoopMode.defaultRunLoopMode)
+                          forMode: RunLoop.Mode.default)
     }
     
     fileprivate func stopCamera()
@@ -907,11 +892,11 @@ open class ARViewController: UIViewController, ARTrackingManagerDelegate
         self.closeButtonImage = #imageLiteral(resourceName: "RadarButtonIcon")
         self.closeButton?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         // Close button - make it customizable
-        let closeButton: UIButton = UIButton(type: UIButtonType.custom)
-        closeButton.setImage(closeButtonImage, for: UIControlState());
+        let closeButton: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        closeButton.setImage(closeButtonImage, for: UIControl.State());
         closeButton.frame = CGRect(x: self.view.bounds.size.width - 53, y: self.view.bounds.size.height - 103,width: 44,height: 44)
-        closeButton.addTarget(self, action: #selector(ARViewController.closeButtonTap), for: UIControlEvents.touchUpInside)
-        closeButton.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleBottomMargin]
+        closeButton.addTarget(self, action: #selector(ARViewController.closeButtonTap), for: UIControl.Event.touchUpInside)
+        closeButton.autoresizingMask = [UIView.AutoresizingMask.flexibleLeftMargin, UIView.AutoresizingMask.flexibleBottomMargin]
         self.view.addSubview(closeButton)
         self.closeButton = closeButton
     }
@@ -962,7 +947,7 @@ extension ARViewController {
         let aircraftList = ADSBCacheManager.sharedInstance.adsbAircrafts
         for aircraft in aircraftList {
             if (aircraft.isOnGround ?? false)  && ADSBConfig.isGroundAircraftFilterOn { continue }
-            let annotationId = kAircraftAnnotationId + (aircraft.icaoId ?? "") + (aircraft.registration ?? "")
+            let annotationId = kAircraftAnnotationId + (aircraft.icaoID ?? "") + (aircraft.registration ?? "")
             if aircraft.latitude == nil || aircraft.longitude == nil { continue }
             let latitude = CLLocationDegrees(aircraft.latitude!)
             let longitude = CLLocationDegrees(aircraft.longitude!)
@@ -986,7 +971,7 @@ extension ARViewController {
     }
     
     
-    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: ADSBAircraft?){
+    func updateAnnotation(_ identifier: String, withLocation location: CLLocation, aircraft: Aircraft?){
         
         for annotation in self.annotations{
             if annotation.identifier == identifier {
@@ -1000,9 +985,9 @@ extension ARViewController {
         annotations.append(newAnnotation)
     }
     
-    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: ADSBAircraft?) -> ADSBAnnotation {
+    func createAnnotation(_ identifier: String, location: CLLocation, aircraft: Aircraft?) -> ADSBAnnotation {
         let annotation = ADSBAnnotation()
-        annotation.title = String("\(aircraft?.callsign ?? "---")")
+        annotation.title = String("\(aircraft?.callSign ?? "---")")
         annotation.identifier = identifier
         annotation.subtitle = identifier
         annotation.coordinate = location.coordinate

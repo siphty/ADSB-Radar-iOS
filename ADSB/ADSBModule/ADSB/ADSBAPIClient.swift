@@ -30,12 +30,12 @@ final class ADSBAPIClient {
     }
     var scanDistance: Float = ADSBConfig.scanRangeBase  // KM
     
-    fileprivate let adsbexchangeBaseUrl = "http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json"
+    fileprivate let adsbexchangeBaseUrl = "https://adsbexchange.com/api/aircraft/json"
     fileprivate var requestTimer: Timer?
     fileprivate var isLastResponseProceseed: Bool = true
     fileprivate var isUpdatingAircrafts: Bool = false
     func makeRequestUrl(with location: CLLocation, in radius: Float) -> String {
-        return  "\(adsbexchangeBaseUrl)?lat=\(location.coordinate.latitude)&lng=\(location.coordinate.longitude)&fDstL=0&fDstU=\(radius)"
+        return  "\(adsbexchangeBaseUrl)/lat/\(location.coordinate.latitude)/lon/\(location.coordinate.longitude)/dist/\(radius)/key/0c32da63-6aca-43be-9b5f-6b73bd5ffdaa"
     }
     
     func updateLocation(_ location: CLLocation) {
@@ -85,42 +85,54 @@ final class ADSBAPIClient {
     }
     
     
-    func requestADSBExChange(_ url: URL, handle complition: @escaping (_ aircraftsArray: [ADSBAircraft], _ error: Error?) -> Void){
+    func requestADSBExChange(_ url: URL, handle complition: @escaping (_ aircraftsArray: [Aircraft], _ error: Error?) -> Void){
         if !isLastResponseProceseed { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("value", forHTTPHeaderField: "Key")
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request, completionHandler: {data, response, error in
+        let task = session.dataTask(with: request) {data, response, error in
             if error != nil {
                 print("Error from URL session data task: \(error.debugDescription)")
                 return
             }
-            DispatchQueue.main.async(){
-                self.isLastResponseProceseed = false
-                do {
-                    let responseDict: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
-                    let adsbXResponseObj: ADSBXResponse = ADSBXResponse.init(responseDict: responseDict)!
-                    guard let adsbAircrafts = adsbXResponseObj.aircraftList else { return }
-                    print("Aircrafts above: \(adsbAircrafts.count)")
-//                    if adsbAircrafts.count < ADSBConfig.minimumAircraftsTracking {
-//                        self.scanDistance = self.scanDistance + 5
-//                    } else if adsbAircrafts.count > ADSBConfig.maximumAircraftsTracking {
-//                        self.scanDistance = self.scanDistance - 5
-//                        if self.scanDistance < ADSBConfig.minimumScanRange {
-//                            self.scanDistance = 10
-//                        }
-//                    }
-//                    print("Next Scan range: \(self.scanDistance)")
-                    complition(adsbAircrafts, nil)
-                } catch let error {
+            guard let data = data else { return }
+            let decoder = JSONDecoder()
+            do {
+                let ae = try decoder.decode(AEResponse.self, from: data)
+                if let aircrafts = ae.ac { 
+                    complition(aircrafts, nil)
+                } else {
                     complition([], error)
                 }
-                self.isLastResponseProceseed = true
-                
+            } catch {
+                complition([], error)
             }
-        })
+        }
+            
+//            DispatchQueue.main.async(){
+//                self.isLastResponseProceseed = false
+//                do {
+//                    let responseDict: [String: Any] = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+//                    let adsbXResponseObj: ADSBXResponse = ADSBXResponse.init(responseDict: responseDict)!
+//                    guard let adsbAircrafts = adsbXResponseObj.aircraftList else { return }
+//                    print("Aircrafts above: \(adsbAircrafts.count)")
+////                    if adsbAircrafts.count < ADSBConfig.minimumAircraftsTracking {
+////                        self.scanDistance = self.scanDistance + 5
+////                    } else if adsbAircrafts.count > ADSBConfig.maximumAircraftsTracking {
+////                        self.scanDistance = self.scanDistance - 5
+////                        if self.scanDistance < ADSBConfig.minimumScanRange {
+////                            self.scanDistance = 10
+////                        }
+////                    }
+////                    print("Next Scan range: \(self.scanDistance)")
+//                    complition(adsbAircrafts, nil)
+//                } catch let error {
+//                    complition([], error)
+//                }
+//                self.isLastResponseProceseed = true
+                
         task.resume()
     }
     

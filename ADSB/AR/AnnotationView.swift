@@ -79,14 +79,14 @@ class AnnotationView: ARAnnotationView {
         self.addSubview(altitudeLabel!)
 
         
-        let callSign = annotation?.aircraft?.callsign
-        let acId = annotation?.aircraft?.aircraftSN ?? ""
+        let callSign = annotation?.aircraft?.callSign
+        let acId = annotation?.aircraft?.registration ?? ""
         if callSign != nil {
             titleLabel?.text = callSign
         } else {
             titleLabel?.text = String(acId)
         }
-        let distance = annotation?.aircraft?.ViewerDistance ?? 0
+        let distance = 0 // annotation?.aircraft?.ViewerDistance ?? 0
         distanceLabel?.text = String(format: "%.1f km", Float(distance) )
         
         let speed = annotation?.aircraft?.groundSpeed ?? 0

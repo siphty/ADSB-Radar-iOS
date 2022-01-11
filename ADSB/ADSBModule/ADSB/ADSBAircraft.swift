@@ -113,7 +113,7 @@ struct ADSBAircraft { // TODO: Rename this struct
         vertiSpeedType = acDict[AcKeys.VertiSpeedType] as? Int
         trackHeading = acDict[AcKeys.TrackHeading] as? Double
         trackIsHeading = acDict[AcKeys.TrackIsHeading] as? Bool
-        targetHeading = acDict[AcKeys.TargetHeading] as? Double
+//        targetHeading = acDict[AcKeys.TargetHeading] as? Double
         acICAOType = acDict[AcKeys.AcICAOType] as? String
         aircraftModel = acDict[AcKeys.AircraftModel] as? String
         manufacture = acDict[AcKeys.Manufacture] as? String

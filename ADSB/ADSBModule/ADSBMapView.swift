@@ -56,7 +56,6 @@ class ADSBMapView: MKMapView {
     }
     override var bounds: CGRect {
         didSet{
-            print("\(bounds)")
             drawAltitudeReferenceColorStick()
         }
     }
@@ -76,8 +75,6 @@ class ADSBMapView: MKMapView {
     //MARK:-
     //MARK: Draw Altitude color stick
     func drawAltitudeReferenceColorStick(){
-//        altitudeStickLayer.borderWidth = 1
-//        altitudeStickLayer.borderColor = UIColor.blue.cgColor
         altitudeStickLayer.removeFromSuperlayer()
         altitudeStickLayer.sublayers = nil
         if bounds.height > 100 {
@@ -91,7 +88,6 @@ class ADSBMapView: MKMapView {
                                       UIColor(red: 1, green: 1, blue: 0, alpha: 1).cgColor as AnyObject,
                                       UIColor(red: 1, green: 0, blue: 0, alpha: 1).cgColor as AnyObject]
             colorStickLayer.locations = [0, 0.21, 0.67, 0.79, 0.91, 1] as [NSNumber]?
-            //        colorStickLayer.locations = [0, 0.21, 0.67, 0.79, 1] as [NSNumber]?
             colorStickLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
             colorStickLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
             altitudeStickLayer.addSublayer(colorStickLayer)
@@ -137,10 +133,8 @@ class ADSBMapView: MKMapView {
             }
             altitudeLabel.fontSize = 12
             altitudeLabel.contentsScale = UIScreen.main.scale
-//            altitudeLabel.borderColor = UIColor.red.cgColor
-//            altitudeLabel.borderWidth = 1
-            altitudeLabel.alignmentMode = kCAAlignmentCenter
-            altitudeLabel.foregroundColor = UIColor.blue.cgColor
+            altitudeLabel.alignmentMode = CATextLayerAlignmentMode.center
+            altitudeLabel.foregroundColor = UIColor.green.cgColor
             layer.addSublayer(altitudeLabel)
         }
     }
@@ -240,7 +234,7 @@ class ADSBMapView: MKMapView {
                                       selector: #selector(ADSBMapView.trackChanges),
                                       userInfo: nil,
                                       repeats: true)
-            RunLoop.current.add(self.changesTimer!, forMode: RunLoopMode.commonModes)
+            RunLoop.current.add(self.changesTimer!, forMode: RunLoop.Mode.common)
         }
     }
     
@@ -261,7 +255,7 @@ class ADSBMapView: MKMapView {
         // function scans subviews recursively and returns reference to the found one of a type
         if view.subviews.count > 0 {
             for subview in view.subviews {
-                if type(of: subview).description() == type {
+                if String(describing: subview.self) == type {
                     return subview
                 }
                 if let inSubviews = self.findViewOfType(type, inView: subview) {
@@ -275,113 +269,14 @@ class ADSBMapView: MKMapView {
     }
 
     func drawScanRegion(by regionRadius: CLLocationDistance, at coordinate: CLLocationCoordinate2D){
-        if regionCircle != nil {
-            remove(regionCircle!)
+        if let regionCircle = regionCircle {
+            removeOverlay(regionCircle)
         }
         regionCircle = MKCircle(center: coordinate, radius: regionRadius)
         regionCircle!.title = "Scan Range : \(Int(regionRadius / 1000))Km"
-        add(regionCircle!)
+        addOverlay(regionCircle!)
     }
     
 }
-//MARK: -
-//MARK: Airports
-extension ADSBMapView {
-    
-    func drawAirportRestrictRegion() {
-        AirdomeCommon.sharedInstance.fetchNearestAirport(in: region.span, at: region.center, completion: { (airports) in
-            guard airports != nil else { return }
-            for airport in airports! {
-                var isDrawn = false
-                for overlay in self.overlays {
-                    guard airport.ident != nil else {
-                        isDrawn = true
-                        break
-                    }
-                    let title = String("Airport : \(airport.ident!)")
-                    if (overlay.title!!.range(of: title!) != nil) {
-                        isDrawn = true
-                        break
-                    }
-                }
-                if isDrawn {
-                    isDrawn = false
-                    continue
-                }
-                guard let airportType = airport.type else { continue }
-                let airdromeCoordinate = CLLocationCoordinate2D(latitude: CLLocationDegrees(airport.latitude_deg), longitude: CLLocationDegrees(airport.longitude_deg))
-                
-                if airportType == "small_airport" {
-                    var airportNFA45Circle: MKCircle?
-                    airportNFA45Circle = MKCircle(center: airdromeCoordinate, radius: 2000)
-                    guard airport.ident != nil else { continue }
-                    airportNFA45Circle!.title = "Airport : \(airport.ident!) NFA45"
-                    self.add(airportNFA45Circle!)
-                    
-                    var airportNFZCircle: MKCircle?
-                    airportNFZCircle = MKCircle(center: airdromeCoordinate, radius: 500)
-                    guard airport.ident != nil else { continue }
-                    airportNFZCircle!.title = "Airport : \(airport.ident!) NFZ"
-                    self.add(airportNFZCircle!)
-                    
-                } else if airportType == "medium_airport"{
-                    var airportCircle: MKCircle?
-                    airportCircle = MKCircle(center: airdromeCoordinate, radius: 5500)
-                    guard airport.ident != nil else { continue }
-                    airportCircle!.title = "Airport : \(airport.ident!) NFZ"
-                    self.add(airportCircle!)
-                    
-                } else if airportType == "large_airport"{
-                    var airportCircle: MKCircle?
-                    airportCircle = MKCircle(center: airdromeCoordinate, radius: 6500)
-                    guard airport.ident != nil else { continue }
-                    airportCircle!.title = "Airport : \(airport.ident!) NFZ"
-                    self.add(airportCircle!)
-                    
-                } else if airportType == "heliport" {
-                    var helipadNFA45Circle: MKCircle?  //No Fly Above 45 m
-                    helipadNFA45Circle = MKCircle(center: airdromeCoordinate, radius: 2000)
-                    guard airport.ident != nil else { continue }
-                    helipadNFA45Circle!.title = "Airport : \(airport.ident!) NFA45"
-                    self.add(helipadNFA45Circle!)
-                    
-                    var helipadNFZCircle: MKCircle?    // No Fly Zone
-                    helipadNFZCircle = MKCircle(center: airdromeCoordinate, radius: 500)
-                    guard airport.ident != nil else { continue }
-                    helipadNFZCircle!.title = "Airport : \(airport.ident!) NFZ"
-                    self.add(helipadNFZCircle!)
-                    
-                } else if airportType == "seaplane_base"{
-                    var airportNFA45Circle: MKCircle?
-                    airportNFA45Circle = MKCircle(center: airdromeCoordinate, radius: 2000)
-                    guard airport.ident != nil else { continue }
-                    airportNFA45Circle!.title = "Airport : \(airport.ident!) NFA45"
-                    self.add(airportNFA45Circle!)
-                    
-                    var airportNFZCircle: MKCircle?
-                    airportNFZCircle = MKCircle(center: airdromeCoordinate, radius: 500)
-                    guard airport.ident != nil else { continue }
-                    airportNFZCircle!.title = "Airport : \(airport.ident!) NFZ"
-                    self.add(airportNFZCircle!)
-                    
-                } else if airportType == "balloonport"{
-                    
-                } else if airportType == "closed"{
-                    
-                }
-            }
-        })
-    }
-    
-    
-    func removeAllAirportRestrictRegion() {
-        for overlay in overlays {
-            guard let overlayTitle: String = overlay.title! else { continue }
-            if (overlayTitle.range(of: "Airport" ) != nil) {
-                remove(overlay)
-            }
-        }
-    }
-    
-}
+
 

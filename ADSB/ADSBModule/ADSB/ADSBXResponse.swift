@@ -32,16 +32,16 @@ struct ADSBXResponse { // TODO: Rename this struct
     init?(responseDict: [String: Any]) {
         listVersionId  = responseDict[ExRspKeys.ListVersionId] as? String
         totalAircraft = responseDict[ExRspKeys.TotalAircraft] as? Int
-        totalSource     = responseDict[ExRspKeys.TotalSource] as? Int
+        totalSource = responseDict[ExRspKeys.TotalSource] as? Int
         hasSilhouettes = responseDict[ExRspKeys.HasSilhouettes] as? Bool
         hasOperator = responseDict[ExRspKeys.HasOperator] as? Bool
         hasPictures = responseDict[ExRspKeys.HasPictures] as? Bool
-        pixelWidth    = responseDict[ExRspKeys.PixelWidth] as? Int
-        pixelHeight    = responseDict[ExRspKeys.PixelHeight] as? Int
+        pixelWidth = responseDict[ExRspKeys.PixelWidth] as? Int
+        pixelHeight = responseDict[ExRspKeys.PixelHeight] as? Int
         shortTrailSec = responseDict[ExRspKeys.ShortTrailSec] as? Int
-        timeStamp     = responseDict[ExRspKeys.TimeStamp] as? Int
-        aircraftList  = ADSBAircraft.fromDictArray(responseDict[ExRspKeys.AircraftList] as! [[String: Any]])
-        feedList   = ADSBFeeds.fromDictionaryArray(responseDict[ExRspKeys.FeedList] as! [[String: Any]])
+        timeStamp = responseDict[ExRspKeys.TimeStamp] as? Int
+        aircraftList = ADSBAircraft.fromDictArray(responseDict[ExRspKeys.AircraftList] as! [[String: Any]])
+        feedList = ADSBFeeds.fromDictionaryArray(responseDict[ExRspKeys.FeedList] as! [[String: Any]])
         feedId = responseDict[ExRspKeys.FeedId] as? Int
         hasConfigChanged = responseDict[ExRspKeys.HasConfigChanged] as? Bool
     }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -45,6 +45,16 @@
                BlueprintIdentifier = "A2703CC11F0B6A4E00A2C280"
                BuildableName = "ADSB RadarUITests.xctest"
                BlueprintName = "ADSB RadarUITests"
+               ReferencedContainer = "container:ADSB Radar.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A228458D21DCA04B007FC7AC"
+               BuildableName = "ADSB RadarTests Array.xctest"
+               BlueprintName = "ADSB RadarTests Array"
                ReferencedContainer = "container:ADSB Radar.xcodeproj">
             </BuildableReference>
          </TestableReference>
